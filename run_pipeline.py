@@ -869,11 +869,13 @@ def get_session():
         return jsonify({"error": str(e), "exp_epoch": 0})
 
 def run_flask():
-    # Run Flask server quietly on port 8000
+    # Run Flask server — binds to 0.0.0.0 on Render, falls back to 8000 locally
     import logging
     log = logging.getLogger('werkzeug')
     log.setLevel(logging.ERROR)
-    app.run(host="127.0.0.1", port=8000, debug=False, use_reloader=False)
+    port = int(os.environ.get("PORT", 8000))
+    host = "0.0.0.0" if os.environ.get("RENDER") else "127.0.0.1"
+    app.run(host=host, port=port, debug=False, use_reloader=False)
 
 def robust_request(session, method, url, index=None, **kwargs):
     """Sends an API request and automatically retries forever if a local network/DNS failure occurs."""

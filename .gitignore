@@ -1,10 +1,11 @@
-# System and Cache files
+# System and cache files
 __pycache__/
 *.pyc
 .gemini/
 .vscode/
+.vercel/
 
-# Local databases
+# Local databases (Render uses /data mount path instead)
 *.db
 db/*.db
 
@@ -18,3 +19,6 @@ yash.env
 session_cookies_*.json
 db/session_cookies_*.json
 credentials.json
+
+# Private research notes
+prompt.txt
