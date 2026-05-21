@@ -8,8 +8,8 @@ services:
     envVars:
       - key: PYTHONUNBUFFERED
         value: "1"
-      - key: PORT
-        generateValue: false
+      - key: RENDER
+        value: "true"
     disk:
       name: pipeline-data
       mountPath: /data
