@@ -515,7 +515,7 @@ DASHBOARD_HTML = """
             flex-direction: column;
             gap: 8px;
             color: #94a3b8;
-            max-height: 290px;
+            max-height: 800px;
             box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
