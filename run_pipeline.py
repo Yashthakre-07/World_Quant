@@ -1324,6 +1324,24 @@ def main():
     flask_thread.start()
     log_message("INFO", "Web dashboard available at http://127.0.0.1:8000")
 
+    # Self-ping to prevent Render free-tier spin-down (every 60 seconds)
+    def self_ping_loop():
+        import requests as _req
+        time.sleep(15)  # wait for Flask to fully boot first
+        port = int(os.environ.get("PORT", 8000))
+        url = f"http://127.0.0.1:{port}/api/queue-status"
+        while True:
+            try:
+                _req.get(url, timeout=5)
+                log_message("INFO", "[KEEPALIVE] Self-ping OK — Render spin-down prevented.")
+            except Exception as e:
+                log_message("WARNING", f"[KEEPALIVE] Self-ping failed: {e}")
+            time.sleep(60)
+
+    ping_thread = threading.Thread(target=self_ping_loop, daemon=True)
+    ping_thread.start()
+    log_message("INFO", "[KEEPALIVE] Self-ping thread started (interval: 60s)")
+
     # Dynamic Queue Scheduler State
     scheduled_formulas = set()
     completed_formulas = set()
