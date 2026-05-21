@@ -1,0 +1,192 @@
+Great. Now I have a very clear picture. Let me lay out the complete idea and architecture for you.
+
+WorldQuant Brain — Full Project Idea & Architecture
+
+What We Now Know (From Research)
+WorldQuant Brain is a platform where you use their datasets and tools to build and test alpha ideas in real time, and global talent can become research consultants and earn money by contributing alphas. WorldQuant
+The WorldQuant Brain API base URL is https://api.worldquantbrain.com and it uses HTTP Basic Auth → JWT token authentication. It supports alpha simulation, testing, and submission — all via API calls. DeepWiki
+This means everything can be automated — login, generate alpha, simulate, check results, submit. No manual clicking needed.
+
+The Full System — 5 Stages
+Here is the complete flow of the project:
+┌─────────────────────────────────────────────────────────┐
+│                                                         │
+│   STAGE 1          STAGE 2         STAGE 3              │
+│   LOGIN       →   FETCH DATA   →   GENERATE ALPHA       │
+│   (API Auth)      (Datasets,        (Claude AI /         │
+│                    Operators)        LLM)                │
+│                                                         │
+│   STAGE 4          STAGE 5                              │
+│   SIMULATE    →   CHECK SCORE  →   SUBMIT if GOOD       │
+│   (Brain API)      (Sharpe,          (Brain API)         │
+│                    Fitness)                              │
+└─────────────────────────────────────────────────────────┘
+
+Stage-by-Stage Breakdown
+Stage 1 — Login & Authentication
+
+You send your WorldQuant Brain username + password to the API
+It exchanges Basic Auth for a JWT token, which you use for all further API calls DeepWiki
+This is a one-time step per session
+
+Stage 2 — Fetch Available Data
+
+Call the API to get the list of all datasets (price, volume, fundamentals, sentiment, etc.)
+Call the API to get the list of all operators (rank, zscore, ts_mean, correlation, etc.)
+Store these — they become the "vocabulary" your AI uses to write alphas
+
+Stage 3 — Generate Alpha with AI (Claude)
+
+Feed the datasets and operators to Claude (or any LLM)
+Ask it to generate alpha expressions with financial reasoning
+Example output: rank(ts_delta(close, 5)) / rank(volume)
+The alpha is converted into WorldQuant Fast Expression language — the platform's specific syntax GitHub
+
+Stage 4 — Simulate on Brain Platform
+
+Send the alpha expression to the Brain API for backtesting
+Different simulation configurations exist — you can vary region, universe, neutralization, decay, etc. DeepWiki
+Wait for results (usually takes 30–120 seconds)
+
+Stage 5 — Score Check & Submit
+
+Read the backtest results: Sharpe ratio, Fitness score, Drawdown, Turnover
+If the alpha passes your thresholds (e.g. Sharpe > 1.0, Fitness > 1.0) → Submit it
+If it fails → discard and generate a new one
+The system respects daily submission limits through scheduling DeepWiki
+
+
+The Learning Loop (What Makes It Smart)
+Generate Alpha
+      ↓
+Simulate → FAIL → Learn what failed → Generate better alpha
+      ↓
+   PASS
+      ↓
+Submit → Store in database
+      ↓
+Use past winners to guide future generation
+Over time, the AI learns which types of alphas work and generates better ones automatically.
+
+Tech Stack You Need
+ComponentToolLanguagePythonAI for alpha generationClaude API (Anthropic)Brain API callsrequests libraryStore resultsSQLite databaseScheduling (daily limits)APScheduler or cronDashboard to monitorFlask (simple web UI)
+
+What Already Exists (You Don't Start From Zero)
+A project called Brainiac already exists — it converts alphas into WorldQuant Fast Expression language, uses RAG to find the right dataset for each alpha, and integrates with WorldQuant's BRAIN platform for automated backtesting. Results are stored in a SQLite database. GitHub
+There is also PyWorldQuant — a Python library that uses multiprocessing and the Brain API to make research faster and more efficient, with easy simulation and performance data collection. PyPI
+So you can build on top of these instead of starting from scratch.
+
+Your Action Plan (Step by Step)
+
+Create a WorldQuant Brain account at worldquant.com/brain
+Get your API credentials (username + password)
+Study the operators and datasets available on the platform
+Build Stage 1–2 — login and data fetching (1 day)
+Build Stage 3 — Claude integration for alpha generation (1–2 days)
+Build Stage 4–5 — simulation and submission loop (2–3 days)
+Add the learning loop — store results, improve over time (2–3 days)
+Run it daily and collect earnings
+
+
+Whenever you say the word, I can start building the actual code for any of these stages. Where do you want to start?You said: Okay, fine, I understand you everything now, but do more research and see what we can do very good things here.Okay, fine, I understand you everything now, but do more research and see what we can do very good things here. Like, see, there should be a procedure, like, where... how we build alphas should make... like, the procedure to procedure where we can say how to build alphas. Like, a procedure you search and say me the procedure where we can apply that procedure to make a good alphas. And that alphas will create using NLM only, but there should be a procedure. And we'll create alpha, and then we'll keep into a... yeah. Falcon brain. And then Falcon brain will give us answer, and then we'll say, yeah, how much good alpha it is. So if it is not a good good alpha, then, again, keep a new alpha there. But the alphas we are creating should be in a one row. It should not create a random alpha. Like, what I'm saying? So do a good research and see me what we can do more here and make this objection the bestonly text no visulas.Show more5:58 PM2 / 2Claude responded: Let me do deep research on this.Let me do deep research on this.Searched the webSearched the webWorldQuant Brain alpha building procedure methodology best practices9 resultsWorldQuant International Quant Championship | James T. Glazarjglazar.github.ioWorldQuant BRAIN: Crowdsourcing Quantitative Researchwww.worldquant.comnotes/quant_interview/worldquant_seminar.md at main · jglazar/notesgithub.comAlpha Research Workflow in WorldQuant BRAIN by Fred Mwaniki on Preziprezi.comIQC Guidelines | WorldQuant International Quant Championshipwww.worldquant.comWorldQuant Alpha Creation Guide | PDF | Hedge Fund | Stockswww.scribd.comWorldQuant Alpha Development Techniques | PDFwww.scribd.comAlphaSAGE: Structure-Aware Alpha Mining via GFlowNets for Robust Explorationarxiv.orgWorldQuant Alpha Strategy Examples | PDF | Volatility (Finance) | Applied Mathematicswww.scribd.comWorldQuant International Quant Championship | James T. Glazarjglazar.github.ioWorldQuant Brain alpha research workflow step by step hypothesis dataset operator selection10 resultsnotes/quant_interview/worldquant_seminar.md at main · jglazar/notesgithub.comWorld Quant Brain Alpha Documentation | PDF | Stocks | Technical Analysiswww.scribd.comAlpha Research Workflow in WorldQuant BRAIN by Fred Mwaniki on Preziprezi.comWorldQuant BRAIN: Crowdsourcing Quantitative Researchwww.worldquant.comWorldQuant BRAIN Operators Guide | PDF | Normal Distribution | Standard Scorewww.scribd.comWorldQuant 101 Alphasdocs.dolphindb.comWorldQuant International Quant Championship | James T. Glazarjglazar.github.ioWorldQuant Alpha Simulator/Imaginer-Free Alpha Simulation Toolwww.yeschat.aiSimulate Alphas Data Competitions (2) Team: BRAIN Alpha Documentation Guide - Studocuwww.studocu.vnGitHub - jdhruv1503/Brainiac: Agentic AI-driven Quantitative Alpha Builder. Streamline alpha generation with autonomous research navigation and backtesting. · GitHubgithub.comWorldQuant Brain alpha quality thresholds sharpe fitness turnover pass fail criteria6 resultsWorldQuant International Quant Championship | James T. Glazarjglazar.github.ioWorld Quant Alphathon.pdf - World Quant Alphathon What is Alpha ? Alpha is just a symbolic name. In WebSim an Alpha refers to a mathematical model | Course Herowww.coursehero.comnotes/quant_interview/alpha_ideas.md at main · jglazar/notesgithub.comnotes/quant_interview/submitted_alphas.md at main · jglazar/notesgithub.comIQC Guidelines | WorldQuant International Quant Championshipwww.worldquant.comWorldQuant Alpha Strategies Overview | PDF | Sharpe Ratio | Investingwww.scribd.comDoneNow I have everything I need. Here is the deep, complete answer.
+
+The Complete Procedure to Build High-Quality Alphas on WorldQuant Brain Using an AI Agent
+
+What You Are Really Building
+You are not building a random alpha generator. You are building a structured, intelligent alpha research pipeline — one that thinks like a professional quant researcher, follows a clear procedure, tests systematically, learns from results, and improves over time. Every alpha it generates must come from a logical chain, not random combinations.
+
+First — Understand What Gets You Paid
+Before building anything, you must understand the scoring system deeply, because every decision in your procedure must optimize for this.
+Alphas are individually scored by a formula that weights Sharpe ratio, turnover, and a custom metric called Fitness. Fitness is calculated as: sqrt(abs(Returns) / max(turnover, 0.125)) multiplied by Sharpe. This rewards alphas with a high Sharpe ratio and high returns with low turnover — turnover being a penalty for wildly varying day-to-day weights. Jglazar
+To qualify for submission, an alpha must have Fitness greater than 1, and Turnover between 1% and 70%. Course Hero
+The real benchmarks from actual submitted alphas show: Sharpe ratio ranges from 1.2 minimum to 2.5 at the 75th percentile. Self-correlation uses a 2-year window, and alphas with high self-correlation can still be submitted if Sharpe improves by at least 10%. GitHub
+So your target for every alpha is: Sharpe above 1.5, Fitness above 1.0, Turnover between 5% and 60%.
+
+The Core Procedure — 7 Steps in Order
+This is the procedure your AI agent must follow. Every alpha must go through every step in sequence. No skipping. No randomness.
+
+Step 1 — Choose a Financial Theme (The Hypothesis Layer)
+This is the most important step. The AI must NOT write an alpha expression first. It must first decide what financial idea it is trying to capture.
+There are 6 proven themes that work on WorldQuant Brain:
+Theme 1 is Price Reversion. Stocks that fell below their average tend to bounce back. This uses close, vwap, high, low data.
+Theme 2 is Momentum. Stocks that performed well recently keep performing well. This uses returns, close data over 20–60 day windows.
+Theme 3 is Value / Fundamentals. Cheap stocks (low PE, low EV/EBITDA) outperform expensive ones. This uses fundamental data like enterprise_value, ebitda, pe_ratio. These alphas have low turnover and high fitness.
+Theme 4 is Volume Anomaly. Unusual volume spikes or drops predict price movements. This uses volume, vwap data.
+Theme 5 is Sentiment and News. Stocks with rising buzz or news flow move in predictable directions. This uses sentiment datasets, news vector data.
+Theme 6 is Volatility. High or low volatility regimes predict different stock behaviors. This uses returns standard deviation, implied volatility data.
+From a top 1.3% competitor who tested 1,103 alphas: price reversion strategies worked especially well. Fundamental data alphas had lower turnover due to the stable nature of quarterly reports. News and social media buzz alphas performed especially well during high-volatility events like COVID in 2020. Jglazar
+The AI must pick ONE theme per alpha. This keeps alphas coherent and non-random.
+
+Step 2 — Select the Dataset (The Data Layer)
+Once you have a theme, you pick the specific dataset that best captures it.
+The advice from WorldQuant researchers is to use high-frequency data like price, volume, news, sentiment, and options data for faster alphas. For fundamental data, use ratios from balance sheet, income statement, and cash flow statements. The Data Explorer has a tag specifically for alpha generation — you can use that to find the most relevant fields. GitHub
+The dataset must directly relate to the hypothesis. If the theme is "value investing," the dataset must be fundamental data like PE ratio or EV/EBITDA. If the theme is "price reversion," the dataset must be close, vwap, or high/low.
+This is where the AI must think, not randomly pick. The prompt you give the LLM must say: "Given this hypothesis, which dataset best captures this idea and why?"
+
+Step 3 — Test the Raw Dataset First (The Baseline Layer)
+Before applying any operators, simulate the raw data field directly to assess its inherent predictive power. This baseline test evaluates whether the field can independently generate signal. Prezi
+This is a critical step most people skip. If the raw data field has zero predictive power on its own, adding operators will not save it. You discover this before wasting time building complex expressions.
+Your AI agent sends the raw field alone as an alpha, waits for results, and only continues if the Sharpe is above 0.5.
+
+Step 4 — Apply Operators to Build the Expression (The Construction Layer)
+Now the AI constructs the alpha expression by applying operators to the dataset. The key rule here is: operators must serve the hypothesis, not be applied randomly.
+The translation from idea to alpha expression follows this pattern: "change" maps to ts_delta or ts_zscore, "dependence" maps to ts_corr or ts_regression, "prediction" maps to ts_regression. The trade_when operator can activate between entry and exit conditions, which helps manage turnover. GitHub
+There are operator families and each serves a purpose:
+Time-series operators (ts_mean, ts_std, ts_delta, ts_lag) capture how data changes over time. Use for momentum and reversion.
+Cross-sectional operators (rank, zscore) compare stocks against each other. Use to create relative signals across the universe.
+Statistical operators (correlation, regression) capture relationships between two data fields. Use for pairs-based or factor-based ideas.
+Conditional operators (trade_when, if_else) control when the alpha is active. Use to reduce turnover.
+The AI must pick operators based on the theme. Reversion ideas need ts_delta or ts_mean. Value ideas need rank or zscore. Volatility ideas need ts_std. The AI must not mix operators that contradict the hypothesis.
+
+Step 5 — Configure the Simulation Settings (The Parameter Layer)
+The same alpha expression can pass or fail depending on simulation settings. This is a huge lever most beginners ignore.
+Neutralization is one of the most important parameters. Market neutralization creates equal weights of long and short positions across the market, so you bet on relative movements of stocks, not overall market direction. Sector, industry, and subindustry neutralization are also available. Jglazar
+The settings you must choose carefully:
+Universe: TOP3000 for broad signals. TOP1000 or TOP500 for more concentrated, higher-quality signals. TOP200 for fundamental alphas with low turnover.
+Neutralization: Market for price-based alphas. Industry or Subindustry for fundamental and sentiment alphas. This removes sector bias.
+Decay: Higher decay (10–20) smooths the signal and reduces turnover. Lower decay (0–3) gives faster, more reactive alphas with higher turnover.
+Delay: Delay 1 is standard (use yesterday's data). Delay 0 is for intraday data and requires high-frequency fields.
+Truncation: 0.05 is standard. Lower values (0.01) prevent any one stock from dominating the portfolio.
+Your AI agent must generate a settings configuration alongside every alpha expression. Not just the formula — the full configuration.
+
+Step 6 — Evaluate the Results Against Thresholds (The Judgment Layer)
+After simulation, your agent reads the results and makes a structured judgment. This is where the feedback loop begins.
+Hard reject criteria: Fitness below 1.0. Turnover below 1% or above 70%. Sharpe below 1.2. These get discarded immediately.
+Soft pass criteria: Fitness between 1.0 and 1.3. Sharpe between 1.2 and 1.5. These get sent back for improvement — the agent tries different settings or slightly modified operators.
+Strong pass criteria: Fitness above 1.3. Sharpe above 1.5. Turnover between 5% and 50%. These go to the submission queue.
+Alphas in the top quartile from real submissions show Sharpe at 2.5 or above. Median submitted alpha has Sharpe of 2.2 and Turnover of 48%. GitHub
+
+Step 7 — Learn and Iterate (The Intelligence Layer)
+This is what separates a smart agent from a dumb random generator. After every simulation, the agent stores the result in a database with these fields: theme, dataset used, operators used, settings, Sharpe, Fitness, Turnover, pass or fail.
+Over time, the agent learns patterns like: "Fundamental alphas with ts_zscore and industry neutralization consistently score above 1.3 Fitness." Or: "Price reversion alphas in TOP3000 with decay above 10 tend to have Sharpe above 1.5."
+The agent uses this history to generate the next alpha. It does not start from zero every time. Each new alpha is informed by what worked before and what failed. This is the "one row" you described — a coherent, directional evolution of ideas rather than random jumping.
+The professional approach to this uses a reinforcement learning framework for continuous learning and adaptation, combined with RAG (Retrieval-Augmented Generation) to find the right dataset for each new alpha idea based on a knowledge base of what has worked. GitHub
+
+The Six Alpha Families You Should Stick To
+Based on real top-performer data, your agent should cycle through these six families in order. Each family is proven to work:
+Family 1 — Simple Price Reversion. Expression pattern: (high + low)/2 - close. Proven results: Sharpe 1.8, Fitness 1.03.
+Family 2 — Volatility-Gated Reversion. Expression pattern: trade_when(ts_rank(ts_std(returns, 22), 252) > 0.55, -ts_regression(returns, ts_lag(returns,1), 252), -1). This only trades when volatility is high, reducing noise.
+Family 3 — Fundamental Value Shorting. Expression pattern: -ts_zscore(enterprise_value/ebitda, 63). Proven results: Sharpe 2.0, Fitness 1.26, Turnover only 25%.
+Family 4 — News Momentum with Reversion Fallback. Expression pattern: condition on news score — if newsworthy, go long; if not, use price reversion. Proven results: Sharpe 1.84, Turnover only 9%.
+Family 5 — Social Buzz Reversion. Expression pattern: ts_av_diff(buzz_field, 60) — short stocks with rising buzz. Proven results: Sharpe 1.94, Fitness 1.35.
+Family 6 — Volume-Weighted Price Anomaly. Expression pattern: rank of vwap - close normalized by volume. Tests how much price deviated from where most volume traded.
+
+How the Whole Agent Loop Works (The Full Picture)
+Step 1: Agent picks a theme from the 6 families, starting with the one it has least explored or most historically succeeded in.
+Step 2: Agent queries the WorldQuant Brain API to get the available datasets tagged to that theme.
+Step 3: Agent generates an alpha expression using Claude/LLM with a structured prompt that includes: the theme, the dataset, operator rules, and history of past results for that theme.
+Step 4: Agent configures simulation settings based on theme rules (fundamental = industry neutralization + low decay, price = market neutralization + medium decay).
+Step 5: Agent submits to WorldQuant Brain API, waits for simulation result.
+Step 6: Agent reads Sharpe, Fitness, Turnover. Applies thresholds. Decision: hard reject, soft improve, or strong pass.
+Step 7: Agent stores result in database. If strong pass, adds to submission queue. Respects daily submission limits.
+Step 8: Agent uses the stored history to inform the next alpha generation. The LLM prompt includes: "Here are the last 10 alphas in this theme, what worked, what failed. Generate the next best alpha in this family."
+Step 9: Repeat. Every day, the agent runs a new batch. Over weeks, the database grows, the agent gets smarter, and the quality of alphas increases systematically.
+
+The Key Insights That Make This Best-in-Class
+One — Never generate random alphas. Every alpha must come from a named financial hypothesis. The LLM must explain the reasoning before writing the expression.
+Two — Use settings as a tuning tool. The same expression can fail at TOP3000 market neutralization and pass at TOP1000 subindustry neutralization. Always test multiple settings on borderline alphas.
+Three — Fundamental data alphas have a structural advantage. Fundamental data only changes quarterly, so these alphas naturally have low turnover, which improves Fitness significantly. Your agent should have a dedicated track for fundamental alphas running in parallel. Jglazar
+Four — Diversity matters more than individual score. Scores from submitted alphas are aggregated such that baskets of alphas with strong and uncorrelated returns are highly rewarded. So submitting 10 diverse alphas that score 1.2 Fitness beats submitting 3 correlated alphas that score 1.5 Fitness. Jglazar
+Five — Follow the 101 Formulaic Alphas paper. A top competitor tested every single one of the 101 Formulaic Alphas from the academic paper and found submittable candidates among them. Your agent should have these 101 as a known library and try variations of them using different datasets. Jglazar
+
+This procedure, followed strictly, gives you a systematic, intelligent, non-random alpha factory that improves over time and maximizes your earnings on WorldQuant Brain. Whenever you are ready, I can start building the actual code for this agent

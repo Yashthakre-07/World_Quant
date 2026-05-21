@@ -1,0 +1,25 @@
+{
+  "alpha_id": "9qJz9552",
+  "formula": "30 - (30 * (rank(ts_sum(returns, 10) / ts_sum(ts_sum(returns, 5), 15)) * rank(returns * cap)))",
+  "family": "Fundamental Value",
+  "hypothesis": "Mutated variation of seed formula for Fundamental Value with lookback tuning.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.03,
+  "fitness": 0.34,
+  "turnover": 42.38,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.1,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-05-21 15:28:48"
+}

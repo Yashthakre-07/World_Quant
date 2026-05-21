@@ -1,0 +1,25 @@
+{
+  "alpha_id": "qMgKgKqO",
+  "formula": "group_neutralize(rank(common_stock_buyback_payments / cap) * rank(-returns), subindustry)",
+  "family": "Alternative Fundamental Ratios",
+  "hypothesis": "Long companies with high buybacks relative to cap, specifically targeting those undergoing short-term price pullbacks.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.38,
+  "fitness": 0.6,
+  "turnover": 26.450000000000003,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.1,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 6,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-05-21 15:28:41"
+}

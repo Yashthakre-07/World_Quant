@@ -1,0 +1,25 @@
+{
+  "alpha_id": "JjbVm9Pj",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)",
+  "family": "Price Reversion",
+  "hypothesis": "Exploit intraday price reversion during high-volume periods with an extended 3-day decay smoothing.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.97,
+  "fitness": 0.98,
+  "turnover": 43.62,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.1,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 6,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-05-21 15:00:03"
+}

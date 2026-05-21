@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaForge Console — WQ Agent</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="glass-bg"></div>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="pulse-indicator" id="state-pulse"></span>
+                <h1>AlphaForge <span class="version">v1.0.0</span></h1>
+            </div>
+            <div class="status-badge" id="system-status">AGENT INACTIVE</div>
+        </header>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <span class="stat-label">Total Simulated</span>
+                    <span class="stat-value" id="stat-total-runs">0</span>
+                </div>
+            </div>
+            <div class="stat-card highlight">
+                <div class="stat-icon">🚀</div>
+                <div class="stat-content">
+                    <span class="stat-label">Alphas Submitted</span>
+                    <span class="stat-value" id="stat-submissions">0</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <div class="stat-content">
+                    <span class="stat-label">Best Sharpe Ratio</span>
+                    <span class="stat-value" id="stat-best-sharpe">0.00</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-content">
+                    <span class="stat-label">Best Fitness Score</span>
+                    <span class="stat-value" id="stat-best-fitness">0.00</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Body -->
+        <main class="main-content">
+            <!-- Left Side: Terminal and Control -->
+            <div class="panel-left" id="terminal-panel">
+                <div class="panel-header">
+                    <div class="panel-title-area">
+                        <h2>Live Telemetry & Logs</h2>
+                        <p class="panel-subtitle">Real-time simulation feedback and quantitative agent telemetry</p>
+                    </div>
+                </div>
+                
+                <!-- Premium High-Tech Terminal Window -->
+                <div class="console-wrapper" id="terminal-wrapper">
+                    <!-- Terminal Window Top Chrome -->
+                    <div class="terminal-chrome">
+                        <div class="chrome-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="chrome-title">
+                            <span class="shell-prompt">guest@alphaforge</span>:<span class="shell-dir">~/telemetry</span>
+                        </div>
+                        <div class="chrome-actions">
+                            <button class="chrome-btn" id="copy-logs-btn" title="Copy Logs">
+                                <span class="btn-icon">📋</span> Copy
+                            </button>
+                            <button class="chrome-btn" id="download-logs-btn" title="Download Logs">
+                                <span class="btn-icon">📥</span> Download
+                            </button>
+                            <button class="chrome-btn" id="expand-console-btn" title="Toggle Fullscreen">
+                                <span class="btn-icon" id="expand-icon">⛶</span> <span id="expand-text">Expand</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Terminal Controls & Filters Bar -->
+                    <div class="terminal-filter-bar">
+                        <div class="log-search-box">
+                            <span class="search-icon">🔍</span>
+                            <input type="text" id="log-search-input" placeholder="Search logs by keyword..." />
+                            <button id="search-clear-btn" style="display: none;">×</button>
+                        </div>
+                        
+                        <div class="log-filters">
+                            <button class="filter-pill active" data-filter="all">All</button>
+                            <button class="filter-pill" data-filter="system">System</button>
+                            <button class="filter-pill" data-filter="status">Status</button>
+                            <button class="filter-pill" data-filter="auth">Auth</button>
+                            <button class="filter-pill" data-filter="generator">Gen</button>
+                            <button class="filter-pill" data-filter="simulation">Sim</button>
+                            <button class="filter-pill" data-filter="evaluator">Eval</button>
+                            <button class="filter-pill" data-filter="submission">Submit</button>
+                            <button class="filter-pill" data-filter="error">Errors</button>
+                        </div>
+                    </div>
+
+                    <!-- The Console Logs -->
+                    <div class="console-log" id="log-console">
+                        <!-- We will inject logs dynamically with app.js -->
+                    </div>
+
+                    <!-- Terminal Footer Status Bar -->
+                    <div class="terminal-footer">
+                        <div class="footer-status">
+                            <span class="footer-status-dot active" id="stream-status-dot"></span>
+                            <span id="stream-status-text">STREAMING ACTIVE</span>
+                        </div>
+                        
+                        <div class="footer-stats">
+                            <span class="stat-indicator">Total: <strong id="log-count-total">0</strong></span>
+                            <span class="stat-divider">|</span>
+                            <span class="stat-indicator">Filtered: <strong id="log-count-filtered">0</strong></span>
+                            <span class="stat-divider">|</span>
+                            <span class="stat-indicator text-danger-red">Errors: <strong id="log-count-errors">0</strong></span>
+                        </div>
+                        
+                        <div class="footer-controls">
+                            <label class="toggle-container">
+                                <input type="checkbox" id="autoscroll-chk" checked>
+                                <span class="toggle-label">Auto-scroll</span>
+                            </label>
+                            <button class="footer-btn" id="clear-btn">Clear Console</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Control Panel -->
+                <div class="control-panel">
+                    <button class="btn btn-primary" id="start-btn">Start Orchestration Run</button>
+                    <button class="btn btn-danger" id="stop-btn" disabled>Stop Agent</button>
+                </div>
+            </div>
+
+            <!-- Right Side: Leaderboard & Performance breakdown -->
+            <div class="panel-right">
+                <!-- Family Stats Table -->
+                <div class="table-card">
+                    <div class="card-header">
+                        <h3>Financial Family Performance</h3>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table" id="family-table">
+                            <thead>
+                                <tr>
+                                    <th>Family Theme</th>
+                                    <th>Simulated</th>
+                                    <th>Submitted</th>
+                                    <th>Success Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="4" class="empty-state">No simulation statistics recorded.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Recent Submissions Table -->
+                <div class="table-card">
+                    <div class="card-header">
+                        <h3>Submitted Alphas Registry</h3>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table" id="submitted-table">
+                            <thead>
+                                <tr>
+                                    <th>Alpha ID</th>
+                                    <th>Sharpe</th>
+                                    <th>Fitness</th>
+                                    <th>Turnover</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="5" class="empty-state">No successful submissions logged yet.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="/static/app.js"></script>
+</body>
+</html>

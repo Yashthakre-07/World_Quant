@@ -1,0 +1,20 @@
+# System and Cache files
+__pycache__/
+*.pyc
+.gemini/
+.vscode/
+
+# Local databases
+*.db
+db/*.db
+
+# Credentials & environment variables
+*.env
+.env
+sai.env
+yash.env
+
+# Authentication cookies and session tokens
+session_cookies_*.json
+db/session_cookies_*.json
+credentials.json

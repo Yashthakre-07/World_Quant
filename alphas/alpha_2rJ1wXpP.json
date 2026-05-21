@@ -1,0 +1,25 @@
+{
+  "alpha_id": "2rJ1wXpP",
+  "formula": "group_neutralize(-rank(ts_decay_linear((close - open) / (high - low + 0.001), 3)), subindustry)",
+  "family": "Price Reversion",
+  "hypothesis": "Normalized close-open range reversion, optimized with decay=12 to lower turnover.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.45,
+  "fitness": 0.79,
+  "turnover": 32.42,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.1,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 12,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-05-21 16:30:10"
+}

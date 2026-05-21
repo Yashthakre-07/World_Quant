@@ -1,0 +1,25 @@
+{
+  "alpha_id": "KPkKNkQl",
+  "formula": "group_neutralize(-rank(ts_decay_linear((close - open) / (high - low + 0.001), 3)), subindustry)",
+  "family": "Price Reversion",
+  "hypothesis": "Normalized close-open range reversion, optimized with decay=10 to cross the 1.0 Fitness threshold.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.53,
+  "fitness": 0.82,
+  "turnover": 35.47,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.1,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-05-21 16:27:52"
+}

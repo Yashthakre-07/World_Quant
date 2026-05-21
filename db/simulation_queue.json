@@ -1,0 +1,92 @@
+[
+  {
+    "family": "Price Reversion",
+    "hypothesis": "Intraday close-to-open gaps represent temporary imbalances that revert; 3-day decay smoothing limits turnover.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)",
+    "settings": { "decay": 10, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  },
+  {
+    "family": "VWAP-Price Divergence",
+    "hypothesis": "Deviations between the closing price and vwap volume centers represent unstable intraday drifts that revert.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear((close - vwap) / (ts_std_dev(close, 20) + 0.001), 3)), 0), subindustry)",
+    "settings": { "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  },
+  {
+    "family": "Price Reversion",
+    "hypothesis": "Short-term returns mean-revert on highly liquid sessions when institutional trade volumes are elevated.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.5, -rank(ts_decay_linear(returns, 3)), 0), subindustry)",
+    "settings": { "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  },
+  {
+    "family": "Overnight Gap Reversion",
+    "hypothesis": "Opening price gaps relative to the previous close represent liquidity mismatches that mean-revert intraday.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(open - ts_delay(close, 1), 3)), 0), subindustry)",
+    "settings": { "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  },
+  {
+    "family": "Spread Reversion",
+    "hypothesis": "Peaks in the intraday high-low spread indicate temporary volatility spikes that mean-revert on typical trading days.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(high - low, 3)), 0), subindustry)",
+    "settings": { "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  },
+  {
+    "family": "VWAP Trend Reversion",
+    "hypothesis": "Intraday drift between the volume center (vwap) and open price represents overextended liquidity that reverts.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(vwap - open, 3)), 0), subindustry)",
+    "settings": { "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  },
+  {
+    "family": "Volume-Weighted Return Reversion",
+    "hypothesis": "Returns weighted by volume deviations capture amplified trade imbalances that experience sharp reversion.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.55, -rank(ts_decay_linear(returns * rank(volume / adv20), 3)), 0), subindustry)",
+    "settings": { "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  },
+  {
+    "family": "Overnight Trend Reversion",
+    "hypothesis": "Extended 2-day gapped intraday movements represent overbought/oversold momentum exhaustion that mean-reverts.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.8, -rank(ts_decay_linear(open - ts_delay(close, 2), 3)), 0), subindustry)",
+    "settings": { "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  },
+  {
+    "family": "Normalized Deviation Reversion",
+    "hypothesis": "Normalized closing price deviation from the 10-day moving average mean-reverts on active trading sessions.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((close - ts_mean(close, 10)) / (ts_std_dev(close, 10) + 0.001), 3)), 0), subindustry)",
+    "settings": { "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  },
+  {
+    "family": "Intraday Volatility Reversion",
+    "hypothesis": "Intraday high price deviation relative to the volume center represents temporary buying exhaustion that mean-reverts.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(high - vwap, 3)), 0), subindustry)",
+    "settings": { "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  },
+  {
+    "family": "Volatility Ratio Reversion",
+    "hypothesis": "Intraday standardized high-low ranges represent excessive volatility peaks that mean-revert on highly liquid sessions.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((high - low) / (ts_std_dev(close, 20) + 0.001), 3)), 0), subindustry)",
+    "settings": { "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  },
+  {
+    "family": "Price-VWAP Divergence Ratio",
+    "hypothesis": "The ratio of closing price to volume average price indicates temporary deviations that revert in active market sessions.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(close / (vwap + 0.001) - 1, 3)), 0), subindustry)",
+    "settings": { "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  },
+  {
+    "family": "Standardized Intraday Reversion",
+    "hypothesis": "Extreme differences between close and open prices standardized by dynamic standard deviations revert on liquid days.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (ts_std_dev(returns, 10) + 0.0001), 3)), 0), subindustry)",
+    "settings": { "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  },
+  {
+    "family": "Multi-Day Price Reversion",
+    "hypothesis": "Medium-term 2-day delayed price changes represent overextended trends that mean-revert on liquid trading sessions.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(close - ts_delay(close, 2), 3)), 0), subindustry)",
+    "settings": { "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  },
+  {
+    "family": "Intraday Bottom Reversion",
+    "hypothesis": "Low price deviations relative to the volume center average represent extreme selling pressure peaks that mean-revert.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, rank(ts_decay_linear(vwap - low, 3)), 0), subindustry)",
+    "settings": { "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000" }
+  }
+]

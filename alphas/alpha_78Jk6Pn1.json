@@ -1,0 +1,25 @@
+{
+  "alpha_id": "78Jk6Pn1",
+  "formula": "group_neutralize(rank(common_stock_buyback_payments / cap) * rank(-returns), subindustry)",
+  "family": "Alternative Fundamental Ratios",
+  "hypothesis": "Stock buyback yield under short-term pullbacks, optimized with decay=15 to reduce quarterly transaction costs.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.03,
+  "fitness": 0.54,
+  "turnover": 12.18,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.1,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 15,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-05-21 16:38:06"
+}

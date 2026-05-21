@@ -1,0 +1,25 @@
+{
+  "alpha_id": "9qJzrEv9",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)",
+  "family": "Price Reversion",
+  "hypothesis": "High-Sharpe price reversion gated by volume, optimized with decay=15 for conservative trading execution.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.7,
+  "fitness": 0.99,
+  "turnover": 28.28,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.1,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 15,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-05-21 16:07:32"
+}
