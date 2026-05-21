@@ -843,7 +843,93 @@ def dashboard():
 
 @app.route("/api/status")
 def get_status():
-    return jsonify(pipeline_state)
+    """Dynamically reconstruct pipeline_state from SQLite database and queue file
+    to support multi-process WSGI/Gunicorn environments perfectly.
+    """
+    import sqlite3
+    
+    # 1. Initialize DB if not done already (ensures tables exist)
+    try:
+        init_db()
+    except Exception:
+        pass
+
+    # 2. Read simulation queue from disk
+    queue_path = Path("db") / "simulation_queue.json"
+    tasks = []
+    if queue_path.exists():
+        try:
+            with open(queue_path, "r") as f:
+                tasks = json.load(f)
+        except Exception:
+            tasks = []
+
+    # 3. Read latest runs from SQLite database
+    runs = {}
+    db_path = Path("db") / "alpha_vault.db"
+    if db_path.exists():
+        try:
+            conn = sqlite3.connect(str(db_path))
+            cursor = conn.cursor()
+            cursor.execute("SELECT formula, sharpe, fitness, turnover, status, error_message FROM alpha_runs")
+            for row in cursor.fetchall():
+                # Map formula to its simulation results
+                runs[row[0]] = {
+                    "sharpe": row[1],
+                    "fitness": row[2],
+                    "turnover": row[3],
+                    "status": row[4],
+                    "error_message": row[5]
+                }
+            conn.close()
+        except Exception:
+            pass
+
+    # 4. Construct live state dynamically
+    alphas_state = []
+    for idx, task in enumerate(tasks):
+        formula = task["formula"]
+        run_info = runs.get(formula, {})
+        status = run_info.get("status", "PENDING")
+        
+        alphas_state.append({
+            "formula": formula,
+            "family": task.get("family", "Unknown"),
+            "hypothesis": task.get("hypothesis", ""),
+            "status": status,
+            "progress": 100 if status in ("SUBMITTED", "HARD_REJECT", "SOFT_FAIL", "ERROR") else 0,
+            "sharpe": run_info.get("sharpe"),
+            "fitness": run_info.get("fitness"),
+            "turnover": run_info.get("turnover"),
+            "error_message": run_info.get("error_message")
+        })
+
+    # Read the dynamic status
+    is_completed = len(alphas_state) > 0 and all(a["status"] in ("SUBMITTED", "HARD_REJECT", "SOFT_FAIL", "ERROR") for a in alphas_state)
+    status_str = "COMPLETED" if is_completed else "RUNNING"
+
+    # Merge any in-memory logs (process-local)
+    logs = pipeline_state.get("logs", [])
+    
+    # Also fetch database entries to show run activity in logs if empty
+    if not logs and db_path.exists():
+        try:
+            conn = sqlite3.connect(str(db_path))
+            cursor = conn.cursor()
+            cursor.execute("SELECT timestamp, formula, status, sharpe FROM alpha_runs ORDER BY id DESC LIMIT 30")
+            for row in cursor.fetchall():
+                sharpe_val = f"Sharpe: {row[3]:.2f}" if row[3] is not None else "No Sharpe"
+                logs.append(f"[{row[0]}] [DATABASE] {row[2]} | {row[1][:60]}... | {sharpe_val}")
+            conn.close()
+            logs.reverse() # chronologically oldest to newest for UI log panel
+        except Exception:
+            pass
+
+    return jsonify({
+        "status": status_str,
+        "alphas": alphas_state,
+        "logs": logs
+    })
 
 @app.route("/api/session")
 def get_session():
