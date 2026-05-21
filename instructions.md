@@ -247,3 +247,48 @@ The primary simulation queue contains 15 elite, 100% compliant pricing/volume al
 ## 🔬 8. Quantitative Synthesis & Research Manual
 
 For deep mathematical deconstructions of successful historical formulas, parameter sweet-spot boundaries, and custom signal synthesis templates, consult the [Quantitative Research Manual (research.md)](file:///c:/Users/Admin/Documents/VIBE_YT/wq/research.md).
+
+---
+
+## 🌐 9. Cloud Infrastructure & Deployment Specs (Render)
+
+The quantitative research pipeline is optimized to run autonomously 24/7 in the cloud using **Render** web hosting.
+
+### A. Process-Safe Dynamic State Synchronizer
+To support multi-process WSGI / Gunicorn environments where memory space is isolated:
+* The Flask dashboard `/api/status` dynamically queries the SQLite database (`db/alpha_vault.db`) and disk-based simulation queue (`db/simulation_queue.json`) on every call.
+* This guarantees 100% accurate, synced status readouts regardless of which concurrent worker process serves the HTTP request.
+
+### B. Persistent Disk Storage
+* Render uses a persistent volume (`/data` or `db/`) to preserve SQLite databases and user session cookies (`db/session_cookies_*.json`) between container restarts, ensuring biometric persona logins remain valid.
+
+---
+
+## 📡 10. Secure API Bridge Specification
+
+The cloud instance exposes a secure API route that lets you push newly generated alphas directly into the active cloud simulation queue from this chat:
+
+* **HTTP Route**: `POST /api/queue-alpha`
+* **Authorization**: `Bearer yashthakreop` (set via `API_SECRET_TOKEN` environment variable on Render)
+* **Payload Structure**:
+  ```json
+  [
+    {
+      "family": "Price Range Position Reversal",
+      "hypothesis": "Williams-style range percentile reversal...",
+      "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear((close - low) / (high - low + 0.001), 5)), 0), subindustry)",
+      "settings": { "decay": 5, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08 }
+    }
+  ]
+  ```
+* **LIGHTWEIGHT STATUS CHECK**: `GET /api/queue-status` (public endpoint to review queue volume).
+
+---
+
+## ⚡ 11. Self-Ping Keep-Alive Heartbeat
+
+* To prevent Render free tier servers from spinning down after 15 minutes of inactivity:
+* A background thread `self_ping_loop()` starts alongside Flask.
+* Every **60 seconds**, the script sends an HTTP GET request to its own `/api/queue-status` endpoint.
+* This creates a continuous stream of incoming traffic, ensuring the cloud container runs at peak performance indefinitely!
+
