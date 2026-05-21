@@ -7,7 +7,7 @@ import base64
 import threading
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
-from flask import Flask, jsonify, render_template_string
+from flask import Flask, jsonify, render_template_string, request
 
 # Add parent directory to path to allow importing from src
 sys.path.append(str(Path(__file__).resolve().parent))
@@ -19,6 +19,10 @@ from src.config import WQ_SIM_URL, WQ_ALPHAS_URL, DEFAULT_SIM_SETTINGS, ALPHAS_O
 
 # Initialize Flask app
 app = Flask(__name__)
+
+# Secure API token for the /api/queue-alpha push endpoint
+# Set API_SECRET_TOKEN in Render environment variables
+API_SECRET_TOKEN = os.environ.get("API_SECRET_TOKEN", "wq-default-token-change-me")
 
 # Lock to space API submissions sequentially and avoid rate limits
 submission_lock = threading.Lock()
@@ -867,6 +871,98 @@ def get_session():
         })
     except Exception as e:
         return jsonify({"error": str(e), "exp_epoch": 0})
+
+@app.route("/api/queue-alpha", methods=["POST"])
+def queue_alpha():
+    """Secure endpoint: inject new alphas into the live queue from this chat.
+    Requires Bearer token matching API_SECRET_TOKEN env var.
+    Body: [{"formula": "...", "family": "...", "hypothesis": "...", "settings": {...}}]
+    """
+    # --- Auth check ---
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    if token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized", "hint": "Provide valid Bearer token"}), 401
+
+    # --- Parse body ---
+    try:
+        data = request.get_json(force=True)
+        if not isinstance(data, list):
+            data = [data]  # Accept single object or array
+    except Exception as e:
+        return jsonify({"error": f"Invalid JSON: {e}"}), 400
+
+    # --- Validate and append each alpha ---
+    added = []
+    skipped = []
+    queue_path = Path("db") / "simulation_queue.json"
+
+    # Load current queue from disk
+    existing_queue = []
+    if queue_path.exists():
+        try:
+            with open(queue_path) as f:
+                existing_queue = json.load(f)
+        except Exception:
+            existing_queue = []
+
+    existing_formulas = {a.get("formula", "") for a in existing_queue}
+    # Also skip formulas already in memory
+    existing_formulas.update(a["formula"] for a in pipeline_state["alphas"])
+
+    for item in data:
+        formula = item.get("formula", "").strip()
+        if not formula:
+            skipped.append({"reason": "Missing formula", "item": item})
+            continue
+        if formula in existing_formulas:
+            skipped.append({"reason": "Already queued", "formula": formula})
+            continue
+
+        task = {
+            "family": item.get("family", "API Injected"),
+            "hypothesis": item.get("hypothesis", "Injected via secure API bridge"),
+            "formula": formula,
+            "settings": item.get("settings", {
+                "decay": 5, "neutralization": "SUBINDUSTRY",
+                "universe": "TOP3000", "truncation": 0.08
+            })
+        }
+
+        # Append to disk queue
+        existing_queue.append(task)
+        existing_formulas.add(formula)
+        added.append(formula)
+        log_message("INFO", f"[API] Queued new alpha via API bridge: {formula[:80]}...")
+
+    # Save updated queue to disk
+    queue_path.parent.mkdir(exist_ok=True)
+    with open(queue_path, "w") as f:
+        json.dump(existing_queue, f, indent=2)
+
+    return jsonify({
+        "status": "ok",
+        "added": len(added),
+        "skipped": len(skipped),
+        "added_formulas": added,
+        "skipped_details": skipped
+    })
+
+@app.route("/api/queue-status", methods=["GET"])
+def queue_status():
+    """Returns a lightweight summary of the live queue — no auth needed for read."""
+    queue_path = Path("db") / "simulation_queue.json"
+    try:
+        with open(queue_path) as f:
+            q = json.load(f)
+    except Exception:
+        q = []
+    return jsonify({
+        "queue_on_disk": len(q),
+        "in_memory": len(pipeline_state["alphas"]),
+        "pipeline_status": pipeline_state["status"],
+        "formulas": [a.get("formula", "")[:80] for a in q]
+    })
 
 def run_flask():
     # Run Flask server — binds to 0.0.0.0 on Render, falls back to 8000 locally
