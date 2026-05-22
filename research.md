@@ -175,6 +175,24 @@ Alpha = group_neutralize(
 - **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((open - ts_delay(close, 1)) - (close - open)) / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)`
 - **Parameters**: Decay 5, Liquidity gate 70%
 
+### Alpha 21 — High-Low Spread Deviation Reversal
+- **Signal**: `(high - low) / ts_mean(high - low, 10)` — standardized daily spread relative to rolling average
+- **Hypothesis**: Extreme spread expansion on high volume marks high volatility momentum peaks. Cross-sectional mean-reversion over 5-day decay captures volatility contraction and reversal.
+- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((high - low) / (ts_mean(high - low, 10) + 0.001), 5)), 0), subindustry)`
+- **Parameters**: Decay 5, Liquidity gate 70%
+
+### Alpha 22 — Close-to-VWAP Ratio Reversal
+- **Signal**: `ts_sum(close / vwap - 1, 3)` — 3-day accumulated close ratio to intraday volume average
+- **Hypothesis**: Closing prices persistently executing above/below daily vwap identify institutional buying/selling exhaustion that reverts to the volume center.
+- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(ts_sum(close / (vwap + 0.001) - 1, 3), 5)), 0), subindustry)`
+- **Parameters**: Decay 5, Liquidity gate 65%
+
+### Alpha 23 — Normalized Intraday Shadow Ratio Reversal
+- **Signal**: `((high - max(open, close)) - (min(open, close) - low)) / (high - low)` — upper minus lower shadows over total range
+- **Hypothesis**: Imbalances between intraday seller-driven upper shadows and buyer-driven lower shadows normalized by daily range capture temporary momentum exhaustion.
+- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((high - max(open, close)) - (min(open, close) - low)) / (high - low + 0.001), 5)), 0), subindustry)`
+- **Parameters**: Decay 5, Liquidity gate 70%
+
 ---
 
 ## 🚨 5. Critical Syntax Gotchas (Lessons Learned)
