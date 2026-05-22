@@ -110,12 +110,12 @@ Alpha = group_neutralize(
 ### Alpha 11 — Upper Shadow Pressure (Bearish Candle Body)
 - **Signal**: `high - max(open, close)` — failed bullish attempts
 - **Hypothesis**: Large upper shadows = sellers rejected higher prices. Persistent overhead supply leads to decline.
-- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(high - ts_max(open, close), 5)), 0), subindustry)`
+- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(high - max(open, close), 5)), 0), subindustry)`
 
 ### Alpha 12 — Lower Shadow Demand (Bullish Candle Body)
 - **Signal**: `min(open, close) - low` — rejected bearish attempts
 - **Hypothesis**: Large lower shadows = buyers absorbed all selling at lows. Strong demand support leads to bounce.
-- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_decay_linear(ts_min(open, close) - low, 5)), 0), subindustry)`
+- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_decay_linear(min(open, close) - low, 5)), 0), subindustry)`
 
 ---
 
