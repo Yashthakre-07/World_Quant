@@ -1119,6 +1119,7 @@ body {
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    min-width: 0; /* Allows grid items to shrink and adapt without overflowing */
 }
 .alpha-card:hover {
     transform: translateY(-2px);
@@ -1134,10 +1135,15 @@ body {
     justify-content: space-between;
     align-items: center;
     font-size: 0.825rem;
+    min-width: 0; /* Flex container shrinks gracefully */
 }
 .alpha-card-family {
     font-weight: 600;
     color: #e2e8f0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 75%; /* Gives 25% spacing for the status badge to remain 100% visible */
 }
 .alpha-card-formula {
     font-family: 'Fira Code', monospace;
@@ -1177,5 +1183,45 @@ body {
     height: 100%;
     width: 0%;
     transition: width 0.4s ease;
+}
+
+/* Right Panel High-Tech Layout Upgrades */
+.panel-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.panel-right .table-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 818px; /* Perfectly balances the active queue + terminal height */
+    background: rgba(10, 10, 15, 0.95);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 40px rgba(99, 102, 241, 0.03);
+}
+
+.panel-right .table-wrapper {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 730px;
+}
+
+.panel-right .table-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.panel-right .table-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.panel-right .table-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+}
+
+.panel-right .table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.15);
 }
 

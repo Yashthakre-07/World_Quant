@@ -1,0 +1,25 @@
+{
+  "alpha_id": "d5dXLQYJ",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - low) - (open - low)) / (high - low + 0.001), 5)), 0), subindustry)",
+  "family": "Intraday Range Location Divergence",
+  "hypothesis": "Comparing open position vs close position within daily high-low channel on large volume exposes early-session buyer traps that mean-revert.",
+  "status": "SUBMITTED",
+  "sharpe": 1.75,
+  "fitness": 1.04,
+  "turnover": 36.53,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 5,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-05-22 13:56:02"
+}

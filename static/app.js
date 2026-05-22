@@ -205,20 +205,22 @@ async function fetchStats() {
         statBestFitness.textContent = Number(data.best_fitness || 0).toFixed(2);
 
         // Update Family Breakdown Table
-        if (data.families && data.families.length > 0) {
-            familyTableBody.innerHTML = "";
-            data.families.forEach(item => {
-                const tr = document.createElement("tr");
-                tr.innerHTML = `
-                    <td style="font-weight: 500;">${item.family}</td>
-                    <td>${item.total_runs}</td>
-                    <td><span class="badge badge-success">${item.submitted}</span></td>
-                    <td style="font-weight: 600; color: #10b981;">${item.success_rate}%</td>
-                `;
-                familyTableBody.appendChild(tr);
-            });
-        } else {
-            familyTableBody.innerHTML = `<tr><td colspan="4" class="empty-state">No simulation statistics recorded.</td></tr>`;
+        if (familyTableBody) {
+            if (data.families && data.families.length > 0) {
+                familyTableBody.innerHTML = "";
+                data.families.forEach(item => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td style="font-weight: 500;">${item.family}</td>
+                        <td>${item.total_runs}</td>
+                        <td><span class="badge badge-success">${item.submitted}</span></td>
+                        <td style="font-weight: 600; color: #10b981;">${item.success_rate}%</td>
+                    `;
+                    familyTableBody.appendChild(tr);
+                });
+            } else {
+                familyTableBody.innerHTML = `<tr><td colspan="4" class="empty-state">No simulation statistics recorded.</td></tr>`;
+            }
         }
 
         // Update Submissions Registry Table
@@ -460,7 +462,6 @@ async function pollSession() {
                 sessionBadge.className = "session-badge live";
             }
         }
-        }
     } catch (e) {
         console.error("Error polling session status", e);
     }
@@ -516,8 +517,8 @@ async function pollQueueStatus() {
                 </div>
                 <div class="alpha-card-formula">${escapeHTML(alpha.formula)}</div>
                 <div class="alpha-card-meta">
-                    <span style="font-size: 0.7rem; max-width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHTML(descText)}</span>
-                    <div class="alpha-card-metrics">
+                    <span style="font-size: 0.7rem; min-width: 0; flex-grow: 1; margin-right: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHTML(descText)}</span>
+                    <div class="alpha-card-metrics" style="flex-shrink: 0;">
                         <span>S: <strong style="color: var(--primary-color)">${sharpeVal}</strong></span>
                         <span>F: <strong style="color: var(--success-color)">${fitnessVal}</strong></span>
                         <span>T: <strong>${turnoverVal}</strong></span>

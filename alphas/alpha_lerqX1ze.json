@@ -1,0 +1,25 @@
+{
+  "alpha_id": "lerqX1ze",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((returns / (ts_std_dev(returns, 10) + 0.0001)) * (volume / adv20), 5)), 0), subindustry)",
+  "family": "Volume-weighted Relative Volatility Reversion",
+  "hypothesis": "Daily return relative to its 10-day volatility, scaled by relative trading volume, identifies high-activity exhaustion extremes.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.66,
+  "fitness": 0.97,
+  "turnover": 35.160000000000004,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 5,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-05-22 13:58:45"
+}

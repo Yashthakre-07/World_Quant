@@ -11,6 +11,8 @@ db/*.db
 
 # Credentials & environment variables
 *.env
+*.env.bak
+*.bak
 .env
 sai.env
 yash.env

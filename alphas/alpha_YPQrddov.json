@@ -1,0 +1,25 @@
+{
+  "alpha_id": "YPQrddov",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((close - ts_mean(vwap, 5)) / (ts_std_dev(close, 10) + 0.001), 5)), 0), subindustry)",
+  "family": "Volume-Weighted Cost Basis Divergence",
+  "hypothesis": "Closing price deviation from 5-day moving average VWAP, standardized by 10-day price std dev, isolates reversion relative to rolling market cost basis.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.39,
+  "fitness": 0.78,
+  "turnover": 32.97,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 5,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-05-22 14:01:15"
+}
