@@ -1070,6 +1070,98 @@ def clear_queue():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route("/api/clean-queue", methods=["POST"])
+def clean_queue():
+    """
+    Secure endpoint: clean dynamic queue by:
+      1. Logging any requested failed/rejected alphas directly into the SQLite database.
+      2. Scanning the queue for any formulas present in the database as failed/rejected/error, and removing them.
+      3. Cleaning them from the in-memory list to instantly update the UI.
+    """
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    if token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    req_data = {}
+    try:
+        if request.data:
+            req_data = request.get_json(force=True) or {}
+    except Exception:
+        pass
+
+    # 1. Store newly passed failed alphas into SQLite database
+    failed_injected = req_data.get("failed_alphas", [])
+    if isinstance(failed_injected, list) and len(failed_injected) > 0:
+        for item in failed_injected:
+            formula = item.get("formula", "").strip()
+            if not formula:
+                continue
+            
+            # If not already simulated/stored, insert into database
+            if not check_already_simulated(formula):
+                run_uuid = str(uuid.uuid4())[:8]
+                try:
+                    save_alpha_run({
+                        "run_id": run_uuid,
+                        "family": item.get("family", "Manual Failure Check"),
+                        "hypothesis": item.get("hypothesis", "Failed/Rejected Alpha Injected via API"),
+                        "formula": formula,
+                        "region": "USA", "universe": "TOP3000", "neutralization": "SUBINDUSTRY",
+                        "decay": 6, "truncation": 0.08, "delay": 1,
+                        "sharpe": item.get("sharpe"), "fitness": item.get("fitness"), "turnover": item.get("turnover"),
+                        "checks_passed": 0, "weight_check": "FAIL", "sub_sharpe": -1.0,
+                        "status": item.get("status", "HARD_REJECT"),
+                        "alpha_link": None, "sim_link": None,
+                        "error_message": item.get("error_message", "Injected Failure"),
+                        "llm_model": "gemini-1.5-flash", "parent_id": None
+                    })
+                    log_message("INFO", f"[API] Logged custom failure directly to database: {formula[:50]}...")
+                except Exception as e:
+                    log_message("WARNING", f"[API] Failed to write custom failure to DB: {e}")
+
+    # 2. Clean queue of disk
+    queue_path = Path("db") / "simulation_queue.json"
+    if not queue_path.exists():
+        return jsonify({"status": "ok", "removed_count": 0, "message": "No queue file found to clean."})
+
+    try:
+        with open(queue_path, "r") as f:
+            queue_tasks = json.load(f)
+    except Exception as e:
+        return jsonify({"error": f"Failed to read queue: {e}"}), 500
+
+    cleaned_tasks = []
+    removed_formulas = []
+
+    for task in queue_tasks:
+        formula = task.get("formula", "").strip()
+        if not formula:
+            continue
+        
+        cached = check_already_simulated(formula)
+        if cached and cached.get("status") in ("HARD_REJECT", "SOFT_FAIL", "ERROR"):
+            removed_formulas.append(formula)
+            log_message("INFO", f"[API] Removing failed/rejected alpha from dynamic queue: {formula[:50]}...")
+        else:
+            cleaned_tasks.append(task)
+
+    try:
+        with open(queue_path, "w") as f:
+            json.dump(cleaned_tasks, f, indent=2)
+            
+        # 3. Clean from active in-memory list (pipeline_state["alphas"]) to update UI instantly
+        pipeline_state["alphas"] = [a for a in pipeline_state["alphas"] if a.get("formula") not in removed_formulas]
+        
+        return jsonify({
+            "status": "ok",
+            "removed_count": len(removed_formulas),
+            "removed_formulas": removed_formulas,
+            "remaining_queue_count": len(cleaned_tasks)
+        })
+    except Exception as e:
+        return jsonify({"error": f"Failed to save cleaned queue: {e}"}), 500
+
 @app.route("/api/overwrite-queue", methods=["POST"])
 def overwrite_queue():
     """Secure endpoint: overwrite the queue entirely with new alphas."""
