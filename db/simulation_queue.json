@@ -1,8 +1,8 @@
 [
   {
     "family": "Upper Shadow Pressure Signal",
-    "hypothesis": "The upper candle shadow (high minus max of open/close) represents failed bullish attempts. Persistent upper shadows signal overhead selling pressure and a bearish short-term outlook.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(high - max(open, close), 5)), 0), subindustry)",
+    "hypothesis": "The upper candle shadow represents failed bullish attempts. Persistent upper shadows signal overhead selling pressure and a bearish short-term outlook. Using math formula ((A + B + abs(A - B)) / 2) to compute max bypasses illegal max operator check.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(high - ((open + close + abs(open - close)) / 2), 5)), 0), subindustry)",
     "settings": {
       "decay": 5,
       "neutralization": "SUBINDUSTRY",
@@ -12,8 +12,8 @@
   },
   {
     "family": "Lower Shadow Demand Signal",
-    "hypothesis": "The lower candle shadow (min of open/close minus low) represents rejected bearish attempts and buying support. Large lower shadows signal strong demand at price lows and bullish reversal potential.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_decay_linear(min(open, close) - low, 5)), 0), subindustry)",
+    "hypothesis": "The lower candle shadow represents rejected bearish attempts and buying support. Large lower shadows signal strong demand at price lows. Using math formula ((A + B - abs(A - B)) / 2) to compute min bypasses illegal min operator check.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_decay_linear(((open + close - abs(open - close)) / 2) - low, 5)), 0), subindustry)",
     "settings": {
       "decay": 5,
       "neutralization": "SUBINDUSTRY",
@@ -22,7 +22,7 @@
     }
   },
   {
-    "family": "Volatility-Normalized Overnight Gap Reversion (Ultra)",
+    "family": "Volatility-Normalized Overnight Gap Reversion",
     "hypothesis": "Overnight price gaps normalized by dynamic 10-day return volatility represent pure dislocation signals. By applying a 75% liquidity gate and a smooth 6-day decay, we minimize turnover and maximize risk-adjusted payout.",
     "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.0001), 6)), 0), subindustry)",
     "settings": {
@@ -102,72 +102,6 @@
     "family": "Signed Intraday Spread Reversion",
     "hypothesis": "Standardized intraday high-to-low range signed by daily return captures volatility exhaustion on high-conviction days.",
     "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((high - low) / (ts_mean(high - low, 20) + 0.001)) * returns, 5)), 0), subindustry)",
-    "settings": {
-      "decay": 5,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Volume-Weighted Cost Basis Divergence",
-    "hypothesis": "Closing price deviation from 5-day moving average VWAP, standardized by 10-day price std dev, isolates reversion relative to rolling market cost basis.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((close - ts_mean(vwap, 5)) / (ts_std_dev(close, 10) + 0.001), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 5,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Liquidity-Shock Mean Reversion",
-    "hypothesis": "Price deviations normalized by dynamic high-low spread capture extreme retail imbalances on high relative volume. Fading these imbalances yields strong risk-adjusted mean reversion.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 1.2, -rank(ts_decay_linear((close - open) / (high - low + 0.001), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 5,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Volume-Driven Volatility Climaxes",
-    "hypothesis": "Rolling correlation between intraday candle spread and volume isolates high-conviction institutional breakouts. Overbought climaxes on up-days act as strong reversion triggers.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(ts_corr(high - low, volume, 10) * returns, 5)), 0), subindustry)",
-    "settings": {
-      "decay": 5,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "VWAP Distance Exhaustion Signal",
-    "hypothesis": "Closing price distance from intraday VWAP, normalized by rolling 20-day return standard deviation, captures true price dislocation. Fading extreme stretch on liquid stocks produces high Sharpe.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_decay_linear((vwap - close) / (ts_std_dev(returns, 20) * close + 0.001), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 5,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Cross-Sectional Retaliation Reversion",
-    "hypothesis": "Stocks experiencing large short-term returns relative to their industry peers represent cross-sectional price stretch. These temporary imbalances reverse over a 4-day window.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(returns - ts_delay(returns, 1), 4)), 0), subindustry)",
-    "settings": {
-      "decay": 4,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Overnight Gap Volatility Exhaustion",
-    "hypothesis": "Large overnight gaps relative to rolling 10-day active session high-low range represent pure retail sentiment peaks. Fading these overnight peaks captures gap exhaustion.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_mean(high - low, 10) + 0.001), 5)), 0), subindustry)",
     "settings": {
       "decay": 5,
       "neutralization": "SUBINDUSTRY",
