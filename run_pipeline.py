@@ -25,6 +25,24 @@ app = Flask(__name__)
 # Set API_SECRET_TOKEN in Render environment variables
 API_SECRET_TOKEN = os.environ.get("API_SECRET_TOKEN", "wq-default-token-change-me")
 
+# WhatsApp Notification Config (CallMeBot - free service)
+# Set WA_PHONE (with country code, no +) and WA_APIKEY in Render env vars
+WA_PHONE = os.environ.get("WA_PHONE", "")
+WA_APIKEY = os.environ.get("WA_APIKEY", "")
+
+def send_whatsapp(message: str):
+    """Send a WhatsApp alert via CallMeBot API. Silently ignores if not configured."""
+    if not WA_PHONE or not WA_APIKEY:
+        return  # Not configured, skip silently
+    try:
+        import urllib.parse
+        import urllib.request
+        encoded = urllib.parse.quote(message)
+        url = f"https://api.callmebot.com/whatsapp.php?phone={WA_PHONE}&text={encoded}&apikey={WA_APIKEY}"
+        urllib.request.urlopen(url, timeout=8)
+    except Exception as e:
+        print(f"[WA_NOTIFY] Failed to send WhatsApp alert: {e}")
+
 # Lock to space API submissions sequentially and avoid rate limits
 submission_lock = threading.Lock()
 
@@ -1358,6 +1376,13 @@ def simulate_task(index, task, session):
                         log_message("SUBMITTED", f"Alpha #{index+1} FULLY SUBMITTED to production board! ID: {alpha_id}")
                         save_submitted_alpha(row_id, alpha_id, self_corr_pass=True)
                         submitted_ok = True
+                        send_whatsapp(
+                            f"✅ ALPHA SUBMITTED!\n"
+                            f"Alpha #{index+1}: {family}\n"
+                            f"Sharpe: {sharpe:.2f} | Fitness: {fitness:.2f} | Turnover: {turnover:.1f}%\n"
+                            f"ID: {alpha_id}\n"
+                            f"Link: https://brain.worldquant.com/alpha/{alpha_id}"
+                        )
                         break
                     elif poll_sub.status_code == 403:
                         # 403 = submission failed (e.g. PROD_CORRELATION failure)
@@ -1371,6 +1396,11 @@ def simulate_task(index, task, session):
                         log_message("WARNING", f"Alpha #{index+1} submission REJECTED by WQ checks: {err_detail}")
                         pipeline_state["alphas"][index]["status"] = "HARD_REJECT"
                         pipeline_state["alphas"][index]["error_message"] = f"Submission check failed: {err_detail}"
+                        send_whatsapp(
+                            f"❌ ALPHA REJECTED\n"
+                            f"Alpha #{index+1}: {family}\n"
+                            f"Reason: {err_detail[:120]}"
+                        )
                         break
                     else:
                         log_message("INFO", f"Alpha #{index+1}: Submission checks in progress... ({poll_i+1}/{poll_limit})")
@@ -1405,6 +1435,7 @@ def main():
     log_message("INFO", "Logging into WorldQuant Brain...")
     session = WQSession()
     log_message("INFO", "Session established successfully.")
+    send_whatsapp("🚀 AlphaForge ONLINE\nServer started & logged into WorldQuant Brain successfully. Simulations beginning now!")
 
     # Start Flask Server
     flask_thread = threading.Thread(target=run_flask, daemon=True)
@@ -1423,6 +1454,7 @@ def main():
                 log_message("INFO", "[KEEPALIVE] Self-ping OK — Render spin-down prevented.")
             except Exception as e:
                 log_message("WARNING", f"[KEEPALIVE] Self-ping failed: {e}")
+                send_whatsapp(f"⚠️ SERVER ALERT\nKeep-alive ping FAILED! Server may be going to sleep.\nError: {str(e)[:100]}")
             time.sleep(60)
 
     ping_thread = threading.Thread(target=self_ping_loop, daemon=True)

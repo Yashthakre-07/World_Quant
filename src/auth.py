@@ -73,6 +73,8 @@ class WQSession(requests.Session):
                 self.save_persisted_cookies()
             elif 'inquiry' in r.json():
                 inquiry = r.json()['inquiry']
+                inquiry_id = inquiry.get('id') if isinstance(inquiry, dict) else inquiry
+                biometric_url = f"{r.url}/persona?inquiry={inquiry_id}"
                 import os
                 is_headless = os.environ.get("RENDER") or not os.isatty(0)
 

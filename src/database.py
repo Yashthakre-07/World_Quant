@@ -2,7 +2,13 @@ import sqlite3
 from src.config import DB_PATH
 from src.logger import agent_logger
 
+_db_initialized = False
+
 def init_db():
+    global _db_initialized
+    if _db_initialized:
+        return
+    _db_initialized = True
     agent_logger.info(f"[DATABASE] Initializing database at {DB_PATH}")
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
