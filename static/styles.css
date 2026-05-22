@@ -29,7 +29,9 @@
 }
 
 body {
-    background-color: var(--bg-dark);
+    background: radial-gradient(125% 125% at 50% 101%, rgba(245,87,2,1) 10.5%, rgba(245,120,2,1) 16%, rgba(245,140,2,1) 17.5%, rgba(245,170,100,1) 25%, rgba(238,174,202,1) 40%, rgba(202,179,214,1) 65%, rgba(148,201,233,1) 100%);
+    background-attachment: fixed;
+    background-size: cover;
     font-family: 'Inter', sans-serif;
     color: var(--text-primary);
     min-height: 100vh;
@@ -39,15 +41,12 @@ body {
 
 /* Glassmorphism Background Gradients */
 .glass-bg {
-    position: absolute;
-    width: 60vw;
-    height: 60vh;
-    top: -10vh;
-    right: -10vw;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(6, 182, 212, 0.02) 60%, rgba(0, 0, 0, 0) 100%);
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 7, 10, 0.76);
+    backdrop-filter: blur(12px) saturate(120%);
     z-index: 0;
     pointer-events: none;
-    filter: blur(100px);
 }
 
 /* Main Container Layout */
