@@ -145,6 +145,36 @@ Alpha = group_neutralize(
 - **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(ts_corr(close, volume, 10), 5)), 0), subindustry)`
 - **Parameters**: Decay 5, Liquidity gate 65%
 
+### Alpha 16 — VWAP Displacement Reversal
+- **Signal**: `(close - vwap) / (high - low)` — close displacement from volume center, normalized by range
+- **Hypothesis**: Extreme intraday close deviation from VWAP represents peak intraday session stretch. Reverting this displacement on high volume filters out slow drift and captures short-term fade returns.
+- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((close - vwap) / (high - low + 0.001), 5)), 0), subindustry)`
+- **Parameters**: Decay 5, Liquidity gate 70%
+
+### Alpha 17 — Volatility-Scaled Exponential Momentum Reversal
+- **Signal**: `ts_sum(returns, 3) / ts_std_dev(returns, 10)` — cumulative short-term return over historical volatility
+- **Hypothesis**: Multi-day return acceleration scaled by its own dynamic volatility highlights high-conviction momentum exhaustion points. Reverting this cross-sectionally produces robust risk-adjusted profits.
+- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(ts_sum(returns, 3) / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)`
+- **Parameters**: Decay 5, Liquidity gate 65%
+
+### Alpha 18 — Intraday Range Location Divergence
+- **Signal**: `((close - low) - (open - low)) / (high - low)` — daily close location minus open location in the range
+- **Hypothesis**: Exposes early-session buyer traps. If the open was near the high but close finished near the low on high volume, it signals complete session buyer exhaustion and reverts sharply.
+- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - low) - (open - low)) / (high - low + 0.001), 5)), 0), subindustry)`
+- **Parameters**: Decay 5, Liquidity gate 70%
+
+### Alpha 19 — Volume-Weighted Price Change Correlation Reversal
+- **Signal**: `ts_corr(returns, volume / adv20, 10)` — correlation between daily returns and relative volume
+- **Hypothesis**: Captures the exhaustion of institutional volume flows. When price change and volume are highly correlated, momentum is drying up and standard mean-reversion forces take over.
+- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(ts_corr(returns, volume / adv20, 10), 6)), 0), subindustry)`
+- **Parameters**: Decay 6, Liquidity gate 75%
+
+### Alpha 20 — Overnight-to-Intraday Stretch Reversion
+- **Signal**: `((open - ts_delay(close, 1)) - (close - open)) / ts_std_dev(returns, 10)` — overnight gap minus intraday return, scaled by return vol
+- **Hypothesis**: Measures the dislocation between overnight investor sentiment and active market hours execution. Discrepancies between gap and intraday session returns revert strongly under high volume.
+- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((open - ts_delay(close, 1)) - (close - open)) / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)`
+- **Parameters**: Decay 5, Liquidity gate 70%
+
 ---
 
 ## 🚨 5. Critical Syntax Gotchas (Lessons Learned)
@@ -184,4 +214,3 @@ Because Turnover is in the denominator, reducing it is the single most impactful
 | `5` | ~18-22% | Sweet spot, comfortably above 1.0 |
 | `6` | ~15-18% | Optimal for gap/overnight signals |
 | `8+` | ~10-15% | May lag signal too much, lowering Sharpe |
-
