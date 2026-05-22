@@ -48,10 +48,12 @@ submission_lock = threading.Lock()
 
 # Shared Pipeline State
 pipeline_state = {
-    "status": "RUNNING",  # RUNNING, COMPLETED
+    "status": "RUNNING",  # RUNNING, COMPLETED, PAUSED
     "alphas": [],
     "logs": []
 }
+
+pipeline_active = True
 
 def log_message(level, msg):
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
@@ -1162,6 +1164,88 @@ def clean_queue():
     except Exception as e:
         return jsonify({"error": f"Failed to save cleaned queue: {e}"}), 500
 
+@app.route("/api/stop-pipeline", methods=["POST"])
+def stop_pipeline():
+    """Secure endpoint: pauses the pipeline execution loop."""
+    global pipeline_active
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    if token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    pipeline_active = False
+    pipeline_state["status"] = "PAUSED"
+    log_message("WARNING", "[API] Pipeline has been PAUSED via remote desktop call.")
+    return jsonify({"status": "ok", "pipeline_active": False, "message": "Pipeline paused."})
+
+@app.route("/api/start-pipeline", methods=["POST"])
+def start_pipeline():
+    """Secure endpoint: resumes/starts the pipeline execution loop."""
+    global pipeline_active
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    if token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    pipeline_active = True
+    pipeline_state["status"] = "RUNNING"
+    log_message("INFO", "[API] Pipeline has been RESUMED/STARTED via remote desktop call.")
+    return jsonify({"status": "ok", "pipeline_active": True, "message": "Pipeline active."})
+
+@app.route("/api/alphas", methods=["GET"])
+def list_alphas():
+    """Secure endpoint: lists all successfully generated alpha files on Render."""
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    if token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    try:
+        out_dir = Path(ALPHAS_OUT_DIR)
+        if not out_dir.exists():
+            return jsonify({"alphas": []})
+        
+        alpha_files = list(out_dir.glob("alpha_*.json"))
+        results = []
+        for af in alpha_files:
+            try:
+                with open(af, "r") as f:
+                    data = json.load(f)
+                results.append({
+                    "alpha_id": data.get("alpha_id"),
+                    "family": data.get("family"),
+                    "status": data.get("status"),
+                    "sharpe": data.get("sharpe"),
+                    "fitness": data.get("fitness"),
+                    "turnover": data.get("turnover"),
+                    "filename": af.name
+                })
+            except Exception:
+                results.append({"filename": af.name, "error": "Unparseable"})
+        return jsonify({"alphas": results})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/alpha/<alpha_id>", methods=["GET"])
+def fetch_alpha(alpha_id):
+    """Secure endpoint: returns the complete raw JSON data of a specific alpha."""
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    if token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    try:
+        out_dir = Path(ALPHAS_OUT_DIR)
+        alpha_file = out_dir / f"alpha_{alpha_id}.json"
+        if not alpha_file.exists():
+            return jsonify({"error": f"Alpha {alpha_id} not found."}), 404
+        
+        with open(alpha_file, "r") as f:
+            data = json.load(f)
+        return jsonify(data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 @app.route("/api/overwrite-queue", methods=["POST"])
 def overwrite_queue():
     """Secure endpoint: overwrite the queue entirely with new alphas."""
@@ -1620,6 +1704,11 @@ def main():
     with ThreadPoolExecutor(max_workers=MAX_CONCURRENT_SIMS) as executor:
         try:
             while True:
+                if not pipeline_active:
+                    pipeline_state["status"] = "PAUSED"
+                    time.sleep(3)
+                    continue
+                
                 # Poll db/simulation_queue.json for new alphas
                 queue_file = Path("db/simulation_queue.json")
                 if queue_file.exists():
