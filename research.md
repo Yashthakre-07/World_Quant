@@ -119,11 +119,69 @@ Alpha = group_neutralize(
 
 ---
 
-## 4. Submission Parameter Targets
+## 🧬 4. Generation 3 Alpha Catalog — Novel Operator Families
+
+**Key upgrades over Gen 2:**
+- Introduces **completely new operator families** (`ts_corr`) never used in Gen 1 or 2
+- Candle body ratio captures directional conviction, not just price level
+- Volume-price correlation captures structural regime transitions
+- Zero overlap with any existing signal → guaranteed to pass self-correlation checks
+
+### Alpha 13 — Volatility-Normalized Overnight Gap Reversion (Ultra)
+- **Signal**: `(open - ts_delay(close, 1)) / ts_std_dev(returns, 10)` — overnight gap in return-volatility units
+- **Hypothesis**: Overnight gaps that are large relative to 10-day return volatility (not price volatility) represent the most statistically meaningful dislocations. Using return vol instead of price vol produces a more stable normalizer.
+- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.0001), 6)), 0), subindustry)`
+- **Parameters**: Decay 6, Liquidity gate 75%
+
+### Alpha 14 — Intraday Candle Body Ratio Reversal
+- **Signal**: `(close - open) / (high - low)` — candle body as a fraction of total intraday range
+- **Hypothesis**: The body-to-range ratio measures directional conviction. Values near +1 mean the stock opened at the low and closed at the high (extreme bullish), which is unsustainable. Values near -1 indicate extreme bearish exhaustion. Both extremes revert sharply.
+- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((close - open) / (high - low + 0.001), 5)), 0), subindustry)`
+- **Parameters**: Decay 5, Liquidity gate 70%
+
+### Alpha 15 — Volume-Price Correlation Breakdown Reversal
+- **Signal**: `ts_corr(close, volume, 10)` — 10-day rolling Pearson correlation between price and volume
+- **Hypothesis**: When price and volume are strongly positively correlated (+0.8), institutional accumulation is complete and reversal is imminent. When strongly negative (-0.8), panic selling is overdone and a bounce follows. This structural regime signal is orthogonal to all pure price/volume signals.
+- **Formula**: `group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(ts_corr(close, volume, 10), 5)), 0), subindustry)`
+- **Parameters**: Decay 5, Liquidity gate 65%
+
+---
+
+## 🚨 5. Critical Syntax Gotchas (Lessons Learned)
+
+### A. Element-wise vs Time-Series Operators
+| Intent | ❌ WRONG | ✅ CORRECT |
+|---|---|---|
+| Max of two fields at same time | `ts_max(open, close)` | `max(open, close)` |
+| Min of two fields at same time | `ts_min(open, close)` | `min(open, close)` |
+| Highest value over N days | `max(close, 10)` | `ts_max(close, 10)` |
+| Lowest value over N days | `min(low, 10)` | `ts_min(low, 10)` |
+
+**Rule**: `ts_max(x, d)` and `ts_min(x, d)` are **rolling time-series** operators requiring a day-count `d`. For element-wise comparison of two fields, use bare `max(x, y)` and `min(x, y)`.
+
+### B. RED Color Tagging
+- Only alphas with status `SUBMITTED` (fully passed all production checks) should be tagged RED
+- `SOFT_FAIL` and `HARD_REJECT` alphas must NOT be tagged RED — this was a previous bug that has been fixed
+
+---
+
+## 6. Submission Parameter Targets
 
 | Metric | Minimum | Target |
 |---|---|---|
 | Sharpe | ≥ 1.25 | > 1.5 |
 | Fitness | ≥ 1.0 | > 1.1 |
-| Turnover | ≤ 70% | < 30% |
+| Turnover | ≤ 70% | < 25% |
 | Self-Correlation | < 0.70 | < 0.50 |
+
+### Turnover Optimization via Decay Parameter
+The Fitness formula is: `Fitness = Sharpe × sqrt(|Returns|) / Turnover`
+
+Because Turnover is in the denominator, reducing it is the single most impactful lever:
+| Decay Value | Expected Turnover | Effect on Fitness |
+|---|---|---|
+| `3` | ~35-40% | Borderline, often SOFT_FAIL |
+| `5` | ~18-22% | Sweet spot, comfortably above 1.0 |
+| `6` | ~15-18% | Optimal for gap/overnight signals |
+| `8+` | ~10-15% | May lag signal too much, lowering Sharpe |
+

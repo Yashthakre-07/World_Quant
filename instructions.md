@@ -266,10 +266,14 @@ To support multi-process WSGI / Gunicorn environments where memory space is isol
 
 ## 📡 10. Secure API Bridge Specification
 
-The cloud instance exposes a secure API route that lets you push newly generated alphas directly into the active cloud simulation queue from this chat:
+The cloud instance exposes a full suite of secure API routes that let you remotely manage the simulation queue **without restarting or redeploying** the pipeline. All write operations require the Bearer token.
 
+* **Live Render URL**: `https://world-quant.onrender.com`
+* **Authorization Header**: `Authorization: Bearer yashthakreop` (set via `API_SECRET_TOKEN` environment variable on Render)
+
+### A. Push New Alphas (Append)
 * **HTTP Route**: `POST /api/queue-alpha`
-* **Authorization**: `Bearer yashthakreop` (set via `API_SECRET_TOKEN` environment variable on Render)
+* **Behavior**: Appends new alphas to the end of the queue. Automatically deduplicates — if a formula already exists in the queue or in-memory pipeline, it is skipped.
 * **Payload Structure**:
   ```json
   [
@@ -281,11 +285,54 @@ The cloud instance exposes a secure API route that lets you push newly generated
     }
   ]
   ```
-* **LIGHTWEIGHT STATUS CHECK**: `GET /api/queue-status` (public endpoint to review queue volume).
+* **PowerShell Example**:
+  ```powershell
+  $headers = @{ "Authorization" = "Bearer yashthakreop"; "Content-Type" = "application/json" }
+  $body = '[{"family":"My Alpha","hypothesis":"...","formula":"...","settings":{...}}]'
+  Invoke-RestMethod -Uri "https://world-quant.onrender.com/api/queue-alpha" -Method POST -Headers $headers -Body $body
+  ```
+
+### B. Overwrite Queue (Replace All)
+* **HTTP Route**: `POST /api/overwrite-queue`
+* **Behavior**: Completely wipes the existing queue on disk and replaces it with the provided alphas. Use when you want a fresh start without clearing + appending separately.
+* **Payload**: Same JSON array format as `/api/queue-alpha`.
+
+### C. Clear Queue (Empty)
+* **HTTP Route**: `POST /api/clear-queue`
+* **Behavior**: Empties the entire on-disk queue (`db/simulation_queue.json`). Currently running simulations are NOT affected — they will finish naturally.
+* **Payload**: None required (empty body is fine).
+
+### D. Queue Status (Read-Only)
+* **HTTP Route**: `GET /api/queue-status`
+* **Authorization**: None required (public read endpoint).
+* **Returns**: Number of queued alphas on disk and in memory, pipeline status, and truncated formula previews.
 
 ---
 
-## ⚡ 11. Self-Ping Keep-Alive Heartbeat
+## 🚨 11. Critical Syntax Rules & Gotchas
+
+### A. Element-wise vs Time-Series `max`/`min`
+This is the **#1 most common syntax error** that causes cluster compile failures:
+| Intent | ❌ WRONG | ✅ CORRECT |
+|---|---|---|
+| Max of two fields at same timestamp | `ts_max(open, close)` | `max(open, close)` |
+| Min of two fields at same timestamp | `ts_min(open, close)` | `min(open, close)` |
+| Highest value over N rolling days | `max(close, 10)` | `ts_max(close, 10)` |
+| Lowest value over N rolling days | `min(low, 10)` | `ts_min(low, 10)` |
+
+**Rule**: `ts_max(x, d)` and `ts_min(x, d)` require a **day count** `d` as the second argument. For comparing two fields element-wise, use bare `max(x, y)` and `min(x, y)`.
+
+### B. RED Color Tagging Policy
+* **Only alphas with status `SUBMITTED`** (fully passed all production board checks including self-correlation) should be tagged RED via the `/alphas/{id}` PATCH endpoint.
+* `SOFT_FAIL`, `HARD_REJECT`, and `ERROR` alphas must **NEVER** be tagged RED.
+* This policy is enforced in `run_pipeline.py` line ~1472.
+
+### C. Division-by-Zero Guards
+* Always add a small epsilon (`+ 0.001` or `+ 0.0001`) when dividing by fields that can be zero (e.g., `high - low`, `ts_std_dev(...)`).
+
+---
+
+## ⚡ 12. Self-Ping Keep-Alive Heartbeat
 
 * To prevent Render free tier servers from spinning down after 15 minutes of inactivity:
 * A background thread `self_ping_loop()` starts alongside Flask.
