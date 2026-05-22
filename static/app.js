@@ -460,8 +460,83 @@ async function pollSession() {
                 sessionBadge.className = "session-badge live";
             }
         }
+        }
     } catch (e) {
         console.error("Error polling session status", e);
+    }
+}
+
+// Fetch and render the active backtesting simulation queue
+async function pollQueueStatus() {
+    try {
+        const res = await fetch("/api/status");
+        if (!res.ok) return;
+        const data = await res.json();
+        
+        const listContainer = document.getElementById("alpha-list");
+        const progressBadge = document.getElementById("queue-progress-badge");
+        
+        if (!listContainer) return;
+        
+        const alphas = data.alphas || [];
+        if (alphas.length === 0) {
+            listContainer.innerHTML = `<div class="empty-state">No alphas currently simulating in queue.</div>`;
+            if (progressBadge) progressBadge.textContent = "0 / 0 Completed";
+            return;
+        }
+        
+        let completedCount = 0;
+        listContainer.innerHTML = "";
+        
+        alphas.forEach((alpha, index) => {
+            if (["SUBMITTED", "HARD_REJECT", "SOFT_FAIL", "ERROR"].includes(alpha.status)) {
+                completedCount++;
+            }
+            
+            const card = document.createElement("div");
+            const isSimulating = alpha.status === "SIMULATING" ? "simulating" : "";
+            card.className = `alpha-card ${isSimulating}`;
+            
+            const sharpeVal = alpha.sharpe !== null ? Number(alpha.sharpe).toFixed(2) : "-";
+            const fitnessVal = alpha.fitness !== null ? Number(alpha.fitness).toFixed(2) : "-";
+            const turnoverVal = alpha.turnover !== null ? Number(alpha.turnover).toFixed(1) + "%" : "-";
+            
+            let statusBadgeClass = "badge-info";
+            if (alpha.status === "SUBMITTED") statusBadgeClass = "badge-success";
+            else if (alpha.status === "SIMULATING") statusBadgeClass = "badge-warning";
+            else if (alpha.status === "EVALUATING") statusBadgeClass = "badge-primary";
+            else if (["HARD_REJECT", "SOFT_FAIL", "ERROR"].includes(alpha.status)) statusBadgeClass = "badge-danger";
+            
+            const descText = alpha.error_message ? `<span class="text-danger-red">${alpha.error_message}</span>` : alpha.hypothesis;
+            
+            card.innerHTML = `
+                <div class="alpha-card-header">
+                    <span class="alpha-card-family">#${index + 1}: ${escapeHTML(alpha.family)}</span>
+                    <span class="badge ${statusBadgeClass}">${alpha.status}</span>
+                </div>
+                <div class="alpha-card-formula">${escapeHTML(alpha.formula)}</div>
+                <div class="alpha-card-meta">
+                    <span style="font-size: 0.7rem; max-width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHTML(descText)}</span>
+                    <div class="alpha-card-metrics">
+                        <span>S: <strong style="color: var(--primary-color)">${sharpeVal}</strong></span>
+                        <span>F: <strong style="color: var(--success-color)">${fitnessVal}</strong></span>
+                        <span>T: <strong>${turnoverVal}</strong></span>
+                    </div>
+                </div>
+                <div class="alpha-card-progress-wrapper">
+                    <div class="alpha-card-progress" style="width: ${alpha.progress || 0}%"></div>
+                </div>
+            `;
+            
+            listContainer.appendChild(card);
+        });
+        
+        if (progressBadge) {
+            progressBadge.textContent = `${completedCount} / ${alphas.length} Completed`;
+        }
+        
+    } catch (e) {
+        console.error("Failed to poll queue status", e);
     }
 }
 
@@ -473,9 +548,12 @@ window.addEventListener("DOMContentLoaded", () => {
     startEventStreams();
     fetchStats();
     pollSession();
+    pollQueueStatus();
     
     // Poll stats table updates every 20 seconds to reduce API requests
     statsInterval = setInterval(fetchStats, 20000);
     // Poll WQ Session status every 15 seconds
     setInterval(pollSession, 15000);
+    // Poll active backtesting queue every 2 seconds
+    setInterval(pollQueueStatus, 2000);
 });
