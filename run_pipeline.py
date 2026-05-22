@@ -1468,8 +1468,8 @@ def simulate_task(index, task, session):
                 err_msg = submit_r.text[:200]
                 log_message("WARNING", f"Alpha #{index+1} submission POST failed: {err_msg}")
         
-        # Always color qualifying alphas RED (SUBMITTED or SOFT_FAIL with good Sharpe)
-        if alpha_id and status in ("SUBMITTED", "SOFT_FAIL"):
+        # Only color FULLY SUBMITTED alphas RED (not SOFT_FAIL)
+        if alpha_id and status == "SUBMITTED":
             try:
                 color_r = robust_request(session, "PATCH", f"{WQ_ALPHAS_URL}/{alpha_id}", index=index, json={"color": "RED"}, timeout=30)
                 if color_r.status_code == 200:
