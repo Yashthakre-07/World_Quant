@@ -15,7 +15,7 @@ const statBestFitness = document.getElementById("stat-best-fitness");
 
 // Tables Elements
 const familyTableBody = document.querySelector("#family-table tbody");
-const submittedTableBody = document.querySelector("#submitted-table tbody");
+const vaultTableBody = document.querySelector("#vault-table tbody");
 
 // High-Tech Terminal Chrome & Filter Elements
 const copyLogsBtn = document.getElementById("copy-logs-btn");
@@ -34,6 +34,11 @@ let logCounter = 0;
 let currentFilter = "all";
 let searchQuery = "";
 let isFullscreen = false;
+
+// Vault Registry State
+let vaultAlphas = [];
+let activeVaultTab = "all";
+let vaultSearchQuery = "";
 
 let logSource = null;
 let stateSource = null;
@@ -223,26 +228,114 @@ async function fetchStats() {
             }
         }
 
-        // Update Submissions Registry Table
-        if (data.submitted_list && data.submitted_list.length > 0) {
-            submittedTableBody.innerHTML = "";
-            data.submitted_list.forEach(item => {
-                const tr = document.createElement("tr");
-                tr.innerHTML = `
-                    <td style="font-family: 'Fira Code', monospace; font-size: 0.75rem;">${item.alpha_id}</td>
-                    <td class="text-danger-red" style="font-weight: 700;">${Number(item.sharpe).toFixed(2)} <span class="badge badge-danger-red" style="margin-left: 6px;">SUBMITTABLE</span></td>
-                    <td style="font-weight: 500;">${Number(item.fitness).toFixed(2)}</td>
-                    <td>${Number(item.turnover).toFixed(1)}%</td>
-                    <td><a href="${item.alpha_link}" target="_blank" class="action-link red-action">Submit on platform ↗</a></td>
-                `;
-                submittedTableBody.appendChild(tr);
-            });
-        } else {
-            submittedTableBody.innerHTML = `<tr><td colspan="5" class="empty-state">No successful submissions logged yet.</td></tr>`;
-        }
+        // Update Alpha Vault Registry
+        vaultAlphas = data.vault_alphas || [];
+        renderVaultTable();
+
     } catch (e) {
         console.error("Failed to fetch stats summary", e);
     }
+}
+
+// Render Alpha Vault Registry
+function renderVaultTable() {
+    if (!vaultTableBody) return;
+    
+    // Filter by tab and search query
+    const filtered = vaultAlphas.filter(item => {
+        // Tab Filter
+        if (activeVaultTab !== "all") {
+            if (item.status !== activeVaultTab) return false;
+        }
+        
+        // Search query filter (search in alpha_id, family, formula, or error_message)
+        if (vaultSearchQuery) {
+            const q = vaultSearchQuery.toLowerCase();
+            return (item.alpha_id && item.alpha_id.toLowerCase().includes(q)) ||
+                   (item.family && item.family.toLowerCase().includes(q)) ||
+                   (item.formula && item.formula.toLowerCase().includes(q)) ||
+                   (item.error_message && item.error_message.toLowerCase().includes(q));
+        }
+        
+        return true;
+    });
+    
+    // Update Badge Count
+    const countBadge = document.getElementById("vault-count-badge");
+    if (countBadge) {
+        countBadge.textContent = `${filtered.length} / ${vaultAlphas.length} Alphas`;
+    }
+    
+    // Render
+    vaultTableBody.innerHTML = "";
+    if (filtered.length === 0) {
+        vaultTableBody.innerHTML = `
+            <tr>
+                <td colspan="6" class="empty-state">No alphas matching active filters inside vault.</td>
+            </tr>
+        `;
+        return;
+    }
+    
+    filtered.forEach(item => {
+        const tr = document.createElement("tr");
+        
+        // Sharpe styling
+        const sharpeVal = item.sharpe !== null ? Number(item.sharpe).toFixed(2) : "0.00";
+        const isSharpeSubmittable = item.sharpe >= 1.25;
+        const sharpeStyle = isSharpeSubmittable ? 'color: var(--success-color); font-weight: 800; text-shadow: 0 0 8px rgba(16, 185, 129, 0.35);' : 'font-weight: 500;';
+        
+        // Fitness styling
+        const fitnessVal = item.fitness !== null ? Number(item.fitness).toFixed(2) : "0.00";
+        const isFitnessSubmittable = item.fitness >= 1.0;
+        const fitnessStyle = isFitnessSubmittable ? 'color: var(--cyan-color); font-weight: 800; text-shadow: 0 0 8px rgba(6, 182, 212, 0.35);' : 'font-weight: 500;';
+        
+        // Turnover styling
+        const turnoverVal = item.turnover !== null ? Number(item.turnover).toFixed(1) + "%" : "0.0%";
+        const turnoverStyle = item.turnover <= 30.0 ? 'color: #f3f4f6; font-weight: 600;' : 'color: var(--text-muted);';
+        
+        // Status Badge class and text
+        let statusBadgeClass = "badge-info";
+        if (item.status === "SUBMITTED") statusBadgeClass = "badge-success";
+        else if (item.status === "SOFT_FAIL") statusBadgeClass = "badge-warning";
+        else if (item.status === "HARD_REJECT" || item.status === "ERROR") statusBadgeClass = "badge-danger-red";
+        
+        // Subtext for status (like errors or soft-fails)
+        let statusSubtext = "";
+        if (item.error_message && item.status !== "SUBMITTED") {
+            statusSubtext = `<div style="font-size: 0.65rem; color: #fca5a5; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 3px;" title="${escapeHTML(item.error_message)}">${escapeHTML(item.error_message)}</div>`;
+        }
+        
+        // Action column
+        let actionHTML = "";
+        if (item.status === "SUBMITTED") {
+            actionHTML = `<a href="${item.alpha_link || '#'}" target="_blank" class="action-link" style="color: var(--success-color); font-weight: 700; font-size: 0.75rem; text-shadow: 0 0 6px rgba(16, 185, 129, 0.2);">Submitted ↗</a>`;
+        } else if (item.status === "SOFT_FAIL" || item.status === "HARD_REJECT") {
+            actionHTML = `<span style="color: #fca5a5; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px;">Rejected</span>`;
+        } else {
+            actionHTML = `<span style="color: var(--text-muted); font-size: 0.7rem; font-style: italic;">No Action</span>`;
+        }
+        
+        tr.innerHTML = `
+            <td>
+                <div style="font-family: 'Fira Code', monospace; font-weight: 700; color: #a5b4fc; font-size: 0.775rem; display: flex; align-items: center; gap: 8px;">
+                    <span>${item.alpha_id}</span>
+                    <button class="chrome-btn" onclick="navigator.clipboard.writeText('${escapeHTML(item.formula)}'); alert('Copied math formula to clipboard!');" title="Copy Formula" style="padding: 1px 4px; font-size: 0.65rem; display: inline-flex;">📋 Copy</button>
+                </div>
+                <div style="font-size: 0.675rem; color: var(--text-muted); margin-top: 3px; max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${escapeHTML(item.family)}">${escapeHTML(item.family)}</div>
+            </td>
+            <td>
+                <span class="badge ${statusBadgeClass}" style="font-size: 0.675rem; letter-spacing: 0.3px; text-transform: uppercase;">${item.status}</span>
+                ${statusSubtext}
+            </td>
+            <td style="${sharpeStyle}">${sharpeVal}</td>
+            <td style="${fitnessStyle}">${fitnessVal}</td>
+            <td style="${turnoverStyle}">${turnoverVal}</td>
+            <td>${actionHTML}</td>
+        `;
+        
+        vaultTableBody.appendChild(tr);
+    });
 }
 
 // Wire Event Streams
@@ -550,6 +643,26 @@ window.addEventListener("DOMContentLoaded", () => {
     fetchStats();
     pollSession();
     pollQueueStatus();
+
+    // Wire up Alpha Vault Tabs
+    const vaultTabBtns = document.querySelectorAll(".vault-tab-btn");
+    vaultTabBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            vaultTabBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            activeVaultTab = btn.getAttribute("data-tab");
+            renderVaultTable();
+        });
+    });
+
+    // Wire up Alpha Vault Search
+    const vaultSearchInput = document.getElementById("vault-search-input");
+    if (vaultSearchInput) {
+        vaultSearchInput.addEventListener("input", (e) => {
+            vaultSearchQuery = e.target.value;
+            renderVaultTable();
+        });
+    }
     
     // Poll stats table updates every 20 seconds to reduce API requests
     statsInterval = setInterval(fetchStats, 20000);

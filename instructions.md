@@ -252,24 +252,39 @@ For deep mathematical deconstructions of successful historical formulas, paramet
 
 ## 🌐 9. Cloud Infrastructure & Deployment Specs (Render)
 
-The quantitative research pipeline is optimized to run autonomously 24/7 in the cloud using **Render** web hosting.
+The quantitative research pipeline runs autonomously 24/7 across **two independent Render servers**, each targeting a separate WorldQuant Brain account for maximum throughput.
 
-### A. Process-Safe Dynamic State Synchronizer
+### A. Dual-Server Architecture
+
+| # | Render Service | WorldQuant Account | API Bearer Token | Concurrent Sims |
+|---|---|---|---|---|
+| 🔵 | `world-quant` | `saineela731@gmail.com` | `yashthakreop` | 3 |
+| 🟢 | `world-quant-1` | `beyondsynapse@gmail.com` | `yashthakreop1` | 3 |
+| | **TOTAL** | **2 accounts** | | **6 simultaneous** |
+
+> **Why separate accounts?** WorldQuant Brain limits each account to 3 concurrent active simulations. By running each server on a different account, we get 6 independent simulation slots with zero cross-account conflicts.
+
+### B. Process-Safe Dynamic State Synchronizer
 To support multi-process WSGI / Gunicorn environments where memory space is isolated:
 * The Flask dashboard `/api/status` dynamically queries the SQLite database (`db/alpha_vault.db`) and disk-based simulation queue (`db/simulation_queue.json`) on every call.
 * This guarantees 100% accurate, synced status readouts regardless of which concurrent worker process serves the HTTP request.
 
-### B. Persistent Disk Storage
+### C. Persistent Disk Storage
 * Render uses a persistent volume (`/data` or `db/`) to preserve SQLite databases and user session cookies (`db/session_cookies_*.json`) between container restarts, ensuring biometric persona logins remain valid.
 
 ---
 
 ## 📡 10. Secure API Bridge Specification
 
-The cloud instance exposes a full suite of secure API routes that let you remotely manage the simulation queue **without restarting or redeploying** the pipeline. All write operations require the Bearer token.
+Each server exposes a full suite of secure API routes to remotely manage the simulation queue **without restarting or redeploying**. All write operations require the Bearer token.
 
+### 🔵 Sai's Server
 * **Live Render URL**: `https://world-quant.onrender.com`
-* **Authorization Header**: `Authorization: Bearer yashthakreop` (set via `API_SECRET_TOKEN` environment variable on Render)
+* **Authorization Header**: `Authorization: Bearer yashthakreop`
+
+### 🟢 Yash's Server
+* **Live Render URL**: `https://world-quant-1.onrender.com`
+* **Authorization Header**: `Authorization: Bearer yashthakreop1`
 
 ### A. Push New Alphas (Append)
 * **HTTP Route**: `POST /api/queue-alpha`

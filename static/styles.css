@@ -798,27 +798,49 @@ body {
 /* Badges inside tables */
 .badge {
     display: inline-block;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .badge-success {
-    background: rgba(16, 185, 129, 0.15);
+    background: rgba(16, 185, 129, 0.12);
     color: var(--success-color);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
 }
 
 .badge-warning {
-    background: rgba(245, 158, 11, 0.15);
+    background: rgba(245, 158, 11, 0.12);
     color: var(--warning-color);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.15);
 }
 
-.badge-danger-red {
-    background: rgba(239, 68, 68, 0.2) !important;
+.badge-danger, .badge-danger-red {
+    background: rgba(239, 68, 68, 0.15) !important;
     color: #ef4444 !important;
-    border: 1px solid rgba(239, 68, 68, 0.45);
-    box-shadow: 0 0 10px rgba(239, 68, 68, 0.35);
+    border: 1px solid rgba(239, 68, 68, 0.35) !important;
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.2) !important;
+}
+
+.badge-primary {
+    background: rgba(99, 102, 241, 0.12);
+    color: #a5b4fc;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.15);
+}
+
+.badge-info {
+    background: rgba(6, 182, 212, 0.12);
+    color: var(--cyan-color);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);
 }
 
 .text-danger-red {
@@ -1223,5 +1245,21 @@ body {
 
 .panel-right .table-wrapper::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.15);
+}
+
+/* Alpha Vault tab buttons styles */
+.vault-tab-btn {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vault-tab-btn:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.vault-tab-btn.active {
+    background: rgba(99, 102, 241, 0.25) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
 }
 

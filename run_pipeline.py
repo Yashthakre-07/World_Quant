@@ -25,23 +25,35 @@ app = Flask(__name__)
 # Set API_SECRET_TOKEN in Render environment variables
 API_SECRET_TOKEN = os.environ.get("API_SECRET_TOKEN", "wq-default-token-change-me")
 
-# WhatsApp Notification Config (CallMeBot - free service)
-# Set WA_PHONE (with country code, no +) and WA_APIKEY in Render env vars
+# Notification Config (WhatsApp & Telegram)
 WA_PHONE = os.environ.get("WA_PHONE", "")
 WA_APIKEY = os.environ.get("WA_APIKEY", "")
+TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN", "")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 def send_whatsapp(message: str):
-    """Send a WhatsApp alert via CallMeBot API. Silently ignores if not configured."""
-    if not WA_PHONE or not WA_APIKEY:
-        return  # Not configured, skip silently
-    try:
-        import urllib.parse
-        import urllib.request
-        encoded = urllib.parse.quote(message)
-        url = f"https://api.callmebot.com/whatsapp.php?phone={WA_PHONE}&text={encoded}&apikey={WA_APIKEY}"
-        urllib.request.urlopen(url, timeout=8)
-    except Exception as e:
-        print(f"[WA_NOTIFY] Failed to send WhatsApp alert: {e}")
+    """Send alert via WhatsApp (CallMeBot) and/or Telegram depending on environment variables."""
+    # 1. WhatsApp Notification
+    if WA_PHONE and WA_APIKEY:
+        try:
+            import urllib.parse
+            import urllib.request
+            encoded = urllib.parse.quote(message)
+            url = f"https://api.callmebot.com/whatsapp.php?phone={WA_PHONE}&text={encoded}&apikey={WA_APIKEY}"
+            urllib.request.urlopen(url, timeout=8)
+        except Exception as e:
+            print(f"[WA_NOTIFY] Failed to send WhatsApp alert: {e}")
+
+    # 2. Telegram Notification
+    if TELEGRAM_TOKEN and TELEGRAM_CHAT_ID:
+        try:
+            import urllib.parse
+            import urllib.request
+            encoded = urllib.parse.quote(message)
+            url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage?chat_id={TELEGRAM_CHAT_ID}&text={encoded}"
+            urllib.request.urlopen(url, timeout=8)
+        except Exception as e:
+            print(f"[TG_NOTIFY] Failed to send Telegram alert: {e}")
 
 # Lock to space API submissions sequentially and avoid rate limits
 submission_lock = threading.Lock()
@@ -1392,6 +1404,74 @@ def get_api_stats():
                         "alpha_link": row[4] or "#"
                     })
             
+            # All Alphas in Vault - Merge JSON files and database runs
+            vault_alphas_dict = {}
+            
+            # 1. Load from alphas/ output directory
+            try:
+                out_dir = Path(ALPHAS_OUT_DIR)
+                if out_dir.exists():
+                    for af in out_dir.glob("alpha_*.json"):
+                        try:
+                            with open(af, "r") as f:
+                                data = json.load(f)
+                            alpha_id = data.get("alpha_id") or af.stem.replace("alpha_", "")
+                            vault_alphas_dict[alpha_id] = {
+                                "alpha_id": alpha_id,
+                                "family": data.get("family") or "Unknown",
+                                "formula": data.get("formula") or "",
+                                "sharpe": data.get("sharpe") or 0.0,
+                                "fitness": data.get("fitness") or 0.0,
+                                "turnover": data.get("turnover") or 0.0,
+                                "status": data.get("status") or "SUBMITTED",
+                                "error_message": data.get("error_message") or "",
+                                "alpha_link": data.get("alpha_link") or "#",
+                                "created_at": ""
+                            }
+                        except Exception:
+                            pass
+            except Exception as e:
+                print(f"[API_STATS] Error reading alphas directory: {e}")
+
+            # 2. Merge with alpha_runs SQLite database (gives dynamic/failed runs too)
+            try:
+                cursor.execute("""
+                SELECT run_id, family, formula, sharpe, fitness, turnover, status, error_message, alpha_link, created_at
+                FROM alpha_runs
+                """)
+                for row in cursor.fetchall():
+                    run_id = row[0]
+                    db_status = row[6] or "PENDING"
+                    if run_id in vault_alphas_dict:
+                        existing = vault_alphas_dict[run_id]
+                        # If database status is SUBMITTED, prioritize database links/stats
+                        if db_status == "SUBMITTED" or existing.get("status") != "SUBMITTED":
+                            existing["status"] = db_status
+                            if row[3] is not None: existing["sharpe"] = row[3]
+                            if row[4] is not None: existing["fitness"] = row[4]
+                            if row[5] is not None: existing["turnover"] = row[5]
+                            if row[8]: existing["alpha_link"] = row[8]
+                            if row[7]: existing["error_message"] = row[7]
+                    else:
+                        vault_alphas_dict[run_id] = {
+                            "alpha_id": run_id,
+                            "family": row[1] or "Unknown",
+                            "formula": row[2] or "",
+                            "sharpe": row[3] or 0.0,
+                            "fitness": row[4] or 0.0,
+                            "turnover": row[5] or 0.0,
+                            "status": db_status,
+                            "error_message": row[7] or "",
+                            "alpha_link": row[8] or "#",
+                            "created_at": row[9] or ""
+                        }
+            except Exception as e:
+                print(f"[API_STATS] Error querying vault_alphas database: {e}")
+                
+            vault_alphas = list(vault_alphas_dict.values())
+            # Sort by alpha_id desc to show newest/highest IDs first
+            vault_alphas.sort(key=lambda x: x.get("alpha_id", ""), reverse=True)
+            
             conn.close()
         except Exception as e:
             print(f"[API_STATS] Error querying DB: {e}")
@@ -1402,7 +1482,8 @@ def get_api_stats():
         "best_sharpe": best_sharpe,
         "best_fitness": best_fitness,
         "families": families,
-        "submitted_list": submitted_list
+        "submitted_list": submitted_list,
+        "vault_alphas": vault_alphas
     })
 
 @app.route("/api/logs/stream")
@@ -1952,7 +2033,18 @@ def main():
 
                 # Update pipeline status in state
                 if scheduled_formulas and len(completed_formulas) == len(scheduled_formulas):
-                    pipeline_state["status"] = "COMPLETED"
+                    if pipeline_state["status"] != "COMPLETED":
+                        pipeline_state["status"] = "COMPLETED"
+                        # Send WhatsApp complete alert!
+                        success_count = sum(1 for a in pipeline_state["alphas"] if a["status"] == "SUBMITTED")
+                        fail_count = sum(1 for a in pipeline_state["alphas"] if a["status"] in ("HARD_REJECT", "SOFT_FAIL", "ERROR"))
+                        send_whatsapp(
+                            f"🏁 PIPELINE COMPLETED!\n"
+                            f"Total processed: {len(pipeline_state['alphas'])}\n"
+                            f"✅ Submitted: {success_count}\n"
+                            f"❌ Rejected/Failed: {fail_count}\n"
+                            f"All operations are now idle."
+                        )
                 else:
                     pipeline_state["status"] = "RUNNING"
                 

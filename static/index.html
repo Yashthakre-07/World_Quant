@@ -168,16 +168,38 @@
             <!-- Right Side: Leaderboard & Performance breakdown -->
             <div class="panel-right">
 
-                <!-- Recent Submissions Table -->
-                <div class="table-card">
-                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 2px solid rgba(255, 255, 255, 0.08);">
-                        <h3 style="margin: 0; font-size: 1rem; font-weight: 700; background: linear-gradient(90deg, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Submitted Alphas Registry</h3>
+                <!-- Alpha Vault & Performance Registry -->
+                <div class="table-card" style="display: flex; flex-direction: column;">
+                    <div class="card-header" style="display: flex; flex-direction: column; gap: 0.75rem; padding: 1.25rem 1.5rem; border-bottom: 2px solid rgba(255, 255, 255, 0.08);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                            <h3 style="margin: 0; font-size: 1.05rem; font-weight: 700; background: linear-gradient(to right, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.3px;">Alpha Vault Registry</h3>
+                            <span id="vault-count-badge" class="badge badge-success" style="font-size: 0.725rem; padding: 3px 8px; font-weight: 700;">0 Alphas Total</span>
+                        </div>
+                        
+                        <!-- Search and Tabs Bar -->
+                        <div style="display: flex; gap: 0.75rem; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-top: 0.25rem; width: 100%;">
+                            <!-- Tab buttons -->
+                            <div class="vault-tabs" style="display: flex; gap: 0.25rem; background: rgba(0,0,0,0.3); padding: 4px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
+                                <button class="vault-tab-btn active" data-tab="all" style="background: none; border: none; color: var(--text-muted); font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none;">All Vault</button>
+                                <button class="vault-tab-btn" data-tab="SUBMITTED" style="background: none; border: none; color: var(--text-muted); font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none;">Submitted</button>
+                                <button class="vault-tab-btn" data-tab="SOFT_FAIL" style="background: none; border: none; color: var(--text-muted); font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none;">Soft Fail</button>
+                                <button class="vault-tab-btn" data-tab="HARD_REJECT" style="background: none; border: none; color: var(--text-muted); font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none;">Rejects</button>
+                                <button class="vault-tab-btn" data-tab="ERROR" style="background: none; border: none; color: var(--text-muted); font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none;">Errors</button>
+                            </div>
+                            
+                            <!-- Search box -->
+                            <div style="position: relative; flex-grow: 1; min-width: 150px; max-width: 220px; display: flex; align-items: center;">
+                                <input type="text" id="vault-search-input" placeholder="Filter vault formulas..." style="width: 100%; background: rgba(0, 0, 0, 0.4); border: 1px solid var(--border-color); border-radius: 6px; padding: 5px 8px 5px 26px; color: var(--text-primary); font-size: 0.75rem; transition: all 0.2s ease; outline: none;">
+                                <span style="position: absolute; left: 8px; font-size: 0.725rem; color: var(--text-muted); pointer-events: none;">🔍</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="table-wrapper">
-                        <table class="data-table" id="submitted-table">
+                    <div class="table-wrapper" style="max-height: 580px; overflow-y: auto;">
+                        <table class="data-table" id="vault-table">
                             <thead>
                                 <tr>
-                                    <th>Alpha ID</th>
+                                    <th>Alpha ID / Family</th>
+                                    <th>Status</th>
                                     <th>Sharpe</th>
                                     <th>Fitness</th>
                                     <th>Turnover</th>
@@ -186,7 +208,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="5" class="empty-state">No successful submissions logged yet.</td>
+                                    <td colspan="6" class="empty-state">Loading Alpha Vault...</td>
                                 </tr>
                             </tbody>
                         </table>

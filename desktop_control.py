@@ -16,25 +16,24 @@ MAGENTA = "\033[95m"
 BOLD = "\033[1m"
 RESET = "\033[0m"
 
-# Default configs
-DEFAULT_SERVER_URL = "https://world-quant.onrender.com"
-DEFAULT_API_TOKEN = "yashthakreop"
+# ── Dual-Server Configuration ─────────────────────────────────────────────────
+SERVERS = {
+    "1": {
+        "name": "🔵 Sai's Server  (world-quant)",
+        "url":   "https://world-quant.onrender.com",
+        "token": "yashthakreop",
+        "account": "saineela731@gmail.com",
+    },
+    "2": {
+        "name": "🟢 Yash's Server (world-quant-1)",
+        "url":   "https://world-quant-1.onrender.com",
+        "token": "yashthakreop1",
+        "account": "beyondsynapse@gmail.com",
+    },
+}
 
-# Load local environment configuration if possible to fetch API token
-def load_env_token():
-    for env_name in ["sai.env", "yash.env", ".env"]:
-        env_path = Path(__file__).resolve().parent / env_name
-        if env_path.exists():
-            with open(env_path, "r") as f:
-                for line in f:
-                    if "API_SECRET_TOKEN" in line:
-                        parts = line.strip().split("=")
-                        if len(parts) >= 2:
-                            return parts[1].strip().strip('"').strip("'")
-    return DEFAULT_API_TOKEN
-
-SERVER_URL = DEFAULT_SERVER_URL
-API_TOKEN = load_env_token()
+SERVER_URL = SERVERS["1"]["url"]
+API_TOKEN  = SERVERS["1"]["token"]
 
 def print_header(title):
     print(f"\n{BOLD}{MAGENTA}" + "="*60)
@@ -215,19 +214,41 @@ def sync_alphas():
     print(f"  Already existed:     {BLUE}{skipped_count}{RESET} alphas (skipped)")
     print(f"  Saved locally in:    {BOLD}{local_dir.resolve()}{RESET}")
 
+def select_server():
+    """Show server picker at startup."""
+    global SERVER_URL, API_TOKEN
+    print(f"\n{BOLD}{CYAN}" + "="*60)
+    print(f"   SELECT TARGET SERVER".center(60))
+    print("="*60 + f"{RESET}")
+    for key, srv in SERVERS.items():
+        print(f"  {BOLD}{key}.{RESET} {srv['name']}")
+        print(f"      URL:     {CYAN}{srv['url']}{RESET}")
+        print(f"      Account: {YELLOW}{srv['account']}{RESET}")
+        print()
+    choice = input(f"{BOLD}Pick server (1 / 2) [default: 1]: {RESET}").strip() or "1"
+    srv = SERVERS.get(choice, SERVERS["1"])
+    SERVER_URL = srv["url"]
+    API_TOKEN  = srv["token"]
+    print(f"\n{GREEN}✔ Targeting: {srv['name']}{RESET}")
+
+
 def main_menu():
     global SERVER_URL, API_TOKEN
     os.system("color")  # Enable ANSI terminal coloring on Windows CMD/PowerShell
-    
+    select_server()
+
     while True:
         print(f"\n{BOLD}{YELLOW}" + "#"*60)
         print("   " + f"★ ALPHAFORGE DESKTOP QUANT DEV PANEL ★".center(54))
         print("   " + f"Direct Secure API Engine | Bypass GitHub".center(54))
         print("#"*60 + f"{RESET}")
-        
-        print(f"\n{BOLD}Target Server: {CYAN}{SERVER_URL}{RESET}")
+
+        # Identify which named server we're on
+        active_name = next((s["name"] for s in SERVERS.values() if s["url"] == SERVER_URL), SERVER_URL)
+        print(f"\n{BOLD}Target Server: {CYAN}{active_name}{RESET}")
+        print(f"{BOLD}URL:           {CYAN}{SERVER_URL}{RESET}")
         print(f"{BOLD}Token Active:  {GREEN}{API_TOKEN[:4]}...{API_TOKEN[-4:] if len(API_TOKEN) > 4 else ''}{RESET}\n")
-        
+
         print(f" {BOLD}1.{RESET} 📊 Check Server Status & Active Queue")
         print(f" {BOLD}2.{RESET} ➕ Queue New Alpha (Append)")
         print(f" {BOLD}3.{RESET} ❌ Remove Rejected/Unsubmitted Alphas (API Clean)")
@@ -235,11 +256,11 @@ def main_menu():
         print(f" {BOLD}5.{RESET} ⏸️ Pause Pipeline Execution (Stop)")
         print(f" {BOLD}6.{RESET} ▶️ Resume Pipeline Execution (Restart)")
         print(f" {BOLD}7.{RESET} 📥 Synchronize Remote Alphas directly to PC")
-        print(f" {BOLD}8.{RESET} ⚙️  Configure Target Server URL")
+        print(f" {BOLD}8.{RESET} 🔀 Switch Target Server")
         print(f" {BOLD}9.{RESET} 🚪 Exit Dev Deck")
-        
+
         choice = input(f"\n{BOLD}Select Option (1-9):{RESET} ").strip()
-        
+
         if choice == "1":
             check_status()
         elif choice == "2":
@@ -255,16 +276,13 @@ def main_menu():
         elif choice == "7":
             sync_alphas()
         elif choice == "8":
-            new_url = input(f"Enter new server base URL [{SERVER_URL}]: ").strip()
-            if new_url:
-                SERVER_URL = new_url
-                print(f"{GREEN}URL updated successfully.{RESET}")
+            select_server()
         elif choice == "9":
             print(f"\n{BOLD}{YELLOW}Shutting down Quant Dev Panel. Keep AlphaForge active!{RESET}\n")
             sys.exit(0)
         else:
             print(f"{RED}Invalid Option! Select a valid choice between 1 and 9.{RESET}")
-            
+
         input(f"\nPress {BOLD}[Enter]{RESET} to return to main menu...")
 
 if __name__ == "__main__":
