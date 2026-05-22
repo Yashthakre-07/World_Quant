@@ -1302,6 +1302,198 @@ def queue_status():
         "formulas": [a.get("formula", "")[:80] for a in q]
     })
 
+@app.route("/api/stats", methods=["GET"])
+def get_api_stats():
+    import sqlite3
+    db_path = Path("db") / "alpha_vault.db"
+    
+    total_runs = 0
+    total_submissions = 0
+    best_sharpe = 0.0
+    best_fitness = 0.0
+    families = []
+    submitted_list = []
+    
+    if db_path.exists():
+        try:
+            conn = sqlite3.connect(str(db_path))
+            cursor = conn.cursor()
+            
+            # Total runs
+            cursor.execute("SELECT COUNT(*) FROM alpha_runs")
+            total_runs = cursor.fetchone()[0] or 0
+            
+            # Total submissions
+            cursor.execute("SELECT COUNT(*) FROM alpha_runs WHERE status = 'SUBMITTED'")
+            total_submissions = cursor.fetchone()[0] or 0
+            
+            # Best Sharpe
+            cursor.execute("SELECT MAX(sharpe) FROM alpha_runs")
+            best_sharpe = cursor.fetchone()[0] or 0.0
+            
+            # Best Fitness
+            cursor.execute("SELECT MAX(fitness) FROM alpha_runs")
+            best_fitness = cursor.fetchone()[0] or 0.0
+            
+            # Families breakdown using the view or fallback query
+            try:
+                cursor.execute("SELECT family, total_runs, submitted, success_rate FROM family_stats")
+                for row in cursor.fetchall():
+                    families.append({
+                        "family": row[0],
+                        "total_runs": row[1],
+                        "submitted": row[2],
+                        "success_rate": row[3]
+                    })
+            except Exception:
+                cursor.execute("""
+                SELECT family, COUNT(*), SUM(CASE WHEN status='SUBMITTED' THEN 1 ELSE 0 END)
+                FROM alpha_runs GROUP BY family
+                """)
+                for row in cursor.fetchall():
+                    success_rate = round(100.0 * row[2] / row[1], 1) if row[1] > 0 else 0.0
+                    families.append({
+                        "family": row[0],
+                        "total_runs": row[1],
+                        "submitted": row[2],
+                        "success_rate": success_rate
+                    })
+            
+            # Submitted List from submitted_alphas joined with alpha_runs
+            try:
+                cursor.execute("""
+                SELECT s.alpha_id, r.sharpe, r.fitness, r.turnover, r.alpha_link
+                FROM submitted_alphas s
+                JOIN alpha_runs r ON s.alpha_run_id = r.id
+                ORDER BY s.id DESC
+                """)
+                for row in cursor.fetchall():
+                    submitted_list.append({
+                        "alpha_id": row[0],
+                        "sharpe": row[1] or 0.0,
+                        "fitness": row[2] or 0.0,
+                        "turnover": row[3] or 0.0,
+                        "alpha_link": row[4] or "#"
+                    })
+            except Exception:
+                # Fallback to direct alpha_runs
+                cursor.execute("""
+                SELECT run_id, sharpe, fitness, turnover, alpha_link
+                FROM alpha_runs
+                WHERE status = 'SUBMITTED'
+                ORDER BY id DESC
+                """)
+                for row in cursor.fetchall():
+                    submitted_list.append({
+                        "alpha_id": row[0],
+                        "sharpe": row[1] or 0.0,
+                        "fitness": row[2] or 0.0,
+                        "turnover": row[3] or 0.0,
+                        "alpha_link": row[4] or "#"
+                    })
+            
+            conn.close()
+        except Exception as e:
+            print(f"[API_STATS] Error querying DB: {e}")
+            
+    return jsonify({
+        "total_runs": total_runs,
+        "total_submissions": total_submissions,
+        "best_sharpe": best_sharpe,
+        "best_fitness": best_fitness,
+        "families": families,
+        "submitted_list": submitted_list
+    })
+
+@app.route("/api/logs/stream")
+def stream_logs():
+    from flask import Response
+    def event_stream():
+        import re
+        log_pattern = re.compile(r"^\[(.*?)\] \[(.*?)\] (.*)$")
+        
+        # Send initial logs first (up to last 100)
+        current_logs = pipeline_state.get("logs", [])
+        start_idx = max(0, len(current_logs) - 100)
+        for i in range(start_idx, len(current_logs)):
+            raw_log = current_logs[i]
+            match = log_pattern.match(raw_log)
+            if match:
+                ts, level, msg = match.groups()
+            else:
+                ts, msg = "", raw_log
+            
+            payload = {
+                "message": raw_log,
+                "timestamp": ts
+            }
+            yield f"data: {json.dumps(payload)}\n\n"
+        
+        last_idx = len(current_logs)
+        
+        # Continuous polling loop for new logs
+        while True:
+            time.sleep(0.5)
+            current_logs = pipeline_state.get("logs", [])
+            if last_idx < len(current_logs):
+                for i in range(last_idx, len(current_logs)):
+                    raw_log = current_logs[i]
+                    match = log_pattern.match(raw_log)
+                    if match:
+                        ts, level, msg = match.groups()
+                    else:
+                        ts, msg = "", raw_log
+                    
+                    payload = {
+                        "message": raw_log,
+                        "timestamp": ts
+                    }
+                    yield f"data: {json.dumps(payload)}\n\n"
+                last_idx = len(current_logs)
+    
+    return Response(event_stream(), mimetype="text/event-stream")
+
+@app.route("/api/state/stream")
+def stream_state():
+    from flask import Response
+    def event_stream():
+        last_status = None
+        while True:
+            status = pipeline_state.get("status", "INACTIVE")
+            # Map simple statuses to agent statuses
+            agent_status = "AGENT RUNNING"
+            if status == "PAUSED":
+                agent_status = "AGENT PAUSED"
+            elif status == "COMPLETED":
+                agent_status = "AGENT COMPLETED"
+            elif status == "INACTIVE":
+                agent_status = "AGENT INACTIVE"
+            
+            # Send status update if it changed
+            if agent_status != last_status:
+                payload = {"status": agent_status}
+                yield f"data: {json.dumps(payload)}\n\n"
+                last_status = agent_status
+            time.sleep(1.0)
+            
+    return Response(event_stream(), mimetype="text/event-stream")
+
+@app.route("/api/agent/start", methods=["POST"])
+def agent_start():
+    global pipeline_active
+    pipeline_active = True
+    pipeline_state["status"] = "RUNNING"
+    log_message("INFO", "[SYSTEM] Agent booted via web console command.")
+    return jsonify({"status": "ok", "pipeline_active": True})
+
+@app.route("/api/agent/stop", methods=["POST"])
+def agent_stop():
+    global pipeline_active
+    pipeline_active = False
+    pipeline_state["status"] = "PAUSED"
+    log_message("WARNING", "[SYSTEM] Agent paused via web console command.")
+    return jsonify({"status": "ok", "pipeline_active": False})
+
 def run_flask():
     # Run Flask server — binds to 0.0.0.0 on Render, falls back to 8000 locally
     import logging
@@ -1309,7 +1501,7 @@ def run_flask():
     log.setLevel(logging.ERROR)
     port = int(os.environ.get("PORT", 8000))
     host = "0.0.0.0" if os.environ.get("RENDER") else "127.0.0.1"
-    app.run(host=host, port=port, debug=False, use_reloader=False)
+    app.run(host=host, port=port, debug=False, use_reloader=False, threaded=True)
 
 def robust_request(session, method, url, index=None, **kwargs):
     """Sends an API request and automatically retries forever if a local network/DNS failure occurs."""

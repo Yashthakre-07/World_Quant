@@ -86,5 +86,38 @@
       "universe": "TOP3000",
       "truncation": 0.08
     }
+  },
+  {
+    "family": "Volume-weighted Relative Volatility Reversion",
+    "hypothesis": "Daily return relative to its 10-day volatility, scaled by relative trading volume, identifies high-activity exhaustion extremes.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((returns / (ts_std_dev(returns, 10) + 0.0001)) * (volume / adv20), 5)), 0), subindustry)",
+    "settings": {
+      "decay": 5,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Signed Intraday Spread Reversion",
+    "hypothesis": "Standardized intraday high-to-low range signed by daily return captures volatility exhaustion on high-conviction days.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((high - low) / (ts_mean(high - low, 20) + 0.001)) * returns, 5)), 0), subindustry)",
+    "settings": {
+      "decay": 5,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Volume-Weighted Cost Basis Divergence",
+    "hypothesis": "Closing price deviation from 5-day moving average VWAP, standardized by 10-day price std dev, isolates reversion relative to rolling market cost basis.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((close - ts_mean(vwap, 5)) / (ts_std_dev(close, 10) + 0.001), 5)), 0), subindustry)",
+    "settings": {
+      "decay": 5,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
   }
 ]

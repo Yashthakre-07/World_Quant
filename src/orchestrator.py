@@ -169,7 +169,7 @@ class AlphaOrchestrator:
         row_id = save_alpha_run(run_data)
 
         # Save to alphas output directory if simulated successfully
-        if status == "SUBMITTED" and res.get("alpha_id"):
+        if status in ("SUBMITTED", "SOFT_FAIL") and res.get("alpha_id"):
             try:
                 import json
                 alpha_file = ALPHAS_OUT_DIR / f"alpha_{res['alpha_id']}.json"
