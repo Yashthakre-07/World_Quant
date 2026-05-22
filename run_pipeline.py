@@ -1204,6 +1204,25 @@ def start_pipeline():
     log_message("INFO", "[API] Pipeline has been RESUMED/STARTED via remote desktop call.")
     return jsonify({"status": "ok", "pipeline_active": True, "message": "Pipeline active."})
 
+@app.route("/api/reset-state", methods=["POST"])
+def reset_state():
+    """Secure endpoint: fully clears in-memory pipeline_state alphas list.
+    This forces the background scheduler to re-read all formulas from disk 
+    on the next poll and re-schedule every formula as if fresh — solving the
+    scheduled_formulas dedup-skip problem when the queue is replaced."""
+    global pipeline_active
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    if token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    prev_count = len(pipeline_state["alphas"])
+    pipeline_state["alphas"] = []
+    pipeline_state["status"] = "RUNNING"
+    pipeline_active = True
+    log_message("INFO", f"[API] Pipeline state RESET — cleared {prev_count} in-memory alphas. Scheduler will re-discover all queue formulas.")
+    return jsonify({"status": "ok", "cleared_alphas": prev_count, "message": "Pipeline state reset. All queue formulas will be re-scheduled."})
+
 @app.route("/api/alphas", methods=["GET"])
 def list_alphas():
     """Secure endpoint: lists all successfully generated alpha files on Render."""
