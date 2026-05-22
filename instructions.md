@@ -307,6 +307,32 @@ The cloud instance exposes a full suite of secure API routes that let you remote
 * **Authorization**: None required (public read endpoint).
 * **Returns**: Number of queued alphas on disk and in memory, pipeline status, and truncated formula previews.
 
+### E. Clean Queue & Inject Failures (Filter Rejects)
+* **HTTP Route**: `POST /api/clean-queue`
+* **Behavior**:
+  1. If optional `failed_alphas` are supplied in the request body, logs them directly into the database so they are classified as skipped in the future.
+  2. Scans the active simulation queue (`db/simulation_queue.json`) and instantly deletes any formulas that are recorded in the database as `HARD_REJECT`, `SOFT_FAIL`, or `ERROR`.
+  3. Purges deleted formulas from the live in-memory telemetry loop so they instantly vanish from the dashboard without needing a server restart!
+* **Payload Structure (Optional body to inject failures first)**:
+  ```json
+  {
+    "failed_alphas": [
+      {
+        "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(returns, 5)), 0), subindustry)",
+        "family": "Manual Failure Check",
+        "status": "HARD_REJECT",
+        "error_message": "Injected directly via secure API"
+      }
+    ]
+  }
+  }
+  ```
+* **PowerShell Example (Wiping known database failures from queue)**:
+  ```powershell
+  $headers = @{ "Authorization" = "Bearer yashthakreop"; "Content-Type" = "application/json" }
+  Invoke-RestMethod -Uri "https://world-quant.onrender.com/api/clean-queue" -Method POST -Headers $headers -Body '{}'
+  ```
+
 ---
 
 ## 🚨 11. Critical Syntax Rules & Gotchas
