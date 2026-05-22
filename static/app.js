@@ -428,6 +428,43 @@ filterPills.forEach(pill => {
     });
 });
 
+// WQ Session Expiry & Status Checker
+async function pollSession() {
+    try {
+        const r = await fetch("/api/session");
+        const sessionTimer = document.getElementById("session-timer");
+        const sessionBadge = document.getElementById("session-status");
+        if (!r.ok) {
+            if (sessionTimer) sessionTimer.textContent = "Session Error";
+            return;
+        }
+        const data = await r.json();
+        if (data.error) {
+            if (sessionTimer) sessionTimer.textContent = "No Session";
+            if (sessionBadge) {
+                sessionBadge.className = "session-badge expired";
+            }
+            return;
+        }
+        if (data.expired) {
+            if (sessionTimer) sessionTimer.textContent = "Session Expired";
+            if (sessionBadge) {
+                sessionBadge.className = "session-badge expired";
+            }
+        } else {
+            const mins = Math.floor(data.remaining_seconds / 60);
+            const hrs = Math.floor(mins / 60);
+            const displayTime = hrs > 0 ? `${hrs}h ${mins % 60}m remaining` : `${mins}m remaining`;
+            if (sessionTimer) sessionTimer.textContent = `Session Live: ${displayTime}`;
+            if (sessionBadge) {
+                sessionBadge.className = "session-badge live";
+            }
+        }
+    } catch (e) {
+        console.error("Error polling session status", e);
+    }
+}
+
 // Initialize Page
 window.addEventListener("DOMContentLoaded", () => {
     // Add initial log line in memory
@@ -435,7 +472,10 @@ window.addEventListener("DOMContentLoaded", () => {
     
     startEventStreams();
     fetchStats();
+    pollSession();
     
     // Poll stats table updates every 20 seconds to reduce API requests
     statsInterval = setInterval(fetchStats, 20000);
+    // Poll WQ Session status every 15 seconds
+    setInterval(pollSession, 15000);
 });

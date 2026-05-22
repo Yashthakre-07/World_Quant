@@ -815,3 +815,192 @@ body {
 .action-link.red-action:hover {
     color: #fca5a5;
 }
+
+/* ==========================================
+   PREMIUM HIGH-TECH & GLASSMORPHISM UPGRADES 
+   ========================================== */
+
+/* Header Layout & Right items */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Session Expiry Badge & Timer */
+.session-badge {
+    font-size: 0.775rem;
+    font-weight: 600;
+    padding: 0.45rem 1rem;
+    border-radius: 30px;
+    background: rgba(13, 13, 21, 0.5);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: 0.3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.01);
+}
+
+.session-badge .session-icon {
+    font-size: 0.9rem;
+    animation: spin-half 3s infinite alternate ease-in-out;
+}
+
+@keyframes spin-half {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(180deg); }
+}
+
+.session-badge.live {
+    background: rgba(16, 185, 129, 0.08);
+    color: #10b981;
+    border-color: rgba(16, 185, 129, 0.3);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.1), inset 0 1px 4px rgba(16, 185, 129, 0.05);
+}
+
+.session-badge.expired {
+    background: rgba(239, 68, 68, 0.08);
+    color: #f87171;
+    border-color: rgba(239, 68, 68, 0.3);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.1), inset 0 1px 4px rgba(239, 68, 68, 0.05);
+    animation: border-pulse-red 2s infinite alternate;
+}
+
+@keyframes border-pulse-red {
+    0% { border-color: rgba(239, 68, 68, 0.2); }
+    100% { border-color: rgba(239, 68, 68, 0.6); }
+}
+
+/* Beautiful Interactive Alphas List & Tables */
+.table-card {
+    background: rgba(10, 10, 15, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.table-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.table-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+}
+
+.card-header {
+    background: rgba(13, 13, 21, 0.4);
+    padding: 1.15rem 1.5rem;
+}
+
+.card-header h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    background: linear-gradient(to right, #ffffff, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.data-table th {
+    background: rgba(8, 8, 12, 0.7) !important;
+    text-transform: uppercase;
+    font-size: 0.675rem;
+    letter-spacing: 0.8px;
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+.data-table td {
+    padding: 1rem 1.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.data-table tr {
+    transition: all 0.2s ease;
+}
+
+.data-table tbody tr:hover td {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Beautiful Glowing Log Console */
+.console-wrapper {
+    background: rgba(4, 4, 8, 0.82) !important;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(245, 120, 2, 0.03); /* subtle orange sunset glow shadow */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.console-wrapper:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 50px rgba(245, 120, 2, 0.06);
+}
+
+.terminal-chrome {
+    background: rgba(10, 10, 15, 0.9) !important;
+    padding: 0.9rem 1.5rem;
+}
+
+.terminal-filter-bar {
+    background: rgba(6, 6, 12, 0.7) !important;
+    padding: 0.8rem 1.5rem;
+}
+
+.console-log {
+    background: rgba(3, 3, 5, 0.92) !important;
+    padding: 1.5rem;
+    font-size: 0.775rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Telemetry Tag chips look like microcontrollers */
+.log-tag {
+    font-size: 0.6rem;
+    border-radius: 6px;
+    padding: 2px 7px;
+    font-weight: 700;
+    box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.03);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.4px;
+}
+
+.tag-system { background: rgba(148, 163, 184, 0.08); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.25); }
+.tag-status { background: rgba(6, 182, 212, 0.08); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.25); }
+.tag-auth { background: rgba(168, 85, 247, 0.08); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.25); }
+.tag-generator { background: rgba(236, 72, 153, 0.08); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.25); }
+.tag-simulation { background: rgba(14, 165, 233, 0.08); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.25); }
+.tag-evaluator { background: rgba(234, 179, 8, 0.08); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.25); }
+.tag-submission { background: rgba(16, 185, 129, 0.08); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.25); }
+.tag-error { background: rgba(239, 68, 68, 0.1); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+.tag-warning { background: rgba(245, 158, 11, 0.08); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.25); }
+.tag-info { background: rgba(255, 255, 255, 0.03); color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.08); }
+
+.log-line {
+    padding: 0.25rem 0.6rem;
+    border-radius: 8px;
+}
+
+.log-line:hover {
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.log-gutter {
+    border-right: 1px solid rgba(255, 255, 255, 0.03);
+}
+
