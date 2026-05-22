@@ -70,5 +70,11 @@
     "hypothesis": "The lower candle shadow (min of open/close minus low) represents rejected bearish attempts and buying support. Large lower shadows signal strong demand at price lows and bullish reversal potential.",
     "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_decay_linear(min(open, close) - low, 5)), 0), subindustry)",
     "settings": { "decay": 5, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08 }
+  },
+  {
+    "family": "Volatility-Normalized Overnight Gap Reversion (Ultra)",
+    "hypothesis": "Overnight price gaps normalized by dynamic 10-day return volatility represent pure dislocation signals. By applying a 75% liquidity gate and a smooth 6-day decay, we minimize turnover and maximize risk-adjusted payout.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.0001), 6)), 0), subindustry)",
+    "settings": { "decay": 6, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08 }
   }
 ]
