@@ -860,7 +860,7 @@ DASHBOARD_HTML = """
 
 @app.route("/")
 def dashboard():
-    return render_template_string(DASHBOARD_HTML)
+    return app.send_static_file("index.html")
 
 @app.route("/api/status")
 def get_status():
