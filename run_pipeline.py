@@ -1053,6 +1053,63 @@ def queue_alpha():
         "skipped_details": skipped
     })
 
+@app.route("/api/clear-queue", methods=["POST"])
+def clear_queue():
+    """Secure endpoint: clear the entire queue on disk."""
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    if token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    queue_path = Path("db") / "simulation_queue.json"
+    try:
+        with open(queue_path, "w") as f:
+            json.dump([], f, indent=2)
+        log_message("INFO", "[API] Dynamic Queue cleared via API command.")
+        return jsonify({"status": "ok", "message": "Queue cleared successfully."})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/overwrite-queue", methods=["POST"])
+def overwrite_queue():
+    """Secure endpoint: overwrite the queue entirely with new alphas."""
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    if token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    try:
+        data = request.get_json(force=True)
+        if not isinstance(data, list):
+            data = [data]
+    except Exception as e:
+        return jsonify({"error": f"Invalid JSON: {e}"}), 400
+
+    queue_path = Path("db") / "simulation_queue.json"
+    new_queue = []
+    for item in data:
+        formula = item.get("formula", "").strip()
+        if not formula:
+            continue
+        new_queue.append({
+            "family": item.get("family", "API Overwritten"),
+            "hypothesis": item.get("hypothesis", "Injected via secure overwrite API"),
+            "formula": formula,
+            "settings": item.get("settings", {
+                "decay": 5, "neutralization": "SUBINDUSTRY",
+                "universe": "TOP3000", "truncation": 0.08
+            })
+        })
+
+    try:
+        queue_path.parent.mkdir(exist_ok=True)
+        with open(queue_path, "w") as f:
+            json.dump(new_queue, f, indent=2)
+        log_message("INFO", f"[API] Dynamic Queue overwritten with {len(new_queue)} alphas.")
+        return jsonify({"status": "ok", "overwritten_count": len(new_queue)})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 @app.route("/api/queue-status", methods=["GET"])
 def queue_status():
     """Returns a lightweight summary of the live queue — no auth needed for read."""
