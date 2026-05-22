@@ -365,3 +365,25 @@ This is the **#1 most common syntax error** that causes cluster compile failures
 * Every **60 seconds**, the script sends an HTTP GET request to its own `/api/queue-status` endpoint.
 * This creates a continuous stream of incoming traffic, ensuring the cloud container runs at peak performance indefinitely!
 
+---
+
+## 🖥️ 13. AlphaForge Desktop Quant Dev Panel (`desktop_control.py`)
+
+A direct command-line control panel running on your local PC that establishes a secure connection to your live Render server using standard Python libraries (no pip installs needed).
+
+### Core Capabilities:
+1. **📊 Check Server status & active queue**: Live telemetry readings and formatted preview lists.
+2. **➕ Queue new alpha**: Interactive builder to remotely append new formulas instantly.
+3. **❌ Filter failed/rejected alphas**: Scan the database cache and clear unsubmitted rejects from the queue.
+4. **🔄 Overwrite queue**: Reset the remote simulation queue with fresh targets.
+5. **⏸️ Stop pipeline execution**: Remotely pause the backtesting executor loop on Render.
+6. **▶️ Restart pipeline execution**: Remotely resume the backtester threads.
+7. **📥 Synchronize Remote Alphas directly to PC**: Scans successful simulated alpha JSONs on the server and downloads new ones straight to your local `/alphas` directory.
+
+### Quick Start:
+To launch the interactive control panel on your PC, execute this command from your terminal:
+```powershell
+python desktop_control.py
+```
+This utility automatically scans your local configuration (`sai.env`, `yash.env`, `.env`) to authenticate via your secure bearer secret token!
+
