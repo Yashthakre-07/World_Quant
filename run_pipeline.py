@@ -1476,7 +1476,7 @@ def get_api_stats():
             # 2. Merge with alpha_runs SQLite database (gives dynamic/failed runs too)
             try:
                 cursor.execute("""
-                SELECT run_id, family, formula, sharpe, fitness, turnover, status, error_message, alpha_link, created_at
+                SELECT run_id, family, formula, sharpe, fitness, turnover, status, error_message, alpha_link, timestamp
                 FROM alpha_runs
                 """)
                 for row in cursor.fetchall():
@@ -1639,7 +1639,7 @@ def robust_request(session, method, url, index=None, **kwargs):
             log_message("WARNING", f"{lbl}Network connection dropped. Patiently retrying in 30 seconds... (Reason: {e})")
             time.sleep(30)
 
-def simulate_task(index, task, session):
+def simulate_task(index, task, task_state, session):
     run_uuid = str(uuid.uuid4())[:8]
     family = task["family"]
     hypothesis = task["hypothesis"]
@@ -1652,16 +1652,16 @@ def simulate_task(index, task, session):
     cached = None
     if cached:
         log_message("INFO", f"Alpha #{index+1}: Found cached simulation result in database. Skipping repeat API submission.")
-        pipeline_state["alphas"][index]["status"] = cached["status"]
-        pipeline_state["alphas"][index]["progress"] = 100
-        pipeline_state["alphas"][index]["sharpe"] = cached["sharpe"]
-        pipeline_state["alphas"][index]["fitness"] = cached["fitness"]
-        pipeline_state["alphas"][index]["turnover"] = cached["turnover"]
-        pipeline_state["alphas"][index]["error_message"] = cached["error_message"]
+        task_state["status"] = cached["status"]
+        task_state["progress"] = 100
+        task_state["sharpe"] = cached["sharpe"]
+        task_state["fitness"] = cached["fitness"]
+        task_state["turnover"] = cached["turnover"]
+        task_state["error_message"] = cached["error_message"]
         return
 
-    pipeline_state["alphas"][index]["status"] = "SIMULATING"
-    pipeline_state["alphas"][index]["progress"] = 10
+    task_state["status"] = "SIMULATING"
+    task_state["progress"] = 10
     log_message("INFO", f"Alpha #{index+1}: Initiating simulation for {formula}")
 
     # Local Syntax and Operator validation
@@ -1670,8 +1670,8 @@ def simulate_task(index, task, session):
     if not is_valid:
         err_msg = f"Local Validation Failed: {err}"
         log_message("ERROR", f"Alpha #{index+1}: {err_msg}")
-        pipeline_state["alphas"][index]["status"] = "ERROR"
-        pipeline_state["alphas"][index]["error_message"] = err_msg
+        task_state["status"] = "ERROR"
+        task_state["error_message"] = err_msg
         save_alpha_run({
             "run_id": run_uuid, "family": family, "hypothesis": hypothesis, "formula": formula,
             "region": settings.get("region", "USA"),
@@ -1720,16 +1720,16 @@ def simulate_task(index, task, session):
             import random
             retry_wait = 30 + random.uniform(5, 15)
             log_message("WARNING", f"Alpha #{index+1}: Rate limit exceeded (HTTP 429). Jittered retry in {retry_wait:.1f} seconds...")
-            pipeline_state["alphas"][index]["status"] = "PENDING"
-            pipeline_state["alphas"][index]["progress"] = 0
+            task_state["status"] = "PENDING"
+            task_state["progress"] = 0
             time.sleep(retry_wait)
-            return simulate_task(index, task, session)  # Recursive retry
+            return simulate_task(index, task, task_state, session)  # Recursive retry
             
         if r.status_code not in [200, 201]:
             err_msg = f"HTTP {r.status_code}: {r.text}"
             log_message("ERROR", f"Alpha #{index+1} Submission failed: {err_msg}")
-            pipeline_state["alphas"][index]["status"] = "ERROR"
-            pipeline_state["alphas"][index]["error_message"] = err_msg
+            task_state["status"] = "ERROR"
+            task_state["error_message"] = err_msg
             save_alpha_run({
                 "run_id": run_uuid, "family": family, "hypothesis": hypothesis, "formula": formula,
                 "region": settings.get("region", "USA"),
@@ -1748,18 +1748,18 @@ def simulate_task(index, task, session):
         if 'Location' not in r.headers:
             err_msg = "Location header missing in API response."
             log_message("ERROR", f"Alpha #{index+1}: {err_msg}")
-            pipeline_state["alphas"][index]["status"] = "ERROR"
-            pipeline_state["alphas"][index]["error_message"] = err_msg
+            task_state["status"] = "ERROR"
+            task_state["error_message"] = err_msg
             return
 
         nxt_url = r.headers['Location']
-        pipeline_state["alphas"][index]["progress"] = 35
+        task_state["progress"] = 35
         log_message("INFO", f"Alpha #{index+1}: Simulation queued successfully. Link: {nxt_url}")
 
     except Exception as e:
         log_message("ERROR", f"Alpha #{index+1} Exception: {e}")
-        pipeline_state["alphas"][index]["status"] = "ERROR"
-        pipeline_state["alphas"][index]["error_message"] = str(e)
+        task_state["status"] = "ERROR"
+        task_state["error_message"] = str(e)
         return
 
     # Polling Loop
@@ -1783,14 +1783,14 @@ def simulate_task(index, task, session):
                 break
 
             progress = int(res.get('progress', 0) * 100)
-            pipeline_state["alphas"][index]["progress"] = max(35, progress)
+            task_state["progress"] = max(35, progress)
             log_message("INFO", f"Alpha #{index+1}: WorldQuant backtesting progress... {progress}%")
 
             if 'message' in res and 'error' in str(res.get('message', '')).lower():
                 err_msg = res['message']
                 log_message("ERROR", f"Alpha #{index+1} Syntax Check Failed: {err_msg}")
-                pipeline_state["alphas"][index]["status"] = "ERROR"
-                pipeline_state["alphas"][index]["error_message"] = err_msg
+                task_state["status"] = "ERROR"
+                task_state["error_message"] = err_msg
                 save_alpha_run({
                     "run_id": run_uuid, "family": family, "hypothesis": hypothesis, "formula": formula,
                     "region": settings.get("region", "USA"),
@@ -1809,14 +1809,14 @@ def simulate_task(index, task, session):
             log_message("ERROR", f"Alpha #{index+1} Polling error: {e}")
             retry_count += 1
             if retry_count > 10:
-                pipeline_state["alphas"][index]["status"] = "ERROR"
-                pipeline_state["alphas"][index]["error_message"] = f"Polling errors exceeded limit: {e}"
+                task_state["status"] = "ERROR"
+                task_state["error_message"] = f"Polling errors exceeded limit: {e}"
                 return
         time.sleep(15)
 
     # Simulation Complete - Retrieve metrics
-    pipeline_state["alphas"][index]["status"] = "EVALUATING"
-    pipeline_state["alphas"][index]["progress"] = 90
+    task_state["status"] = "EVALUATING"
+    task_state["progress"] = 90
     try:
         alpha_url = f"{WQ_ALPHAS_URL}/{alpha_id}"
         alpha_r = robust_request(session, "GET", alpha_url, index=index, timeout=30).json()
@@ -1857,11 +1857,11 @@ def simulate_task(index, task, session):
         }
 
         status = evaluate_alpha_metrics(sim_res)
-        pipeline_state["alphas"][index]["status"] = status
-        pipeline_state["alphas"][index]["progress"] = 100
-        pipeline_state["alphas"][index]["sharpe"] = sharpe
-        pipeline_state["alphas"][index]["fitness"] = fitness
-        pipeline_state["alphas"][index]["turnover"] = turnover
+        task_state["status"] = status
+        task_state["progress"] = 100
+        task_state["sharpe"] = sharpe
+        task_state["fitness"] = fitness
+        task_state["turnover"] = turnover
 
         run_data = {
             "run_id": run_uuid, "family": family, "hypothesis": hypothesis, "formula": formula,
@@ -1940,8 +1940,8 @@ def simulate_task(index, task, session):
                         except Exception:
                             err_detail = poll_sub.text[:200]
                         log_message("WARNING", f"Alpha #{index+1} submission REJECTED by WQ checks: {err_detail}")
-                        pipeline_state["alphas"][index]["status"] = "HARD_REJECT"
-                        pipeline_state["alphas"][index]["error_message"] = f"Submission check failed: {err_detail}"
+                        task_state["status"] = "HARD_REJECT"
+                        task_state["error_message"] = f"Submission check failed: {err_detail}"
                         send_whatsapp(
                             f"❌ ALPHA REJECTED\n"
                             f"Alpha #{index+1}: {family}\n"
@@ -1951,7 +1951,7 @@ def simulate_task(index, task, session):
                     else:
                         log_message("INFO", f"Alpha #{index+1}: Submission checks in progress... ({poll_i+1}/{poll_limit})")
                 
-                if not submitted_ok and pipeline_state["alphas"][index]["status"] != "HARD_REJECT":
+                if not submitted_ok and task_state["status"] != "HARD_REJECT":
                     log_message("WARNING", f"Alpha #{index+1}: Submission polling timed out after {poll_limit} attempts.")
             else:
                 err_msg = submit_r.text[:200]
@@ -1970,8 +1970,8 @@ def simulate_task(index, task, session):
 
     except Exception as e:
         log_message("ERROR", f"Alpha #{index+1} metric collection failed: {e}")
-        pipeline_state["alphas"][index]["status"] = "ERROR"
-        pipeline_state["alphas"][index]["error_message"] = str(e)
+        task_state["status"] = "ERROR"
+        task_state["error_message"] = str(e)
 
 
 def main():
@@ -2039,7 +2039,7 @@ def main():
                             idx = len(pipeline_state["alphas"])
                             
                             # Add to shared pipeline state dynamically
-                            pipeline_state["alphas"].append({
+                            task_state = {
                                 "formula": formula,
                                 "family": task["family"],
                                 "hypothesis": task["hypothesis"],
@@ -2049,19 +2049,20 @@ def main():
                                 "fitness": None,
                                 "turnover": None,
                                 "error_message": None
-                            })
+                            }
+                            pipeline_state["alphas"].append(task_state)
                             
                             log_message("INFO", f"Dynamic Queue: Detected and queued new alpha #{idx+1}: {formula}")
                             
                             # Submit task to ThreadPoolExecutor
                             # Slight offset on thread execution to avoid immediate post contention
-                            def make_runner(t_idx=idx, t_task=task):
+                            def make_runner(t_idx=idx, t_task=task, t_state=task_state):
                                 def task_runner():
                                     time.sleep(1.0)
-                                    simulate_task(t_idx, t_task, session)
+                                    simulate_task(t_idx, t_task, t_state, session)
                                 return task_runner
                             
-                            futures.append(executor.submit(make_runner(idx, task)))
+                            futures.append(executor.submit(make_runner(idx, task, task_state)))
                 
                 # Check for any completed alphas to log summaries
                 for idx, alpha in enumerate(pipeline_state["alphas"]):
