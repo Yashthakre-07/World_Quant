@@ -525,7 +525,36 @@ filterPills.forEach(pill => {
 
 // WQ Session Expiry & Status Checker
 async function pollSession() {
-    // Disabled re-authentication checking as requested by operator
+    try {
+        const r = await fetch("/api/session");
+        if (!r.ok) return;
+        const data = await r.json();
+        
+        const btn = document.getElementById("login-btn");
+        const btnText = document.getElementById("login-btn-text");
+        const btnIcon = document.getElementById("login-btn-icon");
+        
+        if (!btn) return;
+        
+        if (data.expired || data.error) {
+            if (btnText) btnText.textContent = "Login (Sai)";
+            if (btnIcon) btnIcon.textContent = "🔑";
+            btn.style.background = "linear-gradient(135deg, var(--primary-color), var(--cyan-color))";
+            btn.style.boxShadow = "0 0 10px rgba(6, 182, 212, 0.25)";
+        } else {
+            const rem = data.remaining_seconds;
+            const m = Math.floor(rem / 60);
+            const s = rem % 60;
+            const timeStr = `${m}m ${String(s).padStart(2, "0")}s`;
+            
+            if (btnText) btnText.textContent = `Sai Session Active (${timeStr})`;
+            if (btnIcon) btnIcon.textContent = "✅";
+            btn.style.background = "linear-gradient(135deg, var(--success-color), #059669)";
+            btn.style.boxShadow = "0 0 12px rgba(16, 185, 129, 0.35)";
+        }
+    } catch (e) {
+        console.error("Failed to poll session details", e);
+    }
 }
 
 // Fetch and render the active backtesting simulation queue
@@ -607,8 +636,10 @@ async function pollQueueStatus() {
     } catch (e) {
         console.error("Failed to poll queue status", e);
     }
+}
+
 // Re-authentication Interactive Flow
-const reauthBtn = document.getElementById("reauth-btn");
+const reauthBtn = document.getElementById("login-btn");
 if (reauthBtn) {
     const reauthModal = document.getElementById("reauth-modal");
     const reauthModalIcon = document.getElementById("reauth-modal-icon");
@@ -621,9 +652,13 @@ if (reauthBtn) {
     let reauthPollInterval = null;
 
     async function triggerReauth() {
+        const btnText = document.getElementById("login-btn-text");
+        const btnIcon = document.getElementById("login-btn-icon");
+
         appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Initiating interactive re-authentication request..." });
         reauthBtn.disabled = true;
-        reauthBtn.innerHTML = `🔑 Logging in...`;
+        if (btnText) btnText.textContent = "Logging in...";
+        if (btnIcon) btnIcon.textContent = "🔑";
         
         try {
             const r = await fetch("/api/reauthenticate", { method: "POST" });
@@ -634,12 +669,12 @@ if (reauthBtn) {
             
             if (data.status === "SUCCESS") {
                 appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Session verified! Authenticated successfully using saved state." });
-                reauthBtn.innerHTML = `🔑 Session Live`;
-                reauthBtn.style.background = "linear-gradient(135deg, #10b981, #059669)";
+                if (btnText) btnText.textContent = "Session Live";
+                if (btnIcon) btnIcon.textContent = "✅";
+                reauthBtn.style.background = "linear-gradient(135deg, var(--success-color), #059669)";
                 setTimeout(() => {
                     reauthBtn.disabled = false;
-                    reauthBtn.innerHTML = `🔑 Re-auth Session`;
-                    reauthBtn.style.background = "";
+                    pollSession(); // Restore remaining seconds countdown
                 }, 3000);
                 pollSession(); // Immediately update timer badge!
             } else if (data.status === "POLLING") {
@@ -683,8 +718,9 @@ if (reauthBtn) {
                             reauthModalLink.style.display = "none";
                             
                             reauthBtn.disabled = false;
-                            reauthBtn.innerHTML = `🔑 Session Live`;
-                            reauthBtn.style.background = "linear-gradient(135deg, #10b981, #059669)";
+                            if (btnText) btnText.textContent = "Session Live";
+                            if (btnIcon) btnIcon.textContent = "✅";
+                            reauthBtn.style.background = "linear-gradient(135deg, var(--success-color), #059669)";
                             
                             // Close modal after 2.5 seconds
                             setTimeout(() => {
@@ -704,8 +740,12 @@ if (reauthBtn) {
                             reauthModalLink.style.display = "none";
                             
                             reauthBtn.disabled = false;
-                            reauthBtn.innerHTML = `🔑 Re-auth Failed`;
+                            if (btnText) btnText.textContent = "Login Failed";
+                            if (btnIcon) btnIcon.textContent = "❌";
                             reauthBtn.style.background = "linear-gradient(135deg, #ef4444, #dc2626)";
+                            setTimeout(() => {
+                                pollSession();
+                            }, 3000);
                         }
                     } catch (pollErr) {
                         console.error("Error polling reauth status", pollErr);
@@ -717,8 +757,12 @@ if (reauthBtn) {
         } catch (err) {
             appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[AUTH] Authentication initiation failed: ${err.message}` });
             reauthBtn.disabled = false;
-            reauthBtn.innerHTML = `🔑 Re-auth Session`;
+            if (btnText) btnText.textContent = "Login Failed";
+            if (btnIcon) btnIcon.textContent = "❌";
             alert(`Authentication Initiation Failed:\n${err.message}`);
+            setTimeout(() => {
+                pollSession();
+            }, 3000);
         }
     }
 
@@ -727,10 +771,12 @@ if (reauthBtn) {
         if (reauthPollInterval) clearInterval(reauthPollInterval);
         reauthModal.style.display = "none";
         reauthBtn.disabled = false;
-        reauthBtn.innerHTML = `🔑 Re-auth Session`;
-        reauthBtn.style.background = "";
+        pollSession();
         appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Interactive re-authentication canceled by operator." });
     });
+
+    // Wire up button click
+    reauthBtn.addEventListener("click", triggerReauth);
 }
 
 // Dynamic Alpha Injector Integration
@@ -754,7 +800,7 @@ async function injectAlpha() {
     appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[SYSTEM] Injecting manual alpha formula into backtesting queue: ${formulaVal}` });
     
     try {
-        const res = await fetch("/api/queue-alpha", {
+        const res = await fetch("/api/queue-alpha-direct", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -794,7 +840,10 @@ async function injectAlpha() {
         alert(`Failed to inject alpha:\n${e.message}`);
     }
 }
-injSubmitBtn.addEventListener("click", injectAlpha);
+
+if (injSubmitBtn) {
+    injSubmitBtn.addEventListener("click", injectAlpha);
+}
 
 // Queue Clean Integration
 const cleanQueueBtn = document.getElementById("clean-queue-btn");
@@ -889,9 +938,133 @@ exportVaultBtn.addEventListener("click", () => {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    
-    appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[SYSTEM] CSV Portfolio exported successfully!" });
 });
+
+// WQ Review Inbox System Client-Side Integration
+async function pollInboxAlphas() {
+    try {
+        const res = await fetch("/api/inbox-alphas");
+        if (!res.ok) return;
+        const data = await res.json();
+        
+        const listContainer = document.getElementById("inbox-list");
+        const countBadge = document.getElementById("inbox-count");
+        
+        if (!listContainer) return;
+        
+        if (countBadge) {
+            countBadge.textContent = `${data.length} Pending`;
+            countBadge.style.display = data.length > 0 ? "inline-block" : "none";
+        }
+        
+        if (data.length === 0) {
+            listContainer.innerHTML = `<div style="text-align: center; color: var(--text-muted); font-size: 0.7rem; padding: 15px 0;">No pending API formulas to review.</div>`;
+            return;
+        }
+        
+        listContainer.innerHTML = "";
+        data.forEach((alpha, idx) => {
+            const card = document.createElement("div");
+            card.className = "alpha-card";
+            
+            // Standardized alpha-card styling structure (exact match to queue)
+            card.innerHTML = `
+                <div class="alpha-card-header">
+                    <span class="alpha-card-family" title="${escapeHTML(alpha.family || 'API Push')}">#${idx + 1}: ${escapeHTML(alpha.family || 'API Push')}</span>
+                    <button class="chrome-btn inbox-push-btn" style="padding: 3px 8px; font-size: 0.65rem; font-weight: 700; background: rgba(244, 63, 94, 0.15); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 4px; cursor: pointer; outline: none; transition: all 0.2s ease;">Push 🚀</button>
+                </div>
+                <div class="alpha-card-formula" title="${escapeHTML(alpha.formula)}">${escapeHTML(alpha.formula)}</div>
+                <div class="alpha-card-meta">
+                    <span style="font-size: 0.65rem; color: var(--text-muted); display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;" title="${escapeHTML(alpha.hypothesis || '')}">
+                        ${escapeHTML(alpha.hypothesis || 'No description provided.')}
+                    </span>
+                </div>
+            `;
+            
+            // Wire up premium hover states and click events for the button
+            const pushBtn = card.querySelector(".inbox-push-btn");
+            pushBtn.addEventListener("mouseenter", () => {
+                pushBtn.style.background = "#f43f5e";
+                pushBtn.style.color = "white";
+                pushBtn.style.boxShadow = "0 0 8px rgba(244, 63, 94, 0.4)";
+            });
+            pushBtn.addEventListener("mouseleave", () => {
+                pushBtn.style.background = "rgba(244, 63, 94, 0.15)";
+                pushBtn.style.color = "#f43f5e";
+                pushBtn.style.boxShadow = "none";
+            });
+            pushBtn.addEventListener("click", async () => {
+                pushBtn.disabled = true;
+                pushBtn.textContent = "⚙️...";
+                await pushInboxAlpha(alpha.formula);
+            });
+            
+            listContainer.appendChild(card);
+        });
+    } catch (e) {
+        console.error("Failed to poll inbox status", e);
+    }
+}
+
+async function pushInboxAlpha(formula) {
+    appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[INJECTOR] Manually pushing reviewed alpha into backtest queue: ${formula}` });
+    try {
+        const res = await fetch("/api/inject-inbox", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ formulas: [formula] })
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[INJECTOR] Alpha successfully pushed to dynamic backtest queue!" });
+        pollInboxAlphas();
+        pollQueueStatus();
+    } catch (e) {
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[INJECTOR] ERROR: Failed to push alpha: ${e.message}` });
+        alert(`Failed to push alpha:\n${e.message}`);
+    }
+}
+
+async function pushAllInbox() {
+    const count = parseInt(document.getElementById("inbox-count")?.textContent || "0");
+    if (count === 0) return;
+    
+    appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[INJECTOR] Push All triggered: Injecting all ${count} pending review alphas into active backtesting queue...` });
+    try {
+        const res = await fetch("/api/inject-inbox", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ all: true })
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[INJECTOR] Successfully pushed all ${count} alphas to dynamic backtesting queue!` });
+        pollInboxAlphas();
+        pollQueueStatus();
+    } catch (e) {
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[INJECTOR] ERROR: Batch push failed: ${e.message}` });
+        alert(`Batch push failed:\n${e.message}`);
+    }
+}
+
+async function clearInbox() {
+    const count = parseInt(document.getElementById("inbox-count")?.textContent || "0");
+    if (count === 0) return;
+    
+    if (!confirm(`Are you sure you want to discard and clear all ${count} pending API formulas?`)) {
+        return;
+    }
+    
+    try {
+        const res = await fetch("/api/clear-inbox", { method: "POST" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[INJECTOR] Discarded and cleared all pending review alphas from inbox." });
+        pollInboxAlphas();
+    } catch (e) {
+        console.error("Failed to clear inbox", e);
+    }
+}
 
 // Initialize Page
 window.addEventListener("DOMContentLoaded", () => {
@@ -902,6 +1075,17 @@ window.addEventListener("DOMContentLoaded", () => {
     fetchStats();
     pollSession();
     pollQueueStatus();
+    pollInboxAlphas();
+
+    // Wire up Review Inbox Controls
+    const inboxPushAllBtn = document.getElementById("inbox-push-all-btn");
+    if (inboxPushAllBtn) {
+        inboxPushAllBtn.addEventListener("click", pushAllInbox);
+    }
+    const inboxClearBtn = document.getElementById("inbox-clear-btn");
+    if (inboxClearBtn) {
+        inboxClearBtn.addEventListener("click", clearInbox);
+    }
 
     // Wire up Alpha Vault Tabs
     const vaultTabBtns = document.querySelectorAll(".vault-tab-btn");
@@ -929,4 +1113,6 @@ window.addEventListener("DOMContentLoaded", () => {
     setInterval(pollSession, 15000);
     // Poll active backtesting queue every 2 seconds
     setInterval(pollQueueStatus, 2000);
+    // Poll review inbox queue every 2 seconds
+    setInterval(pollInboxAlphas, 2000);
 });

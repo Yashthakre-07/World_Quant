@@ -3,7 +3,8 @@ import requests
 import time
 import webbrowser
 from pathlib import Path
-from src.config import WQ_AUTH_URL, WQ_EMAIL, WQ_PASSWORD
+from src.config import WQ_AUTH_URL
+import src.config
 from src.logger import agent_logger
 import logging
 
@@ -38,7 +39,7 @@ class WQSession(requests.Session):
         self.interactive = interactive
         
         # Unique cookie file based on email to support switching profiles
-        safe_email = WQ_EMAIL.replace("@", "_").replace(".", "_")
+        safe_email = src.config.WQ_EMAIL.replace("@", "_").replace(".", "_")
         self.cookies_path = Path(__file__).resolve().parent.parent / "db" / f"session_cookies_{safe_email}.json"
         
         # Try loading persisted cookies
@@ -51,7 +52,7 @@ class WQSession(requests.Session):
                 # GET /users/self is protected and returns 200 if logged in
                 r = self.get("https://api.worldquantbrain.com/users/self", timeout=15)
                 if r.status_code == 200:
-                    log_auth("INFO", f"[AUTH] Reused existing authenticated session for {WQ_EMAIL}!")
+                    log_auth("INFO", f"[AUTH] Reused existing authenticated session for {src.config.WQ_EMAIL}!")
                     is_authenticated = True
                 else:
                     log_auth("WARNING", f"[AUTH] Saved session cookies invalid or expired (status {r.status_code}).")
@@ -84,12 +85,12 @@ class WQSession(requests.Session):
             log_auth("WARNING", f"[AUTH] Failed to save session cookies: {e}")
 
     def authenticate(self):
-        if not WQ_EMAIL or not WQ_PASSWORD:
+        if not src.config.WQ_EMAIL or not src.config.WQ_PASSWORD:
             log_auth("ERROR", "[AUTH] Credentials not found in environment. Please set WQ_EMAIL and WQ_PASSWORD in your env file.")
             raise ValueError("Credentials missing.")
 
-        self.auth = (WQ_EMAIL, WQ_PASSWORD)
-        log_auth("INFO", f"[AUTH] Attempting authentication with WorldQuant Brain for user: {WQ_EMAIL}")
+        self.auth = (src.config.WQ_EMAIL, src.config.WQ_PASSWORD)
+        log_auth("INFO", f"[AUTH] Attempting authentication with WorldQuant Brain for user: {src.config.WQ_EMAIL}")
 
         try:
             r = self.post(WQ_AUTH_URL)

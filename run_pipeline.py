@@ -1010,7 +1010,16 @@ def get_status():
 def get_session():
     """Decode the session JWT and return expiry info."""
     try:
-        safe_email = WQ_EMAIL.replace("@", "_").replace(".", "_") if WQ_EMAIL else "default"
+        # Load Sai's email dynamically from sai.env to always check the correct profile!
+        sai_email = ""
+        sai_env_path = Path("sai.env")
+        if sai_env_path.exists():
+            from dotenv import dotenv_values
+            sai_config = dotenv_values(sai_env_path)
+            sai_email = sai_config.get("WQ_EMAIL", "")
+            
+        email_to_check = sai_email if sai_email else WQ_EMAIL
+        safe_email = email_to_check.replace("@", "_").replace(".", "_") if email_to_check else "default"
         active_cookie_file = Path("db") / f"session_cookies_{safe_email}.json"
         
         if active_cookie_file.exists():
@@ -1045,12 +1054,27 @@ def get_session():
 def reauthenticate():
     global active_session, reauth_thread
     
-    # Prevent duplicate polling threads
-    if reauth_state["status"] == "POLLING":
-        return jsonify(reauth_state)
-        
+    # Always reset state for a fresh attempt
+    reauth_state["status"] = "IDLE"
+    reauth_state["url"] = ""
+    reauth_state["error"] = ""
+    
     try:
         from src.auth import WQSession, PersonaRequiredException
+        import src.auth
+        import src.config
+        from dotenv import load_dotenv
+        
+        # Explicitly load Sai's environment variables
+        sai_env_path = Path("sai.env")
+        if sai_env_path.exists():
+            load_dotenv(sai_env_path, override=True)
+            
+        # Update config and auth module variables dynamically
+        src.config.WQ_EMAIL = os.getenv("WQ_EMAIL", "")
+        src.config.WQ_PASSWORD = os.getenv("WQ_PASSWORD", "")
+        src.auth.WQ_EMAIL = src.config.WQ_EMAIL
+        src.auth.WQ_PASSWORD = src.config.WQ_PASSWORD
         
         reauth_state["status"] = "POLLING"
         reauth_state["url"] = ""
@@ -1108,7 +1132,7 @@ def reauth_status():
 
 @app.route("/api/queue-alpha", methods=["POST"])
 def queue_alpha():
-    """Secure endpoint: inject new alphas into the live queue from this chat.
+    """Secure endpoint: push new alphas from API client to review inbox.
     Requires Bearer token matching API_SECRET_TOKEN env var.
     Body: [{"formula": "...", "family": "...", "hypothesis": "...", "settings": {...}}]
     """
@@ -1127,10 +1151,20 @@ def queue_alpha():
     except Exception as e:
         return jsonify({"error": f"Invalid JSON: {e}"}), 400
 
-    # --- Validate and append each alpha ---
+    # --- Validate and append each alpha to inbox_queue ---
     added = []
     skipped = []
+    inbox_path = Path("db") / "inbox_queue.json"
     queue_path = Path("db") / "simulation_queue.json"
+
+    # Load current inbox
+    existing_inbox = []
+    if inbox_path.exists():
+        try:
+            with open(inbox_path) as f:
+                existing_inbox = json.load(f)
+        except Exception:
+            existing_inbox = []
 
     # Load current queue from disk
     existing_queue = []
@@ -1141,9 +1175,10 @@ def queue_alpha():
         except Exception:
             existing_queue = []
 
-    existing_formulas = {a.get("formula", "") for a in existing_queue}
+    existing_formulas = {a.get("formula", "").strip() for a in existing_inbox}
+    existing_formulas.update(a.get("formula", "").strip() for a in existing_queue)
     # Also skip formulas already in memory
-    existing_formulas.update(a["formula"] for a in pipeline_state["alphas"])
+    existing_formulas.update(a["formula"].strip() for a in pipeline_state["alphas"])
 
     for item in data:
         formula = item.get("formula", "").strip()
@@ -1151,7 +1186,7 @@ def queue_alpha():
             skipped.append({"reason": "Missing formula", "item": item})
             continue
         if formula in existing_formulas:
-            skipped.append({"reason": "Already queued", "formula": formula})
+            skipped.append({"reason": "Already queued or in inbox", "formula": formula})
             continue
 
         task = {
@@ -1164,16 +1199,16 @@ def queue_alpha():
             })
         }
 
-        # Append to disk queue
-        existing_queue.append(task)
+        # Append to disk inbox
+        existing_inbox.append(task)
         existing_formulas.add(formula)
         added.append(formula)
-        log_message("INFO", f"[API] Queued new alpha via API bridge: {formula[:80]}...")
+        log_message("INFO", f"[API] Received alpha into review inbox: {formula[:80]}...")
 
-    # Save updated queue to disk
-    queue_path.parent.mkdir(exist_ok=True)
-    with open(queue_path, "w") as f:
-        json.dump(existing_queue, f, indent=2)
+    # Save updated inbox to disk
+    inbox_path.parent.mkdir(exist_ok=True)
+    with open(inbox_path, "w") as f:
+        json.dump(existing_inbox, f, indent=2)
 
     return jsonify({
         "status": "ok",
@@ -1182,6 +1217,147 @@ def queue_alpha():
         "added_formulas": added,
         "skipped_details": skipped
     })
+
+@app.route("/api/queue-alpha-direct", methods=["POST"])
+def queue_alpha_direct():
+    """Secure direct manual entry: bypassed review inbox."""
+    is_same_origin = request.referrer and request.referrer.startswith(request.url_root)
+    if not is_same_origin:
+        return jsonify({"error": "Unauthorized"}), 401
+        
+    try:
+        item = request.get_json(force=True)
+    except Exception as e:
+        return jsonify({"error": f"Invalid JSON: {e}"}), 400
+        
+    formula = item.get("formula", "").strip()
+    if not formula:
+        return jsonify({"error": "Missing formula"}), 400
+        
+    queue_path = Path("db") / "simulation_queue.json"
+    
+    # Load current active queue
+    active_queue = []
+    if queue_path.exists():
+        try:
+            with open(queue_path, "r") as f:
+                active_queue = json.load(f)
+        except Exception:
+            pass
+            
+    existing_formulas = {a.get("formula", "").strip() for a in active_queue}
+    existing_formulas.update(a["formula"].strip() for a in pipeline_state["alphas"])
+    
+    if formula in existing_formulas:
+        return jsonify({"error": "Already queued or simulating"}), 400
+        
+    task = {
+        "family": item.get("family", "Manual Entry"),
+        "hypothesis": item.get("hypothesis", "Direct manual entry"),
+        "formula": formula,
+        "settings": item.get("settings", {
+            "decay": 5, "neutralization": "SUBINDUSTRY",
+            "universe": "TOP3000", "truncation": 0.08
+        })
+    }
+    
+    active_queue.append(task)
+    
+    queue_path.parent.mkdir(exist_ok=True)
+    with open(queue_path, "w") as f:
+        json.dump(active_queue, f, indent=2)
+        
+    log_message("INFO", f"[INJECTOR] Manually queued alpha directly: {formula[:80]}...")
+    return jsonify({"status": "ok"})
+
+@app.route("/api/inbox-alphas", methods=["GET"])
+def get_inbox_alphas():
+    inbox_path = Path("db") / "inbox_queue.json"
+    alphas = []
+    if inbox_path.exists():
+        try:
+            with open(inbox_path, "r") as f:
+                alphas = json.load(f)
+        except Exception:
+            alphas = []
+    return jsonify(alphas)
+
+@app.route("/api/inject-inbox", methods=["POST"])
+def inject_inbox():
+    try:
+        data = request.get_json(force=True)
+    except Exception:
+        data = {}
+        
+    inbox_path = Path("db") / "inbox_queue.json"
+    queue_path = Path("db") / "simulation_queue.json"
+    
+    inbox_alphas = []
+    if inbox_path.exists():
+        try:
+            with open(inbox_path, "r") as f:
+                inbox_alphas = json.load(f)
+        except Exception:
+            pass
+            
+    # Load current active queue
+    active_queue = []
+    if queue_path.exists():
+        try:
+            with open(queue_path, "r") as f:
+                active_queue = json.load(f)
+        except Exception:
+            pass
+            
+    existing_formulas = {a.get("formula", "").strip() for a in active_queue}
+    
+    # Filter which ones to inject
+    target_formulas = data.get("formulas", [])
+    inject_all = data.get("all", False)
+    
+    to_inject = []
+    remaining_inbox = []
+    
+    for item in inbox_alphas:
+        formula = item.get("formula", "").strip()
+        if inject_all or (formula in target_formulas):
+            if formula and formula not in existing_formulas:
+                to_inject.append(item)
+                existing_formulas.add(formula)
+        else:
+            remaining_inbox.append(item)
+            
+    if to_inject:
+        active_queue.extend(to_inject)
+        # Save updated active queue to disk
+        queue_path.parent.mkdir(exist_ok=True)
+        with open(queue_path, "w") as f:
+            json.dump(active_queue, f, indent=2)
+            
+        # Log to system console
+        for item in to_inject:
+            log_message("INFO", f"[INJECTOR] Pushed alpha to backtest queue: {item['formula'][:80]}...")
+            
+    # Save remaining in inbox
+    with open(inbox_path, "w") as f:
+        json.dump(remaining_inbox, f, indent=2)
+        
+    return jsonify({
+        "status": "ok",
+        "injected_count": len(to_inject),
+        "remaining_count": len(remaining_inbox)
+    })
+
+@app.route("/api/clear-inbox", methods=["POST"])
+def clear_inbox():
+    inbox_path = Path("db") / "inbox_queue.json"
+    try:
+        with open(inbox_path, "w") as f:
+            json.dump([], f, indent=2)
+        log_message("INFO", "[API] Inbox queue cleared by operator.")
+        return jsonify({"status": "ok"})
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 @app.route("/api/clear-queue", methods=["POST"])
 def clear_queue():
@@ -2196,7 +2372,7 @@ def main():
                             def make_runner(t_idx=idx, t_task=task, t_state=task_state):
                                 def task_runner():
                                     time.sleep(1.0)
-                                    simulate_task(t_idx, t_task, t_state, session)
+                                    simulate_task(t_idx, t_task, t_state, active_session)
                                 return task_runner
                             
                             futures.append(executor.submit(make_runner(idx, task, task_state)))
