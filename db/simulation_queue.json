@@ -108,5 +108,55 @@
       "universe": "TOP3000",
       "truncation": 0.08
     }
+  },
+  {
+    "formula": "close ++* high / (low -- open) * 1",
+    "family": "Faulty Alphas",
+    "hypothesis": "Test invalid syntax validation 1"
+  },
+  {
+    "formula": "close ++* high / (low -- open) * 2",
+    "family": "Faulty Alphas",
+    "hypothesis": "Test invalid syntax validation 2"
+  },
+  {
+    "formula": "close ++* high / (low -- open) * 3",
+    "family": "Faulty Alphas",
+    "hypothesis": "Test invalid syntax validation 3"
+  },
+  {
+    "formula": "close ++* high / (low -- open) * 4",
+    "family": "Faulty Alphas",
+    "hypothesis": "Test invalid syntax validation 4"
+  },
+  {
+    "formula": "close ++* high / (low -- open) * 5",
+    "family": "Faulty Alphas",
+    "hypothesis": "Test invalid syntax validation 5"
+  },
+  {
+    "formula": "close ++* high / (low -- open) * 6",
+    "family": "Faulty Alphas",
+    "hypothesis": "Test invalid syntax validation 6"
+  },
+  {
+    "formula": "close ++* high / (low -- open) * 7",
+    "family": "Faulty Alphas",
+    "hypothesis": "Test invalid syntax validation 7"
+  },
+  {
+    "formula": "close ++* high / (low -- open) * 8",
+    "family": "Faulty Alphas",
+    "hypothesis": "Test invalid syntax validation 8"
+  },
+  {
+    "formula": "close ++* high / (low -- open) * 9",
+    "family": "Faulty Alphas",
+    "hypothesis": "Test invalid syntax validation 9"
+  },
+  {
+    "formula": "close ++* high / (low -- open) * 10",
+    "family": "Faulty Alphas",
+    "hypothesis": "Test invalid syntax validation 10"
   }
 ]
