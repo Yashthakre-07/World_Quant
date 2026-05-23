@@ -5,6 +5,25 @@ import webbrowser
 from pathlib import Path
 from src.config import WQ_AUTH_URL, WQ_EMAIL, WQ_PASSWORD
 from src.logger import agent_logger
+import logging
+
+log_callback = None
+
+def set_log_callback(cb):
+    global log_callback
+    log_callback = cb
+
+def log_auth(level, msg):
+    # Log to native python agent logger
+    lvl = logging.ERROR if level == "ERROR" else (logging.WARNING if level == "WARNING" else logging.INFO)
+    agent_logger.log(lvl, msg)
+    
+    # Push to pipeline state log stream if registered
+    if log_callback:
+        try:
+            log_callback(level, msg)
+        except Exception:
+            pass
 
 class PersonaRequiredException(Exception):
     def __init__(self, url, inquiry_payload):
@@ -32,12 +51,12 @@ class WQSession(requests.Session):
                 # GET /users/self is protected and returns 200 if logged in
                 r = self.get("https://api.worldquantbrain.com/users/self", timeout=15)
                 if r.status_code == 200:
-                    agent_logger.info(f"[AUTH] Reused existing authenticated session for {WQ_EMAIL}!")
+                    log_auth("INFO", f"[AUTH] Reused existing authenticated session for {WQ_EMAIL}!")
                     is_authenticated = True
                 else:
-                    agent_logger.warning(f"[AUTH] Saved session cookies invalid or expired (status {r.status_code}).")
+                    log_auth("WARNING", f"[AUTH] Saved session cookies invalid or expired (status {r.status_code}).")
             except Exception as e:
-                agent_logger.warning(f"[AUTH] Failed to verify saved session: {e}")
+                log_auth("WARNING", f"[AUTH] Failed to verify saved session: {e}")
                 
         if not is_authenticated:
             self.authenticate()
@@ -48,10 +67,10 @@ class WQSession(requests.Session):
                 with open(self.cookies_path, "r") as f:
                     cookies = json.load(f)
                     self.cookies.update(cookies)
-                agent_logger.info(f"[AUTH] Loaded cookies from {self.cookies_path.name}")
+                log_auth("INFO", f"[AUTH] Loaded cookies from {self.cookies_path.name}")
                 return True
             except Exception as e:
-                agent_logger.warning(f"[AUTH] Failed to load cookies: {e}")
+                log_auth("WARNING", f"[AUTH] Failed to load cookies: {e}")
         return False
 
     def save_persisted_cookies(self):
@@ -60,22 +79,22 @@ class WQSession(requests.Session):
             cookies_dict = requests.utils.dict_from_cookiejar(self.cookies)
             with open(self.cookies_path, "w") as f:
                 json.dump(cookies_dict, f, indent=2)
-            agent_logger.info(f"[AUTH] Saved authenticated session cookies to {self.cookies_path.name}")
+            log_auth("INFO", f"[AUTH] Saved authenticated session cookies to {self.cookies_path.name}")
         except Exception as e:
-            agent_logger.warning(f"[AUTH] Failed to save session cookies: {e}")
+            log_auth("WARNING", f"[AUTH] Failed to save session cookies: {e}")
 
     def authenticate(self):
         if not WQ_EMAIL or not WQ_PASSWORD:
-            agent_logger.error("[AUTH] Credentials not found in environment. Please set WQ_EMAIL and WQ_PASSWORD in your env file.")
+            log_auth("ERROR", "[AUTH] Credentials not found in environment. Please set WQ_EMAIL and WQ_PASSWORD in your env file.")
             raise ValueError("Credentials missing.")
 
         self.auth = (WQ_EMAIL, WQ_PASSWORD)
-        agent_logger.info(f"[AUTH] Attempting authentication with WorldQuant Brain for user: {WQ_EMAIL}")
+        log_auth("INFO", f"[AUTH] Attempting authentication with WorldQuant Brain for user: {WQ_EMAIL}")
 
         try:
             r = self.post(WQ_AUTH_URL)
             if r.status_code == 201 or 'user' in r.json():
-                agent_logger.info("[AUTH] Successfully logged in to WorldQuant Brain!")
+                log_auth("INFO", "[AUTH] Successfully logged in to WorldQuant Brain!")
                 self.login_expired = False
                 self.save_persisted_cookies()
             elif 'inquiry' in r.json():
@@ -91,23 +110,23 @@ class WQSession(requests.Session):
 
                 if is_headless:
                     # On Render: log the URL and poll automatically until verified
-                    agent_logger.warning("=" * 60)
-                    agent_logger.warning("[AUTH] BIOMETRIC VERIFICATION REQUIRED!")
-                    agent_logger.warning(f"[AUTH] Open this URL in your browser to verify:")
-                    agent_logger.warning(f"[AUTH] >>> {biometric_url} <<<")
-                    agent_logger.warning("[AUTH] Polling for verification every 10 seconds...")
-                    agent_logger.warning("=" * 60)
+                    log_auth("WARNING", "=" * 60)
+                    log_auth("WARNING", "[AUTH] BIOMETRIC VERIFICATION REQUIRED!")
+                    log_auth("WARNING", f"[AUTH] Open this URL in your browser to verify:")
+                    log_auth("WARNING", f"[AUTH] >>> {biometric_url} <<<")
+                    log_auth("WARNING", "[AUTH] Polling for verification every 10 seconds...")
+                    log_auth("WARNING", "=" * 60)
                     verified = False
                     for attempt in range(60):  # Wait up to 10 minutes
                         time.sleep(10)
                         p_r = self.post(f"https://api.worldquantbrain.com/authentication/persona", json=r.json())
                         if p_r.status_code == 201:
-                            agent_logger.info("[AUTH] Biometric verification confirmed! Logged in successfully.")
+                            log_auth("INFO", "[AUTH] Biometric verification confirmed! Logged in successfully.")
                             self.login_expired = False
                             self.save_persisted_cookies()
                             verified = True
                             break
-                        agent_logger.info(f"[AUTH] Waiting for browser verification... (attempt {attempt+1}/60)")
+                        log_auth("INFO", f"[AUTH] Waiting for browser verification... (attempt {attempt+1}/60)")
                     if not verified:
                         raise ValueError("Biometric verification timed out after 10 minutes.")
                 else:
@@ -116,15 +135,15 @@ class WQSession(requests.Session):
                     input(f"Complete verification at: {biometric_url}\nThen press Enter here to continue...")
                     p_r = self.post(f"https://api.worldquantbrain.com/authentication/persona", json=r.json())
                     if p_r.status_code == 201:
-                        agent_logger.info("[AUTH] Successfully logged in to WorldQuant Brain after Persona verification!")
+                        log_auth("INFO", "[AUTH] Successfully logged in to WorldQuant Brain after Persona verification!")
                         self.login_expired = False
                         self.save_persisted_cookies()
                     else:
                         raise ValueError(f"Persona verification failed: {p_r.text}")
             else:
                 resp_json = r.json()
-                agent_logger.error(f"[AUTH] Authentication response warning: {resp_json}")
+                log_auth("ERROR", f"[AUTH] Authentication response warning: {resp_json}")
                 raise ValueError(f"Login failed: {resp_json}")
         except Exception as e:
-            agent_logger.error(f"[AUTH] Error during authentication: {e}")
+            log_auth("ERROR", f"[AUTH] Error during authentication: {e}")
             raise e

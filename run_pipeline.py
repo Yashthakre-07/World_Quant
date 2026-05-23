@@ -91,6 +91,9 @@ def log_message(level, msg):
     print(full_msg)
     pipeline_state["logs"].append(full_msg)
 
+from src.auth import set_log_callback
+set_log_callback(log_message)
+
 # HTML Dashboard Template
 DASHBOARD_HTML = """
 <!DOCTYPE html>
