@@ -1,0 +1,25 @@
+{
+  "alpha_id": "9qJ0Nrrq",
+  "family": "TS Rank Returns 10-Day",
+  "fitness": 0.57,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(ts_rank(returns, 10), 8)), 0), subindustry)",
+  "hypothesis": "ts_rank(returns, 10) ranks today's return within last 10 days. Changes slowly day to day, producing stable positions.",
+  "settings": {
+    "decay": 8,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.33,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 07:40:15",
+  "turnover": 32.96
+}

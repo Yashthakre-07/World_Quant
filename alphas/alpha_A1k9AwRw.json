@@ -1,0 +1,25 @@
+{
+  "alpha_id": "A1k9AwRw",
+  "family": "Signed Intraday Spread Reversion",
+  "fitness": 0.7,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((high - low) / (ts_mean(high - low, 20) + 0.001)) * returns, 5)), 0), subindustry)",
+  "hypothesis": "Standardized intraday high-to-low range signed by daily return captures volatility exhaustion on high-conviction days.",
+  "settings": {
+    "decay": 5,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.36,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-22 10:02:43",
+  "turnover": 36.980000000000004
+}

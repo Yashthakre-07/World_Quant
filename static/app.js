@@ -639,7 +639,289 @@ async function pollQueueStatus() {
     } catch (e) {
         console.error("Failed to poll queue status", e);
     }
+// Re-authentication Interactive Flow
+const reauthBtn = document.getElementById("reauth-btn");
+const reauthModal = document.getElementById("reauth-modal");
+const reauthModalIcon = document.getElementById("reauth-modal-icon");
+const reauthModalTitle = document.getElementById("reauth-modal-title");
+const reauthModalText = document.getElementById("reauth-modal-text");
+const reauthModalLink = document.getElementById("reauth-modal-link");
+const reauthModalLoader = document.getElementById("reauth-modal-loader");
+const reauthModalClose = document.getElementById("reauth-modal-close");
+
+let reauthPollInterval = null;
+
+async function triggerReauth() {
+    appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Initiating interactive re-authentication request..." });
+    reauthBtn.disabled = true;
+    reauthBtn.innerHTML = `🔑 Logging in...`;
+    
+    try {
+        const r = await fetch("/api/reauthenticate", { method: "POST" });
+        if (!r.ok) {
+            throw new Error(`HTTP ${r.status}`);
+        }
+        const data = await r.json();
+        
+        if (data.status === "SUCCESS") {
+            appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Session verified! Authenticated successfully using saved state." });
+            reauthBtn.innerHTML = `🔑 Session Live`;
+            reauthBtn.style.background = "linear-gradient(135deg, #10b981, #059669)";
+            setTimeout(() => {
+                reauthBtn.disabled = false;
+                reauthBtn.innerHTML = `🔑 Re-auth Session`;
+                reauthBtn.style.background = "";
+            }, 3000);
+            pollSession(); // Immediately update timer badge!
+        } else if (data.status === "POLLING") {
+            // Persona challenge required!
+            const biometricUrl = data.url;
+            appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[AUTH] Biometric verification challenge generated. Redirecting to: ${biometricUrl}` });
+            
+            // 1. Set modal attributes
+            reauthModalLink.href = biometricUrl;
+            reauthModalIcon.textContent = "🔐";
+            reauthModalIcon.style.animation = "pulse 2s infinite";
+            reauthModalTitle.textContent = "Biometric Verification Required";
+            reauthModalText.innerHTML = `WorldQuant requires Persona biometric verification to securely authenticate your session.<br><strong style="color: #fca5a5; font-weight: bold;">Please complete verification in the new tab.</strong>`;
+            reauthModalLoader.style.display = "flex";
+            reauthModalLink.style.display = "inline-block";
+            
+            // 2. Open Persona in a new tab immediately
+            window.open(biometricUrl, "_blank");
+            
+            // 3. Open Modal
+            reauthModal.style.display = "flex";
+            
+            // 4. Start polling for confirmation
+            if (reauthPollInterval) clearInterval(reauthPollInterval);
+            reauthPollInterval = setInterval(async () => {
+                try {
+                    const statusRes = await fetch("/api/reauth-status");
+                    if (!statusRes.ok) return;
+                    const statusData = await statusRes.json();
+                    
+                    if (statusData.status === "SUCCESS") {
+                        clearInterval(reauthPollInterval);
+                        appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Persona biometric verification confirmed! Session successfully updated." });
+                        
+                        // Update Modal to Success State
+                        reauthModalIcon.textContent = "✅";
+                        reauthModalIcon.style.animation = "";
+                        reauthModalTitle.textContent = "Verification Complete!";
+                        reauthModalText.textContent = "Your WorldQuant Brain session is now fully authenticated and active.";
+                        reauthModalLoader.style.display = "none";
+                        reauthModalLink.style.display = "none";
+                        
+                        reauthBtn.disabled = false;
+                        reauthBtn.innerHTML = `🔑 Session Live`;
+                        reauthBtn.style.background = "linear-gradient(135deg, #10b981, #059669)";
+                        
+                        // Close modal after 2.5 seconds
+                        setTimeout(() => {
+                            reauthModal.style.display = "none";
+                            pollSession();
+                        }, 2500);
+                    } else if (statusData.status === "ERROR") {
+                        clearInterval(reauthPollInterval);
+                        appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[AUTH] Re-authentication failed: ${statusData.error}` });
+                        
+                        // Update Modal to Error State
+                        reauthModalIcon.textContent = "❌";
+                        reauthModalIcon.style.animation = "";
+                        reauthModalTitle.textContent = "Verification Failed";
+                        reauthModalText.textContent = statusData.error || "A problem occurred during biometric verification.";
+                        reauthModalLoader.style.display = "none";
+                        reauthModalLink.style.display = "none";
+                        
+                        reauthBtn.disabled = false;
+                        reauthBtn.innerHTML = `🔑 Re-auth Failed`;
+                        reauthBtn.style.background = "linear-gradient(135deg, #ef4444, #dc2626)";
+                    }
+                } catch (pollErr) {
+                    console.error("Error polling reauth status", pollErr);
+                }
+            }, 3000);
+        } else {
+            throw new Error(data.error || "Unknown authentication state");
+        }
+    } catch (err) {
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[AUTH] Authentication initiation failed: ${err.message}` });
+        reauthBtn.disabled = false;
+        reauthBtn.innerHTML = `🔑 Re-auth Session`;
+        alert(`Authentication Initiation Failed:\n${err.message}`);
+    }
 }
+
+// Close Modal Bindings
+reauthModalClose.addEventListener("click", () => {
+    if (reauthPollInterval) clearInterval(reauthPollInterval);
+    reauthModal.style.display = "none";
+    reauthBtn.disabled = false;
+    reauthBtn.innerHTML = `🔑 Re-auth Session`;
+    reauthBtn.style.background = "";
+    appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Interactive re-authentication canceled by operator." });
+});
+
+// Dynamic Alpha Injector Integration
+const injFormula = document.getElementById("inj-formula");
+const injFamily = document.getElementById("inj-family");
+const injHypothesis = document.getElementById("inj-hypothesis");
+const injSubmitBtn = document.getElementById("inj-submit-btn");
+
+async function injectAlpha() {
+    const formulaVal = injFormula.value.trim();
+    const familyVal = injFamily.value.trim() || "Dynamic Entry";
+    const hypothesisVal = injHypothesis.value.trim() || "Manual formula injection";
+    
+    if (!formulaVal) {
+        alert("Please enter a mathematical formula before injecting!");
+        return;
+    }
+    
+    injSubmitBtn.disabled = true;
+    injSubmitBtn.innerHTML = `⚙️ Injecting...`;
+    appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[SYSTEM] Injecting manual alpha formula into backtesting queue: ${formulaVal}` });
+    
+    try {
+        const res = await fetch("/api/queue-alpha", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                formula: formulaVal,
+                family: familyVal,
+                hypothesis: hypothesisVal
+            })
+        });
+        
+        if (!res.ok) {
+            const errData = await res.json();
+            throw new Error(errData.error || `HTTP ${res.status}`);
+        }
+        
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[SYSTEM] Alpha successfully injected into dynamic backtesting queue!" });
+        injFormula.value = "";
+        injFamily.value = "";
+        injHypothesis.value = "";
+        
+        // Refresh queue status immediately
+        pollQueueStatus();
+        
+        // Success micro-animation
+        const originalBg = injSubmitBtn.style.background;
+        injSubmitBtn.style.background = "linear-gradient(135deg, #10b981, #059669)";
+        injSubmitBtn.innerHTML = `✅ Injected Successfully!`;
+        setTimeout(() => {
+            injSubmitBtn.disabled = false;
+            injSubmitBtn.innerHTML = `🚀 Inject into Backtest Queue`;
+            injSubmitBtn.style.background = originalBg;
+        }, 2000);
+        
+    } catch (e) {
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[SYSTEM] ERROR: Injection failed: ${e.message}` });
+        injSubmitBtn.disabled = false;
+        injSubmitBtn.innerHTML = `🚀 Inject into Backtest Queue`;
+        alert(`Failed to inject alpha:\n${e.message}`);
+    }
+}
+injSubmitBtn.addEventListener("click", injectAlpha);
+
+// Queue Clean Integration
+const cleanQueueBtn = document.getElementById("clean-queue-btn");
+cleanQueueBtn.addEventListener("click", async () => {
+    cleanQueueBtn.disabled = true;
+    cleanQueueBtn.innerHTML = `🧹 Cleaning...`;
+    appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[SYSTEM] Cleaning dynamic queue (removing errored & failed alphas)..." });
+    
+    try {
+        const res = await fetch("/api/clean-queue", { method: "POST" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[SYSTEM] Dynamic queue cleaned successfully." });
+        pollQueueStatus();
+    } catch (e) {
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[SYSTEM] ERROR: Failed to clean queue: ${e.message}` });
+        alert(`Failed to clean queue: ${e.message}`);
+    } finally {
+        cleanQueueBtn.disabled = false;
+        cleanQueueBtn.innerHTML = `🧹 Clean`;
+    }
+});
+
+// Queue Purge Integration
+const purgeQueueBtn = document.getElementById("purge-queue-btn");
+purgeQueueBtn.addEventListener("click", async () => {
+    if (!confirm("⚠️ WARNING!\nAre you sure you want to completely PURGE all pending and simulated alphas from the queue?\nThis action cannot be undone.")) {
+        return;
+    }
+    
+    purgeQueueBtn.disabled = true;
+    purgeQueueBtn.innerHTML = `🗑️ Purging...`;
+    appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[SYSTEM] Initiating complete purge of dynamic backtesting queue..." });
+    
+    try {
+        const res = await fetch("/api/clear-queue", { method: "POST" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[SYSTEM] Dynamic queue fully purged." });
+        
+        // Hard-clear local memory lists
+        const listContainer = document.getElementById("alpha-list");
+        if (listContainer) {
+            listContainer.innerHTML = `<div class="empty-state">No alphas currently simulating in queue.</div>`;
+        }
+        const progressBadge = document.getElementById("queue-progress-badge");
+        if (progressBadge) progressBadge.textContent = "0 / 0 Completed";
+        
+        // Full refresh
+        window.location.reload();
+    } catch (e) {
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[SYSTEM] ERROR: Failed to purge queue: ${e.message}` });
+        alert(`Failed to purge queue: ${e.message}`);
+        purgeQueueBtn.disabled = false;
+        purgeQueueBtn.innerHTML = `🗑️ Purge All`;
+    }
+});
+
+// CSV Portfolio Exporter
+const exportVaultBtn = document.getElementById("export-vault-btn");
+exportVaultBtn.addEventListener("click", () => {
+    if (!vaultAlphas || vaultAlphas.length === 0) {
+        alert("No simulated alphas in vault registry to export!");
+        return;
+    }
+    
+    appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[SYSTEM] Exporting Alpha Vault portfolio as CSV..." });
+    
+    // Compile CSV headers & data rows
+    const headers = ["Alpha ID", "Family", "Status", "Sharpe", "Fitness", "Turnover", "Formula", "Error Message", "Link"];
+    const rows = vaultAlphas.map(item => [
+        item.alpha_id || "",
+        `"${(item.family || "Unknown").replace(/"/g, '""')}"`,
+        item.status || "",
+        item.sharpe !== null ? item.sharpe.toFixed(4) : "0.0",
+        item.fitness !== null ? item.fitness.toFixed(4) : "0.0",
+        item.turnover !== null ? (item.turnover / 100).toFixed(4) : "0.0",
+        `"${(item.formula || "").replace(/"/g, '""')}"`,
+        `"${(item.error_message || "").replace(/"/g, '""')}"`,
+        item.alpha_link || "#"
+    ]);
+    
+    const csvContent = [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+    
+    // Trigger download
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `alphaforge_vault_export_${new Date().toISOString().slice(0, 10)}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[SYSTEM] CSV Portfolio exported successfully!" });
+});
 
 // Initialize Page
 window.addEventListener("DOMContentLoaded", () => {

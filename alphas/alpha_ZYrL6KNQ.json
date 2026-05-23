@@ -1,0 +1,25 @@
+{
+  "alpha_id": "ZYrL6KNQ",
+  "family": "Dampened Return Reversal (Signed Power)",
+  "fitness": 0.61,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(signed_power(returns, 0.5), 8)), 0), subindustry)",
+  "hypothesis": "signed_power(returns, 0.5) compresses extremes while preserving sign. More stable cross-sectional ranking.",
+  "settings": {
+    "decay": 8,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.09,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 08:10:02",
+  "turnover": 26.040000000000003
+}

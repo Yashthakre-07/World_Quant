@@ -1,0 +1,25 @@
+{
+  "alpha_id": "YPQrkAQ6",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(returns - ts_delay(returns, 1), 4)), 0), subindustry)",
+  "family": "Cross-Sectional Retaliation Reversion",
+  "hypothesis": "Stocks experiencing large short-term returns relative to their industry peers represent cross-sectional price stretch. These temporary imbalances reverse over a 4-day window.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.41,
+  "fitness": 0.52,
+  "turnover": 66.55,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 4,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-05-22 14:44:20"
+}

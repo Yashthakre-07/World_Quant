@@ -1,0 +1,25 @@
+{
+  "alpha_id": "N1AwG6eo",
+  "family": "High-Gate Body Reversion",
+  "fitness": 0.75,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 1.5, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)",
+  "hypothesis": "On extreme volume days (>1.5x avg), close-open gap represents exhausted directional conviction. Tight high-gate minimizes noise and dramatically reduces turnover to target fitness > 1.1.",
+  "settings": {
+    "decay": 3,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.48,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-22 12:03:14",
+  "turnover": 16.3
+}

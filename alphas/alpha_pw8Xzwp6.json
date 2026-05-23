@@ -1,0 +1,25 @@
+{
+  "alpha_id": "pw8Xzwp6",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_decay_linear((vwap - close) / (ts_std_dev(returns, 20) * close + 0.001), 5)), 0), subindustry)",
+  "family": "VWAP Distance Exhaustion Signal",
+  "hypothesis": "Closing price distance from intraday VWAP, normalized by rolling 20-day return standard deviation, captures true price dislocation. Fading extreme stretch on liquid stocks produces high Sharpe.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.44,
+  "fitness": 0.67,
+  "turnover": 37.12,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 5,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-05-22 14:41:29"
+}

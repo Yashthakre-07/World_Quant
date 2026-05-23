@@ -1,0 +1,25 @@
+{
+  "alpha_id": "YPQr7Gbv",
+  "family": "Volume-Driven Volatility Climaxes",
+  "fitness": 0.48,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(ts_corr(high - low, volume, 10) * returns, 5)), 0), subindustry)",
+  "hypothesis": "Rolling correlation between intraday candle spread and volume isolates high-conviction institutional breakouts. Overbought climaxes on up-days act as strong reversion triggers.",
+  "settings": {
+    "decay": 5,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.1,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-22 10:21:51",
+  "turnover": 35.82
+}

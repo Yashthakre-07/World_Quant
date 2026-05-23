@@ -1,0 +1,25 @@
+{
+  "alpha_id": "pw8gqeRv",
+  "family": "Candle Body Ratio High Decay",
+  "fitness": 0.67,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((close - open) / (high - low + 0.001), 10)), 0), subindustry)",
+  "hypothesis": "Intraday directional conviction (close-open)/(high-low). Heavily smoothed with decay 10 to slash turnover.",
+  "settings": {
+    "decay": 10,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.15,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 07:50:33",
+  "turnover": 20.3
+}

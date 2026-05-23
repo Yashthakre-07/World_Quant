@@ -1,0 +1,25 @@
+{
+  "alpha_id": "ZYr5VYlQ",
+  "family": "Ultra-Gate Normalized Body",
+  "fitness": 0.51,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 2.0, -rank(ts_decay_linear((close - open) / (high - low + 0.001), 3)), 0), subindustry)",
+  "hypothesis": "Close-open gap normalized by intraday range, filtered to only 2x average volume days. Extreme volume gate slashes turnover to ~15%, boosting fitness significantly above 1.0.",
+  "settings": {
+    "decay": 3,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.06,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-22 12:16:01",
+  "turnover": 9.45
+}

@@ -6,10 +6,17 @@ from pathlib import Path
 from src.config import WQ_AUTH_URL, WQ_EMAIL, WQ_PASSWORD
 from src.logger import agent_logger
 
+class PersonaRequiredException(Exception):
+    def __init__(self, url, inquiry_payload):
+        self.url = url
+        self.inquiry_payload = inquiry_payload
+        super().__init__(f"Persona biometric verification required: {url}")
+
 class WQSession(requests.Session):
-    def __init__(self):
+    def __init__(self, interactive=False):
         super().__init__()
         self.login_expired = False
+        self.interactive = interactive
         
         # Unique cookie file based on email to support switching profiles
         safe_email = WQ_EMAIL.replace("@", "_").replace(".", "_")
@@ -75,6 +82,10 @@ class WQSession(requests.Session):
                 inquiry = r.json()['inquiry']
                 inquiry_id = inquiry.get('id') if isinstance(inquiry, dict) else inquiry
                 biometric_url = f"{r.url}/persona?inquiry={inquiry_id}"
+                
+                if self.interactive:
+                    raise PersonaRequiredException(biometric_url, r.json())
+                
                 import os
                 is_headless = os.environ.get("RENDER") or not os.isatty(0)
 

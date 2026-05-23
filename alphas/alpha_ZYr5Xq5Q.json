@@ -1,0 +1,25 @@
+{
+  "alpha_id": "ZYr5Xq5Q",
+  "family": "Long-term Intraday Range Location (Low Turnover)",
+  "fitness": 0.6,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - low) - (open - low)) / (high - low + 0.001), 12)), 0), subindustry)",
+  "hypothesis": "Daily candle range open-close positions indicate early session buyer traps. Smoothly decaying this signal over 12 days isolates persistent mean-reverting alpha with high Fitness.",
+  "settings": {
+    "decay": 12,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.01,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-22 11:11:54",
+  "turnover": 17.24
+}

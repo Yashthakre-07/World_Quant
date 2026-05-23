@@ -1,0 +1,25 @@
+{
+  "alpha_id": "VkO9lkz5",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 1.2, -rank(ts_decay_linear((close - open) / (high - low + 0.001), 5)), 0), subindustry)",
+  "family": "Liquidity-Shock Mean Reversion",
+  "hypothesis": "Price deviations normalized by dynamic high-low spread capture extreme retail imbalances on high relative volume. Fading these imbalances yields strong risk-adjusted mean reversion.",
+  "status": "SUBMITTED",
+  "sharpe": 1.63,
+  "fitness": 1.01,
+  "turnover": 21.09,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 5,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-05-22 14:41:24"
+}

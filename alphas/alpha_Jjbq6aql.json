@@ -1,0 +1,25 @@
+{
+  "alpha_id": "Jjbq6aql",
+  "family": "Volume-Weighted Cost Basis Divergence",
+  "fitness": 0.51,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((close - ts_mean(vwap, 5)) / (ts_std_dev(close, 10) + 0.001), 5)), 0), subindustry)",
+  "hypothesis": "Closing price deviation from 5-day moving average VWAP, standardized by 10-day price std dev, isolates reversion relative to rolling market cost basis.",
+  "settings": {
+    "decay": 5,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.12,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-22 10:08:46",
+  "turnover": 32.519999999999996
+}

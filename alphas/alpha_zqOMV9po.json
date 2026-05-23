@@ -1,0 +1,25 @@
+{
+  "alpha_id": "zqOMV9po",
+  "family": "Volume-Surge Body Ratio Reversion",
+  "fitness": 0.77,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 1.5, -rank(ts_decay_linear((close - open) / (high - low + 0.001), 5)), 0), subindustry)",
+  "hypothesis": "Candle body-to-range ratio on 1.5x volume days exposes the strongest intraday conviction exhaustion events. Body-ratio signal (VkO9lkz5 fitness 1.01) with even tighter volume gate.",
+  "settings": {
+    "decay": 5,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.36,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-22 12:34:18",
+  "turnover": 14.45
+}

@@ -1,0 +1,25 @@
+{
+  "alpha_id": "LLkjQow2",
+  "family": "Cumulative Body High-Gate",
+  "fitness": 0.64,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 1.2, -rank(ts_decay_linear(ts_sum(close - open, 2), 4)), 0), subindustry)",
+  "hypothesis": "Sum of 2-day close-open gaps captures multi-session directional persistence. High volume gate (1.2x) reduces noise. Cumulative signal over 2 days smooths single-day outliers without extending decay window.",
+  "settings": {
+    "decay": 4,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.34,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-22 12:37:49",
+  "turnover": 21.73
+}

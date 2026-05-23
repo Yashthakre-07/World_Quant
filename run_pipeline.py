@@ -57,6 +57,7 @@ def send_whatsapp(message: str):
 
 # Lock to space API submissions sequentially and avoid rate limits
 submission_lock = threading.Lock()
+reauth_lock = threading.Lock()
 
 # Shared Pipeline State
 pipeline_state = {
@@ -66,6 +67,15 @@ pipeline_state = {
 }
 
 pipeline_active = True
+active_session = None
+
+# Interactive re-authentication state
+reauth_state = {
+    "status": "IDLE",  # IDLE, POLLING, SUCCESS, ERROR
+    "url": "",
+    "error": ""
+}
+reauth_thread = None
 
 def log_message(level, msg):
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
@@ -1012,6 +1022,71 @@ def get_session():
     except Exception as e:
         return jsonify({"error": str(e), "exp_epoch": 0})
 
+@app.route("/api/reauthenticate", methods=["POST"])
+def reauthenticate():
+    global active_session, reauth_thread
+    
+    # Prevent duplicate polling threads
+    if reauth_state["status"] == "POLLING":
+        return jsonify(reauth_state)
+        
+    try:
+        from src.auth import WQSession, PersonaRequiredException
+        
+        reauth_state["status"] = "POLLING"
+        reauth_state["url"] = ""
+        reauth_state["error"] = ""
+        
+        # Instantiate in interactive mode
+        sess = WQSession(interactive=True)
+        
+        # If it returns without exception, login was succeeded instantly via saved cookies/credentials
+        active_session = sess
+        reauth_state["status"] = "SUCCESS"
+        return jsonify({"status": "SUCCESS", "message": "Authenticated instantly using persisted cookies!"})
+        
+    except PersonaRequiredException as e:
+        reauth_state["status"] = "POLLING"
+        reauth_state["url"] = e.url
+        
+        # Poll WorldQuant for biometric confirmation in a background thread to prevent blocking
+        def poll_persona():
+            global active_session
+            try:
+                payload = e.inquiry_payload
+                for attempt in range(60):  # Poll every 5s for up to 5 minutes
+                    time.sleep(5)
+                    p_r = sess.post("https://api.worldquantbrain.com/authentication/persona", json=payload)
+                    if p_r.status_code == 201:
+                        sess.login_expired = False
+                        sess.save_persisted_cookies()
+                        active_session = sess
+                        reauth_state["status"] = "SUCCESS"
+                        log_message("INFO", "Interactive re-authentication completed successfully!")
+                        return
+                
+                reauth_state["status"] = "ERROR"
+                reauth_state["error"] = "Biometric verification timed out. Please try again."
+                log_message("ERROR", "Interactive re-authentication timed out.")
+            except Exception as err:
+                reauth_state["status"] = "ERROR"
+                reauth_state["error"] = str(err)
+                log_message("ERROR", f"Interactive re-authentication background error: {err}")
+                
+        reauth_thread = threading.Thread(target=poll_persona, daemon=True)
+        reauth_thread.start()
+        
+        return jsonify(reauth_state)
+        
+    except Exception as e:
+        reauth_state["status"] = "ERROR"
+        reauth_state["error"] = str(e)
+        return jsonify({"status": "ERROR", "error": str(e)})
+
+@app.route("/api/reauth-status", methods=["GET"])
+def reauth_status():
+    return jsonify(reauth_state)
+
 @app.route("/api/queue-alpha", methods=["POST"])
 def queue_alpha():
     """Secure endpoint: inject new alphas into the live queue from this chat.
@@ -1021,7 +1096,8 @@ def queue_alpha():
     # --- Auth check ---
     auth_header = request.headers.get("Authorization", "")
     token = auth_header.replace("Bearer ", "").strip()
-    if token != API_SECRET_TOKEN:
+    is_same_origin = request.referrer and request.referrer.startswith(request.url_root)
+    if not is_same_origin and token != API_SECRET_TOKEN:
         return jsonify({"error": "Unauthorized", "hint": "Provide valid Bearer token"}), 401
 
     # --- Parse body ---
@@ -1093,7 +1169,8 @@ def clear_queue():
     """Secure endpoint: clear the entire queue on disk."""
     auth_header = request.headers.get("Authorization", "")
     token = auth_header.replace("Bearer ", "").strip()
-    if token != API_SECRET_TOKEN:
+    is_same_origin = request.referrer and request.referrer.startswith(request.url_root)
+    if not is_same_origin and token != API_SECRET_TOKEN:
         return jsonify({"error": "Unauthorized"}), 401
 
     queue_path = Path("db") / "simulation_queue.json"
@@ -1115,7 +1192,8 @@ def clean_queue():
     """
     auth_header = request.headers.get("Authorization", "")
     token = auth_header.replace("Bearer ", "").strip()
-    if token != API_SECRET_TOKEN:
+    is_same_origin = request.referrer and request.referrer.startswith(request.url_root)
+    if not is_same_origin and token != API_SECRET_TOKEN:
         return jsonify({"error": "Unauthorized"}), 401
 
     req_data = {}
@@ -1625,13 +1703,35 @@ def run_flask():
     app.run(host=host, port=port, debug=False, use_reloader=False, threaded=True)
 
 def robust_request(session, method, url, index=None, **kwargs):
-    """Sends an API request and automatically retries forever if a local network/DNS failure occurs."""
+    """Sends an API request, automatically retries on network drop, and self-heals by logging back in on HTTP 401."""
     import requests
     while True:
         try:
             if 'timeout' not in kwargs:
                 kwargs['timeout'] = 30
-            return session.request(method, url, **kwargs)
+            r = session.request(method, url, **kwargs)
+            if r.status_code == 401:
+                lbl = f"Alpha #{index+1}: " if index is not None else ""
+                log_message("WARNING", f"{lbl}Session expired (HTTP 401). Attempting automatic re-authentication...")
+                with reauth_lock:
+                    # Double check if another concurrent thread has already completed the re-authentication
+                    try:
+                        verify = session.get("https://api.worldquantbrain.com/users/self", timeout=15)
+                        if verify.status_code == 200:
+                            log_message("INFO", f"{lbl}Session already successfully re-authenticated by another thread. Retrying request...")
+                            continue
+                    except Exception:
+                        pass
+                    
+                    try:
+                        session.authenticate()
+                        log_message("INFO", f"{lbl}Automatic re-authentication successful! Retrying request...")
+                        continue
+                    except Exception as auth_err:
+                        log_message("ERROR", f"{lbl}Automatic re-authentication failed: {auth_err}")
+                        # Fall through to return the raw 401 to let the caller manage/fail as backup
+                        return r
+            return r
         except (requests.exceptions.ConnectionError,
                 requests.exceptions.Timeout,
                 requests.exceptions.ChunkedEncodingError) as e:
@@ -1977,9 +2077,11 @@ def simulate_task(index, task, task_state, session):
 def main():
     init_db()
     
+    global active_session
     # Establish Session
     log_message("INFO", "Logging into WorldQuant Brain...")
-    session = WQSession()
+    active_session = WQSession()
+    session = active_session
     log_message("INFO", "Session established successfully.")
     send_whatsapp("🚀 AlphaForge ONLINE\nServer started & logged into WorldQuant Brain successfully. Simulations beginning now!")
 

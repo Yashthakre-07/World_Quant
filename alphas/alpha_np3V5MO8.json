@@ -1,0 +1,25 @@
+{
+  "alpha_id": "np3V5MO8",
+  "family": "20-Day Return Z-Score Extreme",
+  "fitness": 0.5,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear((returns - ts_mean(returns, 20)) / (ts_std_dev(returns, 20) + 0.001), 8)), 0), subindustry)",
+  "hypothesis": "Return standardized by 20-day mean and std. Pure statistical outlier detection with high decay for low turnover.",
+  "settings": {
+    "decay": 8,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.09,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 07:08:38",
+  "turnover": 27.950000000000003
+}

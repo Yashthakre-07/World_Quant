@@ -1,0 +1,25 @@
+{
+  "alpha_id": "N1AwEYpq",
+  "family": "High-Gate Range Location Reversion",
+  "fitness": 0.92,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 1.3, -rank(ts_decay_linear(((close - low) - (open - low)) / (high - low + 0.001), 5)), 0), subindustry)",
+  "hypothesis": "Where close sits in the intraday range on high-volume days (>1.3x) captures extreme intraday dislocation. Same proven signal that achieved fitness 1.04, with higher gate for less turnover.",
+  "settings": {
+    "decay": 5,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.62,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-22 12:23:05",
+  "turnover": 18.759999999999998
+}
