@@ -16,7 +16,7 @@ sys.path.append(str(Path(__file__).resolve().parent))
 from src.auth import WQSession
 from src.database import init_db, save_alpha_run, save_submitted_alpha, check_already_simulated
 from src.evaluator import evaluate_alpha_metrics
-from src.config import WQ_SIM_URL, WQ_ALPHAS_URL, DEFAULT_SIM_SETTINGS, ALPHAS_OUT_DIR, MAX_CONCURRENT_SIMS
+from src.config import WQ_SIM_URL, WQ_ALPHAS_URL, DEFAULT_SIM_SETTINGS, ALPHAS_OUT_DIR, MAX_CONCURRENT_SIMS, WQ_EMAIL
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -999,10 +999,18 @@ def get_status():
 def get_session():
     """Decode the session JWT and return expiry info."""
     try:
-        cookie_files = list(Path("db").glob("session_cookies_*.json"))
-        if not cookie_files:
-            return jsonify({"error": "No session file found", "exp_epoch": 0})
-        with open(cookie_files[0]) as f:
+        safe_email = WQ_EMAIL.replace("@", "_").replace(".", "_") if WQ_EMAIL else "default"
+        active_cookie_file = Path("db") / f"session_cookies_{safe_email}.json"
+        
+        if active_cookie_file.exists():
+            target_cookie_file = active_cookie_file
+        else:
+            cookie_files = list(Path("db").glob("session_cookies_*.json"))
+            if not cookie_files:
+                return jsonify({"error": "No session file found", "exp_epoch": 0})
+            target_cookie_file = cookie_files[0]
+            
+        with open(target_cookie_file) as f:
             cookies = json.load(f)
         token = cookies.get("t", "")
         if not token:
