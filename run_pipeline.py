@@ -1713,18 +1713,26 @@ def run_flask():
 def robust_request(session, method, url, index=None, **kwargs):
     """Sends an API request, automatically retries on network drop, and self-heals by logging back in on HTTP 401."""
     import requests
+    global active_session
     while True:
+        # Wait if active_session is None
+        while active_session is None:
+            lbl = f"Alpha #{index+1}: " if index is not None else ""
+            log_message("WARNING", f"{lbl}Waiting for WorldQuant Brain session to be authenticated...")
+            time.sleep(5)
+            
+        current_session = active_session
         try:
             if 'timeout' not in kwargs:
                 kwargs['timeout'] = 30
-            r = session.request(method, url, **kwargs)
+            r = current_session.request(method, url, **kwargs)
             if r.status_code == 401:
                 lbl = f"Alpha #{index+1}: " if index is not None else ""
                 log_message("WARNING", f"{lbl}Session expired (HTTP 401). Attempting automatic re-authentication...")
                 with reauth_lock:
                     # Double check if another concurrent thread has already completed the re-authentication
                     try:
-                        verify = session.get("https://api.worldquantbrain.com/users/self", timeout=15)
+                        verify = current_session.get("https://api.worldquantbrain.com/users/self", timeout=15)
                         if verify.status_code == 200:
                             log_message("INFO", f"{lbl}Session already successfully re-authenticated by another thread. Retrying request...")
                             continue
@@ -1732,7 +1740,7 @@ def robust_request(session, method, url, index=None, **kwargs):
                         pass
                     
                     try:
-                        session.authenticate()
+                        current_session.authenticate()
                         log_message("INFO", f"{lbl}Automatic re-authentication successful! Retrying request...")
                         continue
                     except Exception as auth_err:
@@ -2085,17 +2093,25 @@ def simulate_task(index, task, task_state, session):
 def main():
     init_db()
     
-    global active_session
-    # Establish Session
-    log_message("INFO", "Logging into WorldQuant Brain...")
-    active_session = WQSession()
-    session = active_session
-    log_message("INFO", "Session established successfully.")
-    send_whatsapp("🚀 AlphaForge ONLINE\nServer started & logged into WorldQuant Brain successfully. Simulations beginning now!")
-
-    # Start Flask Server
+    # 1. Start Flask Web Dashboard FIRST so Render health-check passes and dashboard is immediately live!
     flask_thread = threading.Thread(target=run_flask, daemon=True)
     flask_thread.start()
+    log_message("INFO", "Web dashboard starting up...")
+    
+    # Give Flask a brief moment to bind to the port
+    time.sleep(1)
+    
+    global active_session
+    # 2. Establish WQ Session in background or catch biometric/auth errors gracefully without blocking deploy
+    log_message("INFO", "Logging into WorldQuant Brain...")
+    try:
+        active_session = WQSession()
+        log_message("INFO", "Session established successfully.")
+        send_whatsapp("🚀 AlphaForge ONLINE\nServer started & logged into WorldQuant Brain successfully. Simulations beginning now!")
+    except Exception as e:
+        log_message("WARNING", f"Initial login authentication pending or deferred: {e}")
+        log_message("WARNING", "Please open the dashboard and click '🔑 Re-auth Session' to complete login!")
+
     log_message("INFO", "Web dashboard available at http://127.0.0.1:8000")
 
     # Self-ping to prevent Render free-tier spin-down (every 60 seconds)
