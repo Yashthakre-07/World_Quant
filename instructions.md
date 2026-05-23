@@ -17,6 +17,9 @@ Every future AI agent or developer loading this workspace **MUST STRICTLY FOLLOW
    Where $K \in [0.5, 0.8]$ and $N \in [3, 5]$.
 6. **LIVING RESEARCH DOCUMENTATION**: Whenever a backtest completes, query `db/alpha_vault.db`. If you identify a formula that successfully qualifies for submission (Sharpe $\ge 1.25$, Fitness $\ge 1.0$), you must immediately write the formula, parameters, and structural insights into the research file [research.md](file:///c:/Users/Admin/Documents/VIBE_YT/wq/research.md). Keep this manual continuously updated with fresh, successful quant ideas.
 7. **RED COLOR TAGGING**: Any qualified alpha must be patched with the color **"RED"** on the remote server via the `/alphas/{id}` API endpoint immediately upon submission.
+8. **API-ONLY QUEUE MANAGEMENT — NEVER GITHUB**: All alpha queue operations (push, append, overwrite, clean) MUST be performed exclusively via the Render server's secure REST API using the token. The scripts to use are `scratch_append_30.py` (append) or `scratch_push_30_master_alphas.py` (overwrite). **NEVER use `git push` to manage the alpha queue.** GitHub pushes are reserved ONLY for code changes (new features, bug fixes). The API endpoints available are: `/api/overwrite-queue` (replace all), `/api/queue-alpha` (add one), `/api/clear-queue` (empty disk queue), `/api/clean-queue` (remove failed), `/api/stop-pipeline`, `/api/start-pipeline`.
+9. **SCHEDULER DEDUP AWARENESS**: The background pipeline thread maintains an in-memory `scheduled_formulas` set. Any formula previously seen in a session will be **skipped** even if re-injected via API. To force a fresh re-schedule of all formulas, slightly modify the epsilon values in formula strings (e.g., `0.001` → `0.0010`) before pushing. This bypasses the string-match dedup while keeping math identical.
+
 
 ---
 

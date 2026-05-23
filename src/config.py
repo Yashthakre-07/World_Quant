@@ -60,5 +60,5 @@ SERVER_HOST = "127.0.0.1"
 SERVER_PORT = 8000
 
 # Concurrency settings
-# Force exactly 3 concurrent simulations as requested by the user
-MAX_CONCURRENT_SIMS = 3
+# Increased to 8 for Gold/Consultant tier account
+MAX_CONCURRENT_SIMS = 8

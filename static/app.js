@@ -588,8 +588,12 @@ async function pollQueueStatus() {
             }
             
             const card = document.createElement("div");
-            const isSimulating = alpha.status === "SIMULATING" ? "simulating" : "";
-            card.className = `alpha-card ${isSimulating}`;
+            let stateClass = "";
+            if (alpha.status === "SIMULATING") stateClass = "simulating";
+            else if (alpha.status === "SUBMITTED") stateClass = "submitted";
+            else if (alpha.status === "EVALUATING") stateClass = "evaluating";
+            else if (["HARD_REJECT", "SOFT_FAIL", "ERROR"].includes(alpha.status)) stateClass = "failed";
+            card.className = `alpha-card ${stateClass}`;
             
             const sharpeVal = alpha.sharpe !== null ? Number(alpha.sharpe).toFixed(2) : "-";
             const fitnessVal = alpha.fitness !== null ? Number(alpha.fitness).toFixed(2) : "-";
@@ -601,16 +605,19 @@ async function pollQueueStatus() {
             else if (alpha.status === "EVALUATING") statusBadgeClass = "badge-primary";
             else if (["HARD_REJECT", "SOFT_FAIL", "ERROR"].includes(alpha.status)) statusBadgeClass = "badge-danger";
             
-            const descText = alpha.error_message ? `<span class="text-danger-red">${alpha.error_message}</span>` : alpha.hypothesis;
+            const isError = !!alpha.error_message;
+            const rawDescText = alpha.error_message || alpha.hypothesis || "";
             
             card.innerHTML = `
                 <div class="alpha-card-header">
-                    <span class="alpha-card-family">#${index + 1}: ${escapeHTML(alpha.family)}</span>
+                    <span class="alpha-card-family" title="${escapeHTML(alpha.family)}">#${index + 1}: ${escapeHTML(alpha.family)}</span>
                     <span class="badge ${statusBadgeClass}">${alpha.status}</span>
                 </div>
-                <div class="alpha-card-formula">${escapeHTML(alpha.formula)}</div>
+                <div class="alpha-card-formula" title="${escapeHTML(alpha.formula)}">${escapeHTML(alpha.formula)}</div>
                 <div class="alpha-card-meta">
-                    <span style="font-size: 0.7rem; min-width: 0; flex-grow: 1; margin-right: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHTML(descText)}</span>
+                    <span style="font-size: 0.7rem; min-width: 0; flex-grow: 1; margin-right: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block;${isError ? ' color: var(--danger-color); font-weight: 500;' : ''}" title="${escapeHTML(rawDescText)}">
+                        ${escapeHTML(rawDescText)}
+                    </span>
                     <div class="alpha-card-metrics" style="flex-shrink: 0;">
                         <span>S: <strong style="color: var(--primary-color)">${sharpeVal}</strong></span>
                         <span>F: <strong style="color: var(--success-color)">${fitnessVal}</strong></span>

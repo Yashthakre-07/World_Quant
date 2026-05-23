@@ -918,19 +918,40 @@ def get_status():
         except Exception:
             pass
 
-    # 4. Construct live state dynamically
+    # 4. Map in-memory alphas for live progress/simulating status
+    in_memory_info = {}
+    for a in pipeline_state.get("alphas", []):
+        f_str = a.get("formula")
+        if f_str:
+            in_memory_info[f_str] = {
+                "status": a.get("status"),
+                "progress": a.get("progress"),
+                "sharpe": a.get("sharpe"),
+                "fitness": a.get("fitness"),
+                "turnover": a.get("turnover"),
+                "error_message": a.get("error_message")
+            }
+
+    # 5. Construct live state dynamically
     alphas_state = []
     for idx, task in enumerate(tasks):
         formula = task["formula"]
-        run_info = runs.get(formula, {})
-        status = run_info.get("status", "PENDING")
         
+        if formula in in_memory_info:
+            run_info = in_memory_info[formula]
+            status = run_info.get("status", "PENDING")
+            progress = run_info.get("progress", 0)
+        else:
+            run_info = runs.get(formula, {})
+            status = run_info.get("status", "PENDING")
+            progress = 100 if status in ("SUBMITTED", "HARD_REJECT", "SOFT_FAIL", "ERROR") else 0
+            
         alphas_state.append({
             "formula": formula,
             "family": task.get("family", "Unknown"),
             "hypothesis": task.get("hypothesis", ""),
             "status": status,
-            "progress": 100 if status in ("SUBMITTED", "HARD_REJECT", "SOFT_FAIL", "ERROR") else 0,
+            "progress": progress,
             "sharpe": run_info.get("sharpe"),
             "fitness": run_info.get("fitness"),
             "turnover": run_info.get("turnover"),
@@ -1627,8 +1648,8 @@ def simulate_task(index, task, session):
     if "settings" in task and task["settings"]:
         settings.update(task["settings"])
 
-    # Check database cache to see if already simulated
-    cached = check_already_simulated(formula)
+    # Check database cache to see if already simulated (disabled to test high-concurrency simulation)
+    cached = None
     if cached:
         log_message("INFO", f"Alpha #{index+1}: Found cached simulation result in database. Skipping repeat API submission.")
         pipeline_state["alphas"][index]["status"] = cached["status"]
@@ -1690,9 +1711,9 @@ def simulate_task(index, task, session):
     try:
         # Acquire submission lock to ensure sequential spaced requests
         with submission_lock:
-            # Enforce 20-second spacing between concurrent thread submissions
-            log_message("INFO", f"Alpha #{index+1}: Enforcing 20s submission rate-limit spacing...")
-            time.sleep(20)
+            # Enforce 5-second spacing between concurrent thread submissions for Gold tier
+            log_message("INFO", f"Alpha #{index+1}: Enforcing 5s submission rate-limit spacing...")
+            time.sleep(5)
             r = robust_request(session, "POST", WQ_SIM_URL, index=index, json=payload, timeout=30)
             
         if r.status_code == 429:
