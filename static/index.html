@@ -20,13 +20,6 @@
                 <h1>AlphaForge <span class="version">v1.0.0</span></h1>
             </div>
             <div class="header-right">
-                <div class="session-badge" id="session-status">
-                    <span class="session-icon">⏳</span>
-                    <span id="session-timer">Checking Session...</span>
-                </div>
-                <button class="chrome-btn" id="reauth-btn" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 600; font-size: 0.75rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 0 10px rgba(124, 58, 237, 0.4); display: flex; align-items: center; gap: 6px; margin-right: 10px;">
-                    <span style="font-size: 0.8rem;">🔑</span> Re-auth Session
-                </button>
                 <div class="status-badge" id="system-status">AGENT INACTIVE</div>
             </div>
         </header>
@@ -257,22 +250,5 @@
     
     <script src="/static/app.js"></script>
     
-    <!-- Re-authentication Modal -->
-    <div id="reauth-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 9999; justify-content: center; align-items: center; transition: all 0.3s ease;">
-        <div style="background: rgba(30, 27, 75, 0.95); border: 2px solid rgba(139, 92, 246, 0.4); border-radius: 16px; padding: 2rem; max-width: 450px; text-align: center; box-shadow: 0 0 40px rgba(139, 92, 246, 0.3); color: white; display: flex; flex-direction: column; align-items: center; gap: 15px;">
-            <div id="reauth-modal-icon" style="font-size: 3rem; animation: pulse 2s infinite;">🔐</div>
-            <h3 id="reauth-modal-title" style="margin: 0; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.5px;">Biometric Verification Required</h3>
-            <p id="reauth-modal-text" style="color: rgba(255, 255, 255, 0.8); font-size: 0.85rem; line-height: 1.5; margin: 0;">
-                WorldQuant requires Persona biometric verification to securely authenticate your session.
-            </p>
-            <a id="reauth-modal-link" href="#" target="_blank" class="btn btn-primary" style="display: inline-block; background: linear-gradient(135deg, #f57802, #f43f5e); color: white; padding: 10px 24px; border-radius: 8px; font-weight: 700; text-decoration: none; box-shadow: 0 0 15px rgba(244, 63, 94, 0.5); transition: all 0.2s;">
-                Complete Persona Check
-            </a>
-            <div id="reauth-modal-loader" style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.75rem; color: rgba(255, 255, 255, 0.6);">
-                <span class="pulse-indicator active"></span> Waiting for confirmation...
-            </div>
-            <button id="reauth-modal-close" style="background: none; border: none; color: rgba(255,255,255,0.4); font-size: 0.75rem; cursor: pointer; text-decoration: underline; margin-top: 5px;">Cancel</button>
-        </div>
-    </div>
 </body>
 </html>

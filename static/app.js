@@ -525,39 +525,7 @@ filterPills.forEach(pill => {
 
 // WQ Session Expiry & Status Checker
 async function pollSession() {
-    try {
-        const r = await fetch("/api/session");
-        const sessionTimer = document.getElementById("session-timer");
-        const sessionBadge = document.getElementById("session-status");
-        if (!r.ok) {
-            if (sessionTimer) sessionTimer.textContent = "Session Error";
-            return;
-        }
-        const data = await r.json();
-        if (data.error) {
-            if (sessionTimer) sessionTimer.textContent = "No Session";
-            if (sessionBadge) {
-                sessionBadge.className = "session-badge expired";
-            }
-            return;
-        }
-        if (data.expired) {
-            if (sessionTimer) sessionTimer.textContent = "Session Expired";
-            if (sessionBadge) {
-                sessionBadge.className = "session-badge expired";
-            }
-        } else {
-            const mins = Math.floor(data.remaining_seconds / 60);
-            const hrs = Math.floor(mins / 60);
-            const displayTime = hrs > 0 ? `${hrs}h ${mins % 60}m remaining` : `${mins}m remaining`;
-            if (sessionTimer) sessionTimer.textContent = `Session Live: ${displayTime}`;
-            if (sessionBadge) {
-                sessionBadge.className = "session-badge live";
-            }
-        }
-    } catch (e) {
-        console.error("Error polling session status", e);
-    }
+    // Disabled re-authentication checking as requested by operator
 }
 
 // Fetch and render the active backtesting simulation queue
@@ -641,127 +609,129 @@ async function pollQueueStatus() {
     }
 // Re-authentication Interactive Flow
 const reauthBtn = document.getElementById("reauth-btn");
-const reauthModal = document.getElementById("reauth-modal");
-const reauthModalIcon = document.getElementById("reauth-modal-icon");
-const reauthModalTitle = document.getElementById("reauth-modal-title");
-const reauthModalText = document.getElementById("reauth-modal-text");
-const reauthModalLink = document.getElementById("reauth-modal-link");
-const reauthModalLoader = document.getElementById("reauth-modal-loader");
-const reauthModalClose = document.getElementById("reauth-modal-close");
+if (reauthBtn) {
+    const reauthModal = document.getElementById("reauth-modal");
+    const reauthModalIcon = document.getElementById("reauth-modal-icon");
+    const reauthModalTitle = document.getElementById("reauth-modal-title");
+    const reauthModalText = document.getElementById("reauth-modal-text");
+    const reauthModalLink = document.getElementById("reauth-modal-link");
+    const reauthModalLoader = document.getElementById("reauth-modal-loader");
+    const reauthModalClose = document.getElementById("reauth-modal-close");
 
-let reauthPollInterval = null;
+    let reauthPollInterval = null;
 
-async function triggerReauth() {
-    appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Initiating interactive re-authentication request..." });
-    reauthBtn.disabled = true;
-    reauthBtn.innerHTML = `🔑 Logging in...`;
-    
-    try {
-        const r = await fetch("/api/reauthenticate", { method: "POST" });
-        if (!r.ok) {
-            throw new Error(`HTTP ${r.status}`);
-        }
-        const data = await r.json();
+    async function triggerReauth() {
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Initiating interactive re-authentication request..." });
+        reauthBtn.disabled = true;
+        reauthBtn.innerHTML = `🔑 Logging in...`;
         
-        if (data.status === "SUCCESS") {
-            appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Session verified! Authenticated successfully using saved state." });
-            reauthBtn.innerHTML = `🔑 Session Live`;
-            reauthBtn.style.background = "linear-gradient(135deg, #10b981, #059669)";
-            setTimeout(() => {
-                reauthBtn.disabled = false;
-                reauthBtn.innerHTML = `🔑 Re-auth Session`;
-                reauthBtn.style.background = "";
-            }, 3000);
-            pollSession(); // Immediately update timer badge!
-        } else if (data.status === "POLLING") {
-            // Persona challenge required!
-            const biometricUrl = data.url;
-            appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[AUTH] Biometric verification challenge generated. Redirecting to: ${biometricUrl}` });
+        try {
+            const r = await fetch("/api/reauthenticate", { method: "POST" });
+            if (!r.ok) {
+                throw new Error(`HTTP ${r.status}`);
+            }
+            const data = await r.json();
             
-            // 1. Set modal attributes
-            reauthModalLink.href = biometricUrl;
-            reauthModalIcon.textContent = "🔐";
-            reauthModalIcon.style.animation = "pulse 2s infinite";
-            reauthModalTitle.textContent = "Biometric Verification Required";
-            reauthModalText.innerHTML = `WorldQuant requires Persona biometric verification to securely authenticate your session.<br><strong style="color: #fca5a5; font-weight: bold;">Please complete verification in the new tab.</strong>`;
-            reauthModalLoader.style.display = "flex";
-            reauthModalLink.style.display = "inline-block";
-            
-            // 2. Open Persona in a new tab immediately
-            window.open(biometricUrl, "_blank");
-            
-            // 3. Open Modal
-            reauthModal.style.display = "flex";
-            
-            // 4. Start polling for confirmation
-            if (reauthPollInterval) clearInterval(reauthPollInterval);
-            reauthPollInterval = setInterval(async () => {
-                try {
-                    const statusRes = await fetch("/api/reauth-status");
-                    if (!statusRes.ok) return;
-                    const statusData = await statusRes.json();
-                    
-                    if (statusData.status === "SUCCESS") {
-                        clearInterval(reauthPollInterval);
-                        appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Persona biometric verification confirmed! Session successfully updated." });
+            if (data.status === "SUCCESS") {
+                appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Session verified! Authenticated successfully using saved state." });
+                reauthBtn.innerHTML = `🔑 Session Live`;
+                reauthBtn.style.background = "linear-gradient(135deg, #10b981, #059669)";
+                setTimeout(() => {
+                    reauthBtn.disabled = false;
+                    reauthBtn.innerHTML = `🔑 Re-auth Session`;
+                    reauthBtn.style.background = "";
+                }, 3000);
+                pollSession(); // Immediately update timer badge!
+            } else if (data.status === "POLLING") {
+                // Persona challenge required!
+                const biometricUrl = data.url;
+                appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[AUTH] Biometric verification challenge generated. Redirecting to: ${biometricUrl}` });
+                
+                // 1. Set modal attributes
+                reauthModalLink.href = biometricUrl;
+                reauthModalIcon.textContent = "🔐";
+                reauthModalIcon.style.animation = "pulse 2s infinite";
+                reauthModalTitle.textContent = "Biometric Verification Required";
+                reauthModalText.innerHTML = `WorldQuant requires Persona biometric verification to securely authenticate your session.<br><strong style="color: #fca5a5; font-weight: bold;">Please complete verification in the new tab.</strong>`;
+                reauthModalLoader.style.display = "flex";
+                reauthModalLink.style.display = "inline-block";
+                
+                // 2. Open Persona in a new tab immediately
+                window.open(biometricUrl, "_blank");
+                
+                // 3. Open Modal
+                reauthModal.style.display = "flex";
+                
+                // 4. Start polling for confirmation
+                if (reauthPollInterval) clearInterval(reauthPollInterval);
+                reauthPollInterval = setInterval(async () => {
+                    try {
+                        const statusRes = await fetch("/api/reauth-status");
+                        if (!statusRes.ok) return;
+                        const statusData = await statusRes.json();
                         
-                        // Update Modal to Success State
-                        reauthModalIcon.textContent = "✅";
-                        reauthModalIcon.style.animation = "";
-                        reauthModalTitle.textContent = "Verification Complete!";
-                        reauthModalText.textContent = "Your WorldQuant Brain session is now fully authenticated and active.";
-                        reauthModalLoader.style.display = "none";
-                        reauthModalLink.style.display = "none";
-                        
-                        reauthBtn.disabled = false;
-                        reauthBtn.innerHTML = `🔑 Session Live`;
-                        reauthBtn.style.background = "linear-gradient(135deg, #10b981, #059669)";
-                        
-                        // Close modal after 2.5 seconds
-                        setTimeout(() => {
-                            reauthModal.style.display = "none";
-                            pollSession();
-                        }, 2500);
-                    } else if (statusData.status === "ERROR") {
-                        clearInterval(reauthPollInterval);
-                        appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[AUTH] Re-authentication failed: ${statusData.error}` });
-                        
-                        // Update Modal to Error State
-                        reauthModalIcon.textContent = "❌";
-                        reauthModalIcon.style.animation = "";
-                        reauthModalTitle.textContent = "Verification Failed";
-                        reauthModalText.textContent = statusData.error || "A problem occurred during biometric verification.";
-                        reauthModalLoader.style.display = "none";
-                        reauthModalLink.style.display = "none";
-                        
-                        reauthBtn.disabled = false;
-                        reauthBtn.innerHTML = `🔑 Re-auth Failed`;
-                        reauthBtn.style.background = "linear-gradient(135deg, #ef4444, #dc2626)";
+                        if (statusData.status === "SUCCESS") {
+                            clearInterval(reauthPollInterval);
+                            appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Persona biometric verification confirmed! Session successfully updated." });
+                            
+                            // Update Modal to Success State
+                            reauthModalIcon.textContent = "✅";
+                            reauthModalIcon.style.animation = "";
+                            reauthModalTitle.textContent = "Verification Complete!";
+                            reauthModalText.textContent = "Your WorldQuant Brain session is now fully authenticated and active.";
+                            reauthModalLoader.style.display = "none";
+                            reauthModalLink.style.display = "none";
+                            
+                            reauthBtn.disabled = false;
+                            reauthBtn.innerHTML = `🔑 Session Live`;
+                            reauthBtn.style.background = "linear-gradient(135deg, #10b981, #059669)";
+                            
+                            // Close modal after 2.5 seconds
+                            setTimeout(() => {
+                                reauthModal.style.display = "none";
+                                pollSession();
+                            }, 2500);
+                        } else if (statusData.status === "ERROR") {
+                            clearInterval(reauthPollInterval);
+                            appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[AUTH] Re-authentication failed: ${statusData.error}` });
+                            
+                            // Update Modal to Error State
+                            reauthModalIcon.textContent = "❌";
+                            reauthModalIcon.style.animation = "";
+                            reauthModalTitle.textContent = "Verification Failed";
+                            reauthModalText.textContent = statusData.error || "A problem occurred during biometric verification.";
+                            reauthModalLoader.style.display = "none";
+                            reauthModalLink.style.display = "none";
+                            
+                            reauthBtn.disabled = false;
+                            reauthBtn.innerHTML = `🔑 Re-auth Failed`;
+                            reauthBtn.style.background = "linear-gradient(135deg, #ef4444, #dc2626)";
+                        }
+                    } catch (pollErr) {
+                        console.error("Error polling reauth status", pollErr);
                     }
-                } catch (pollErr) {
-                    console.error("Error polling reauth status", pollErr);
-                }
-            }, 3000);
-        } else {
-            throw new Error(data.error || "Unknown authentication state");
+                }, 3000);
+            } else {
+                throw new Error(data.error || "Unknown authentication state");
+            }
+        } catch (err) {
+            appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[AUTH] Authentication initiation failed: ${err.message}` });
+            reauthBtn.disabled = false;
+            reauthBtn.innerHTML = `🔑 Re-auth Session`;
+            alert(`Authentication Initiation Failed:\n${err.message}`);
         }
-    } catch (err) {
-        appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[AUTH] Authentication initiation failed: ${err.message}` });
+    }
+
+    // Close Modal Bindings
+    reauthModalClose.addEventListener("click", () => {
+        if (reauthPollInterval) clearInterval(reauthPollInterval);
+        reauthModal.style.display = "none";
         reauthBtn.disabled = false;
         reauthBtn.innerHTML = `🔑 Re-auth Session`;
-        alert(`Authentication Initiation Failed:\n${err.message}`);
-    }
+        reauthBtn.style.background = "";
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Interactive re-authentication canceled by operator." });
+    });
 }
-
-// Close Modal Bindings
-reauthModalClose.addEventListener("click", () => {
-    if (reauthPollInterval) clearInterval(reauthPollInterval);
-    reauthModal.style.display = "none";
-    reauthBtn.disabled = false;
-    reauthBtn.innerHTML = `🔑 Re-auth Session`;
-    reauthBtn.style.background = "";
-    appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Interactive re-authentication canceled by operator." });
-});
 
 // Dynamic Alpha Injector Integration
 const injFormula = document.getElementById("inj-formula");
