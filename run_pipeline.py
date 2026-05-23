@@ -21,6 +21,14 @@ from src.config import WQ_SIM_URL, WQ_ALPHAS_URL, DEFAULT_SIM_SETTINGS, ALPHAS_O
 # Initialize Flask app
 app = Flask(__name__)
 
+# Prevent browser caching of static dashboard assets
+@app.after_request
+def add_header(r):
+    r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    r.headers["Pragma"] = "no-cache"
+    r.headers["Expires"] = "0"
+    return r
+
 # Secure API token for the /api/queue-alpha push endpoint
 # Set API_SECRET_TOKEN in Render environment variables
 API_SECRET_TOKEN = os.environ.get("API_SECRET_TOKEN", "wq-default-token-change-me")
