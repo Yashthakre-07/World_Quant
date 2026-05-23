@@ -60,5 +60,5 @@ SERVER_HOST = "127.0.0.1"
 SERVER_PORT = 8000
 
 # Concurrency settings
-# Increased to 8 for Gold/Consultant tier account
-MAX_CONCURRENT_SIMS = 8
+# Increased to 8 for Gold/Consultant tier account, can be overridden via environment variables
+MAX_CONCURRENT_SIMS = int(os.getenv("MAX_CONCURRENT_SIMS", "8"))
