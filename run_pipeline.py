@@ -1369,13 +1369,70 @@ def clear_queue():
         return jsonify({"error": "Unauthorized"}), 401
 
     queue_path = Path("db") / "simulation_queue.json"
+    inbox_path = Path("db") / "inbox_queue.json"
     try:
+        # Clear queues on disk
         with open(queue_path, "w") as f:
             json.dump([], f, indent=2)
-        log_message("INFO", "[API] Dynamic Queue cleared via API command.")
-        return jsonify({"status": "ok", "message": "Queue cleared successfully."})
+        with open(inbox_path, "w") as f:
+            json.dump([], f, indent=2)
+            
+        # Clear dynamic queue in memory
+        global pipeline_state, pipeline_active
+        pipeline_state["alphas"] = []
+        pipeline_state["status"] = "COMPLETED"
+        pipeline_active = False
+        
+        log_message("INFO", "[API] Dynamic Queue & Inbox cleared and memory state reset via API command.")
+        return jsonify({"status": "ok", "message": "Queue and memory state cleared successfully."})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+@app.route("/api/purge-vault", methods=["POST"])
+def purge_vault():
+    """Secure endpoint: completely clears the database runs and local JSON files on Render."""
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    is_same_origin = request.referrer and request.referrer.startswith(request.url_root)
+    if not is_same_origin and token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    db_path = Path("db") / "alpha_vault.db"
+    cleared_db = False
+    if db_path.exists():
+        try:
+            import sqlite3
+            conn = sqlite3.connect(str(db_path))
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM submitted_alphas")
+            cursor.execute("DELETE FROM alpha_runs")
+            conn.commit()
+            conn.close()
+            cleared_db = True
+        except Exception as e:
+            log_message("WARNING", f"[API] Failed to clear SQLite vault database: {e}")
+
+    # Clear JSON files
+    cleared_files = 0
+    try:
+        out_dir = Path(ALPHAS_OUT_DIR)
+        if out_dir.exists():
+            for af in out_dir.glob("alpha_*.json"):
+                try:
+                    af.unlink()
+                    cleared_files += 1
+                except Exception:
+                    pass
+    except Exception as e:
+        log_message("WARNING", f"[API] Failed to clear alphas directory: {e}")
+
+    log_message("INFO", f"[API] Vault purged via API. DB Cleared: {cleared_db}, Files deleted: {cleared_files}")
+    return jsonify({
+        "status": "ok",
+        "db_cleared": cleared_db,
+        "files_deleted": cleared_files,
+        "message": "Vault successfully purged."
+    })
 
 @app.route("/api/clean-queue", methods=["POST"])
 def clean_queue():
