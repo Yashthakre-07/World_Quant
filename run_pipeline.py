@@ -1091,6 +1091,7 @@ def reauthenticate():
     except PersonaRequiredException as e:
         reauth_state["status"] = "POLLING"
         reauth_state["url"] = e.url
+        sess = e.session
         
         # Poll WorldQuant for biometric confirmation in a background thread to prevent blocking
         def poll_persona():

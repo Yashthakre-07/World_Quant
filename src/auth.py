@@ -27,9 +27,10 @@ def log_auth(level, msg):
             pass
 
 class PersonaRequiredException(Exception):
-    def __init__(self, url, inquiry_payload):
+    def __init__(self, url, inquiry_payload, session=None):
         self.url = url
         self.inquiry_payload = inquiry_payload
+        self.session = session
         super().__init__(f"Persona biometric verification required: {url}")
 
 class WQSession(requests.Session):
@@ -104,7 +105,7 @@ class WQSession(requests.Session):
                 biometric_url = f"{r.url}/persona?inquiry={inquiry_id}"
                 
                 if self.interactive:
-                    raise PersonaRequiredException(biometric_url, r.json())
+                    raise PersonaRequiredException(biometric_url, r.json(), self)
                 
                 import os
                 is_headless = os.environ.get("RENDER") or not os.isatty(0)
