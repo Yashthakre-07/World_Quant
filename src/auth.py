@@ -34,10 +34,11 @@ class PersonaRequiredException(Exception):
         super().__init__(f"Persona biometric verification required: {url}")
 
 class WQSession(requests.Session):
-    def __init__(self, interactive=False):
+    def __init__(self, interactive=False, cli_mode=False):
         super().__init__()
         self.login_expired = False
         self.interactive = interactive
+        self.cli_mode = cli_mode
         
         # Unique cookie file based on email to support switching profiles
         safe_email = src.config.WQ_EMAIL.replace("@", "_").replace(".", "_")
@@ -104,7 +105,7 @@ class WQSession(requests.Session):
                 inquiry_id = inquiry.get('id') if isinstance(inquiry, dict) else inquiry
                 biometric_url = f"{r.url}/persona?inquiry={inquiry_id}"
                 
-                if self.interactive:
+                if self.interactive or not self.cli_mode:
                     raise PersonaRequiredException(biometric_url, r.json(), self)
                 
                 import os
