@@ -1066,6 +1066,355 @@ async function clearInbox() {
     }
 }
 
+// ==========================================
+// SUBMISSION PLATFORM CODE
+// ==========================================
+let submissionQueue = [];
+let subActiveTab = "green"; // green or yellow
+let submissionLogLines = [];
+
+function appendSubmissionLog(message) {
+    const consoleElem = document.getElementById("submission-log-console");
+    if (!consoleElem) return;
+    
+    // If it's the initial placeholder, clear it
+    if (submissionLogLines.length === 0) {
+        consoleElem.innerHTML = "";
+    }
+    
+    const timestamp = new Date().toLocaleTimeString();
+    const formattedLine = `[${timestamp}] ${message}`;
+    submissionLogLines.push(formattedLine);
+    
+    const lineDiv = document.createElement("div");
+    lineDiv.style.marginBottom = "4px";
+    lineDiv.style.lineHeight = "1.4";
+    
+    // Set colors based on keywords
+    if (message.includes("[SUCCESS]")) {
+        lineDiv.style.color = "#10b981"; // green
+    } else if (message.includes("[FAILED]") || message.includes("rejected")) {
+        lineDiv.style.color = "#ef4444"; // red
+    } else if (message.includes("permanently rejected") || message.includes("YELLOW")) {
+        lineDiv.style.color = "#fbbf24"; // yellow
+    } else {
+        lineDiv.style.color = "#a5f3fc"; // cyan
+    }
+    
+    lineDiv.textContent = formattedLine;
+    consoleElem.appendChild(lineDiv);
+    
+    // Auto scroll to bottom
+    consoleElem.scrollTop = consoleElem.scrollHeight;
+}
+
+// 1. Fetch platform stats
+async function fetchPlatformStats() {
+    try {
+        const res = await fetch("/api/platform-stats");
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        
+        document.getElementById("sub-queue-count").textContent = data.queue_count || 0;
+        document.getElementById("sub-green-count").textContent = data.green_count || 0;
+        document.getElementById("sub-yellow-count").textContent = data.yellow_count || 0;
+        document.getElementById("sub-total-count").textContent = data.total_count || 0;
+        document.getElementById("queue-count-badge").textContent = `${data.queue_count || 0} Queued`;
+    } catch (e) {
+        console.error("Failed to fetch platform stats", e);
+    }
+}
+
+// 2. Load submission queue
+async function loadSubmissionQueue() {
+    try {
+        const res = await fetch("/api/submission-queue");
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        submissionQueue = await res.json();
+        renderSubmissionQueueTable();
+    } catch (e) {
+        console.error("Failed to load submission queue", e);
+    }
+}
+
+// 3. Render submission queue
+function renderSubmissionQueueTable() {
+    const tbody = document.getElementById("sub-queue-body");
+    if (!tbody) return;
+    
+    const searchVal = document.getElementById("queue-search-input")?.value?.toLowerCase() || "";
+    
+    // Filter queue
+    let filtered = submissionQueue.filter(item => {
+        if (!searchVal) return true;
+        return item.alpha_id.toLowerCase().includes(searchVal) ||
+               item.formula.toLowerCase().includes(searchVal) ||
+               item.status.toLowerCase().includes(searchVal);
+    });
+    
+    // Render list
+    if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="empty-state">No matching submittable alphas in queue.</td></tr>`;
+        return;
+    }
+    
+    tbody.innerHTML = "";
+    filtered.forEach(item => {
+        const tr = document.createElement("tr");
+        
+        // Status Badge Style
+        let badgeClass = "badge-neutral";
+        let rowStyle = "";
+        
+        if (item.status === "GREEN") {
+            badgeClass = "badge-success";
+            rowStyle = "background-color: rgba(16, 185, 129, 0.05);";
+        } else if (item.status === "YELLOW") {
+            badgeClass = "badge-warning";
+            rowStyle = "background-color: rgba(245, 158, 11, 0.05);";
+        } else if (item.status === "RED") {
+            badgeClass = "badge-danger";
+            rowStyle = "background-color: rgba(239, 68, 68, 0.05);";
+        }
+        
+        tr.style.cssText = rowStyle;
+        
+        tr.innerHTML = `
+            <td style="text-align: center;">
+                <input type="checkbox" class="queue-row-chk" data-id="${item.alpha_id}" style="cursor: pointer;">
+            </td>
+            <td>
+                <div style="font-weight: 700; color: white; font-family: monospace;">${item.alpha_id}</div>
+                <div style="font-size: 0.7rem; color: var(--text-muted, #94a3b8); font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 320px;" title="${escapeHTML(item.formula)}">${escapeHTML(item.formula)}</div>
+            </td>
+            <td>${item.sharpe ? item.sharpe.toFixed(2) : "0.00"}</td>
+            <td>${item.fitness ? item.fitness.toFixed(2) : "0.00"}</td>
+            <td>${item.turnover ? item.turnover.toFixed(1) : "0.0"}%</td>
+            <td>
+                <span class="badge ${badgeClass}">${item.status}</span>
+            </td>
+            <td>
+                <button class="chrome-btn single-submit-btn" data-id="${item.alpha_id}" style="padding: 4px 8px; font-size: 0.725rem; font-weight: 700; background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.3); border-radius: 6px; cursor: pointer; outline: none; color: #34d399;">Submit</button>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+    
+    // Wire up single submit buttons
+    tbody.querySelectorAll(".single-submit-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const alphaId = btn.getAttribute("data-id");
+            triggerSubmission([alphaId]);
+        });
+    });
+}
+
+// 4. Trigger Submission
+async function triggerSubmission(alphaIds) {
+    if (alphaIds.length === 0) {
+        alert("Please select at least one alpha to submit.");
+        return;
+    }
+    
+    appendSubmissionLog(`Initiating submission process for ${alphaIds.length} alphas...`);
+    
+    try {
+        const res = await fetch("/api/submit-alphas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ alpha_ids: alphaIds })
+        });
+        
+        if (!res.ok) {
+            const errData = await res.json();
+            throw new Error(errData.message || `HTTP ${res.status}`);
+        }
+        
+        appendSubmissionLog("[SYSTEM] Sequencer active. Bulk execution initialized.");
+        pollSubmissionStatus();
+    } catch (e) {
+        appendSubmissionLog(`[ERROR] Submission request failed: ${e.message}`);
+        alert(`Failed to start submission: ${e.message}`);
+    }
+}
+
+// 5. Poll Submission Sequencer Status
+let subPollInterval = null;
+function pollSubmissionStatus() {
+    if (subPollInterval) return;
+    
+    subPollInterval = setInterval(async () => {
+        try {
+            const res = await fetch("/api/submission-status");
+            if (!res.ok) throw new Error();
+            const data = await res.json();
+            
+            if (data.status === "RUNNING") {
+                appendSubmissionLog(`[SEQUENCER] Progress: ${data.current_index}/${data.total} | Current ID: ${data.current_alpha_id} | Success: ${data.success_count} | Failed: ${data.fail_count}`);
+            } else if (data.status === "SUCCESS") {
+                appendSubmissionLog(`[SUCCESS] Sequencer finished. ${data.success_count} successful, ${data.fail_count} failed.`);
+                clearInterval(subPollInterval);
+                subPollInterval = null;
+                // Reload tables
+                loadSubmissionQueue();
+                fetchPlatformStats();
+                loadSubmissionRegistry();
+            } else if (data.status === "ERROR") {
+                appendSubmissionLog(`[ERROR] Sequencer failure: ${data.message}`);
+                clearInterval(subPollInterval);
+                subPollInterval = null;
+                loadSubmissionQueue();
+                fetchPlatformStats();
+                loadSubmissionRegistry();
+            }
+        } catch (e) {
+            console.error("Error polling submission status", e);
+        }
+    }, 2000);
+}
+
+// 6. Start Search (Platform Sweep)
+async function startSearch() {
+    const searchBtn = document.getElementById("start-search-btn");
+    const progressText = document.getElementById("search-progress-text");
+    
+    if (searchBtn) searchBtn.disabled = true;
+    if (progressText) {
+        progressText.style.display = "block";
+        progressText.textContent = "Scanning platform for qualifying alphas...";
+    }
+    
+    appendSubmissionLog("Initiating scan for qualifying alphas (Sharpe >= 1.5, Fitness >= 1.0)...");
+    
+    try {
+        const res = await fetch("/api/sweep-platform-alphas", { method: "POST" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        
+        pollSweepStatus();
+    } catch (e) {
+        appendSubmissionLog(`[ERROR] Sweep trigger failed: ${e.message}`);
+        if (searchBtn) searchBtn.disabled = false;
+        if (progressText) progressText.style.display = "none";
+    }
+}
+
+// 7. Poll Sweep Status
+let sweepPollInterval = null;
+function pollSweepStatus() {
+    if (sweepPollInterval) return;
+    
+    const searchBtn = document.getElementById("start-search-btn");
+    const progressText = document.getElementById("search-progress-text");
+    
+    sweepPollInterval = setInterval(async () => {
+        try {
+            const res = await fetch("/api/sweep-status");
+            if (!res.ok) throw new Error();
+            const data = await res.json();
+            
+            if (data.status === "RUNNING") {
+                if (progressText) progressText.textContent = data.message;
+            } else if (data.status === "SUCCESS") {
+                appendSubmissionLog(`[SUCCESS] Sweep scan complete. Found and queued ${data.found} qualifying alphas.`);
+                clearInterval(sweepPollInterval);
+                sweepPollInterval = null;
+                
+                if (searchBtn) searchBtn.disabled = false;
+                if (progressText) progressText.style.display = "none";
+                
+                loadSubmissionQueue();
+                fetchPlatformStats();
+                loadSubmissionRegistry();
+            } else if (data.status === "ERROR") {
+                appendSubmissionLog(`[ERROR] Sweep scan failed: ${data.message}`);
+                clearInterval(sweepPollInterval);
+                sweepPollInterval = null;
+                
+                if (searchBtn) searchBtn.disabled = false;
+                if (progressText) progressText.style.display = "none";
+            }
+        } catch (e) {
+            console.error("Error polling sweep status", e);
+        }
+    }, 1500);
+}
+
+// 8. Load registries (Green & Yellow lists)
+async function loadSubmissionRegistry() {
+    try {
+        const greenRes = await fetch("/api/submitted-alphas");
+        const yellowRes = await fetch("/api/yellow-alphas");
+        
+        if (!greenRes.ok || !yellowRes.ok) throw new Error("Failed to load registries");
+        
+        const greenAlphas = await greenRes.json();
+        const yellowAlphas = await yellowRes.json();
+        
+        renderSubmissionRegistryTables(greenAlphas, yellowAlphas);
+    } catch (e) {
+        console.error("Failed to load registries", e);
+    }
+}
+
+// 9. Render registries
+function renderSubmissionRegistryTables(greenAlphas, yellowAlphas) {
+    const greenBody = document.getElementById("sub-green-body");
+    const yellowBody = document.getElementById("sub-yellow-body");
+    
+    // Update badge count based on active registry tab
+    const activeTab = subActiveTab;
+    const badgeText = document.getElementById("sub-registry-count");
+    if (badgeText) {
+        badgeText.textContent = `${activeTab === "green" ? greenAlphas.length : yellowAlphas.length} Alphas`;
+    }
+    
+    // Render Green Table
+    if (!greenBody) return;
+    if (greenAlphas.length === 0) {
+        greenBody.innerHTML = `<tr><td colspan="5" class="empty-state">No submitted alphas registered in green status.</td></tr>`;
+    } else {
+        greenBody.innerHTML = "";
+        greenAlphas.forEach(item => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>
+                    <div style="font-weight: 700; color: #10b981; font-family: monospace;">${item.alpha_id}</div>
+                    <div style="font-size: 0.7rem; color: var(--text-muted, #94a3b8); font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 250px;" title="${escapeHTML(item.formula)}">${escapeHTML(item.formula)}</div>
+                </td>
+                <td>${item.sharpe ? item.sharpe.toFixed(2) : "0.00"}</td>
+                <td>${item.fitness ? item.fitness.toFixed(2) : "0.00"}</td>
+                <td>${item.turnover ? item.turnover.toFixed(1) : "0.0"}%</td>
+                <td style="font-size: 0.75rem; color: var(--text-muted, #94a3b8);">${item.submitted_at}</td>
+            `;
+            greenBody.appendChild(tr);
+        });
+    }
+    
+    // Render Yellow Table
+    if (!yellowBody) return;
+    if (yellowAlphas.length === 0) {
+        yellowBody.innerHTML = `<tr><td colspan="5" class="empty-state">No permanently rejected alphas in yellow status.</td></tr>`;
+    } else {
+        yellowBody.innerHTML = "";
+        yellowAlphas.forEach(item => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>
+                    <div style="font-weight: 700; color: #f59e0b; font-family: monospace;">${item.alpha_id}</div>
+                    <div style="font-size: 0.7rem; color: var(--text-muted, #94a3b8); font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px;" title="${escapeHTML(item.formula)}">${escapeHTML(item.formula)}</div>
+                </td>
+                <td>${item.sharpe ? item.sharpe.toFixed(2) : "0.00"}</td>
+                <td>${item.fitness ? item.fitness.toFixed(2) : "0.00"}</td>
+                <td style="font-size: 0.75rem; color: #fca5a5; max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${escapeHTML(item.reason || '')}">${escapeHTML(item.reason || 'Correlation rejection')}</td>
+                <td style="font-size: 0.75rem; color: var(--text-muted, #94a3b8);">${item.rejected_at}</td>
+            `;
+            yellowBody.appendChild(tr);
+        });
+    }
+}
+
 // Initialize Page
 window.addEventListener("DOMContentLoaded", () => {
     // Add initial log line in memory
@@ -1076,6 +1425,108 @@ window.addEventListener("DOMContentLoaded", () => {
     pollSession();
     pollQueueStatus();
     pollInboxAlphas();
+
+    // Wire up Nav Switcher Tabs
+    const tabSimBtn = document.getElementById("tab-sim-btn");
+    const tabSubmitBtn = document.getElementById("tab-submit-btn");
+    const orchestratorView = document.getElementById("orchestrator-view");
+    const submissionView = document.getElementById("submission-view");
+    
+    if (tabSimBtn && tabSubmitBtn && orchestratorView && submissionView) {
+        tabSimBtn.addEventListener("click", () => {
+            tabSimBtn.style.background = "linear-gradient(135deg, rgba(6,182,212,0.2), rgba(59,130,246,0.2))";
+            tabSimBtn.style.borderColor = "rgba(6,182,212,0.4)";
+            tabSimBtn.style.color = "white";
+            
+            tabSubmitBtn.style.background = "none";
+            tabSubmitBtn.style.borderColor = "transparent";
+            tabSubmitBtn.style.color = "#94a3b8";
+            
+            orchestratorView.style.display = "block";
+            submissionView.style.display = "none";
+        });
+        
+        tabSubmitBtn.addEventListener("click", () => {
+            tabSubmitBtn.style.background = "linear-gradient(135deg, rgba(16,185,129,0.2), rgba(5,150,105,0.2))";
+            tabSubmitBtn.style.borderColor = "rgba(16,185,129,0.4)";
+            tabSubmitBtn.style.color = "white";
+            
+            tabSimBtn.style.background = "none";
+            tabSimBtn.style.borderColor = "transparent";
+            tabSimBtn.style.color = "#94a3b8";
+            
+            orchestratorView.style.display = "none";
+            submissionView.style.display = "block";
+            
+            // Initial load for submission view
+            fetchPlatformStats();
+            loadSubmissionQueue();
+            loadSubmissionRegistry();
+        });
+    }
+
+    // Wire up Search & Submission Controls
+    const startSearchBtn = document.getElementById("start-search-btn");
+    if (startSearchBtn) {
+        startSearchBtn.addEventListener("click", startSearch);
+    }
+    
+    const bulkSubmitBtn = document.getElementById("bulk-submit-btn");
+    if (bulkSubmitBtn) {
+        bulkSubmitBtn.addEventListener("click", () => {
+            const chkboxes = document.querySelectorAll(".queue-row-chk:checked");
+            const ids = Array.from(chkboxes).map(cb => cb.getAttribute("data-id"));
+            triggerSubmission(ids);
+        });
+    }
+    
+    const queueSelectAll = document.getElementById("queue-select-all");
+    if (queueSelectAll) {
+        queueSelectAll.addEventListener("change", (e) => {
+            const checked = e.target.checked;
+            document.querySelectorAll(".queue-row-chk").forEach(cb => {
+                cb.checked = checked;
+            });
+        });
+    }
+    
+    const queueSearchInput = document.getElementById("queue-search-input");
+    if (queueSearchInput) {
+        queueSearchInput.addEventListener("input", renderSubmissionQueueTable);
+    }
+    
+    const subTabBtns = document.querySelectorAll(".sub-tab-btn");
+    const subGreenTable = document.getElementById("sub-green-table");
+    const subYellowTable = document.getElementById("sub-yellow-table");
+    
+    subTabBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            subTabBtns.forEach(b => {
+                b.classList.remove("active");
+                b.style.background = "none";
+                b.style.borderColor = "transparent";
+                b.style.color = "#94a3b8";
+            });
+            btn.classList.add("active");
+            subActiveTab = btn.getAttribute("data-tab");
+            
+            // Set styles for active registry tab
+            if (subActiveTab === "green") {
+                btn.style.background = "linear-gradient(135deg, rgba(16,185,129,0.2), rgba(5,150,105,0.2))";
+                btn.style.borderColor = "rgba(16,185,129,0.4)";
+                btn.style.color = "white";
+                if (subGreenTable) subGreenTable.style.display = "table";
+                if (subYellowTable) subYellowTable.style.display = "none";
+            } else {
+                btn.style.background = "linear-gradient(135deg, rgba(245,158,11,0.2), rgba(245,158,11,0.2))";
+                btn.style.borderColor = "rgba(245,158,11,0.4)";
+                btn.style.color = "white";
+                if (subGreenTable) subGreenTable.style.display = "none";
+                if (subYellowTable) subYellowTable.style.display = "table";
+            }
+            loadSubmissionRegistry();
+        });
+    });
 
     // Wire up Review Inbox Controls
     const inboxPushAllBtn = document.getElementById("inbox-push-all-btn");
@@ -1106,6 +1557,20 @@ window.addEventListener("DOMContentLoaded", () => {
             renderVaultTable();
         });
     }
+    
+    // Poll sweep status if already running on load
+    pollSweepStatus();
+    // Poll submission status if already running on load
+    pollSubmissionStatus();
+    
+    // Update platform stats every 10 seconds if submission view is open
+    setInterval(() => {
+        const submissionView = document.getElementById("submission-view");
+        if (submissionView && submissionView.style.display === "block") {
+            fetchPlatformStats();
+            loadSubmissionQueue();
+        }
+    }, 10000);
     
     // Poll stats table updates every 20 seconds to reduce API requests
     statsInterval = setInterval(fetchStats, 20000);

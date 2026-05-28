@@ -1723,7 +1723,7 @@ def queue_status():
 @app.route("/api/stats", methods=["GET"])
 def get_api_stats():
     import sqlite3
-    db_path = Path("db") / "alpha_vault.db"
+    db_path = DB_DIR / "alpha_vault.db"
     
     total_runs = 0
     total_submissions = 0
@@ -1891,6 +1891,297 @@ def get_api_stats():
         "submitted_list": submitted_list,
         "vault_alphas": vault_alphas
     })
+
+# Shared state for automation platform
+sweep_state = {
+    "status": "IDLE",  # IDLE, RUNNING, SUCCESS, ERROR
+    "message": "",
+    "found": 0,
+    "added": 0
+}
+
+submission_state = {
+    "status": "IDLE",  # IDLE, RUNNING, SUCCESS, ERROR
+    "total": 0,
+    "current_index": 0,
+    "current_alpha_id": "",
+    "success_count": 0,
+    "fail_count": 0,
+    "message": ""
+}
+
+def bg_sweep_task():
+    global active_session, sweep_state
+    sweep_state["status"] = "RUNNING"
+    sweep_state["message"] = "Authenticating..."
+    sweep_state["found"] = 0
+    sweep_state["added"] = 0
+    
+    if active_session is None:
+        sweep_state["status"] = "ERROR"
+        sweep_state["message"] = "No active session. Please click 'Re-auth Session' to complete login."
+        return
+        
+    try:
+        import sqlite3
+        from src.database import DB_PATH, upsert_all_alphas, add_to_queue
+        
+        url = "https://api.worldquantbrain.com/users/self/alphas"
+        params = {"limit": 100}
+        alphas = []
+        sweep_state["message"] = "Fetching alphas from WorldQuant..."
+        
+        while url:
+            r = active_session.get(url, params=params, timeout=30)
+            if r.status_code != 200:
+                raise ValueError(f"Failed to fetch alphas from WQ: HTTP {r.status_code}")
+            res = r.json()
+            alphas.extend(res.get("results", []))
+            
+            url = None
+            for link in res.get("links", []):
+                if link.get("rel") == "next":
+                    url = link.get("href")
+                    params = None
+                    break
+        
+        sweep_state["message"] = f"Processing {len(alphas)} alphas..."
+        
+        # Process and upsert to database
+        processed_alphas = []
+        for a in alphas:
+            alpha_id = a.get("id")
+            formula = a.get("regular", {}).get("code", "")
+            metrics = a.get("is", {})
+            sharpe = metrics.get("sharpe")
+            fitness = metrics.get("fitness")
+            turnover = metrics.get("turnover", 0.0) * 100.0 if metrics.get("turnover") is not None else 0.0
+            
+            processed_alphas.append({
+                "alpha_id": alpha_id,
+                "formula": formula,
+                "sharpe": sharpe,
+                "fitness": fitness,
+                "turnover": turnover
+            })
+            
+        upsert_all_alphas(processed_alphas)
+        
+        # Load persistent statuses
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+        cursor.execute("SELECT alpha_id FROM rejected_alphas")
+        yellow_ids = {row[0] for row in cursor.fetchall()}
+        cursor.execute("SELECT alpha_id FROM submitted_alphas")
+        green_ids = {row[0] for row in cursor.fetchall()}
+        conn.close()
+        
+        candidates_to_queue = []
+        for a in alphas:
+            alpha_id = a.get("id")
+            if alpha_id in yellow_ids or alpha_id in green_ids:
+                continue
+                
+            if a.get("status") != "UNSUBMITTED":
+                continue
+                
+            metrics = a.get("is", {})
+            sharpe = metrics.get("sharpe")
+            fitness = metrics.get("fitness")
+            
+            # Check weight concentration
+            weight_pass = True
+            checks = metrics.get("checks", [])
+            for check in checks:
+                if check.get("name") == "CONCENTRATED_WEIGHT" and check.get("result") == "FAIL":
+                    weight_pass = False
+                    
+            if (sharpe is not None and sharpe >= 1.5) and \
+               (fitness is not None and fitness >= 1.0) and \
+               weight_pass:
+                candidates_to_queue.append(alpha_id)
+                
+        if candidates_to_queue:
+            add_to_queue(candidates_to_queue)
+            
+        sweep_state["status"] = "SUCCESS"
+        sweep_state["message"] = f"Scan complete. Queued {len(candidates_to_queue)} qualifying submittable alphas."
+        sweep_state["found"] = len(candidates_to_queue)
+        log_message("INFO", f"[SCANNER] Scan complete. Found {len(candidates_to_queue)} qualifying submittable alphas.")
+        
+    except Exception as e:
+        sweep_state["status"] = "ERROR"
+        sweep_state["message"] = f"Scan failed: {str(e)}"
+        log_message("ERROR", f"[SCANNER] Sweep failed: {e}")
+
+def bg_submission_task(alpha_ids):
+    global active_session, submission_state
+    submission_state["status"] = "RUNNING"
+    submission_state["total"] = len(alpha_ids)
+    submission_state["current_index"] = 0
+    submission_state["success_count"] = 0
+    submission_state["fail_count"] = 0
+    submission_state["message"] = "Starting submission queue..."
+    
+    if active_session is None:
+        submission_state["status"] = "ERROR"
+        submission_state["message"] = "No active session. Please authenticate first."
+        return
+        
+    from src.client import WQClient
+    from src.database import mark_alpha_green, mark_alpha_yellow, mark_alpha_red
+    
+    client = WQClient(active_session)
+    
+    for idx, alpha_id in enumerate(alpha_ids):
+        submission_state["current_index"] = idx + 1
+        submission_state["current_alpha_id"] = alpha_id
+        submission_state["message"] = f"Submitting alpha {alpha_id} ({idx+1}/{len(alpha_ids)})..."
+        log_message("INFO", f"[SUBMITTER] [{idx+1}/{len(alpha_ids)}] Submitting Alpha ID: {alpha_id}")
+        
+        try:
+            res = client.submit_alpha(alpha_id)
+            if res.get("success"):
+                log_message("SUBMITTED", f"Alpha {alpha_id} submitted successfully!")
+                submission_state["success_count"] += 1
+                
+                # Color GREEN on platform
+                try:
+                    color_r = active_session.patch(f"https://api.worldquantbrain.com/alphas/{alpha_id}", json={"color": "GREEN"}, timeout=15)
+                    if color_r.status_code == 200:
+                        log_message("INFO", f"Colored GREEN on platform successfully.")
+                    else:
+                        log_message("WARNING", f"Failed to color GREEN on platform: {color_r.text}")
+                except Exception as e:
+                    log_message("WARNING", f"Error coloring GREEN: {e}")
+                    
+                mark_alpha_green(alpha_id)
+            else:
+                details = res.get("details", "")
+                log_message("ERROR", f"Alpha {alpha_id} submission failed: {details}")
+                submission_state["fail_count"] += 1
+                
+                # If rejection is correlation / failure check
+                is_hard_reject = False
+                if "SELF_CORRELATION" in details or "PROD_CORRELATION" in details or "FAIL" in details or "correlation" in details.lower():
+                    is_hard_reject = True
+                    
+                if is_hard_reject:
+                    log_message("ERROR", f"Alpha {alpha_id} permanently rejected. Marking YELLOW.")
+                    try:
+                        color_r = active_session.patch(f"https://api.worldquantbrain.com/alphas/{alpha_id}", json={"color": "YELLOW"}, timeout=15)
+                        if color_r.status_code == 200:
+                            log_message("INFO", f"Colored YELLOW on platform successfully.")
+                        else:
+                            log_message("WARNING", f"Failed to color YELLOW on platform: {color_r.text}")
+                    except Exception as e:
+                        log_message("WARNING", f"Error coloring YELLOW: {e}")
+                        
+                    mark_alpha_yellow(alpha_id, reason=details)
+                else:
+                    log_message("WARNING", f"Alpha {alpha_id} temporary failure. Marking RED for retry.")
+                    mark_alpha_red(alpha_id)
+                    
+        except Exception as e:
+            log_message("ERROR", f"Error submitting alpha {alpha_id}: {e}")
+            submission_state["fail_count"] += 1
+            mark_alpha_red(alpha_id)
+            
+        # Delay between sequential submissions to respect rate limits
+        if idx < len(alpha_ids) - 1:
+            time.sleep(10)
+            
+    submission_state["status"] = "SUCCESS"
+    submission_state["message"] = f"Batch submission finished. Success: {submission_state['success_count']}, Failed: {submission_state['fail_count']}"
+    submission_state["current_alpha_id"] = ""
+    log_message("INFO", f"[SUBMITTER] Batch submission complete. Success: {submission_state['success_count']}, Failed: {submission_state['fail_count']}")
+
+@app.route("/api/submission-queue", methods=["GET"])
+def get_submission_queue():
+    from src.database import get_queue_alphas
+    try:
+        return jsonify(get_queue_alphas())
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/sweep-platform-alphas", methods=["POST"])
+def sweep_platform_alphas():
+    global sweep_state
+    if sweep_state["status"] == "RUNNING":
+        return jsonify({"status": "error", "message": "Search is already running."}), 400
+        
+    t = threading.Thread(target=bg_sweep_task, daemon=True)
+    t.start()
+    return jsonify({"status": "success", "message": "Search scanning started."})
+
+@app.route("/api/sweep-status", methods=["GET"])
+def get_sweep_status():
+    return jsonify(sweep_state)
+
+@app.route("/api/submit-alphas", methods=["POST"])
+def submit_alphas():
+    global submission_state
+    if submission_state["status"] == "RUNNING":
+        return jsonify({"status": "error", "message": "A submission process is already active."}), 400
+        
+    data = request.json or {}
+    alpha_ids = data.get("alpha_ids", [])
+    if not alpha_ids:
+        return jsonify({"status": "error", "message": "No alpha IDs provided."}), 400
+        
+    t = threading.Thread(target=bg_submission_task, args=(alpha_ids,), daemon=True)
+    t.start()
+    return jsonify({"status": "success", "message": "Submission process started."})
+
+@app.route("/api/submission-status", methods=["GET"])
+def get_submission_status():
+    return jsonify(submission_state)
+
+@app.route("/api/yellow-alphas", methods=["GET"])
+def get_yellow_alphas():
+    from src.database import get_failed_yellow_alphas
+    try:
+        return jsonify(get_failed_yellow_alphas())
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/submitted-alphas", methods=["GET"])
+def get_submitted_alphas():
+    from src.database import get_submitted_green_alphas
+    try:
+        return jsonify(get_submitted_green_alphas())
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/platform-stats", methods=["GET"])
+def get_platform_stats():
+    import sqlite3
+    from src.database import DB_PATH
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+        
+        cursor.execute("SELECT COUNT(*) FROM queue")
+        queue_count = cursor.fetchone()[0] or 0
+        
+        cursor.execute("SELECT COUNT(*) FROM rejected_alphas")
+        yellow_count = cursor.fetchone()[0] or 0
+        
+        cursor.execute("SELECT COUNT(*) FROM submitted_alphas")
+        green_count = cursor.fetchone()[0] or 0
+        
+        cursor.execute("SELECT COUNT(*) FROM all_alphas")
+        total_count = cursor.fetchone()[0] or 0
+        
+        conn.close()
+        return jsonify({
+            "queue_count": queue_count,
+            "yellow_count": yellow_count,
+            "green_count": green_count,
+            "total_count": total_count
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route("/api/logs/stream")
 def stream_logs():
@@ -2409,7 +2700,7 @@ def main():
         send_whatsapp("🚀 AlphaForge ONLINE\nServer started & logged into WorldQuant Brain successfully. Simulations beginning now!")
     except Exception as e:
         log_message("WARNING", f"Initial login authentication pending or deferred: {e}")
-        log_message("WARNING", "Please open the dashboard and click '🔑 Re-auth Session' to complete login!")
+        log_message("WARNING", "Please open the dashboard and click 'Re-auth Session' to complete login!")
         try:
             send_whatsapp(
                 f"⚠️ AUTHENTICATION PENDING\n"
