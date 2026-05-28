@@ -1,0 +1,12 @@
+{
+  "alpha_id": "9544fc7e",
+  "family": "Intraday Trend Pattern Reversion (Heston, 2010) (Gate 0.85)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(close - open, 6)), 0), subindustry)",
+  "sharpe": 1.52,
+  "fitness": 0.86,
+  "turnover": 23.05,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/omV2PQ8b",
+  "created_at": "2026-05-23 17:50:26"
+}

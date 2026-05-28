@@ -1,0 +1,12 @@
+{
+  "alpha_id": "2d4a6965",
+  "family": "15-Day Volatility-Normalized Returns (Gate 0.65)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(returns / (ts_std_dev(returns, 15) + 0.0001), 4)), 0), subindustry)",
+  "sharpe": 1.24,
+  "fitness": 0.67,
+  "turnover": 27.400000000000002,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/zqOar79O",
+  "created_at": "2026-05-23 17:28:37"
+}

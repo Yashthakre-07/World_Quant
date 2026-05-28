@@ -1,0 +1,12 @@
+{
+  "alpha_id": "9dc5d9c1",
+  "family": "Long Vol-Normalized Gap",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 20) + 0.0001), 6)), 0), subindustry)",
+  "sharpe": 0.05,
+  "fitness": 0.0,
+  "turnover": 30.91,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/78Jgp91v",
+  "created_at": "2026-05-24 03:18:21"
+}

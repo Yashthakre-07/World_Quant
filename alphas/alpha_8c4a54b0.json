@@ -1,0 +1,12 @@
+{
+  "alpha_id": "8c4a54b0",
+  "family": "Intraday Candle Conviction - Fn 8",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.8, -rank(ts_decay_linear((((close - open) / (high - low + 0.00101)) / (ts_std_dev(returns, 10) + 0.00111)) / (available_for_sale_securities_amortized_cost + 0.00121), 5)), 0), subindustry)",
+  "sharpe": 1.25,
+  "fitness": 0.54,
+  "turnover": 34.79,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/6Xzq2dWG",
+  "created_at": "2026-05-25 04:43:28"
+}

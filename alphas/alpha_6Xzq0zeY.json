@@ -1,0 +1,12 @@
+{
+  "alpha_id": "6Xzq0zeY",
+  "family": "Vol-Normalized Intraday Body - Fn 3",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - open) / (ts_std_dev(returns, 10) + 0.00101)) / (accumulated_depreciation_depletion_amortization_ppne + 0.00101), 6)), 0), subindustry)",
+  "sharpe": 1.41,
+  "fitness": 0.72,
+  "turnover": 31.85,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "#",
+  "created_at": ""
+}

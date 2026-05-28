@@ -1,0 +1,25 @@
+{
+  "alpha_id": "omV2PQ8b",
+  "family": "Intraday Trend Pattern Reversion (Heston, 2010) (Gate 0.85)",
+  "fitness": 0.86,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(close - open, 6)), 0), subindustry)",
+  "hypothesis": "Intraday price trends established between close and open exhibit significant short-term reversion.",
+  "settings": {
+    "decay": 10,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.52,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 17:50:26",
+  "turnover": 23.05
+}

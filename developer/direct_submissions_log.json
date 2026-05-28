@@ -1,0 +1,44 @@
+[
+  {
+    "index": 1,
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - open) * (1.001 - abs(aerospace_defense_exposure_score))) / (accrued_liabilities_total + 0.0010), 5)), 0), subindustry)",
+    "status": "QUEUED",
+    "link": "https://api.worldquantbrain.com/simulations/4qVvu4f6355o9M82c7x3y87",
+    "timestamp": "2026-05-24 13:02:16"
+  },
+  {
+    "index": 2,
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((((close - open) / (high - low + 0.0010)) * (1.001 - abs(aerospace_defense_exposure_score))) / (accrued_liabilities_total + 0.0011), 4)), 0), subindustry)",
+    "status": "QUEUED",
+    "link": "https://api.worldquantbrain.com/simulations/2eU1e92fW4mDbIh5Q492KDd",
+    "timestamp": "2026-05-24 13:02:36"
+  },
+  {
+    "index": 3,
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(aerospace_defense_exposure_score))) / (accrued_liabilities_total + 0.0012), 5)), 0), subindustry)",
+    "status": "QUEUED",
+    "link": "https://api.worldquantbrain.com/simulations/2Y3T2jeWf4qmcC7H0V3lw7H",
+    "timestamp": "2026-05-24 13:02:56"
+  },
+  {
+    "index": 4,
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(aerospace_defense_exposure_score))) / (accrued_liabilities_total + 0.0013), 6)), 0), subindustry)",
+    "status": "QUEUED",
+    "link": "https://api.worldquantbrain.com/simulations/2PuJis1IU4sCbLJ1ea809pXa",
+    "timestamp": "2026-05-24 13:03:17"
+  },
+  {
+    "index": 5,
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.60, -rank(ts_decay_linear(((ts_sum(returns, 3) / (ts_std_dev(returns, 10) + 0.00010)) * (1.001 - abs(aerospace_defense_exposure_score))) / (accrued_liabilities_total + 0.0014), 5)), 0), subindustry)",
+    "status": "QUEUED",
+    "link": "https://api.worldquantbrain.com/simulations/254y6l5jm5enc5Ebj1TQcVV",
+    "timestamp": "2026-05-24 13:03:37"
+  },
+  {
+    "index": 6,
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - open) * (1.001 - abs(airlines_exposure_score))) / (accumulated_amortization_customer_intangibles + 0.0010), 5)), 0), subindustry)",
+    "status": "QUEUED",
+    "link": "https://api.worldquantbrain.com/simulations/382rmIfpq4QVbibzEVpRlrJ",
+    "timestamp": "2026-05-24 13:03:58"
+  }
+]

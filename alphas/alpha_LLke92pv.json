@@ -1,0 +1,25 @@
+{
+  "alpha_id": "LLke92pv",
+  "family": "Intraday Close to Previous Open Reversion (Gate 0.65)",
+  "fitness": 0.72,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(close - ts_delay(open, 1), 4)), 0), subindustry)",
+  "hypothesis": "Intraday close price reverting relative to the previous day's opening price under volume constraints.",
+  "settings": {
+    "decay": 12,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.32,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 17:02:00",
+  "turnover": 26.029999999999998
+}

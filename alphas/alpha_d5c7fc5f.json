@@ -1,0 +1,12 @@
+{
+  "alpha_id": "d5c7fc5f",
+  "family": "Idiosyncratic Volatility Premium (Ang, 2006) (Gate 0.85)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(ts_std_dev(returns, 15), 6)), 0), subindustry)",
+  "sharpe": 0.26,
+  "fitness": 0.12,
+  "turnover": 6.68,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/P0vePVKq",
+  "created_at": "2026-05-23 17:57:41"
+}

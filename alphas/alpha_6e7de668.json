@@ -1,0 +1,12 @@
+{
+  "alpha_id": "6e7de668",
+  "family": "Normalized Overnight Gap - Fn 6",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.00141)) / (allocated_sbp_expense_total + 0.00141), 5)), 0), subindustry)",
+  "sharpe": 0.26,
+  "fitness": 0.04,
+  "turnover": 31.04,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/e7L2EA6g",
+  "created_at": "2026-05-25 04:31:32"
+}

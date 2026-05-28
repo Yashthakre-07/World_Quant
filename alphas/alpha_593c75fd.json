@@ -1,0 +1,12 @@
+{
+  "alpha_id": "593c75fd",
+  "family": "Intraday Shadow Wick Climax Reversion (Decay 10)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(((high - max(open, close)) - (min(open, close) - low)) / (high - low + 0.001), 6)), 0), subindustry)",
+  "sharpe": 0.0,
+  "fitness": 0.0,
+  "turnover": 0.0,
+  "status": "ERROR",
+  "error_message": "Local Validation Failed: Illegal token found: 'max'. Not in allowed data fields or operator list.",
+  "alpha_link": "#",
+  "created_at": "2026-05-25 06:49:06"
+}

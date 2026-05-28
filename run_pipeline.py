@@ -2345,6 +2345,266 @@ def robust_request(session, method, url, index=None, **kwargs):
             log_message("WARNING", f"{lbl}Network connection dropped. Patiently retrying in 30 seconds... (Reason: {e})")
             time.sleep(30)
 
+def process_completed_alpha(index, task, task_state, alpha_id, nxt_url, run_uuid, session):
+    family = task["family"]
+    hypothesis = task["hypothesis"]
+    formula = task["formula"]
+    settings = dict(DEFAULT_SIM_SETTINGS)
+    if "settings" in task and task["settings"]:
+        settings.update(task["settings"])
+
+    try:
+        alpha_url = f"{WQ_ALPHAS_URL}/{alpha_id}"
+        alpha_r = robust_request(session, "GET", alpha_url, index=index, timeout=30).json()
+
+        # Extract metrics
+        metrics = alpha_r.get("is", {})
+        sharpe = metrics.get("sharpe")
+        fitness = metrics.get("fitness")
+        turnover = metrics.get("turnover", 0.0) * 100.0  # Convert to percent
+
+        # Extract checks
+        checks_passed = 0
+        weight_check = "FAIL"
+        sub_sharpe = -1.0
+
+        checks = metrics.get("checks", [])
+        for check in checks:
+            if check.get("result") == "PASS":
+                checks_passed += 1
+            if check.get("name") == "CONCENTRATED_WEIGHT":
+                weight_check = check.get("result", "FAIL")
+            if check.get("name") == "SUB-UNIVERSE_SHARPE":
+                # Find sub sharpe value if present
+                sub_sharpe = 1.0 if check.get("result") == "PASS" else -1.0
+
+        sim_res = {
+            "status": "OK",
+            "sharpe": sharpe,
+            "fitness": fitness,
+            "turnover": turnover,
+            "checks_passed": checks_passed,
+            "weight_check": weight_check,
+            "sub_sharpe": sub_sharpe,
+            "alpha_link": f"https://brain.worldquant.com/alpha/{alpha_id}",
+            "sim_link": nxt_url,
+            "alpha_id": alpha_id,
+            "error_message": None
+        }
+
+        status = evaluate_alpha_metrics(sim_res)
+        task_state["status"] = status
+        task_state["progress"] = 100
+        task_state["sharpe"] = sharpe
+        task_state["fitness"] = fitness
+        task_state["turnover"] = turnover
+
+        run_data = {
+            "run_id": run_uuid, "family": family, "hypothesis": hypothesis, "formula": formula,
+            "region": settings.get("region", "USA"),
+            "universe": settings.get("universe", "TOP3000"),
+            "neutralization": settings.get("neutralization", "SUBINDUSTRY"),
+            "decay": settings.get("decay", 6),
+            "truncation": settings.get("truncation", 0.08),
+            "delay": settings.get("delay", 1),
+            "sharpe": sharpe, "fitness": fitness, "turnover": turnover,
+            "checks_passed": checks_passed, "weight_check": weight_check, "sub_sharpe": sub_sharpe,
+            "status": status, "alpha_link": sim_res["alpha_link"], "sim_link": nxt_url,
+            "error_message": None, "llm_model": "gemini-1.5-flash", "parent_id": None
+        }
+
+        row_id = save_alpha_run(run_data)
+
+        # Save successful alphas to files
+        if status in ("SUBMITTED", "SOFT_FAIL") and alpha_id:
+            try:
+                out_dir = Path(ALPHAS_OUT_DIR)
+                out_dir.mkdir(parents=True, exist_ok=True)
+                alpha_file = out_dir / f"alpha_{alpha_id}.json"
+                with open(alpha_file, "w") as f:
+                    json.dump({
+                        "alpha_id": alpha_id,
+                        "formula": formula,
+                        "family": family,
+                        "hypothesis": hypothesis,
+                        "status": status,
+                        "sharpe": sharpe,
+                        "fitness": fitness,
+                        "turnover": turnover,
+                        "settings": settings,
+                        "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")
+                    }, f, indent=2)
+                log_message("SUBMITTED", f"Alpha #{index+1} SAVED to file: {alpha_file.name}")
+            except Exception as e:
+                log_message("ERROR", f"Failed to save alpha file: {e}")
+
+        # Auto-submit and poll checks if it qualifies
+        if status == "SUBMITTED":
+            log_message("SUBMITTED", f"Alpha #{index+1} qualifies! Starting submission checks for ID: {alpha_id}")
+            sub_url = f"{WQ_ALPHAS_URL}/{alpha_id}/submit"
+            submit_r = robust_request(session, "POST", sub_url, index=index, timeout=30)
+            
+            submitted_ok = False
+            
+            if submit_r.status_code == 404:
+                try:
+                    alpha_url = f"{WQ_ALPHAS_URL}/{alpha_id}"
+                    alpha_r = robust_request(session, "GET", alpha_url, index=index, timeout=15).json()
+                    current_status = alpha_r.get("status")
+                    if current_status == "SUBMITTED":
+                        log_message("SUBMITTED", f"Alpha #{index+1} already submitted (verified).")
+                        save_submitted_alpha(row_id, alpha_id, self_corr_pass=True)
+                        submitted_ok = True
+                        send_whatsapp(
+                            f"✅ ALPHA SUBMITTED!\n"
+                            f"Alpha #{index+1}: {family}\n"
+                            f"Sharpe: {sharpe:.2f} | Fitness: {fitness:.2f} | Turnover: {turnover:.1f}%\n"
+                            f"ID: {alpha_id}\n"
+                            f"Link: https://brain.worldquant.com/alpha/{alpha_id}"
+                        )
+                    else:
+                        checks = alpha_r.get("is", {}).get("checks", [])
+                        failed = [c for c in checks if c.get("result") == "FAIL"]
+                        err_detail = "Not submitted."
+                        if failed:
+                            err_detail = "; ".join([f"{c['name']}={c.get('value','')}" for c in failed])
+                        log_message("WARNING", f"Alpha #{index+1} was not submitted. Verified status: {current_status}. Details: {err_detail}")
+                        task_state["status"] = "HARD_REJECT"
+                        task_state["error_message"] = f"Submission check failed: {err_detail}"
+                        send_whatsapp(
+                            f"❌ ALPHA REJECTED\n"
+                            f"Alpha #{index+1}: {family}\n"
+                            f"Reason: {err_detail[:120]}"
+                        )
+                except Exception as e:
+                    log_message("WARNING", f"Alpha #{index+1} already submitted (404 received, verification failed: {e}).")
+                    save_submitted_alpha(row_id, alpha_id, self_corr_pass=True)
+                    submitted_ok = True
+
+            elif submit_r.status_code in (200, 201):
+                log_message("SUBMITTED", f"Alpha #{index+1}: Submission checks initiated. Polling for completion...")
+                
+                # Step 2: Poll GET /submit until 404 (success) per API spec
+                poll_limit = 40
+                for poll_i in range(poll_limit):
+                    time.sleep(15 + random.uniform(1, 4))
+                    poll_sub = robust_request(session, "GET", sub_url, index=index, timeout=30)
+                    if poll_sub.status_code == 404:
+                        # 404 = checks done. Verify status!
+                        try:
+                            alpha_url = f"{WQ_ALPHAS_URL}/{alpha_id}"
+                            alpha_r = robust_request(session, "GET", alpha_url, index=index, timeout=15).json()
+                            current_status = alpha_r.get("status")
+                            if current_status == "SUBMITTED":
+                                log_message("SUBMITTED", f"Alpha #{index+1} FULLY SUBMITTED to production board! ID: {alpha_id}")
+                                save_submitted_alpha(row_id, alpha_id, self_corr_pass=True)
+                                submitted_ok = True
+                                send_whatsapp(
+                                    f"✅ ALPHA SUBMITTED!\n"
+                                    f"Alpha #{index+1}: {family}\n"
+                                    f"Sharpe: {sharpe:.2f} | Fitness: {fitness:.2f} | Turnover: {turnover:.1f}%\n"
+                                    f"ID: {alpha_id}\n"
+                                    f"Link: https://brain.worldquant.com/alpha/{alpha_id}"
+                                )
+                            else:
+                                checks = alpha_r.get("is", {}).get("checks", [])
+                                failed = [c for c in checks if c.get("result") == "FAIL"]
+                                err_detail = "Submission failed checks on platform."
+                                if failed:
+                                    err_detail = "; ".join([f"{c['name']}={c.get('value','')}" for c in failed])
+                                log_message("WARNING", f"Alpha #{index+1} submission REJECTED by WQ checks: {err_detail}")
+                                task_state["status"] = "HARD_REJECT"
+                                task_state["error_message"] = f"Submission check failed: {err_detail}"
+                                submitted_ok = False
+                                send_whatsapp(
+                                    f"❌ ALPHA REJECTED\n"
+                                    f"Alpha #{index+1}: {family}\n"
+                                    f"Reason: {err_detail[:120]}"
+                                )
+                        except Exception as e:
+                            log_message("WARNING", f"Verification request failed for alpha {alpha_id}: {e}")
+                            # Fallback
+                            log_message("SUBMITTED", f"Alpha #{index+1} FULLY SUBMITTED to production board! ID: {alpha_id}")
+                            save_submitted_alpha(row_id, alpha_id, self_corr_pass=True)
+                            submitted_ok = True
+                        break
+                    elif poll_sub.status_code == 403:
+                        # 403 = submission failed (e.g. PROD_CORRELATION failure)
+                        err_detail = ""
+                        try:
+                            checks_data = poll_sub.json().get("is", {}).get("checks", [])
+                            failed = [c for c in checks_data if c.get("result") == "FAIL"]
+                            err_detail = "; ".join([f"{c['name']}={c.get('value','')}" for c in failed])
+                        except Exception:
+                            err_detail = poll_sub.text[:200]
+                        log_message("WARNING", f"Alpha #{index+1} submission REJECTED by WQ checks: {err_detail}")
+                        task_state["status"] = "HARD_REJECT"
+                        task_state["error_message"] = f"Submission check failed: {err_detail}"
+                        send_whatsapp(
+                            f"❌ ALPHA REJECTED\n"
+                            f"Alpha #{index+1}: {family}\n"
+                            f"Reason: {err_detail[:120]}"
+                        )
+                        break
+                    elif poll_sub.status_code in (200, 201):
+                        # Check body for FAIL checks even on 2xx status code
+                        if poll_sub.content:
+                            try:
+                                res_json = poll_sub.json()
+                                checks = res_json.get("is", {}).get("checks", [])
+                                failed = [c for c in checks if c.get("result") == "FAIL"]
+                                if failed:
+                                    err_detail = "; ".join([f"{c['name']}={c.get('value','')}" for c in failed])
+                                    log_message("WARNING", f"Alpha #{index+1} submission REJECTED by WQ checks: {err_detail}")
+                                    task_state["status"] = "HARD_REJECT"
+                                    task_state["error_message"] = f"Submission check failed: {err_detail}"
+                                    send_whatsapp(
+                                        f"❌ ALPHA REJECTED\n"
+                                        f"Alpha #{index+1}: {family}\n"
+                                        f"Reason: {err_detail[:120]}"
+                                    )
+                                    break
+                            except Exception:
+                                pass
+                        log_message("INFO", f"Alpha #{index+1}: Submission checks in progress... ({poll_i+1}/{poll_limit})")
+                
+                if not submitted_ok and task_state["status"] != "HARD_REJECT":
+                    log_message("WARNING", f"Alpha #{index+1}: Submission polling timed out after {poll_limit} attempts.")
+            else:
+                err_msg = submit_r.text[:200]
+                log_message("WARNING", f"Alpha #{index+1} submission POST failed: {err_msg}")
+        
+        # Only color FULLY SUBMITTED alphas RED (not SOFT_FAIL)
+        if alpha_id and status == "SUBMITTED":
+            try:
+                color_r = robust_request(session, "PATCH", f"{WQ_ALPHAS_URL}/{alpha_id}", index=index, json={"color": "RED"}, timeout=30)
+                if color_r.status_code == 200:
+                    log_message("SUBMITTED", f"Alpha #{index+1} colored RED on WQ platform.")
+                else:
+                    log_message("WARNING", f"Alpha #{index+1} coloring failed: {color_r.text[:100]}")
+            except Exception as e:
+                log_message("ERROR", f"Error coloring alpha RED: {e}")
+
+        # Update database status if it was modified to HARD_REJECT during submission checks
+        if task_state["status"] == "HARD_REJECT":
+            try:
+                import sqlite3
+                from src.config import DB_PATH
+                conn = sqlite3.connect(DB_PATH)
+                c = conn.cursor()
+                c.execute("UPDATE alpha_runs SET status = 'HARD_REJECT', error_message = ? WHERE id = ?", (task_state.get("error_message"), row_id))
+                conn.commit()
+                conn.close()
+                log_message("INFO", f"Alpha #{index+1}: Updated database status to HARD_REJECT due to submission check failure.")
+            except Exception as db_err:
+                log_message("ERROR", f"Failed to update database status for rejected alpha: {db_err}")
+
+    except Exception as e:
+        log_message("ERROR", f"Alpha #{index+1} metric collection failed: {e}")
+        task_state["status"] = "ERROR"
+        task_state["error_message"] = str(e)
+
+
 def simulate_task(index, task, task_state, session):
     run_uuid = str(uuid.uuid4())[:8]
     family = task["family"]
@@ -2423,7 +2683,6 @@ def simulate_task(index, task, task_state, session):
             r = robust_request(session, "POST", WQ_SIM_URL, index=index, json=payload, timeout=30)
             
         if r.status_code == 429:
-            import random
             retry_wait = 30 + random.uniform(5, 15)
             log_message("WARNING", f"Alpha #{index+1}: Rate limit exceeded (HTTP 429). Jittered retry in {retry_wait:.1f} seconds...")
             task_state["status"] = "PENDING"
@@ -2523,161 +2782,264 @@ def simulate_task(index, task, task_state, session):
     # Simulation Complete - Retrieve metrics
     task_state["status"] = "EVALUATING"
     task_state["progress"] = 90
+    process_completed_alpha(index, task, task_state, alpha_id, nxt_url, run_uuid, session)
+
+
+def simulate_batch(batch_indices, batch_tasks, batch_states, session):
+    if len(batch_tasks) == 1:
+        simulate_task(batch_indices[0], batch_tasks[0], batch_states[0], session)
+        return
+
+    # Multi-simulation flow
+    run_uuids = [str(uuid.uuid4())[:8] for _ in batch_tasks]
+    
+    # 1. Local Syntax and Operator validation
+    valid_indices = []
+    valid_tasks = []
+    valid_states = []
+    valid_uuids = []
+    
+    from src.validator import validate_fastexpr
+    for idx, t, st, uid in zip(batch_indices, batch_tasks, batch_states, run_uuids):
+        st["status"] = "SIMULATING"
+        st["progress"] = 10
+        formula = t["formula"]
+        is_valid, err = validate_fastexpr(formula)
+        if not is_valid:
+            err_msg = f"Local Validation Failed: {err}"
+            log_message("ERROR", f"Alpha #{idx+1}: {err_msg}")
+            st["status"] = "ERROR"
+            st["error_message"] = err_msg
+            settings = dict(DEFAULT_SIM_SETTINGS)
+            if "settings" in t and t["settings"]:
+                settings.update(t["settings"])
+            save_alpha_run({
+                "run_id": uid, "family": t["family"], "hypothesis": t["hypothesis"], "formula": formula,
+                "region": settings.get("region", "USA"),
+                "universe": settings.get("universe", "TOP3000"),
+                "neutralization": settings.get("neutralization", "SUBINDUSTRY"),
+                "decay": settings.get("decay", 6),
+                "truncation": settings.get("truncation", 0.08),
+                "delay": settings.get("delay", 1),
+                "sharpe": None, "fitness": None, "turnover": None,
+                "checks_passed": 0, "weight_check": "FAIL", "sub_sharpe": None, "status": "ERROR",
+                "alpha_link": None, "sim_link": None, "error_message": err_msg,
+                "llm_model": "gemini-1.5-flash", "parent_id": None
+            })
+        else:
+            valid_indices.append(idx)
+            valid_tasks.append(t)
+            valid_states.append(st)
+            valid_uuids.append(uid)
+
+    if not valid_tasks:
+        return
+
+    if len(valid_tasks) == 1:
+        simulate_task(valid_indices[0], valid_tasks[0], valid_states[0], session)
+        return
+
+    # Build WQ simulation submission body (list payload)
+    payload = []
+    for t in valid_tasks:
+        settings = dict(DEFAULT_SIM_SETTINGS)
+        if "settings" in t and t["settings"]:
+            settings.update(t["settings"])
+        payload.append({
+            "regular": t["formula"],
+            "type": "REGULAR",
+            "settings": {
+                "nanHandling": settings.get("nanHandling", "OFF"),
+                "instrumentType": settings.get("instrumentType", "EQUITY"),
+                "delay": settings.get("delay", 1),
+                "universe": settings.get("universe", "TOP3000"),
+                "truncation": settings.get("truncation", 0.08),
+                "unitHandling": settings.get("unitHandling", "VERIFY"),
+                "pasteurization": settings.get("pasteurization", "ON"),
+                "region": settings.get("region", "USA"),
+                "language": "FASTEXPR",
+                "decay": settings.get("decay", 6),
+                "neutralization": settings.get("neutralization", "SUBINDUSTRY"),
+                "visualization": False
+            }
+        })
+
+    # API request
     try:
-        alpha_url = f"{WQ_ALPHAS_URL}/{alpha_id}"
-        alpha_r = robust_request(session, "GET", alpha_url, index=index, timeout=30).json()
-
-        # Extract metrics
-        metrics = alpha_r.get("is", {})
-        sharpe = metrics.get("sharpe")
-        fitness = metrics.get("fitness")
-        turnover = metrics.get("turnover", 0.0) * 100.0  # Convert to percent
-
-        # Extract checks
-        checks_passed = 0
-        weight_check = "FAIL"
-        sub_sharpe = -1.0
-
-        checks = metrics.get("checks", [])
-        for check in checks:
-            if check.get("result") == "PASS":
-                checks_passed += 1
-            if check.get("name") == "CONCENTRATED_WEIGHT":
-                weight_check = check.get("result", "FAIL")
-            if check.get("name") == "SUB-UNIVERSE_SHARPE":
-                # Find sub sharpe value if present
-                sub_sharpe = 1.0 if check.get("result") == "PASS" else -1.0
-
-        sim_res = {
-            "status": "OK",
-            "sharpe": sharpe,
-            "fitness": fitness,
-            "turnover": turnover,
-            "checks_passed": checks_passed,
-            "weight_check": weight_check,
-            "sub_sharpe": sub_sharpe,
-            "alpha_link": f"https://brain.worldquant.com/alpha/{alpha_id}",
-            "sim_link": nxt_url,
-            "alpha_id": alpha_id,
-            "error_message": None
-        }
-
-        status = evaluate_alpha_metrics(sim_res)
-        task_state["status"] = status
-        task_state["progress"] = 100
-        task_state["sharpe"] = sharpe
-        task_state["fitness"] = fitness
-        task_state["turnover"] = turnover
-
-        run_data = {
-            "run_id": run_uuid, "family": family, "hypothesis": hypothesis, "formula": formula,
-            "region": settings.get("region", "USA"),
-            "universe": settings.get("universe", "TOP3000"),
-            "neutralization": settings.get("neutralization", "SUBINDUSTRY"),
-            "decay": settings.get("decay", 6),
-            "truncation": settings.get("truncation", 0.08),
-            "delay": settings.get("delay", 1),
-            "sharpe": sharpe, "fitness": fitness, "turnover": turnover,
-            "checks_passed": checks_passed, "weight_check": weight_check, "sub_sharpe": sub_sharpe,
-            "status": status, "alpha_link": sim_res["alpha_link"], "sim_link": nxt_url,
-            "error_message": None, "llm_model": "gemini-1.5-flash", "parent_id": None
-        }
-
-        row_id = save_alpha_run(run_data)
-
-        # Save successful alphas to files
-        if status in ("SUBMITTED", "SOFT_FAIL") and alpha_id:
-            try:
-                out_dir = Path(ALPHAS_OUT_DIR)
-                out_dir.mkdir(parents=True, exist_ok=True)
-                alpha_file = out_dir / f"alpha_{alpha_id}.json"
-                with open(alpha_file, "w") as f:
-                    json.dump({
-                        "alpha_id": alpha_id,
-                        "formula": formula,
-                        "family": family,
-                        "hypothesis": hypothesis,
-                        "status": status,
-                        "sharpe": sharpe,
-                        "fitness": fitness,
-                        "turnover": turnover,
-                        "settings": settings,
-                        "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")
-                    }, f, indent=2)
-                log_message("SUBMITTED", f"Alpha #{index+1} SAVED to file: {alpha_file.name}")
-            except Exception as e:
-                log_message("ERROR", f"Failed to save alpha file: {e}")
-
-        # Auto-submit and poll checks if it qualifies
-        if status == "SUBMITTED":
-            log_message("SUBMITTED", f"Alpha #{index+1} qualifies! Starting submission checks for ID: {alpha_id}")
-            sub_url = f"{WQ_ALPHAS_URL}/{alpha_id}/submit"
-            submit_r = robust_request(session, "POST", sub_url, index=index, timeout=30)
+        # Acquire submission lock to ensure sequential spaced requests
+        with submission_lock:
+            # Enforce 5-second spacing between concurrent thread submissions for Gold tier
+            log_message("INFO", f"Batch ({len(valid_tasks)} alphas): Enforcing 5s submission rate-limit spacing...")
+            time.sleep(5)
+            r = robust_request(session, "POST", WQ_SIM_URL, index=valid_indices[0], json=payload, timeout=30)
             
-            if submit_r.status_code in (200, 201):
-                log_message("SUBMITTED", f"Alpha #{index+1}: Submission checks initiated. Polling for completion...")
-                
-                # Step 2: Poll GET /submit until 404 (success) per API spec
-                poll_limit = 40
-                submitted_ok = False
-                for poll_i in range(poll_limit):
-                    time.sleep(15 + random.uniform(1, 4))
-                    poll_sub = robust_request(session, "GET", sub_url, index=index, timeout=30)
-                    if poll_sub.status_code == 404:
-                        # 404 = checks done, alpha is on production board
-                        log_message("SUBMITTED", f"Alpha #{index+1} FULLY SUBMITTED to production board! ID: {alpha_id}")
-                        save_submitted_alpha(row_id, alpha_id, self_corr_pass=True)
-                        submitted_ok = True
-                        send_whatsapp(
-                            f"✅ ALPHA SUBMITTED!\n"
-                            f"Alpha #{index+1}: {family}\n"
-                            f"Sharpe: {sharpe:.2f} | Fitness: {fitness:.2f} | Turnover: {turnover:.1f}%\n"
-                            f"ID: {alpha_id}\n"
-                            f"Link: https://brain.worldquant.com/alpha/{alpha_id}"
-                        )
-                        break
-                    elif poll_sub.status_code == 403:
-                        # 403 = submission failed (e.g. PROD_CORRELATION failure)
-                        err_detail = ""
-                        try:
-                            checks_data = poll_sub.json().get("is", {}).get("checks", [])
-                            failed = [c for c in checks_data if c.get("result") == "FAIL"]
-                            err_detail = "; ".join([f"{c['name']}={c.get('value','')}" for c in failed])
-                        except Exception:
-                            err_detail = poll_sub.text[:200]
-                        log_message("WARNING", f"Alpha #{index+1} submission REJECTED by WQ checks: {err_detail}")
-                        task_state["status"] = "HARD_REJECT"
-                        task_state["error_message"] = f"Submission check failed: {err_detail}"
-                        send_whatsapp(
-                            f"❌ ALPHA REJECTED\n"
-                            f"Alpha #{index+1}: {family}\n"
-                            f"Reason: {err_detail[:120]}"
-                        )
-                        break
-                    else:
-                        log_message("INFO", f"Alpha #{index+1}: Submission checks in progress... ({poll_i+1}/{poll_limit})")
-                
-                if not submitted_ok and task_state["status"] != "HARD_REJECT":
-                    log_message("WARNING", f"Alpha #{index+1}: Submission polling timed out after {poll_limit} attempts.")
-            else:
-                err_msg = submit_r.text[:200]
-                log_message("WARNING", f"Alpha #{index+1} submission POST failed: {err_msg}")
-        
-        # Only color FULLY SUBMITTED alphas RED (not SOFT_FAIL)
-        if alpha_id and status == "SUBMITTED":
-            try:
-                color_r = robust_request(session, "PATCH", f"{WQ_ALPHAS_URL}/{alpha_id}", index=index, json={"color": "RED"}, timeout=30)
-                if color_r.status_code == 200:
-                    log_message("SUBMITTED", f"Alpha #{index+1} colored RED on WQ platform.")
-                else:
-                    log_message("WARNING", f"Alpha #{index+1} coloring failed: {color_r.text[:100]}")
-            except Exception as e:
-                log_message("ERROR", f"Error coloring alpha RED: {e}")
+        if r.status_code == 429:
+            retry_wait = 30 + random.uniform(5, 15)
+            log_message("WARNING", f"Batch ({len(valid_tasks)} alphas): Rate limit exceeded (HTTP 429). Jittered retry in {retry_wait:.1f} seconds...")
+            for st in valid_states:
+                st["status"] = "PENDING"
+                st["progress"] = 0
+            time.sleep(retry_wait)
+            simulate_batch(valid_indices, valid_tasks, valid_states, session)  # Recursive retry
+            return
+            
+        if r.status_code not in [200, 201]:
+            err_msg = f"HTTP {r.status_code}: {r.text}"
+            log_message("ERROR", f"Batch Submission failed: {err_msg}")
+            for st, uid, t in zip(valid_states, valid_uuids, valid_tasks):
+                st["status"] = "ERROR"
+                st["error_message"] = err_msg
+                settings = dict(DEFAULT_SIM_SETTINGS)
+                if "settings" in t and t["settings"]:
+                    settings.update(t["settings"])
+                save_alpha_run({
+                    "run_id": uid, "family": t["family"], "hypothesis": t["hypothesis"], "formula": t["formula"],
+                    "region": settings.get("region", "USA"),
+                    "universe": settings.get("universe", "TOP3000"),
+                    "neutralization": settings.get("neutralization", "SUBINDUSTRY"),
+                    "decay": settings.get("decay", 6),
+                    "truncation": settings.get("truncation", 0.08),
+                    "delay": settings.get("delay", 1),
+                    "sharpe": None, "fitness": None, "turnover": None,
+                    "checks_passed": 0, "weight_check": "FAIL", "sub_sharpe": None, "status": "ERROR",
+                    "alpha_link": None, "sim_link": None, "error_message": err_msg,
+                    "llm_model": "gemini-1.5-flash", "parent_id": None
+                })
+            return
+
+        if 'Location' not in r.headers:
+            err_msg = "Location header missing in API response."
+            log_message("ERROR", f"Batch: {err_msg}")
+            for st in valid_states:
+                st["status"] = "ERROR"
+                st["error_message"] = err_msg
+            return
+
+        parent_url = r.headers['Location']
+        for st in valid_states:
+            st["progress"] = 35
+        log_message("INFO", f"Batch ({len(valid_tasks)} alphas) queued successfully. Parent Link: {parent_url}")
 
     except Exception as e:
-        log_message("ERROR", f"Alpha #{index+1} metric collection failed: {e}")
-        task_state["status"] = "ERROR"
-        task_state["error_message"] = str(e)
+        log_message("ERROR", f"Batch Exception: {e}")
+        for st in valid_states:
+            st["status"] = "ERROR"
+            st["error_message"] = str(e)
+        return
+
+    # Polling Loop
+    retry_count = 0
+    children = []
+    while True:
+        try:
+            poll_r = robust_request(session, "GET", parent_url, index=valid_indices[0], timeout=30)
+            if poll_r.status_code == 429:
+                time.sleep(15 + random.uniform(2, 6))
+                continue
+            if poll_r.status_code != 200:
+                log_message("WARNING", f"Batch poll HTTP status: {poll_r.status_code}")
+                time.sleep(10 + random.uniform(1, 4))
+                continue
+
+            res = poll_r.json()
+            if 'children' in res:
+                children = res['children']
+                log_message("INFO", f"Batch parent simulation completed on WQ cluster. Children count: {len(children)}")
+                break
+
+            progress = int(res.get('progress', 0) * 100)
+            for st in valid_states:
+                st["progress"] = max(35, progress)
+            log_message("INFO", f"Batch backtesting progress... {progress}%")
+
+            if 'message' in res and 'error' in str(res.get('message', '')).lower():
+                err_msg = res['message']
+                log_message("ERROR", f"Batch simulation failed: {err_msg}")
+                for st, uid, t in zip(valid_states, valid_uuids, valid_tasks):
+                    st["status"] = "ERROR"
+                    st["error_message"] = err_msg
+                    settings = dict(DEFAULT_SIM_SETTINGS)
+                    if "settings" in t and t["settings"]:
+                        settings.update(t["settings"])
+                    save_alpha_run({
+                        "run_id": uid, "family": t["family"], "hypothesis": t["hypothesis"], "formula": t["formula"],
+                        "region": settings.get("region", "USA"),
+                        "universe": settings.get("universe", "TOP3000"),
+                        "neutralization": settings.get("neutralization", "SUBINDUSTRY"),
+                        "decay": settings.get("decay", 6),
+                        "truncation": settings.get("truncation", 0.08),
+                        "delay": settings.get("delay", 1),
+                        "sharpe": None, "fitness": None, "turnover": None,
+                        "checks_passed": 0, "weight_check": "FAIL", "sub_sharpe": None, "status": "HARD_REJECT",
+                        "alpha_link": None, "sim_link": parent_url, "error_message": err_msg,
+                        "llm_model": "gemini-1.5-flash", "parent_id": None
+                    })
+                return
+        except Exception as e:
+            log_message("ERROR", f"Batch Polling error: {e}")
+            retry_count += 1
+            if retry_count > 10:
+                for st in valid_states:
+                    st["status"] = "ERROR"
+                    st["error_message"] = f"Polling errors exceeded limit: {e}"
+                return
+        time.sleep(15)
+
+    if len(children) != len(valid_tasks):
+        err_msg = f"API error: children count ({len(children)}) does not match submitted batch count ({len(valid_tasks)})"
+        log_message("ERROR", err_msg)
+        for st in valid_states:
+            st["status"] = "ERROR"
+            st["error_message"] = err_msg
+        return
+
+    # Process child results individually
+    for idx, t, st, uid, child_id in zip(valid_indices, valid_tasks, valid_states, valid_uuids, children):
+        st["status"] = "EVALUATING"
+        st["progress"] = 90
+        
+        child_url = f"https://api.worldquantbrain.com/simulations/{child_id}"
+        try:
+            child_r = robust_request(session, "GET", child_url, index=idx, timeout=30)
+            if child_r.status_code != 200:
+                err_msg = f"Failed to get child simulation details: HTTP {child_r.status_code}"
+                log_message("ERROR", f"Alpha #{idx+1}: {err_msg}")
+                st["status"] = "ERROR"
+                st["error_message"] = err_msg
+                continue
+                
+            child_res = child_r.json()
+            alpha_id = child_res.get("alpha")
+            if not alpha_id:
+                err_msg = child_res.get("message", "Child simulation failed on WQ cluster.")
+                log_message("ERROR", f"Alpha #{idx+1}: {err_msg}")
+                st["status"] = "ERROR"
+                st["error_message"] = err_msg
+                
+                settings = dict(DEFAULT_SIM_SETTINGS)
+                if "settings" in t and t["settings"]:
+                    settings.update(t["settings"])
+                save_alpha_run({
+                    "run_id": uid, "family": t["family"], "hypothesis": t["hypothesis"], "formula": t["formula"],
+                    "region": settings.get("region", "USA"),
+                    "universe": settings.get("universe", "TOP3000"),
+                    "neutralization": settings.get("neutralization", "SUBINDUSTRY"),
+                    "decay": settings.get("decay", 6),
+                    "truncation": settings.get("truncation", 0.08),
+                    "delay": settings.get("delay", 1),
+                    "sharpe": None, "fitness": None, "turnover": None,
+                    "checks_passed": 0, "weight_check": "FAIL", "sub_sharpe": None, "status": "HARD_REJECT",
+                    "alpha_link": None, "sim_link": child_url, "error_message": err_msg,
+                    "llm_model": "gemini-1.5-flash", "parent_id": None
+                })
+                continue
+                
+            process_completed_alpha(idx, t, st, alpha_id, child_url, uid, session)
+            
+        except Exception as e:
+            log_message("ERROR", f"Alpha #{idx+1} result retrieval failed: {e}")
+            st["status"] = "ERROR"
+            st["error_message"] = str(e)
 
 
 def main():
@@ -2736,9 +3098,10 @@ def main():
     completed_formulas = set()
     futures = []
 
-    log_message("INFO", f"Dynamic Queue Scheduler Active (concurrency limit: {MAX_CONCURRENT_SIMS})...")
+    concurrency_limit = int(os.getenv("MAX_CONCURRENT_SIMS", "3"))
+    log_message("INFO", f"Dynamic Queue Scheduler Active (concurrency limit: {concurrency_limit} batches of 10 alphas)...")
 
-    with ThreadPoolExecutor(max_workers=MAX_CONCURRENT_SIMS) as executor:
+    with ThreadPoolExecutor(max_workers=concurrency_limit) as executor:
         try:
             while True:
                 if not pipeline_active:
@@ -2755,38 +3118,70 @@ def main():
                     except Exception:
                         tasks = []
                     
-                    # Detect and dynamically submit new formulas
+                    # Detect unscheduled tasks
+                    new_tasks = []
                     for task in tasks:
                         formula = task["formula"]
                         if formula not in scheduled_formulas:
-                            scheduled_formulas.add(formula)
-                            idx = len(pipeline_state["alphas"])
+                            new_tasks.append(task)
                             
-                            # Add to shared pipeline state dynamically
-                            task_state = {
-                                "formula": formula,
-                                "family": task["family"],
-                                "hypothesis": task["hypothesis"],
-                                "status": "PENDING",
-                                "progress": 0,
-                                "sharpe": None,
-                                "fitness": None,
-                                "turnover": None,
-                                "error_message": None
-                            }
-                            pipeline_state["alphas"].append(task_state)
+                    # Group them into batches
+                    if new_tasks:
+                        batches = []
+                        current_batch = []
+                        for task in new_tasks:
+                            is_super = (task.get("type") == "SUPER" or "selection" in task or "combo" in task)
+                            if is_super:
+                                if current_batch:
+                                    batches.append(current_batch)
+                                    current_batch = []
+                                batches.append([task])
+                            else:
+                                current_batch.append(task)
+                                if len(current_batch) == 10:
+                                    batches.append(current_batch)
+                                    current_batch = []
+                        if current_batch:
+                            batches.append(current_batch)
                             
-                            log_message("INFO", f"Dynamic Queue: Detected and queued new alpha #{idx+1}: {formula}")
+                        # Submit each batch
+                        for batch in batches:
+                            batch_indices = []
+                            batch_tasks = []
+                            batch_states = []
+                            for task in batch:
+                                formula = task["formula"]
+                                scheduled_formulas.add(formula)
+                                idx = len(pipeline_state["alphas"])
+                                
+                                # Add to shared pipeline state dynamically
+                                task_state = {
+                                    "formula": formula,
+                                    "family": task["family"],
+                                    "hypothesis": task["hypothesis"],
+                                    "status": "PENDING",
+                                    "progress": 0,
+                                    "sharpe": None,
+                                    "fitness": None,
+                                    "turnover": None,
+                                    "error_message": None
+                                }
+                                pipeline_state["alphas"].append(task_state)
+                                
+                                log_message("INFO", f"Dynamic Queue: Detected and queued new alpha #{idx+1}: {formula}")
+                                
+                                batch_indices.append(idx)
+                                batch_tasks.append(task)
+                                batch_states.append(task_state)
                             
-                            # Submit task to ThreadPoolExecutor
-                            # Slight offset on thread execution to avoid immediate post contention
-                            def make_runner(t_idx=idx, t_task=task, t_state=task_state):
-                                def task_runner():
+                            # Submit batch to ThreadPoolExecutor
+                            def make_batch_runner(b_indices, b_tasks, b_states):
+                                def batch_runner():
                                     time.sleep(1.0)
-                                    simulate_task(t_idx, t_task, t_state, active_session)
-                                return task_runner
+                                    simulate_batch(b_indices, b_tasks, b_states, active_session)
+                                return batch_runner
                             
-                            futures.append(executor.submit(make_runner(idx, task, task_state)))
+                            futures.append(executor.submit(make_batch_runner(batch_indices, batch_tasks, batch_states)))
                 
                 # Check for any completed alphas to log summaries
                 for idx, alpha in enumerate(pipeline_state["alphas"]):

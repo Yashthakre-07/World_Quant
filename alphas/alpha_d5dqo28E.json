@@ -1,0 +1,25 @@
+{
+  "alpha_id": "d5dqo28E",
+  "family": "Volatility-Weighted Reversal (Avramov, 2006) (Gate 0.7)",
+  "fitness": 0.56,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(returns * ts_std_dev(returns, 10), 5)), 0), subindustry)",
+  "hypothesis": "Short-term price reversals are amplified when accompanied by rising daily volatility spikes.",
+  "settings": {
+    "decay": 12,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.01,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 18:26:26",
+  "turnover": 25.230000000000004
+}

@@ -1,0 +1,12 @@
+{
+  "alpha_id": "A1kYn9QE",
+  "family": "Intraday Body Spread - Footnote 1",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - open) * (1.001 - abs(returns))) / (accrued_liabilities_total + 0.00101), 10)), 0), subindustry)",
+  "sharpe": 1.12,
+  "fitness": 0.69,
+  "turnover": 20.45,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "#",
+  "created_at": ""
+}

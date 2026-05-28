@@ -1,0 +1,25 @@
+{
+  "alpha_id": "O0oe2VE7",
+  "family": "Dynamic Candle Body Ratio Reversion (Gate 0.85, Decay 5)",
+  "fitness": 0.84,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear((close - open) / (high - low + 0.001), 5)), 0), subindustry)",
+  "hypothesis": "Intraday candle body (close-open) relative to daily high-low range represents overextended session momentum.",
+  "settings": {
+    "decay": 10,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.48,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 18:53:14",
+  "turnover": 24.05
+}

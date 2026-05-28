@@ -1,0 +1,25 @@
+{
+  "alpha_id": "omV2b81l",
+  "family": "Tuned Relative Volatility Reversion (Gate 0.75, Decay 6)",
+  "fitness": 0.6,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((returns / (ts_std_dev(returns, 10) + 0.0001)) * (volume / adv20), 6)), 0), subindustry)",
+  "hypothesis": "Returns normalized by 10-day volatility and weighted by relative volume isolate institutional liquidity shocks.",
+  "settings": {
+    "decay": 10,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.15,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 19:24:34",
+  "turnover": 23.369999999999997
+}

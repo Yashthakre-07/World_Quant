@@ -1,0 +1,25 @@
+{
+  "alpha_id": "omVQM216",
+  "family": "Standard Intraday Spread Reversion (Gate 1.10, Decay 5)",
+  "fitness": 0.67,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 1.10, -rank(ts_decay_linear(close - open, 5)), 0), subindustry)",
+  "hypothesis": "Short-term close-to-open gaps mean-revert strongly on active sessions. Gated at 1.10x ADV and smoothed with decay 5.",
+  "settings": {
+    "decay": 10,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.29,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 20:55:09",
+  "turnover": 18.37
+}

@@ -1,0 +1,12 @@
+{
+  "alpha_id": "fd5cdc77",
+  "family": "Intraday Body Spread - Footnote 5",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - open) * (1.001 - abs(returns))) / (acquisition_identifiable_assets_recognized + 0.00101), 10)), 0), subindustry)",
+  "sharpe": 0.82,
+  "fitness": 0.36,
+  "turnover": 21.060000000000002,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/58M3OKaM",
+  "created_at": "2026-05-24 12:06:09"
+}

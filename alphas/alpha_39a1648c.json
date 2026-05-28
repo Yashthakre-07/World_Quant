@@ -1,0 +1,12 @@
+{
+  "alpha_id": "39a1648c",
+  "family": "Vol-Normalized Intraday Body - Fn 2",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - open) / (ts_std_dev(returns, 10) + 0.00101)) / (accumulated_amortization_customer_intangibles + 0.00101), 6)), 0), subindustry)",
+  "sharpe": 0.97,
+  "fitness": 0.41,
+  "turnover": 31.64,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/1YJmOm5z",
+  "created_at": "2026-05-25 03:54:52"
+}

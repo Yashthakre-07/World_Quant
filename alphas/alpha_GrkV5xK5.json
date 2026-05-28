@@ -1,0 +1,25 @@
+{
+  "alpha_id": "GrkV5xK5",
+  "family": "Tuned VWAP Trend Reversion (Gate 0.75, Decay 4)",
+  "fitness": 0.98,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(vwap - open, 4)), 0), subindustry)",
+  "hypothesis": "Extreme deviations between VWAP and session open represent overextended trading flows that revert.",
+  "settings": {
+    "decay": 12,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.7,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 19:12:11",
+  "turnover": 25.46
+}

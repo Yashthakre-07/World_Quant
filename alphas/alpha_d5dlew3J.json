@@ -1,0 +1,12 @@
+{
+  "alpha_id": "d5dlew3J",
+  "family": "Inventory-Driven Liquidity Provision Reversal (Decay 12)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(returns / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)",
+  "sharpe": 1.36,
+  "fitness": 0.68,
+  "turnover": 33.650000000000006,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "#",
+  "created_at": ""
+}

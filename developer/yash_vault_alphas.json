@@ -1,0 +1,301 @@
+{
+  "alphas": [
+    {
+      "alpha_id": "9qJ0Nrrq",
+      "family": "TS Rank Returns 10-Day",
+      "filename": "alpha_9qJ0Nrrq.json",
+      "fitness": 0.57,
+      "sharpe": 1.33,
+      "status": "SOFT_FAIL",
+      "turnover": 32.96
+    },
+    {
+      "alpha_id": "lerqX1ze",
+      "family": "Volume-weighted Relative Volatility Reversion",
+      "filename": "alpha_lerqX1ze.json",
+      "fitness": 0.97,
+      "sharpe": 1.66,
+      "status": "SOFT_FAIL",
+      "turnover": 35.160000000000004
+    },
+    {
+      "alpha_id": "A1k952Pw",
+      "family": "VWAP Displacement Reversal",
+      "filename": "alpha_A1k952Pw.json",
+      "fitness": 0.68,
+      "sharpe": 1.49,
+      "status": "SOFT_FAIL",
+      "turnover": 35.85
+    },
+    {
+      "alpha_id": "zqOMV9po",
+      "family": "Volume-Surge Body Ratio Reversion",
+      "filename": "alpha_zqOMV9po.json",
+      "fitness": 0.77,
+      "sharpe": 1.36,
+      "status": "SOFT_FAIL",
+      "turnover": 14.45
+    },
+    {
+      "alpha_id": "Jjbq6aql",
+      "family": "Volume-Weighted Cost Basis Divergence",
+      "filename": "alpha_Jjbq6aql.json",
+      "fitness": 0.51,
+      "sharpe": 1.12,
+      "status": "SOFT_FAIL",
+      "turnover": 32.519999999999996
+    },
+    {
+      "alpha_id": "YPQr7Gbv",
+      "family": "Volume-Driven Volatility Climaxes",
+      "filename": "alpha_YPQr7Gbv.json",
+      "fitness": 0.48,
+      "sharpe": 1.1,
+      "status": "SOFT_FAIL",
+      "turnover": 35.82
+    },
+    {
+      "alpha_id": "VkO9lkz5",
+      "family": "Liquidity-Shock Mean Reversion",
+      "filename": "alpha_VkO9lkz5.json",
+      "fitness": 1.01,
+      "sharpe": 1.63,
+      "status": "SUBMITTED",
+      "turnover": 21.09
+    },
+    {
+      "alpha_id": "QPEJG5VW",
+      "family": "Liquidity-Shock Mean Reversion",
+      "filename": "alpha_QPEJG5VW.json",
+      "fitness": 0.84,
+      "sharpe": 1.56,
+      "status": "SOFT_FAIL",
+      "turnover": 21.42
+    },
+    {
+      "alpha_id": "pw8gqeRv",
+      "family": "Candle Body Ratio High Decay",
+      "filename": "alpha_pw8gqeRv.json",
+      "fitness": 0.67,
+      "sharpe": 1.15,
+      "status": "SOFT_FAIL",
+      "turnover": 20.3
+    },
+    {
+      "alpha_id": "A1k9AwRw",
+      "family": "Signed Intraday Spread Reversion",
+      "filename": "alpha_A1k9AwRw.json",
+      "fitness": 0.7,
+      "sharpe": 1.36,
+      "status": "SOFT_FAIL",
+      "turnover": 36.980000000000004
+    },
+    {
+      "alpha_id": "ZYr5VYlQ",
+      "family": "Ultra-Gate Normalized Body",
+      "filename": "alpha_ZYr5VYlQ.json",
+      "fitness": 0.51,
+      "sharpe": 1.06,
+      "status": "SOFT_FAIL",
+      "turnover": 9.45
+    },
+    {
+      "alpha_id": "pw8Xzwp6",
+      "family": "VWAP Distance Exhaustion Signal",
+      "filename": "alpha_pw8Xzwp6.json",
+      "fitness": 0.67,
+      "sharpe": 1.44,
+      "status": "SOFT_FAIL",
+      "turnover": 37.12
+    },
+    {
+      "alpha_id": "A1k9or2X",
+      "family": "Volume-weighted Relative Volatility Reversion",
+      "filename": "alpha_A1k9or2X.json",
+      "fitness": 0.66,
+      "sharpe": 1.39,
+      "status": "SOFT_FAIL",
+      "turnover": 35.03
+    },
+    {
+      "alpha_id": "qMgMmp61",
+      "family": "Price Reversion",
+      "filename": "alpha_qMgMmp61.json",
+      "fitness": 1.02,
+      "sharpe": 1.86,
+      "status": "SUBMITTED",
+      "turnover": 31.89
+    },
+    {
+      "alpha_id": "pw8Xzrp6",
+      "family": "Volume-Driven Volatility Climaxes",
+      "filename": "alpha_pw8Xzrp6.json",
+      "fitness": 0.57,
+      "sharpe": 1.14,
+      "status": "SOFT_FAIL",
+      "turnover": 35.83
+    },
+    {
+      "alpha_id": "9qJY3nlo",
+      "family": "Volatility-Scaled Exponential Momentum Reversal",
+      "filename": "alpha_9qJY3nlo.json",
+      "fitness": 0.71,
+      "sharpe": 1.27,
+      "status": "SOFT_FAIL",
+      "turnover": 32.190000000000005
+    },
+    {
+      "alpha_id": "wpL8l3ZQ",
+      "family": "Price Reversion",
+      "filename": "alpha_wpL8l3ZQ.json",
+      "fitness": 1.01,
+      "sharpe": 1.78,
+      "status": "SUBMITTED",
+      "turnover": 31.45
+    },
+    {
+      "alpha_id": "d5dXLQYJ",
+      "family": "Intraday Range Location Divergence",
+      "filename": "alpha_d5dXLQYJ.json",
+      "fitness": 1.04,
+      "sharpe": 1.75,
+      "status": "SUBMITTED",
+      "turnover": 36.53
+    },
+    {
+      "alpha_id": "YPQrddov",
+      "family": "Volume-Weighted Cost Basis Divergence",
+      "filename": "alpha_YPQrddov.json",
+      "fitness": 0.78,
+      "sharpe": 1.39,
+      "status": "SOFT_FAIL",
+      "turnover": 32.97
+    },
+    {
+      "alpha_id": "KPk0G2oE",
+      "family": "VWAP Distance Exhaustion Signal",
+      "filename": "alpha_KPk0G2oE.json",
+      "fitness": 0.57,
+      "sharpe": 1.4,
+      "status": "SOFT_FAIL",
+      "turnover": 36.69
+    },
+    {
+      "alpha_id": "np3V5MO8",
+      "family": "20-Day Return Z-Score Extreme",
+      "filename": "alpha_np3V5MO8.json",
+      "fitness": 0.5,
+      "sharpe": 1.09,
+      "status": "SOFT_FAIL",
+      "turnover": 27.950000000000003
+    },
+    {
+      "alpha_id": "ZYrL6KNQ",
+      "family": "Dampened Return Reversal (Signed Power)",
+      "filename": "alpha_ZYrL6KNQ.json",
+      "fitness": 0.61,
+      "sharpe": 1.09,
+      "status": "SOFT_FAIL",
+      "turnover": 26.040000000000003
+    },
+    {
+      "alpha_id": "ZYr5Xq5Q",
+      "family": "Long-term Intraday Range Location (Low Turnover)",
+      "filename": "alpha_ZYr5Xq5Q.json",
+      "fitness": 0.6,
+      "sharpe": 1.01,
+      "status": "SOFT_FAIL",
+      "turnover": 17.24
+    },
+    {
+      "alpha_id": "lerLW6x7",
+      "family": "Price Reversion",
+      "filename": "alpha_lerLW6x7.json",
+      "fitness": 1.01,
+      "sharpe": 1.84,
+      "status": "SUBMITTED",
+      "turnover": 34.32
+    },
+    {
+      "alpha_id": "YPQrkAQ6",
+      "family": "Cross-Sectional Retaliation Reversion",
+      "filename": "alpha_YPQrkAQ6.json",
+      "fitness": 0.52,
+      "sharpe": 1.41,
+      "status": "SOFT_FAIL",
+      "turnover": 66.55
+    },
+    {
+      "alpha_id": "e7LpREVd",
+      "family": "Signed Intraday Spread Reversion",
+      "filename": "alpha_e7LpREVd.json",
+      "fitness": 0.92,
+      "sharpe": 1.5,
+      "status": "SOFT_FAIL",
+      "turnover": 37.1
+    },
+    {
+      "alpha_id": "A1k9rlrE",
+      "family": "Volatility-Scaled Exponential Momentum Reversal",
+      "filename": "alpha_A1k9rlrE.json",
+      "fitness": 0.47,
+      "sharpe": 1.04,
+      "status": "SOFT_FAIL",
+      "turnover": 32.129999999999995
+    },
+    {
+      "alpha_id": "LLkjQow2",
+      "family": "Cumulative Body High-Gate",
+      "filename": "alpha_LLkjQow2.json",
+      "fitness": 0.64,
+      "sharpe": 1.34,
+      "status": "SOFT_FAIL",
+      "turnover": 21.73
+    },
+    {
+      "alpha_id": "N1AwG6eo",
+      "family": "High-Gate Body Reversion",
+      "filename": "alpha_N1AwG6eo.json",
+      "fitness": 0.75,
+      "sharpe": 1.48,
+      "status": "SOFT_FAIL",
+      "turnover": 16.3
+    },
+    {
+      "alpha_id": "N1AwEYpq",
+      "family": "High-Gate Range Location Reversion",
+      "filename": "alpha_N1AwEYpq.json",
+      "fitness": 0.92,
+      "sharpe": 1.62,
+      "status": "SOFT_FAIL",
+      "turnover": 18.759999999999998
+    },
+    {
+      "alpha_id": "QPEMNKJ5",
+      "family": "VWAP Displacement Reversal",
+      "filename": "alpha_QPEMNKJ5.json",
+      "fitness": 0.51,
+      "sharpe": 1.32,
+      "status": "SOFT_FAIL",
+      "turnover": 35.4
+    },
+    {
+      "alpha_id": "d5dwp2Mv",
+      "family": "Upper Shadow Ratio Reversal",
+      "filename": "alpha_d5dwp2Mv.json",
+      "fitness": 0.57,
+      "sharpe": 1.15,
+      "status": "SOFT_FAIL",
+      "turnover": 24.07
+    },
+    {
+      "alpha_id": "88nbX70l",
+      "family": "Intraday Range Location Divergence",
+      "filename": "alpha_88nbX70l.json",
+      "fitness": 0.85,
+      "sharpe": 1.66,
+      "status": "SOFT_FAIL",
+      "turnover": 36.559999999999995
+    }
+  ]
+}

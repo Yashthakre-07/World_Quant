@@ -151,16 +151,48 @@ class WQClient:
             # POST to trigger submission
             r = self.session.post(submit_url, timeout=30)
             if r.status_code == 404:
-                agent_logger.warning(f"[SUBMISSION] Alpha {alpha_id} already submitted (404 received).")
-                return {"success": True, "details": "Already submitted"}
+                try:
+                    alpha_url = f"{WQ_ALPHAS_URL}/{alpha_id}"
+                    alpha_r = self.session.get(alpha_url, timeout=15).json()
+                    current_status = alpha_r.get("status")
+                    if current_status == "SUBMITTED":
+                        agent_logger.warning(f"[SUBMISSION] Alpha {alpha_id} already submitted (404 received and verified).")
+                        return {"success": True, "details": "Already submitted"}
+                    else:
+                        checks = alpha_r.get("is", {}).get("checks", [])
+                        failed = [c for c in checks if c.get("result") == "FAIL"]
+                        details = "Not submitted."
+                        if failed:
+                            details = "; ".join([f"{c['name']}={c.get('value','')}" for c in failed])
+                        agent_logger.warning(f"[SUBMISSION] Alpha {alpha_id} not submitted (404 received, verified status: {current_status}). Details: {details}")
+                        return {"success": False, "details": f"Alpha status is {current_status}. Details: {details}"}
+                except Exception as e:
+                    agent_logger.warning(f"[SUBMISSION] Alpha {alpha_id} already submitted (404 received, verification failed: {e}).")
+                    return {"success": True, "details": "Already submitted (unverified)"}
 
             # Poll GET to await result
             poll_limit = 40
             for poll_i in range(poll_limit):
                 submit_r = self.session.get(submit_url, timeout=30)
                 if submit_r.status_code == 404:
-                    agent_logger.info(f"[SUBMISSION] Alpha {alpha_id} submitted successfully!")
-                    return {"success": True, "details": "Success"}
+                    try:
+                        alpha_url = f"{WQ_ALPHAS_URL}/{alpha_id}"
+                        alpha_r = self.session.get(alpha_url, timeout=15).json()
+                        current_status = alpha_r.get("status")
+                        if current_status == "SUBMITTED":
+                            agent_logger.info(f"[SUBMISSION] Alpha {alpha_id} submitted successfully (verified)!")
+                            return {"success": True, "details": "Success"}
+                        else:
+                            checks = alpha_r.get("is", {}).get("checks", [])
+                            failed = [c for c in checks if c.get("result") == "FAIL"]
+                            details = "Submission failed checks on platform."
+                            if failed:
+                                details = "; ".join([f"{c['name']}={c.get('value','')}" for c in failed])
+                            agent_logger.warning(f"[SUBMISSION] Alpha {alpha_id} failed checks: {details}")
+                            return {"success": False, "details": details}
+                    except Exception as e:
+                        agent_logger.warning(f"[SUBMISSION] Verification request failed for alpha {alpha_id}: {e}")
+                        return {"success": True, "details": "Success (unverified 404)"}
                 elif submit_r.status_code == 403:
                     # Failed checks
                     details = "Checks failed"
@@ -177,6 +209,20 @@ class WQClient:
                             details = submit_r.text[:200]
                     agent_logger.warning(f"[SUBMISSION] Alpha {alpha_id} submission checks failed: {details}")
                     return {"success": False, "details": details}
+                
+                # Check response body for FAIL even on 2xx status code
+                elif submit_r.status_code in (200, 201):
+                    if submit_r.content:
+                        try:
+                            res_json = submit_r.json()
+                            checks = res_json.get("is", {}).get("checks", [])
+                            failed = [c for c in checks if c.get("result") == "FAIL"]
+                            if failed:
+                                details = "; ".join([f"{c['name']}={c.get('value','')}" for c in failed])
+                                agent_logger.warning(f"[SUBMISSION] Alpha {alpha_id} submission checks failed during poll: {details}")
+                                return {"success": False, "details": details}
+                        except Exception:
+                            pass
                 
                 # If still in progress (usually 200 or 201)
                 agent_logger.info(f"[SUBMISSION] Alpha {alpha_id} checks in progress... (poll {poll_i+1}/{poll_limit})")

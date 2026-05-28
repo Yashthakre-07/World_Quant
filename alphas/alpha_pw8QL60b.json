@@ -1,0 +1,25 @@
+{
+  "alpha_id": "pw8QL60b",
+  "family": "Daily VWAP Ratio Reversal",
+  "fitness": 0.66,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(close / (vwap + 0.001) - 1, 5)), 0), subindustry)",
+  "hypothesis": "Daily close displacement from its volume-weighted center reverts over a 5-day decay window.",
+  "settings": {
+    "decay": 5,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.43,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-24 03:21:13",
+  "turnover": 36.52
+}

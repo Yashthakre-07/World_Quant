@@ -1,0 +1,12 @@
+{
+  "alpha_id": "43e64f39",
+  "family": "3-Day Price Momentum Reversal (Gate 0.65)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(ts_delta(close, 3), 4)), 0), subindustry)",
+  "sharpe": 1.08,
+  "fitness": 0.56,
+  "turnover": 24.21,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/ZYrZArG1",
+  "created_at": "2026-05-23 17:15:11"
+}

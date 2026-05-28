@@ -1,0 +1,12 @@
+{
+  "alpha_id": "09fada15",
+  "family": "VWAP Displacement Reversion - Footnote 6",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(returns))) / (allocated_sbp_expense_total + 0.00121), 11)), 0), subindustry)",
+  "sharpe": 0.79,
+  "fitness": 0.32,
+  "turnover": 18.459999999999997,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/9qJbpKkx",
+  "created_at": "2026-05-24 12:17:09"
+}

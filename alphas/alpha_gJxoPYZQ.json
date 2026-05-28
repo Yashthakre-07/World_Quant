@@ -1,0 +1,12 @@
+{
+  "alpha_id": "gJxoPYZQ",
+  "family": "Price-Volume Divergence Spread",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 1.0, -rank(ts_decay_linear(close - vwap, 6)), 0), subindustry)",
+  "sharpe": 1.37,
+  "fitness": 0.62,
+  "turnover": 24.16,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "#",
+  "created_at": ""
+}

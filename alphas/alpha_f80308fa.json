@@ -1,0 +1,12 @@
+{
+  "alpha_id": "f80308fa",
+  "family": "Candle Body Conviction - Footnote 7",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.8, -rank(ts_decay_linear((((close - open) / (high - low + 0.00101)) * (1.001 - abs(returns))) / (available_for_sale_securities_value + 0.00111), 12)), 0), subindustry)",
+  "sharpe": 0.77,
+  "fitness": 0.38,
+  "turnover": 17.69,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/e7LgzLr6",
+  "created_at": "2026-05-24 12:26:10"
+}

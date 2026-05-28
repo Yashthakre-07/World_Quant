@@ -1,0 +1,25 @@
+{
+  "alpha_id": "mLZO65A5",
+  "family": "VWAP Opening Deviation Reversion (Gate 0.8)",
+  "fitness": 0.7,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.8, -rank(ts_decay_linear((vwap - open) / (ts_std_dev(returns, 15) + 0.0001), 5)), 0), subindustry)",
+  "hypothesis": "VWAP deviation from market open, normalized by 15-day return volatility, captures opening imbalances.",
+  "settings": {
+    "decay": 10,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.4,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 17:16:21",
+  "turnover": 25.130000000000003
+}

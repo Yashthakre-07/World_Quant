@@ -1,0 +1,12 @@
+{
+  "alpha_id": "qMgm1gME",
+  "family": "Tuned Price Reversion (Gate 0.75, Decay 4)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(close - open, 4)), 0), subindustry)",
+  "sharpe": 1.87,
+  "fitness": 0.96,
+  "turnover": 35.620000000000005,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "#",
+  "created_at": ""
+}

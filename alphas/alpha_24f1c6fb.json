@@ -1,0 +1,12 @@
+{
+  "alpha_id": "24f1c6fb",
+  "family": "Inventory-Driven Liquidity Provision Reversal (Decay 10)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(returns / (ts_std_dev(returns, 12) + 0.0001), 6)), 0), subindustry)",
+  "sharpe": 1.23,
+  "fitness": 0.62,
+  "turnover": 28.29,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/RRdkXdn0",
+  "created_at": "2026-05-25 06:38:18"
+}

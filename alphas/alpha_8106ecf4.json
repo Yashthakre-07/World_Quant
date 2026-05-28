@@ -1,0 +1,12 @@
+{
+  "alpha_id": "8106ecf4",
+  "family": "Shadow Ratio Exhaustion (Japanese Wick Climax) (Gate 0.85)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((high - (close > open ? close : open)) - ((close > open ? open : close) - low)) / (high - low + 0.001), 6)), 0), subindustry)",
+  "sharpe": 0.41,
+  "fitness": 0.1,
+  "turnover": 21.57,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/YPQZERE6",
+  "created_at": "2026-05-23 18:16:50"
+}

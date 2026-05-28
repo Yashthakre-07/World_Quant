@@ -1,0 +1,12 @@
+{
+  "alpha_id": "64b99f45",
+  "family": "Vol-Normalized Intraday Body - Fn 9",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - open) / (ts_std_dev(returns, 10) + 0.00101)) / (authorized_stock_repurchase_amount + 0.00101), 6)), 0), subindustry)",
+  "sharpe": 0.95,
+  "fitness": 0.36,
+  "turnover": 32.11,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/RRdaxVog",
+  "created_at": "2026-05-25 05:04:58"
+}

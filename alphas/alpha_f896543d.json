@@ -1,0 +1,12 @@
+{
+  "alpha_id": "f896543d",
+  "family": "15-Day Return-Relative Volume Correlation (Gate 0.65)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(ts_corr(returns, volume / adv20, 15), 4)), 0), subindustry)",
+  "sharpe": 0.58,
+  "fitness": 0.24,
+  "turnover": 12.520000000000001,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/GrkVmQX5",
+  "created_at": "2026-05-23 17:45:50"
+}

@@ -1,0 +1,25 @@
+{
+  "alpha_id": "6XzxJloP",
+  "family": "Normalized Liquidity Reversal (Subrahmanyam, 2005) (Gate 0.85)",
+  "fitness": 0.59,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(returns / (ts_std_dev(returns, 10) + 0.0001), 6)), 0), subindustry)",
+  "hypothesis": "Daily return normalized by historical standard deviation captures clean inventory-driven liquidity shocks.",
+  "settings": {
+    "decay": 10,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.11,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 18:31:43",
+  "turnover": 22.6
+}

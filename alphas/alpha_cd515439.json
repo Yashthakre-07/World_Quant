@@ -1,0 +1,12 @@
+{
+  "alpha_id": "cd515439",
+  "family": "Tuned Relative Volatility Reversion (Gate 0.75, Decay 6)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((returns / (ts_std_dev(returns, 10) + 0.0001)) * (volume / adv20), 6)), 0), subindustry)",
+  "sharpe": 1.31,
+  "fitness": 0.65,
+  "turnover": 29.099999999999998,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/vRdJ3bJA",
+  "created_at": "2026-05-25 06:19:17"
+}

@@ -1,0 +1,25 @@
+{
+  "alpha_id": "gJxvLLKm",
+  "family": "Tuned Price Reversion (Gate 0.80, Decay 4)",
+  "fitness": 0.94,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(close - open, 4)), 0), subindustry)",
+  "hypothesis": "Short-term close-to-open gaps mean-revert strongly on active sessions; smoothed decay limit turnover.",
+  "settings": {
+    "decay": 12,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.65,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 18:44:01",
+  "turnover": 24.73
+}

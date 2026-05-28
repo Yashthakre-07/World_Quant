@@ -1,0 +1,12 @@
+{
+  "alpha_id": "61e553aa",
+  "family": "Volume-Amplified Returns",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(returns * rank(volume / adv20), 5)), 0), subindustry)",
+  "sharpe": 0.0,
+  "fitness": 0.0,
+  "turnover": 0.0,
+  "status": "ERROR",
+  "error_message": "HTTP 401: {\"detail\":\"Incorrect authentication credentials.\"}",
+  "alpha_link": "#",
+  "created_at": "2026-05-27 05:38:50"
+}

@@ -1,0 +1,12 @@
+{
+  "alpha_id": "9c5512f5",
+  "family": "Return-Relative Volume Exhaustion (Karpoff, 1987) (Gate 0.85)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(ts_corr(returns, volume / adv20, 10), 6)), 0), subindustry)",
+  "sharpe": 0.48,
+  "fitness": 0.16,
+  "turnover": 15.010000000000002,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/akoJeeYW",
+  "created_at": "2026-05-23 18:04:31"
+}

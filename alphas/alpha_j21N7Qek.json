@@ -1,0 +1,25 @@
+{
+  "alpha_id": "j21N7Qek",
+  "family": "VWAP Displacement Reversal",
+  "fitness": 0.51,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - vwap) / (high - low + 0.001), 5)), 0), subindustry)",
+  "hypothesis": "Intraday close deviation from VWAP normalized by range captures extreme intraday price stretch.",
+  "settings": {
+    "decay": 5,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.32,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-24 03:18:46",
+  "turnover": 35.4
+}

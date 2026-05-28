@@ -1,0 +1,12 @@
+{
+  "alpha_id": "02c5cb65",
+  "family": "Faulty Alphas",
+  "formula": "close ++* high / (low -- open) * 3",
+  "sharpe": 0.0,
+  "fitness": 0.0,
+  "turnover": 0.0,
+  "status": "HARD_REJECT",
+  "error_message": "Unexpected character '+' near \"* high /\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>",
+  "alpha_link": "#",
+  "created_at": "2026-05-23 16:35:33"
+}

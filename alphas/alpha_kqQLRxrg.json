@@ -1,0 +1,12 @@
+{
+  "alpha_id": "kqQLRxrg",
+  "family": "Heston Intraday Trend Pattern Reversion (Decay 10)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(close - open, 6)), 0), subindustry)",
+  "sharpe": 1.67,
+  "fitness": 0.89,
+  "turnover": 28.499999999999996,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "#",
+  "created_at": ""
+}

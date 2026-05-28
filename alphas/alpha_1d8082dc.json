@@ -1,0 +1,12 @@
+{
+  "alpha_id": "1d8082dc",
+  "family": "Intraday Candle Body Ratio Divergence (Gate 0.55, Decay 3)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.55, -rank(ts_decay_linear((close - open) / (high - low + 0.001), 3)), 0), subindustry)",
+  "sharpe": 1.57,
+  "fitness": 0.84,
+  "turnover": 33.78,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/j21NQ9bZ",
+  "created_at": "2026-05-23 21:16:52"
+}

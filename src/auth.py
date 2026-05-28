@@ -7,6 +7,14 @@ from src.config import WQ_AUTH_URL
 import src.config
 from src.logger import agent_logger
 import logging
+import urllib3
+import os
+
+os.environ.pop("REQUESTS_CA_BUNDLE", None)
+os.environ.pop("SSL_CERT_FILE", None)
+os.environ.pop("CURL_CA_BUNDLE", None)
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 log_callback = None
 
@@ -36,6 +44,7 @@ class PersonaRequiredException(Exception):
 class WQSession(requests.Session):
     def __init__(self, interactive=False, cli_mode=False):
         super().__init__()
+        self.verify = False
         self.login_expired = False
         self.interactive = interactive
         self.cli_mode = cli_mode

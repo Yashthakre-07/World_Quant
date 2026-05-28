@@ -1,0 +1,12 @@
+{
+  "alpha_id": "bb176852",
+  "family": "Volatility-Weighted Reversal (Avramov, 2006) (Gate 0.85)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(returns * ts_std_dev(returns, 10), 6)), 0), subindustry)",
+  "sharpe": 0.93,
+  "fitness": 0.49,
+  "turnover": 23.080000000000002,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/d5dq9YJv",
+  "created_at": "2026-05-23 17:55:37"
+}

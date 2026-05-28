@@ -1,0 +1,12 @@
+{
+  "alpha_id": "3bf288dc",
+  "family": "10-Day Return Kurtosis Reversal",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(ts_kurtosis(returns, 10), 8)), 0), subindustry)",
+  "sharpe": 0.0,
+  "fitness": 0.0,
+  "turnover": 17.54,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/P0vE0v2x",
+  "created_at": "2026-05-25 07:21:22"
+}

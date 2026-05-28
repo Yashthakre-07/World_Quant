@@ -1,0 +1,12 @@
+{
+  "alpha_id": "fd4baa04",
+  "family": "Idiosyncratic Volatility Puzzle Reversal (Decay 12)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(ts_std_dev(returns, 15), 5)), 0), subindustry)",
+  "sharpe": 0.26,
+  "fitness": 0.12,
+  "turnover": 7.630000000000001,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/d5dlepYx",
+  "created_at": "2026-05-25 06:43:18"
+}

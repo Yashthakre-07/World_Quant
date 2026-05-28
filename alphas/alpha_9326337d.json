@@ -1,0 +1,12 @@
+{
+  "alpha_id": "9326337d",
+  "family": "Overnight Gap Climax Reversion (Cooper, 2008) (Gate 0.85)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.0001), 6)), 0), subindustry)",
+  "sharpe": -0.02,
+  "fitness": 0.0,
+  "turnover": 22.28,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/Jjbl1Qjn",
+  "created_at": "2026-05-23 18:32:16"
+}

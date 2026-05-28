@@ -1,0 +1,12 @@
+{
+  "alpha_id": "7795887d",
+  "family": "Intraday Range Location Divergence",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - low) - (open - low)) / (high - low + 0.001), 5)), 0), subindustry)",
+  "sharpe": 1.66,
+  "fitness": 0.85,
+  "turnover": 36.559999999999995,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/88nbX70l",
+  "created_at": "2026-05-23 16:28:07"
+}

@@ -1,0 +1,25 @@
+{
+  "alpha_id": "ZYrZArG1",
+  "family": "3-Day Price Momentum Reversal (Gate 0.65)",
+  "fitness": 0.56,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(ts_delta(close, 3), 4)), 0), subindustry)",
+  "hypothesis": "Short-term 3-day cumulative price moves are highly prone to rapid statistical mean reversion.",
+  "settings": {
+    "decay": 12,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.08,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 17:15:11",
+  "turnover": 24.21
+}

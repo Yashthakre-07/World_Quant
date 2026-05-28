@@ -1,0 +1,12 @@
+{
+  "alpha_id": "736bd2f7",
+  "family": "Price-Volume Divergence Reversal (Decay 10)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(ts_corr(close, volume, 15), 6)), 0), subindustry)",
+  "sharpe": 0.85,
+  "fitness": 0.38,
+  "turnover": 16.14,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/6XzYPogL",
+  "created_at": "2026-05-25 06:55:45"
+}

@@ -1,0 +1,12 @@
+{
+  "alpha_id": "a736283d",
+  "family": "Short Range Volatility Expansion",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((high - low) / (ts_mean(high - low, 10) + 0.001), 5)), 0), subindustry)",
+  "sharpe": 0.0,
+  "fitness": 0.0,
+  "turnover": 0.0,
+  "status": "ERROR",
+  "error_message": "HTTP 401: {\"detail\":\"Incorrect authentication credentials.\"}",
+  "alpha_link": "#",
+  "created_at": "2026-05-24 03:01:49"
+}

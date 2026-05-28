@@ -1,0 +1,12 @@
+{
+  "alpha_id": "5572dfc7",
+  "family": "Tuned Price Reversion (Gate 0.60, Decay 4)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.60, -rank(ts_decay_linear(close - open, 4)), 0), subindustry)",
+  "sharpe": 1.83,
+  "fitness": 0.93,
+  "turnover": 39.47,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/Jjb5wnrl",
+  "created_at": "2026-05-25 06:01:15"
+}

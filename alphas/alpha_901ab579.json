@@ -1,0 +1,12 @@
+{
+  "alpha_id": "901ab579",
+  "family": "Medium Return Mean Deviation",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(returns - ts_mean(returns, 10), 6)), 0), subindustry)",
+  "sharpe": 0.0,
+  "fitness": 0.0,
+  "turnover": 0.0,
+  "status": "ERROR",
+  "error_message": "HTTP 401: {\"detail\":\"Incorrect authentication credentials.\"}",
+  "alpha_link": "#",
+  "created_at": "2026-05-27 05:38:38"
+}

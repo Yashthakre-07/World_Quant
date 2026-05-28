@@ -1,0 +1,12 @@
+{
+  "alpha_id": "ef832660",
+  "family": "Volume-weighted Relative Volatility Reversion",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((returns / (ts_std_dev(returns, 10) + 0.0001)) * (volume / adv20), 5)), 0), subindustry)",
+  "sharpe": 1.39,
+  "fitness": 0.66,
+  "turnover": 35.03,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/A1k9or2X",
+  "created_at": "2026-05-23 16:53:26"
+}

@@ -1,0 +1,12 @@
+{
+  "alpha_id": "291c8603",
+  "family": "Price-Volume Divergence Reversal (Gervais, 2001) (Gate 0.7)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(ts_corr(close, volume, 10), 5)), 0), subindustry)",
+  "sharpe": 0.91,
+  "fitness": 0.41,
+  "turnover": 16.869999999999997,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/vRd06WZQ",
+  "created_at": "2026-05-23 18:35:53"
+}

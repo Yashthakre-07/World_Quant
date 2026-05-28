@@ -1,0 +1,12 @@
+{
+  "alpha_id": "8c1b35c5",
+  "family": "Normalized Liquidity Reversal (Subrahmanyam, 2005) (Gate 0.85)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(returns / (ts_std_dev(returns, 10) + 0.0001), 6)), 0), subindustry)",
+  "sharpe": 1.11,
+  "fitness": 0.59,
+  "turnover": 22.6,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/6XzxJloP",
+  "created_at": "2026-05-23 18:31:43"
+}

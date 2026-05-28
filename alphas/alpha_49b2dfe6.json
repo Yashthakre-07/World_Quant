@@ -1,0 +1,12 @@
+{
+  "alpha_id": "49b2dfe6",
+  "family": "Short Spread-Volume Correlation",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(ts_corr(high - low, volume, 10), 5)), 0), subindustry)",
+  "sharpe": 0.33,
+  "fitness": 0.08,
+  "turnover": 19.34,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/Wj9K56ZP",
+  "created_at": "2026-05-24 03:18:15"
+}

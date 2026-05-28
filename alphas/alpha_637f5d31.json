@@ -1,0 +1,12 @@
+{
+  "alpha_id": "637f5d31",
+  "family": "Tuned VWAP Trend Reversion (Gate 0.75, Decay 4)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(vwap - open, 4)), 0), subindustry)",
+  "sharpe": 1.9,
+  "fitness": 0.98,
+  "turnover": 35.120000000000005,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/Xg1Y6rO0",
+  "created_at": "2026-05-25 06:21:00"
+}

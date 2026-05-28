@@ -1,0 +1,12 @@
+{
+  "alpha_id": "6f10f2e3",
+  "family": "Days Since 20-Day Close High",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(ts_arg_max(close, 20), 10)), 0), subindustry)",
+  "sharpe": 0.0,
+  "fitness": 0.0,
+  "turnover": 0.0,
+  "status": "ERROR",
+  "error_message": "HTTP 401: {\"detail\":\"Incorrect authentication credentials.\"}",
+  "alpha_link": "#",
+  "created_at": "2026-05-25 08:51:44"
+}

@@ -1,0 +1,12 @@
+{
+  "alpha_id": "98daaa5e",
+  "family": "VWAP Displacement Reversion - Footnote 10",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(returns))) / (actual_return_on_pension_plan_assets + 0.00121), 11)), 0), subindustry)",
+  "sharpe": 0.86,
+  "fitness": 0.33,
+  "turnover": 18.67,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/d5dgKQMg",
+  "created_at": "2026-05-24 13:00:01"
+}

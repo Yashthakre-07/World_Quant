@@ -1,0 +1,25 @@
+{
+  "alpha_id": "j21NQ9bZ",
+  "family": "Intraday Candle Body Ratio Divergence (Gate 0.55, Decay 3)",
+  "fitness": 0.84,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.55, -rank(ts_decay_linear((close - open) / (high - low + 0.001), 3)), 0), subindustry)",
+  "hypothesis": "Intraday candle body size relative to session range highlights retail volume overbuying/overselling. Gated at 0.55x ADV and smoothed with decay 3.",
+  "settings": {
+    "decay": 10,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.57,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 21:16:52",
+  "turnover": 33.78
+}

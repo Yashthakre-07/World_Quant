@@ -1,0 +1,12 @@
+{
+  "alpha_id": "f11143db",
+  "family": "Overnight Gap Shock - MFM Pair 5",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(automobiles_exposure_score))) / (acquisition_Identifiable_assets_recognized + 0.00131), 6)), 0), subindustry)",
+  "sharpe": 0.0,
+  "fitness": 0.0,
+  "turnover": 0.0,
+  "status": "ERROR",
+  "error_message": "Local Validation Failed: Illegal token found: 'automobiles_exposure_score'. Not in allowed data fields or operator list.",
+  "alpha_link": "#",
+  "created_at": "2026-05-24 11:15:24"
+}

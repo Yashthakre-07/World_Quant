@@ -1,0 +1,12 @@
+{
+  "alpha_id": "a049f571",
+  "family": "Short-Term Multi-Day Momentum Reversal (Hong, 2000) (Gate 0.85)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(ts_delta(close, 5), 6)), 0), subindustry)",
+  "sharpe": 0.76,
+  "fitness": 0.35,
+  "turnover": 19.37,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/omV2RG55",
+  "created_at": "2026-05-23 18:04:58"
+}

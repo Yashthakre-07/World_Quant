@@ -1,0 +1,12 @@
+{
+  "alpha_id": "474ff713",
+  "family": "Standard Intraday Spread Reversion (Gate 1.10, Decay 6)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 1.10, -rank(ts_decay_linear(close - open, 6)), 0), subindustry)",
+  "sharpe": 1.24,
+  "fitness": 0.65,
+  "turnover": 17.810000000000002,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/ZYrkeEnZ",
+  "created_at": "2026-05-23 20:58:40"
+}

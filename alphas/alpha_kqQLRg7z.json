@@ -1,0 +1,12 @@
+{
+  "alpha_id": "kqQLRg7z",
+  "family": "Daily Return-Volatility Reversal (Decay 10)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(returns * ts_std_dev(returns, 12), 6)), 0), subindustry)",
+  "sharpe": 1.18,
+  "fitness": 0.64,
+  "turnover": 29.599999999999998,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "#",
+  "created_at": ""
+}

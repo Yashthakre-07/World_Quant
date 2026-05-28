@@ -1,0 +1,12 @@
+{
+  "alpha_id": "f1d71256",
+  "family": "Range-Based Volatility Expansion Reversal (Decay 10)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear((high - low) / (ts_mean(high - low, 15) + 0.001), 6)), 0), subindustry)",
+  "sharpe": 0.25,
+  "fitness": 0.06,
+  "turnover": 21.37,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/N1A56r0p",
+  "created_at": "2026-05-25 07:08:29"
+}

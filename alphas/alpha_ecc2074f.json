@@ -1,0 +1,12 @@
+{
+  "alpha_id": "ecc2074f",
+  "family": "Volatility-Normalized Overnight Gap Reversion",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.0001), 6)), 0), subindustry)",
+  "sharpe": 0.51,
+  "fitness": 0.16,
+  "turnover": 30.19,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/gJx65NOg",
+  "created_at": "2026-05-24 03:51:55"
+}

@@ -1,0 +1,12 @@
+{
+  "alpha_id": "83f5602d",
+  "family": "Tuned Relative Volatility Reversion (Gate 0.85, Decay 6)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear((returns / (ts_std_dev(returns, 10) + 0.0001)) * (volume / adv20), 6)), 0), subindustry)",
+  "sharpe": 1.11,
+  "fitness": 0.57,
+  "turnover": 21.8,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/xARMLxpn",
+  "created_at": "2026-05-23 19:28:23"
+}

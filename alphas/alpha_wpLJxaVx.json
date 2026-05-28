@@ -1,0 +1,12 @@
+{
+  "alpha_id": "wpLJxaVx",
+  "family": "Dynamic Candle Body Ratio Reversion (Gate 0.95, Decay 5)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.95, -rank(ts_decay_linear((close - open) / (high - low + 0.001), 5)), 0), subindustry)",
+  "sharpe": 1.55,
+  "fitness": 0.81,
+  "turnover": 27.35,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "#",
+  "created_at": ""
+}

@@ -1,0 +1,12 @@
+{
+  "alpha_id": "1909359c",
+  "family": "Overnight Gap Climax Reversion (Decay 12)",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)",
+  "sharpe": 0.24,
+  "fitness": 0.04,
+  "turnover": 34.239999999999995,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/A1kOq53g",
+  "created_at": "2026-05-25 06:49:04"
+}

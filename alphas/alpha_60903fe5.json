@@ -1,0 +1,12 @@
+{
+  "alpha_id": "60903fe5",
+  "family": "Medium Channel Reversal",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - ts_min(low, 10)) / (ts_max(high, 10) - ts_min(low, 10) + 0.001), 6)), 0), subindustry)",
+  "sharpe": 0.0,
+  "fitness": 0.0,
+  "turnover": 0.0,
+  "status": "ERROR",
+  "error_message": "HTTP 401: {\"detail\":\"Incorrect authentication credentials.\"}",
+  "alpha_link": "#",
+  "created_at": "2026-05-27 05:39:58"
+}

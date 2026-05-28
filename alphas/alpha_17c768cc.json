@@ -1,0 +1,12 @@
+{
+  "alpha_id": "17c768cc",
+  "family": "Short-Term Return Exhaustion - Fn 9",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((ts_sum(returns, 3)) / (ts_std_dev(returns, 10) + 0.00151)) / (authorized_stock_repurchase_amount + 0.00151), 6)), 0), subindustry)",
+  "sharpe": 0.63,
+  "fitness": 0.22,
+  "turnover": 28.42,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/E5ka9V7K",
+  "created_at": "2026-05-25 05:26:31"
+}

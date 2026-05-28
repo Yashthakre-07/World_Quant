@@ -1,0 +1,25 @@
+{
+  "alpha_id": "LLkeZbYn",
+  "family": "Intraday Momentum Change Reversion (Gate 0.65)",
+  "fitness": 0.62,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear((close - open) - ts_delay(close - open, 1), 4)), 0), subindustry)",
+  "hypothesis": "Sudden shifts in intraday price momentum (close minus open) indicate extreme overextended pressure.",
+  "settings": {
+    "decay": 12,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.75,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 17:13:50",
+  "turnover": 47.54
+}

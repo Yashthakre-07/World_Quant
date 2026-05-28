@@ -1,0 +1,12 @@
+{
+  "alpha_id": "acb788a1",
+  "family": "Volatility-Normalized Overnight Gap Reversion",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.0001), 6)), 0), subindustry)",
+  "sharpe": 0.09,
+  "fitness": 0.01,
+  "turnover": 29.93,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/j21vaJ2e",
+  "created_at": "2026-05-24 10:38:12"
+}

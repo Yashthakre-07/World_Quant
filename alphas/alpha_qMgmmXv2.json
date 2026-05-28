@@ -1,0 +1,12 @@
+{
+  "alpha_id": "qMgmmXv2",
+  "family": "Price-VWAP Percentage Spread Reversion",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(close / (vwap + 0.001) - 1, 5)), 0), subindustry)",
+  "sharpe": 1.44,
+  "fitness": 0.69,
+  "turnover": 29.270000000000003,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "#",
+  "created_at": ""
+}

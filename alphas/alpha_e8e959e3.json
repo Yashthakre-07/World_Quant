@@ -1,0 +1,12 @@
+{
+  "alpha_id": "e8e959e3",
+  "family": "Rolling Return Exhaustion - MFM Pair 7",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.60, -rank(ts_decay_linear(((ts_sum(returns, 3) / (ts_std_dev(returns, 10) + 0.000101)) * (1.001 - abs(beverages_tobacco_exposure_score))) / (available_for_sale_securities_value + 0.00141), 5)), 0), subindustry)",
+  "sharpe": 0.0,
+  "fitness": 0.0,
+  "turnover": 0.0,
+  "status": "ERROR",
+  "error_message": "Local Validation Failed: Illegal token found: 'beverages_tobacco_exposure_score'. Not in allowed data fields or operator list.",
+  "alpha_link": "#",
+  "created_at": "2026-05-24 11:15:26"
+}

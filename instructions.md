@@ -8,9 +8,9 @@ This manifest is the single source of truth for the **AlphaForge Automation Pipe
 
 Every future AI agent or developer loading this workspace **MUST STRICTLY FOLLOW** these absolute rules:
 
-1. **READ MANDATORY GUIDES FIRST**: You must read `instructions.md` and `research.md` in full before running any code, submitting alphas, or suggesting formulas. Do not attempt to guess or hallucinate.
-2. **STRICT CONCURRENCY LOCK (3 ACTIVE MAX)**: Never modify `MAX_CONCURRENT_SIMS` to be higher than `3` in `src/config.py`. Exceeding 3 parallel simulations on the WorldQuant cluster will result in immediate API rate limits and cluster blocks.
-3. **MANDATORY 20-SECOND SPACING**: All POST requests to the `/simulations` endpoint must be thread-locked and spaced sequentially by a minimum of **20 seconds**. Never dump concurrent requests onto the platform.
+1. **READ MANDATORY GUIDES FIRST**: You must read `instructions.md`, `research.md`, and [dataset.md](file:///c:/Users/Admin/Documents/VIBE_YT/wq/dataset.md) in full before running any code, submitting alphas, or suggesting formulas. Do not attempt to guess or hallucinate. If you have any doubt about the platform, APIs, datasets, or how to write/submit alphas, **always use the official ACE API package** unzipped in [ace_api_extracted](file:///c:/Users/Admin/Documents/VIBE_YT/wq/documentation/ace_api_extracted) because it contains the official WQ documentation, examples, and files on how to use all elements.
+2. **STRICT CONCURRENCY LOCK (3 BATCH WORKERS - 30 CONCURRENT ALPHAS)**: Never modify `MAX_CONCURRENT_SIMS` to be higher than `3` in `src/config.py`. The pipeline uses WorldQuant's Multi-Simulation API, grouping regular alphas into batches of up to 10. The executor is capped at `MAX_CONCURRENT_SIMS = 3` concurrent batches, simulating up to 30 alphas at the same time while remaining strictly compliant with the WQ 3-slot platform limit.
+3. **MANDATORY 5-SECOND BATCH SPACING**: All API batch POST submissions to the `/simulations` endpoint must be thread-locked and spaced sequentially by a minimum of **5 seconds** between batch requests. Never dump concurrent batch requests onto the platform.
 4. **LOCAL SYNTAX SANITY CHECK**: You must pass every proposed formula through `src/validator.py` locally before requesting network backtests. Any formula with unbalanced brackets, Python keywords (`and`/`or`), or premium variables must be rejected immediately without hitting the network.
 5. **GATED SIGNAL SYNTHESIS ONLY**: You are strictly prohibited from submitting raw, un-smoothed price signals. All custom alpha formulas must be constructed using the **Gated Reversion Blueprint** detailed in [research.md](file:///c:/Users/Admin/Documents/VIBE_YT/wq/research.md):
    $$\text{Alpha} = \text{Neutralize} \left( \text{TradeWhen} \left( \text{volume} > \text{adv20} \times K, \text{-rank} \left( \text{ts\_decay\_linear} \left( \text{SIGNAL}, N \right) \right), 0 \right), \text{subindustry} \right)$$
@@ -82,14 +82,14 @@ To run the quant workflow with zero friction, execute these commands or type the
 
 ## ⚙️ 2. Core Platform Configurations & Rules
 
-### A. Strict Concurrency Cap (`MAX_CONCURRENT_SIMS = 3`)
-* **Context**: The WorldQuant Brain platform restricts standard/basic research accounts to exactly **3 concurrent active simulations** on the server cluster.
-* **Orchestration**: `run_pipeline.py` initiates a `ThreadPoolExecutor(max_workers=3)`.
-* **Dashboard Mapping**: The first 3 alphas in the queue are processed in parallel (`SIMULATING`), while subsequent alphas are initialized as `PENDING` (progress `0%`). As soon as an active thread completes (status becomes `SUBMITTED`, `SOFT_FAIL`, or `ERROR`), the executor immediately schedules the next pending alpha.
+### A. Strict Concurrency Cap (3 Active Batches - Max 30 Alphas Concurrent)
+* **Context**: The WorldQuant Brain platform restricts standard research accounts to exactly **3 concurrent active simulation slots** on the server cluster.
+* **Orchestration**: `run_pipeline.py` groups regular alphas from the queue into batches of up to 10. It initiates a `ThreadPoolExecutor(max_workers=3)` to run up to 3 batch threads concurrently, allowing simulation of up to 30 alphas simultaneously.
+* **Dashboard Mapping**: Scheduled alphas are grouped into batches. The scheduler submits batch runners to the thread pool. The active batch items show progress polling in real-time, while subsequent alphas in the queue wait as `PENDING` until a batch worker slot frees up.
 
-### B. 20-Second Submission Lock Spacing
+### B. 5-Second Batch Submission Lock Spacing
 * **Context**: Sending concurrent API requests to the WorldQuant `/simulations` endpoint at the exact same second triggers platform security blockages and IP rate locks.
-* **Orchestration**: A global `submission_lock = threading.Lock()` is acquired inside `simulate_task`. Before sending the POST request, the thread sleeps for exactly **20 seconds** within the lock. This forces a clean, sequential, rate-limit-compliant spacing.
+* **Orchestration**: A global `submission_lock = threading.Lock()` is acquired inside the batch submission flow. Before sending a POST request to `/simulations`, the thread sleeps for exactly **5 seconds** within the lock, enforcing a clean rate-limit-compliant spacing between batch submissions.
 
 ### C. Standard Pricing & Liquidity Fields Only
 * **Context**: Standard research accounts do *not* have subscription rights to premium datasets (e.g., EBITDA, Analyst consensus, News Sentiment vectors). Using them results in immediate access or syntax errors.
@@ -131,27 +131,31 @@ All backtest metrics, simulation properties, and API results are stored in the S
 Stores every individual simulation attempt.
 ```sql
 CREATE TABLE IF NOT EXISTS alpha_runs (
-    run_id TEXT PRIMARY KEY,          -- Unique run ID (UUID prefix)
-    family TEXT,                      -- e.g., "Price Reversion", "Volume Anomaly"
-    hypothesis TEXT,                  -- The economic rationale
-    formula TEXT,                     -- The actual math factor
-    region TEXT DEFAULT 'USA',        -- e.g., "USA"
-    universe TEXT DEFAULT 'TOP3000',  -- e.g., "TOP3000"
-    neutralization TEXT,              -- e.g., "SUBINDUSTRY"
-    decay INTEGER,                    -- decay parameter
-    truncation REAL,                  -- e.g., 0.08 or 0.10
-    delay INTEGER,                    -- e.g., 1 or 2
-    sharpe REAL,                      -- Sharpe Ratio metric
-    fitness REAL,                     -- Fitness metric
-    turnover REAL,                    -- Turnover metric (%)
-    checks_passed INTEGER,            -- Number of platform checks passed
-    weight_check TEXT,                -- "PASS" or "FAIL" (weight concentration)
-    sub_sharpe REAL,                  -- Sub-universe Sharpe Ratio
-    status TEXT,                      -- "SUBMITTED", "SOFT_FAIL", "ERROR", "HARD_REJECT"
-    alpha_link TEXT,                  -- platform alpha URL
-    sim_link TEXT,                    -- platform simulation progress URL
-    error_message TEXT,               -- Detailed failure logs if any
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    run_id          TEXT NOT NULL,
+    timestamp       DATETIME DEFAULT CURRENT_TIMESTAMP,
+    family          TEXT NOT NULL,
+    hypothesis      TEXT,
+    formula         TEXT NOT NULL,
+    region          TEXT DEFAULT 'USA',
+    universe        TEXT DEFAULT 'TOP3000',
+    neutralization  TEXT DEFAULT 'SUBINDUSTRY',
+    decay           INTEGER DEFAULT 6,
+    truncation      REAL DEFAULT 0.1,
+    delay           INTEGER DEFAULT 1,
+    sharpe          REAL,
+    fitness         REAL,
+    turnover        REAL,
+    checks_passed   INTEGER DEFAULT 0,
+    weight_check    TEXT,
+    sub_sharpe      REAL,
+    status          TEXT NOT NULL,    -- e.g., "SUBMITTED", "SOFT_FAIL", "ERROR", "HARD_REJECT"
+    alpha_link      TEXT,
+    sim_link        TEXT,
+    error_message   TEXT,
+    llm_model       TEXT,
+    parent_id       INTEGER,
+    FOREIGN KEY (parent_id) REFERENCES alpha_runs(id)
 );
 ```
 
@@ -159,15 +163,67 @@ CREATE TABLE IF NOT EXISTS alpha_runs (
 Stores alphas that successfully satisfy the platform's production guidelines.
 ```sql
 CREATE TABLE IF NOT EXISTS submitted_alphas (
-    alpha_id TEXT PRIMARY KEY,        -- WorldQuant Alpha ID
-    formula TEXT,                     -- The math factor
-    sharpe REAL,                      -- Sharpe Ratio metric
-    fitness REAL,                     -- Fitness metric
-    turnover REAL,                    -- Turnover metric (%)
-    color TEXT DEFAULT 'RED',         -- Color tag on platform
-    correlation_checked INTEGER,      -- 1 if checked, 0 otherwise
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    alpha_run_id    INTEGER NOT NULL,
+    alpha_id        TEXT NOT NULL,
+    submitted_at    DATETIME DEFAULT CURRENT_TIMESTAMP,
+    self_corr_pass  BOOLEAN,
+    os_sharpe       REAL,
+    FOREIGN KEY (alpha_run_id) REFERENCES alpha_runs(id)
 );
+```
+
+### C. Table: `all_alphas`
+Stores overall metrics for all fetched and created alphas.
+```sql
+CREATE TABLE IF NOT EXISTS all_alphas (
+    alpha_id        TEXT PRIMARY KEY,
+    formula         TEXT,
+    sharpe          REAL,
+    fitness         REAL,
+    turnover        REAL,
+    status          TEXT DEFAULT 'GRAY',
+    yellow_flag     INTEGER DEFAULT 0,
+    retry_count     INTEGER DEFAULT 0,
+    last_attempt    DATETIME,
+    updated_at      DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### D. Table: `rejected_alphas`
+Stores metadata about rejected alphas.
+```sql
+CREATE TABLE IF NOT EXISTS rejected_alphas (
+    alpha_id        TEXT PRIMARY KEY,
+    rejected_at     DATETIME DEFAULT CURRENT_TIMESTAMP,
+    reason          TEXT
+);
+```
+
+### E. Table: `queue`
+Stores queue execution metadata.
+```sql
+CREATE TABLE IF NOT EXISTS queue (
+    alpha_id        TEXT PRIMARY KEY,
+    added_at        DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status          TEXT DEFAULT 'PENDING'
+);
+```
+
+### F. View: `family_stats`
+Provides summary statistics grouped by alpha family.
+```sql
+CREATE VIEW family_stats AS
+SELECT
+    family,
+    COUNT(*) as total_runs,
+    SUM(CASE WHEN status = 'SUBMITTED' THEN 1 ELSE 0 END) as submitted,
+    AVG(CASE WHEN sharpe IS NOT NULL THEN sharpe END) as avg_sharpe,
+    MAX(sharpe) as best_sharpe,
+    AVG(CASE WHEN fitness IS NOT NULL THEN fitness END) as avg_fitness,
+    ROUND(100.0 * SUM(CASE WHEN status = 'SUBMITTED' THEN 1 ELSE 0 END) / COUNT(*), 1) as success_rate
+FROM alpha_runs
+GROUP BY family;
 ```
 
 ---

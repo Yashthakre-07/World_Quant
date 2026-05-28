@@ -1,0 +1,25 @@
+{
+  "alpha_id": "MPk9W9e6",
+  "family": "Standard Intraday Spread Reversion (Gate 0.95, Decay 3)",
+  "fitness": 0.91,
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.95, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)",
+  "hypothesis": "Short-term close-to-open gaps mean-revert strongly on active sessions. Gated at 0.95x ADV and smoothed with decay 3.",
+  "settings": {
+    "decay": 10,
+    "delay": 1,
+    "instrumentType": "EQUITY",
+    "language": "FASTEXPR",
+    "nanHandling": "OFF",
+    "neutralization": "SUBINDUSTRY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "universe": "TOP3000",
+    "visualization": false
+  },
+  "sharpe": 1.71,
+  "status": "SOFT_FAIL",
+  "timestamp": "2026-05-23 20:35:25",
+  "turnover": 24.03
+}

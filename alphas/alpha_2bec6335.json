@@ -1,0 +1,12 @@
+{
+  "alpha_id": "2bec6335",
+  "family": "VWAP Displacement Reversal",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((close - vwap) / (high - low + 0.001), 5)), 0), subindustry)",
+  "sharpe": 1.32,
+  "fitness": 0.51,
+  "turnover": 35.4,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/QPEMNKJ5",
+  "created_at": "2026-05-23 17:01:11"
+}

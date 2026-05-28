@@ -1,0 +1,12 @@
+{
+  "alpha_id": "81e2f419",
+  "family": "Accumulated VWAP Ratio Reversal",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(ts_sum(close / (vwap + 0.001) - 1, 5), 6)), 0), subindustry)",
+  "sharpe": 0.83,
+  "fitness": 0.36,
+  "turnover": 23.61,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/np3wL83q",
+  "created_at": "2026-05-24 03:31:06"
+}

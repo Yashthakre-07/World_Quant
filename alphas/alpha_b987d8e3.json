@@ -1,0 +1,12 @@
+{
+  "alpha_id": "b987d8e3",
+  "family": "Overnight Opening Gap Shock - Footnote 8",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (available_for_sale_securities_amortized_cost + 0.00131), 10)), 0), subindustry)",
+  "sharpe": -0.49,
+  "fitness": -0.16,
+  "turnover": 19.02,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/KPkqNmVE",
+  "created_at": "2026-05-24 12:44:35"
+}

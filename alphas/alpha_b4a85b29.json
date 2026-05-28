@@ -1,0 +1,12 @@
+{
+  "alpha_id": "b4a85b29",
+  "family": "Lower Shadow Demand",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_decay_linear(min(open, close) - low, 5)), 0), subindustry)",
+  "sharpe": 0.0,
+  "fitness": 0.0,
+  "turnover": 0.0,
+  "status": "ERROR",
+  "error_message": "Local Validation Failed: Illegal token found: 'min'. Not in allowed data fields or operator list.",
+  "alpha_link": "#",
+  "created_at": "2026-05-24 03:02:42"
+}

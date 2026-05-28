@@ -1,0 +1,12 @@
+{
+  "alpha_id": "f1a4540b",
+  "family": "VWAP Deviation Reversion - Fn 2",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - vwap) / (high - low + 0.00101)) / (accumulated_amortization_customer_intangibles + 0.00131), 6)), 0), subindustry)",
+  "sharpe": 0.84,
+  "fitness": 0.31,
+  "turnover": 30.45,
+  "status": "HARD_REJECT",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/d5d7YNJx",
+  "created_at": "2026-05-25 04:01:49"
+}

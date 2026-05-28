@@ -1,0 +1,498 @@
+# WorldQuant BRAIN Dataset Catalog
+
+Below is the hierarchical list of all unique dataset categories, subcategories, IDs, and names available on WorldQuant BRAIN:
+
+- **📁 Analyst** (35 datasets)
+  - *📂 Analyst Estimates*
+    - `analyst10`: Performance-Weighted Analyst Estimates
+    - `analyst14`: Estimations of Key Fundamentals
+    - `analyst15`: Earnings forecasts
+    - `analyst25`: Analyst Estimates Data for Equity
+    - `analyst4`: Analyst Estimate Data for Equity
+    - `analyst45`: Analyst Trade Ideas
+    - `analyst48`: Dividend estimation data
+    - `analyst49`: Analyst Estimation Data
+    - `analyst69`: Fundamental Analyst Estimates
+    - `analyst7`: Broker Estimates
+    - `analyst8`: Daily Split Data
+    - `analyst82`: Analyst estimate prediction data
+    - `analyst83`: Smart Conference call transcript data
+    - `analyst9`: Analyst Estimate Daily Data
+    - `analyst94`: Fundamental Income and Dividend Model
+    - `analyst_base_ref`: Analyst Estimates Base Reference
+    - `analyst_consensus`: Standardized Analyst Consensus Forecasts
+    - `analyst_factor_signals`: Global Analyst Factor Signals
+    - `biasfree_analyst`: Bias Adjusted Analyst Forecasts
+    - `model211`: Analyst estimate prediction data
+    - `news87`: Smart Conference call transcript data
+    - `other423`: Fundamental Income and Dividend Model
+  - *📂 Analyst Ratings*
+    - `analyst21`: Indicators of Interest Data
+    - `analyst81`: Creditworthiness model
+    - `model52`: Creditworthiness model
+  - *📂 Crowdsourced Estimates*
+    - `analyst16`: Real Time Estimates
+    - `analyst40`: Information on board of director
+    - `analyst44`: Integrated Broker Estimates
+    - `analyst46`: Analyst Investment insight Data
+    - `analyst47`: Alternative Analyst Investment Insight Data
+    - `analyst57`: Financial Statement Data
+  - *📂 ESG*
+    - `analyst11`: ESG scores
+    - `analyst35`: ESG Model
+    - `analyst39`: Analyst estimates & financial ratios
+    - `analyst72`: Corporate Earning Estimates Data
+
+- **📁 Broker** (1 datasets)
+  - *📂 Broker Estimates*
+    - `broker1`: user predictions from Minkabu
+
+- **📁 Earnings** (8 datasets)
+  - *📂 Earnings Estimates*
+    - `earnings11`: Earnings Call Transcript Data
+    - `earnings27`: Earnings Update Emails Data
+    - `earnings3`: Earnings Date Data
+    - `earnings5`: Earnings Date Breaks
+    - `earnings6`: International Findings Data
+    - `earnings7`: Horizon Earnings and Calendar North America
+    - `earnings_chart_dl`: Deep Learning Earnings Chart Predictions
+    - `earnings_sent_matrix`: Global Earnings Call Sentiment Matrix
+
+- **📁 Fundamental** (39 datasets)
+  - *📂 China Fundamental Data*
+    - `china_funda_data`: China Equity Fundamentals Data
+  - *📂 Footnotes*
+    - `fundamental2`: Report Footnotes
+  - *📂 Fundamental Data*
+    - `digital_ad_spend`: Digital Advertising Spend Intelligence
+    - `fundamental109`: Japanese Corporate Governance Data
+    - `fundamental110`: Press Release Data
+    - `fundamental13`: Comprehensive Fundamentals Dataset
+    - `fundamental17`: Direct Fundamental Data
+    - `fundamental23`: Fundamental Point in Time Data
+    - `fundamental25`: Company Operating Metrics
+    - `fundamental27`: A-shares Fundamental Data
+    - `fundamental28`: Global Fundamental Data
+    - `fundamental3`: Fundamentals Data for US Equities
+    - `fundamental4`: Hong Kong Fundamental Data
+    - `fundamental45`: Systematic mining of earnings calls data
+    - `fundamental5`: China Fundamentals
+    - `fundamental6`: Company Fundamental Data for Equity
+    - `fundamental69`: Quarterly Fundamental Data
+    - `fundamental7`: Comprehensive Fundamentals Data
+    - `fundamental72`: Comprehensive Fundamental Data
+    - `fundamental86`: Stock Reports Plus
+    - `fundamental89`: Accrual based Earnings Model
+    - `fundamental93`: Earnings Tax Data
+    - `fundamental94`: Aggregated Fundamental Data
+    - `model56`: Stock Reports Plus
+    - `other395`: Accrual based Earnings Model
+    - `other452`: Earnings Tax Data
+    - `other466`: Aggregated Fundamental Data
+  - *📂 Fundamental Models*
+    - `fundamental1`: Management and Executive Data
+    - `fundamental14`: Audit Analytics Directors Data
+    - `fundamental21`: ESG Scores Data
+    - `fundamental22`: Environmental and Social Governance Data
+    - `fundamental31`: Additional Factor Model
+    - `fundamental35`: US Financial Institutions Data
+    - `fundamental44`: Accounting Quality Models
+    - `fundamental67`: Predictive Sales
+    - `fundamental90`: Governance, Accounting, Management, and Equality
+    - `fundamental91`: Quantitative Filings Data
+    - `other401`: Governance, Accounting, Management, and Equality
+    - `other416`: Quantitative Filings Data
+
+- **📁 Imbalance** (1 datasets)
+  - *📂 Imbalance Models*
+    - `imbalance5`: Oil Price Resilience Scores
+
+- **📁 Insiders** (7 datasets)
+  - *📂 Insider Data*
+    - `board_gov_stats`: US Board Governance and Leadership Metrics
+    - `insider_agg_matrix`: Smart Insider Transaction Aggregates
+    - `insiders1`: Global Insider Trading Data
+    - `insiders12`: UK Insider Transaction Data
+    - `insiders3`: SEC Report Data
+    - `insiders4`: Edgar forms data
+    - `insiders5`: Corporate Insider Trading Activities Dataset
+
+- **📁 Institutions** (4 datasets)
+  - *📂 Ownership Models*
+    - `fund_holdings_panel`: Global Institutional Fund Holdings
+    - `institutions18`: Ownership Model Data
+    - `institutions20`: Short Sale Volume Data
+    - `institutions6`: Institutions and Beneficial Stake Ownership
+
+- **📁 Macro** (10 datasets)
+  - *📂 Macroeconomic Activities*
+    - `china_index_model`: China Equity Index Constituents
+    - `macro10`: Macroeconomic Research data
+    - `macro17`: Weekly Macroeconomic research data
+    - `macro27`: Job records from job posting
+    - `macro38`: Technical Ratings Model
+    - `macro4`: Macroeconomic Indicators
+    - `macro61`: CSI1000 and Risk Data
+    - `macro63`: Index Reconstitution Data
+    - `other106`: KOSPI INDEX
+    - `other551`: Alpha Toolkit Dataset
+
+- **📁 Model** (102 datasets)
+  - *📂 Consumer Models*
+    - `board_network`: Board Member Network Analysis
+    - `model176`: Non-Financial Metric Models
+  - *📂 Estimates Models*
+    - `dl_equity_signal`: Deep Learning Equity Signal Estimates
+    - `forward_beta_risk`: Forward Beta Risk Prediction Model
+    - `fundamental65`: Factor Ratios and its Rank Model
+    - `global_seasonal_model`: Global Seasonal Regime Return Signals
+    - `macro_equity_signals`: Macro to Equity Signal Toolkit
+    - `model106`: Analysts rating model
+    - `model170`: Asia Technical and Fundamental ranking model
+    - `model219`: Canadian Equity Quantitative Models
+    - `model230`: Factor Ratios and its Rank Model
+    - `model238`: SmartHoldings Model
+    - `model239`: Short Selling Model
+    - `model262`: DNN prediction of fundamentals
+    - `model29`: EBITDA Estimate Model
+    - `model291`: China Index Consitution History
+    - `model30`: EPS Estimate Model
+    - `model307`: Global Sales Allocation Model Data
+    - `model313`: Intangible Asset Factors
+    - `model33`: Revenue Estimate Model
+    - `model354`: Comprehensive Factor Analytics Data
+    - `other432`: DNN prediction of fundamentals
+    - `quant_factor_lib`: Multi-Domain Quantitative Factor Library
+    - `shortinterest6`: SmartHoldings Model
+    - `shortinterest7`: Short Selling Model
+  - *📂 ML/AI Models*
+    - `ai_equity_alpha`: AI Equity Alpha Forecasts
+    - `ai_factor_transfer`: AI Enhanced Equity Factor Transfer
+    - `analyst_chart_cnn`: Deep Learning Analyst Chart Signals
+    - `analyst_earnings_ibes`: Global Analyst Earnings Forecasts
+    - `chart_cnn_alpha`: Deep Learning Chart-Based Alpha
+    - `event_stock_model`: Corporate Event Driven Stock Model
+    - `model110`: Big data and machine learning based model
+    - `model138`: Stock Selection from Accounting-based Factors
+    - `model140`: Sensitivity to the Inflation Change
+    - `model165`: Time-series prediction of alpha models
+    - `model216`: Analyst Revisions Model Data
+    - `model227`: Generalized Feature Transformer Dataset
+    - `model250`: Nonlinear adaptive model
+    - `model252`: Systematic Hedging for Investors to Evade Large Drawdowns
+    - `model264`: Predictive data using Deep Learning models
+    - `other176`: Nonlinear adaptive model
+    - `other193`: Systematic Hedging for Investors to Evade Large Drawdowns
+    - `other460`: Predictive data using Deep Learning models
+    - `predictive_starmine`: Predictive Analyst-Company Signal Set
+    - `stock_alpha_model`: Global Stock Selection Alpha Model
+  - *📂 Momentum Models*
+    - `model182`: Geographic network based model
+  - *📂 NLP Models*
+    - `model253`: Event based sentiment and behavioral factors model
+    - `model257`: International sentiment analysis NLP model
+    - `model32`: Price Momentum Model
+    - `model37`: Text Mining Data
+    - `other238`: Event based sentiment and behavioral factors model
+    - `other351`: International sentiment analysis NLP model
+  - *📂 Reversion Models*
+    - `analyst_revision_horizons`: Multi Horizon Analyst Revision Signals
+    - `multi_horizon_alpha`: Multi Horizon Alpha Decomposition
+    - `option_horizon_decomp`: US Equity Option Horizon Decomposition
+  - *📂 Revisions Models*
+    - `model25`: Earnings Quality
+    - `model26`: Analyst Revisions
+    - `model27`: Credit Risk Model
+  - *📂 Risk Based Models*
+    - `model139`: Inflation based stock selection model
+    - `model141`: Interest Rate Sensitivity Measures
+    - `model192`: CDS Factor Data
+    - `model28`: Structural Credit Risk Model
+    - `model36`: SmartRatios Model
+    - `model50`: International Scorings Data
+    - `model53`: Creditworthiness Risk Measure Model
+    - `multi_source_model`: Multi-Source Market Return Prediction
+    - `multifactor_return_pred`: Multi Factor Market Return Predictions
+  - *📂 Risk Models*
+    - `model194`: North America CDS Factor Model
+    - `model51`: Systematic Risk Metrics
+  - *📂 Sentiment*
+    - `behavioral_signals`: Behavioral Finance Signal Factors
+    - `london_sentiment`: London Stock Sentiment Signals
+    - `model68`: Risk-Alleviated Momentum Scores
+  - *📂 Technical Models*
+    - `model10`: Research Indicators
+    - `model135`: Alternative technical factor models
+    - `model144`: Stock Selection DL model
+    - `model207`: Asian Insider Transaction Data
+    - `model21`: Equity Focus Rank Model
+    - `model242`: Global Quantitative Stock Selection Data
+    - `model77`: Analysts' Factor Model
+    - `option_chart_model`: Option Chart Image Return Prediction
+    - `options_composite`: Options Derived Composite Signals
+    - `other54`: Global Quantitative Stock Selection Data
+    - `price_signal_dl`: Deep Learning Price Signal Dataset
+    - `pv_tech_indicators`: Price Volume Technical Indicators
+    - `tech_chart_model`: Technical Indicator Chart Prediction
+  - *📂 Valuation Models*
+    - `model109`: Fundamentals and Technical Indicators Model
+    - `model127`: Corporate Patent Innovation Activity Dataset
+    - `model14`: Quant Model Data
+    - `model16`: Fundamental Scores
+    - `model175`: China Fundamentals and Technicals Model
+    - `model22`: Fundamental Focus Rank Model
+    - `model243`: Combined Alpha Model
+    - `model244`: Insider Transaction Analytics
+    - `model31`: Earnings Quality Model
+    - `model38`: Growth Valuation Model
+    - `model39`: Valuation Momentum Data
+    - `model41`: CDS Based Model Data
+    - `model57`: Quantitative Stock Valuation Model
+    - `other72`: Combined Alpha Model
+    - `other83`: Insider Transaction Analytics
+  - *📂 Volatility Models*
+    - `expected_move`: Equity Expected Move Metrics
+    - `model193`: European CDS Risk Factors
+
+- **📁 News** (34 datasets)
+  - *📂 News*
+    - `event_return_model`: Deep Learning Event Return Prediction
+    - `news104`: Archive News Data
+    - `news12`: US News Data
+    - `news17`: PR Edition Data
+    - `news21`: Macro Economic Event Data
+    - `news22`: News Direct-feed Data
+    - `news23`: MnA Deals Data
+    - `news29`: Significant Developments Data
+    - `news31`: News Analytics on Equities
+    - `news37`: International News Data
+    - `news38`: News Analytic Model Data
+    - `news52`: Conference call data
+    - `news7`: Real Time News Feed Data
+    - `news73`: Story by Story Sentiment
+    - `news76`: Textual News Feed Data
+    - `news94`: Intraday Post News Price Volume
+    - `other7`: Archive News Data
+  - *📂 News Sentiment*
+    - `news11`: Market Theme Analytics Data
+    - `news18`: Ravenpack News Data
+    - `news20`: Web Sources News Sentiment Data
+    - `news3`: Dow Jones News Analytics Data
+    - `news36`: News Analytics Data
+    - `news46`: Relevant News Analytics Data
+    - `news48`: Global Media News Data
+    - `news5`: News Feed Analytics Data
+    - `news50`: Web News Analytics Data
+    - `news54`: Key Developments Data
+    - `news59`: Corporate Events Data
+    - `news66`: Webpage View Statistics
+    - `news79`: Global Corporate News Analytics
+    - `news81`: Model sentiment data
+    - `news84`: Headline Sentiment Analysis using DNN
+    - `news85`: News Sentiment Analysis using DNN
+    - `news97`: Web News Sentiment Scores
+
+- **📁 Option** (7 datasets)
+  - *📂 Option*
+    - `option3`: Equity Options Moneyness Aggregates
+    - `option30`: Equity Option Data
+  - *📂 Option Analytics*
+    - `option40`: Options Analytics Data
+    - `option9`: Options Analytics
+    - `order_flow_imb`: Institutional Order Flow Imbalance
+  - *📂 Option Volatility*
+    - `option1`: Options Volatility Surfaces Data
+    - `option8`: Volatility Data
+
+- **📁 Other** (84 datasets)
+  - *📂 AI/ML Data*
+    - `acquisition_model`: Corporate Acquisition Likelihood Model
+    - `ai_news_scores`: AI News Sentiment Scores
+    - `cn_stock_sentiment`: China Stock Social Sentiment Scores
+    - `dl_riskfree_returns`: Deep Learning Risk Free Returns
+    - `earningscall_embed`: Earnings Call Text Embedding Analytics
+    - `earningscall_sentiment`: Multi Aspect Earnings Call Sentiment
+    - `equity_conc_metrics`: Equity Market Concentration Metrics
+    - `event_relation`: Text-Based Event Relationship Analysis
+    - `finnews_nlp_scores`: Transformer Based Financial News Scores
+    - `forum_sentiment`: Global Stock Forum Sentiment Signals
+    - `ml_factor_proj`: Machine Learning Factor Projections
+    - `mmp_nlp_sentiment`: Multilingual NLP News Sentiment Signals
+    - `news_sentiment_dl`: Deep Learning News Sentiment Signals
+    - `news_sentiment_enriched`: Chinese News Sentiment Enrichment
+    - `news_sentiment_nlp`: News Sentiment Signal Features
+    - `nlp_news_scores`: Transformer-Based News Sentiment Analytics
+    - `order_book_imbalance`: Order Book Liquidity and Imbalance Analytics
+    - `other315`: Equity Swap Data
+    - `other327`: Sensitivity to Interest Rates Model
+    - `other359`: Web Comments & Reaction Data
+    - `other455`: Relationship enhanced with AI/ML
+    - `other459`: Derivative Contract Position Limits
+    - `other476`: Intraday Risk Model data
+    - `other479`: China Classification data
+    - `other566`: Image-Based Financial Prediction Dataset
+    - `other596`: Sentiment Scores Data
+    - `other685`: Enhanced Financial Indicators
+    - `other696`: Hybrid NLP Model
+    - `search_interest`: Rapid Search Interest Signals
+    - `search_sentiment_cn`: China Stock Search Sentiment Index
+    - `social_sent_score`: Equity Social Sentiment Scores
+    - `stock_cluster_dl`: Deep Learning Stock Clusters
+    - `stock_search_trends`: US Stock Search Trend Matrix
+    - `techindi_model`: Deep Learning Technical Indicator Returns
+    - `us_equity_news`: US Equity Quantitative News Sentiment
+    - `web_traffic_engage`: Web Traffic Engagement Signals
+  - *📂 Analyst Models*
+    - `cre_exposure_model`: Commercial Real Estate Exposure Model
+    - `earnings_risk`: Earnings Event Risk Model
+    - `equity_kpi_forecast`: US Equity KPI Forecasts
+    - `other370`: Equity Share Events Data
+    - `other436`: Dividend model
+    - `other496`: Intraday FX rates
+    - `other571`: Wikipedia Viewing Data
+    - `other623`: Text Blob News data
+    - `other695`: Korean Imports Data
+    - `other699`: Individual Investor Transactions Data
+    - `retail_sentiment_cn`: China Retail Investor Sentiment Analytics
+    - `sustainable_profit`: Sustainable Profitability Factor Library
+  - *📂 Dividend Models*
+    - `china_stock_funda`: China Stock Market Fundamentals
+    - `other323`: Global Equity Premarket Data
+    - `other36`: Outstanding Short Positions for Japanese Equities
+    - `other424`: Dividend prediction model
+    - `other532`: Specific Returns
+    - `other543`: Shareholdings, trade statistics data
+    - `other545`: Linked Firms Momentum Data
+  - *📂 ETF Models*
+    - `other16`: Indications of Interest (IOI) insights dataset
+    - `other250`: details data
+    - `other546`: Institutional Network Analysis Dataset
+    - `other561`: Retail trading activities from Virtual Portfolios
+  - *📂 Employee Data*
+    - `hiring_trends`: Global Corporate Hiring Trends
+    - `other335`: Multi-Region Dividend Alpha Model Dataset
+    - `other475`: Manufacturer Exports Data
+    - `other580`: Standardized Daily ETF Holdings
+    - `other592`: Chinese Equity Relation Data
+    - `other635`: Thomson Reuters News Analytics Equities
+    - `other85`: China Flow Data
+    - `workforce_flow_skills`: Global Workforce Flow and Skills Analytics
+  - *📂 Event Data*
+    - `corporate_news_index`: Timely Corporate News Index
+    - `equity_forum_data`: International Equity Forum Activity
+    - `euro_equity_imbalance`: European Equity Trading Imbalance Indicators
+    - `event_sentiment_signals`: Corporate Event Sentiment Signals
+    - `filing_sentiment`: Regulatory Filing Sentiment Analytics
+    - `insider_feats`: Global Insider Transaction Features
+    - `insider_matrix`: Aggregated Insider Transaction Matrix
+    - `insider_trx_matrix`: Global Insider Transaction Aggregates
+    - `market_news_sent`: Financial Market News Sentiment
+    - `other128`: Global Executive Performance Factors
+    - `other165`: Hong Kong Exchange Announcement
+    - `other296`: Corporate Earnings Call Sentiment Data
+    - `other384`: NLP on conference conversation
+    - `other428`: Japanese PnL Guidance
+    - `other567`: Employee Review Data
+    - `other715`: Snapshot Grouping Data
+    - `other78`: Earnings and conference call data
+
+- **📁 Price Volume** (39 datasets)
+  - *📂 Price Volume*
+    - `dl_volume_pred`: Deep Learning Volume Prediction
+    - `intraday_pv_feats`: Daily Intraday Price Volume Features
+    - `pv1`: Price Volume Data for Equity
+    - `pv103`: Interval and MOO&MOC statistics
+    - `pv104`: Market Microstructure Data
+    - `pv106`: Microstructure Spread Data
+    - `pv109`: Bond Yield Data
+    - `pv115`: Trading Data
+    - `pv14`: Futures Market Data
+    - `pv141`: VWAP Tick Data
+    - `pv17`: Intermediate Cluster Groups
+    - `pv173`: Corporate Bond Pricing Data
+    - `pv20`: Daily Spot and Cross Rate Data
+    - `pv25`: A-shares Index Data
+    - `pv27`: A-shares Trade Data
+    - `pv29`: Derived Industry Classification
+    - `pv3`: Global Daily Pricing Data
+    - `pv30`: Alternate Industry Classification
+    - `pv37`: Equity Interval Data
+    - `pv47`: Specific Return Dataset
+    - `pv48`: US Market Index Data
+    - `pv53`: Index Market Data
+    - `pv63`: Order Book Dataset
+    - `pv64`: Fund Holding Data
+    - `pv87`: Aggregated dataset
+    - `pv96`: Corporate Action Dataset
+    - `pv98`: Intraday Tick Data and Statistics
+    - `univ1`: Universe Dataset
+    - `univ2`: Universe Dataset
+  - *📂 Relationship*
+    - `chart_model_alpha`: Deep Learning Chart Returns Predictor
+    - `chart_return_model`: Deep Learning Chart Return Prediction
+    - `continuation_score`: Price Chart Continuation Pattern Similarity
+    - `investor_activity`: Nordic Baltic Investor Activity Trends
+    - `pattern_scores`: Chart Pattern Similarity Scores
+    - `pv13`: Relationship Data for Equity
+    - `pv149`: Holidays and Trading Hours Calendar
+    - `pv52`: Order Excecution Summary
+    - `pv70`: Relation Dataset
+    - `pv72`: custom relationship data
+
+- **📁 Risk** (11 datasets)
+  - *📂 Risk Factors*
+    - `risk70`: Multi-Factor Model
+    - `risk71`: Daily Specific Return Profiling Dataset
+    - `risk72`: Specific return of extended factors
+  - *📂 Risk Models*
+    - `mfm_model_output`: Multi Factor Model Universal Output
+    - `risk59`: Securities Lending and Short Market Dynamics Dataset
+    - `risk60`: Securities Lending Insight Data
+    - `risk62`: Beta Risk Factors
+    - `risk65`: ETF Risk Model Data
+    - `risk66`: VEI risk model
+    - `risk68`: Forecast Data
+    - `risk88`: Other Multi-Factor Risk Models
+
+- **📁 Sentiment** (11 datasets)
+  - *📂 Sentiment*
+    - `news_sentiment_transfer`: Transferred News Sentiment Analytics
+    - `news_transformer_scores`: Transformer Based News Sentiment Scores
+    - `other553`: Financial Opinion Mining
+    - `sentiment1`: Research Sentiment Data
+    - `sentiment19`: HKEX MD&A Sentiment Classification Data
+    - `sentiment21`: AI Sentiment Score Data
+    - `sentiment22`: News Sentiment Scores
+    - `sentiment23`: Textual Sentiment Analysis Data
+    - `sentiment26`: Website Popularity Ranking Dataset
+    - `sentiment27`: Website Popularity Rankings
+    - `sentiment7`: Webpage Views  Data
+
+- **📁 Short Interest** (13 datasets)
+  - *📂 Short Sale Models*
+    - `other534`: Short-Selling Dataset
+    - `other58`: Hong Kong Secutiries Futures Data
+    - `short_interest_pred`: Short Interest Forecast Signals
+    - `shortinterest24`: Short Sale Circuit Breaker Data
+    - `shortinterest29`: Group Short Sale Data
+    - `shortinterest3`: Securities Lending Files Data
+    - `shortinterest38`: Investor Activity and Short Selling Data
+    - `shortinterest43`: Short Sell Dataset
+    - `shortinterest44`: Short Sale Activity
+    - `shortinterest5`: Daily Price Limit Data
+    - `shortinterest52`: Hong Kong Securities Futures Data
+    - `shortinterest55`: Short-Selling Dataset
+    - `us_short_sale`: US Equity Short Sale Volume
+
+- **📁 Social Media** (9 datasets)
+  - *📂 Social Media*
+    - `creator_signal_perf`: Finance Creator Prediction Performance
+    - `other100`: Investor views
+    - `socialmedia12`: Sentiment Data for Equity
+    - `socialmedia15`: Sentiment Indicators
+    - `socialmedia32`: socialmedia discussion
+    - `socialmedia39`: Investor views
+    - `socialmedia5`: Lexical Breakdown Data
+    - `socialmedia8`: Social Media Data for Equity
+    - `twitter_sentiment_l2`: Twitter Sentiment Signal Aggregation
+

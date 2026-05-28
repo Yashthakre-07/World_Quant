@@ -1,0 +1,12 @@
+{
+  "alpha_id": "626fc3e5",
+  "family": "Volume-Weighted Cost Basis Reversion",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((close - ts_mean(vwap, 5)) / (ts_std_dev(close, 10) + 0.001), 5)), 0), subindustry)",
+  "sharpe": 1.08,
+  "fitness": 0.5,
+  "turnover": 28.84,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "https://brain.worldquant.com/alpha/6XzYYvl7",
+  "created_at": "2026-05-25 07:21:05"
+}

@@ -1,0 +1,12 @@
+{
+  "alpha_id": "88nKrzV7",
+  "family": "VWAP Distance Deviation Reversion",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear((close - vwap) / (ts_std_dev(close, 10) + 0.001), 4)), 0), subindustry)",
+  "sharpe": 1.35,
+  "fitness": 0.52,
+  "turnover": 32.0,
+  "status": "SOFT_FAIL",
+  "error_message": "",
+  "alpha_link": "#",
+  "created_at": ""
+}
