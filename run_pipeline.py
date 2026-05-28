@@ -16,7 +16,7 @@ sys.path.append(str(Path(__file__).resolve().parent))
 from src.auth import WQSession
 from src.database import init_db, save_alpha_run, save_submitted_alpha, check_already_simulated
 from src.evaluator import evaluate_alpha_metrics
-from src.config import WQ_SIM_URL, WQ_ALPHAS_URL, DEFAULT_SIM_SETTINGS, ALPHAS_OUT_DIR, MAX_CONCURRENT_SIMS, WQ_EMAIL
+from src.config import WQ_SIM_URL, WQ_ALPHAS_URL, DEFAULT_SIM_SETTINGS, ALPHAS_OUT_DIR, MAX_CONCURRENT_SIMS, WQ_EMAIL, DB_DIR
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -909,7 +909,7 @@ def get_status():
         pass
 
     # 2. Read simulation queue from disk
-    queue_path = Path("db") / "simulation_queue.json"
+    queue_path = DB_DIR / "simulation_queue.json"
     tasks = []
     if queue_path.exists():
         try:
@@ -920,7 +920,7 @@ def get_status():
 
     # 3. Read latest runs from SQLite database
     runs = {}
-    db_path = Path("db") / "alpha_vault.db"
+    db_path = DB_DIR / "alpha_vault.db"
     if db_path.exists():
         try:
             conn = sqlite3.connect(str(db_path))
@@ -1020,12 +1020,12 @@ def get_session():
             
         email_to_check = sai_email if sai_email else WQ_EMAIL
         safe_email = email_to_check.replace("@", "_").replace(".", "_") if email_to_check else "default"
-        active_cookie_file = Path("db") / f"session_cookies_{safe_email}.json"
+        active_cookie_file = DB_DIR / f"session_cookies_{safe_email}.json"
         
         if active_cookie_file.exists():
             target_cookie_file = active_cookie_file
         else:
-            cookie_files = list(Path("db").glob("session_cookies_*.json"))
+            cookie_files = list(DB_DIR.glob("session_cookies_*.json"))
             if not cookie_files:
                 return jsonify({"error": "No session file found", "exp_epoch": 0})
             target_cookie_file = cookie_files[0]
@@ -1093,6 +1093,16 @@ def reauthenticate():
         reauth_state["url"] = e.url
         sess = e.session
         
+        # Send the biometric verification link directly to the user's phone!
+        try:
+            send_whatsapp(
+                f"🔐 BIOMETRIC VERIFICATION REQUIRED\n"
+                f"Please open this link on your phone to complete WorldQuant verification:\n"
+                f"{e.url}"
+            )
+        except Exception:
+            pass
+        
         # Poll WorldQuant for biometric confirmation in a background thread to prevent blocking
         def poll_persona():
             global active_session
@@ -1107,6 +1117,11 @@ def reauthenticate():
                         active_session = sess
                         reauth_state["status"] = "SUCCESS"
                         log_message("INFO", "Interactive re-authentication completed successfully!")
+                        # Send restoration alert to phone
+                        try:
+                            send_whatsapp("✅ SESSION RESTORED\nBiometric verification complete! WorldQuant Brain session is live and simulations are resuming.")
+                        except Exception:
+                            pass
                         return
                 
                 reauth_state["status"] = "ERROR"
@@ -1155,8 +1170,8 @@ def queue_alpha():
     # --- Validate and append each alpha to inbox_queue ---
     added = []
     skipped = []
-    inbox_path = Path("db") / "inbox_queue.json"
-    queue_path = Path("db") / "simulation_queue.json"
+    inbox_path = DB_DIR / "inbox_queue.json"
+    queue_path = DB_DIR / "simulation_queue.json"
 
     # Load current inbox
     existing_inbox = []
@@ -1235,7 +1250,7 @@ def queue_alpha_direct():
     if not formula:
         return jsonify({"error": "Missing formula"}), 400
         
-    queue_path = Path("db") / "simulation_queue.json"
+    queue_path = DB_DIR / "simulation_queue.json"
     
     # Load current active queue
     active_queue = []
@@ -1290,8 +1305,8 @@ def inject_inbox():
     except Exception:
         data = {}
         
-    inbox_path = Path("db") / "inbox_queue.json"
-    queue_path = Path("db") / "simulation_queue.json"
+    inbox_path = DB_DIR / "inbox_queue.json"
+    queue_path = DB_DIR / "simulation_queue.json"
     
     inbox_alphas = []
     if inbox_path.exists():
@@ -1351,7 +1366,7 @@ def inject_inbox():
 
 @app.route("/api/clear-inbox", methods=["POST"])
 def clear_inbox():
-    inbox_path = Path("db") / "inbox_queue.json"
+    inbox_path = DB_DIR / "inbox_queue.json"
     try:
         with open(inbox_path, "w") as f:
             json.dump([], f, indent=2)
@@ -1369,8 +1384,8 @@ def clear_queue():
     if not is_same_origin and token != API_SECRET_TOKEN:
         return jsonify({"error": "Unauthorized"}), 401
 
-    queue_path = Path("db") / "simulation_queue.json"
-    inbox_path = Path("db") / "inbox_queue.json"
+    queue_path = DB_DIR / "simulation_queue.json"
+    inbox_path = DB_DIR / "inbox_queue.json"
     try:
         # Clear queues on disk
         with open(queue_path, "w") as f:
@@ -1398,7 +1413,7 @@ def purge_vault():
     if not is_same_origin and token != API_SECRET_TOKEN:
         return jsonify({"error": "Unauthorized"}), 401
 
-    db_path = Path("db") / "alpha_vault.db"
+    db_path = DB_DIR / "alpha_vault.db"
     cleared_db = False
     if db_path.exists():
         try:
@@ -1487,7 +1502,7 @@ def clean_queue():
                     log_message("WARNING", f"[API] Failed to write custom failure to DB: {e}")
 
     # 2. Clean queue of disk
-    queue_path = Path("db") / "simulation_queue.json"
+    queue_path = DB_DIR / "simulation_queue.json"
     if not queue_path.exists():
         return jsonify({"status": "ok", "removed_count": 0, "message": "No queue file found to clean."})
 
@@ -1960,10 +1975,14 @@ def robust_request(session, method, url, index=None, **kwargs):
     import requests
     global active_session
     while True:
-        # Wait if active_session is None
+        # Wait if active_session is None, rate-limiting the logs to avoid spamming
+        last_log_time = 0
         while active_session is None:
-            lbl = f"Alpha #{index+1}: " if index is not None else ""
-            log_message("WARNING", f"{lbl}Waiting for WorldQuant Brain session to be authenticated...")
+            now = time.time()
+            if now - last_log_time > 60:
+                lbl = f"Alpha #{index+1}: " if index is not None else ""
+                log_message("WARNING", f"{lbl}Waiting for WorldQuant Brain session to be authenticated...")
+                last_log_time = now
             time.sleep(5)
             
         current_session = active_session
@@ -1990,6 +2009,17 @@ def robust_request(session, method, url, index=None, **kwargs):
                         continue
                     except Exception as auth_err:
                         log_message("ERROR", f"{lbl}Automatic re-authentication failed: {auth_err}")
+                        # Clear active_session to force all threads to wait and prevent spamming login attempts
+                        active_session = None
+                        # Send notification to phone
+                        try:
+                            send_whatsapp(
+                                f"⚠️ SESSION EXPIRED\n"
+                                f"Automatic login failed for {os.getenv('WQ_EMAIL', WQ_EMAIL)}: {auth_err}\n"
+                                f"Please open the dashboard and click '🔑 Re-auth Session' to complete biometric/persona verification!"
+                            )
+                        except Exception:
+                            pass
                         # Fall through to return the raw 401 to let the caller manage/fail as backup
                         return r
             return r
@@ -2356,6 +2386,14 @@ def main():
     except Exception as e:
         log_message("WARNING", f"Initial login authentication pending or deferred: {e}")
         log_message("WARNING", "Please open the dashboard and click '🔑 Re-auth Session' to complete login!")
+        try:
+            send_whatsapp(
+                f"⚠️ AUTHENTICATION PENDING\n"
+                f"AlphaForge started but initial login failed for {os.getenv('WQ_EMAIL', WQ_EMAIL)}: {e}\n"
+                f"Please open the dashboard and click '🔑 Re-auth Session' to complete verification!"
+            )
+        except Exception:
+            pass
 
     log_message("INFO", "Web dashboard available at http://127.0.0.1:8000")
 
@@ -2394,7 +2432,7 @@ def main():
                     continue
                 
                 # Poll db/simulation_queue.json for new alphas
-                queue_file = Path("db/simulation_queue.json")
+                queue_file = DB_DIR / "simulation_queue.json"
                 if queue_file.exists():
                     try:
                         with open(queue_file, "r") as f:

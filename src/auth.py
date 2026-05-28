@@ -41,7 +41,7 @@ class WQSession(requests.Session):
         
         # Unique cookie file based on email to support switching profiles
         safe_email = src.config.WQ_EMAIL.replace("@", "_").replace(".", "_")
-        self.cookies_path = Path(__file__).resolve().parent.parent / "db" / f"session_cookies_{safe_email}.json"
+        self.cookies_path = src.config.DB_DIR / f"session_cookies_{safe_email}.json"
         
         # Try loading persisted cookies
         cookies_loaded = self.load_persisted_cookies()
