@@ -195,6 +195,75 @@ Alpha = group_neutralize(
 
 ---
 
+## 🧬 4.5. Generation 4 Alpha Catalog — Academic Research Papers (20 Elite Signals)
+
+**Key upgrades over Gen 3:**
+- **Academic Rigor**: Signals are modeled directly on highly cited quantitative finance literature (Heston 2010, Ang 2006, Avramov 2006, Cooper 2008, Karpoff 1987).
+- **Correlation Decoupling**: Statistics extended to 15-day rolling windows (moving standard deviation, moving mean, and Pearson correlations) to systematically lower self-correlation with earlier batches.
+- **Dynamic Liquidity Gating**: Parameter sweeps utilizing `0.65` and `0.80` liquidity gates to isolate high-conviction order imbalances during institutional block trades.
+
+### Heston Intraday Trend Pattern Reversion (Heston et al., 2010)
+- **Concept**: Price trends established from close to open capture transient liquidity dislocations that revert intraday.
+- **Formulas**:
+  1. `group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(close - open, 5)), 0), subindustry)` (Decay 12)
+  2. `group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(close - open, 6)), 0), subindustry)` (Decay 10)
+
+### Daily Return-Volatility Reversal (Avramov et al., 2006)
+- **Concept**: Return reversion signals are significantly stronger and more persistent when accompanied by rising daily volatility spikes.
+- **Formulas**:
+  1. `group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(returns * ts_std_dev(returns, 10), 5)), 0), subindustry)` (Decay 12)
+  2. `group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(returns * ts_std_dev(returns, 12), 6)), 0), subindustry)` (Decay 10)
+
+### Idiosyncratic Volatility Puzzle Reversal (Ang et al., 2006)
+- **Concept**: Cross-sectional assets with extreme idiosyncratic rolling standard deviation display subsequent underperformance.
+- **Formulas**:
+  1. `group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(ts_std_dev(returns, 15), 5)), 0), subindustry)` (Decay 12)
+  2. `group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(ts_std_dev(returns, 20), 6)), 0), subindustry)` (Decay 10)
+
+### Short-Term Multi-Day Momentum Reversion (Hong et al., 2000)
+- **Concept**: Information diffusion delays create multi-day overshooting patterns in mid-term price momentum that revert.
+- **Formulas**:
+  1. `group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(ts_delta(close, 5), 5)), 0), subindustry)` (Decay 12)
+  2. `group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(ts_delta(close, 7), 6)), 0), subindustry)` (Decay 10)
+
+### Inventory-Driven Liquidity Provision Reversal (Subrahmanyam, 2005)
+- **Concept**: Daily returns normalized by historical standard deviation capture inventory-driven liquidity shocks that revert as markets normalize.
+- **Formulas**:
+  1. `group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(returns / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)` (Decay 12)
+  2. `group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(returns / (ts_std_dev(returns, 12) + 0.0001), 6)), 0), subindustry)` (Decay 10)
+
+### Overnight Gap Climax Reversion (Cooper et al., 2008)
+- **Concept**: Opening gap dislocations normalized by return volatility represent overnight institutional order-flow imbalances that correct intraday.
+- **Formulas**:
+  1. `group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)` (Decay 12)
+  2. `group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 12) + 0.0001), 6)), 0), subindustry)` (Decay 10)
+
+### Price-Volume Divergence Reversal (Gervais et al., 2001)
+- **Concept**: Stocks with high rolling price-volume Pearson correlation indicate institutional overbuying/overselling peaks that mean-revert.
+- **Formulas**:
+  1. `group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(ts_corr(close, volume, 10), 5)), 0), subindustry)` (Decay 12)
+  2. `group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(ts_corr(close, volume, 15), 6)), 0), subindustry)` (Decay 10)
+
+### Return-Relative Volume Trend Exhaustion (Karpoff, 1987)
+- **Concept**: High correlation between returns and relative volume exposes extreme, exhausted momentum runs.
+- **Formulas**:
+  1. `group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(ts_corr(returns, volume / adv20, 10), 5)), 0), subindustry)` (Decay 12)
+  2. `group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(ts_corr(returns, volume / adv20, 15), 6)), 0), subindustry)` (Decay 10)
+
+### Range-Based Volatility Expansion Reversal (Alizadeh et al., 2002)
+- **Concept**: Daily high-low range normalized by rolling range average isolates temporary volatility expansion peaks that revert post block-trade liquidations.
+- **Formulas**:
+  1. `group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((high - low) / (ts_mean(high - low, 20) + 0.001), 5)), 0), subindustry)` (Decay 12)
+  2. `group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear((high - low) / (ts_mean(high - low, 15) + 0.001), 6)), 0), subindustry)` (Decay 10)
+
+### Intraday Shadow Wick Climax Reversal (Traditional Candlestick Theory)
+- **Concept**: Large upper or lower shadows relative to total range signify extreme intraday buying or selling exhaustions.
+- **Formulas**:
+  1. `group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((high - max(open, close)) - (min(open, close) - low)) / (high - low + 0.001), 5)), 0), subindustry)` (Decay 12)
+  2. `group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(((high - max(open, close)) - (min(open, close) - low)) / (high - low + 0.001), 6)), 0), subindustry)` (Decay 10)
+
+---
+
 ## 🚨 5. Critical Syntax Gotchas (Lessons Learned)
 
 ### A. Element-wise vs Time-Series Operators

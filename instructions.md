@@ -18,8 +18,52 @@ Every future AI agent or developer loading this workspace **MUST STRICTLY FOLLOW
 6. **LIVING RESEARCH DOCUMENTATION**: Whenever a backtest completes, query `db/alpha_vault.db`. If you identify a formula that successfully qualifies for submission (Sharpe $\ge 1.25$, Fitness $\ge 1.0$), you must immediately write the formula, parameters, and structural insights into the research file [research.md](file:///c:/Users/Admin/Documents/VIBE_YT/wq/research.md). Keep this manual continuously updated with fresh, successful quant ideas.
 7. **RED COLOR TAGGING**: Any qualified alpha must be patched with the color **"RED"** on the remote server via the `/alphas/{id}` API endpoint immediately upon submission.
 8. **API-ONLY QUEUE MANAGEMENT — NEVER GITHUB**: All alpha queue operations (push, append, overwrite, clean) MUST be performed exclusively via the Render server's secure REST API using the token. The scripts to use are `scratch_append_30.py` (append) or `scratch_push_30_master_alphas.py` (overwrite). **NEVER use `git push` to manage the alpha queue.** GitHub pushes are reserved ONLY for code changes (new features, bug fixes). The API endpoints available are: `/api/overwrite-queue` (replace all), `/api/queue-alpha` (add one), `/api/clear-queue` (empty disk queue), `/api/clean-queue` (remove failed), `/api/stop-pipeline`, `/api/start-pipeline`.
-9. **SCHEDULER DEDUP AWARENESS**: The background pipeline thread maintains an in-memory `scheduled_formulas` set. Any formula previously seen in a session will be **skipped** even if re-injected via API. To force a fresh re-schedule of all formulas, slightly modify the epsilon values in formula strings (e.g., `0.001` → `0.0010`) before pushing. This bypasses the string-match dedup while keeping math identical.
+9. **SCHEDULER DEDUP AWARENESS**: The background pipeline thread maintains an in-memory `scheduled_formulas` set. Any formula previously seen in a session will be **skipped** even if re-injected via API. To force a fresh re-schedule of all formulas, slightly modify the epsilon values in formula strings (e.g., `0.001` → `0.0010`) before pushing. This bypasses the string-match dedup while keeping math identical.---
 
+## 🏗️ 0.5. Pipeline Architecture & Multi-Profile Specs
+
+```mermaid
+graph TD
+    subgraph Local Development PC
+        DC[desktop_control.py] -->|Secure REST API| RS_Sai
+        DC -->|Secure REST API| RS_Yash
+    end
+
+    subgraph Live Cloud Servers (Render)
+        RS_Sai[world-quant.onrender.com <br/> Sai Profile: saineela731@gmail.com]
+        RS_Yash[world-quant-1.onrender.com <br/> Yash Profile: beyondsynapse@gmail.com]
+    end
+
+    subgraph WorldQuant Brain Cluster
+        RS_Sai -->|Simulation Queue| WQ_Sai[WQ Account 1 <br/> Cap: 3 Concurrent Sims]
+        RS_Yash -->|Simulation Queue| WQ_Yash[WQ Account 2 <br/> Cap: 3 Concurrent Sims]
+    end
+
+    subgraph Local Data & Logs
+        DB[(db/alpha_vault.db)]
+        Q[db/simulation_queue.json]
+        IB[db/inbox_queue.json]
+    end
+
+    run_pipeline.py --> DB
+    run_pipeline.py --> Q
+    run_pipeline.py --> IB
+```
+
+### 👥 Multi-Profile Environment Configuration
+
+AlphaForge is fully profile-aware and dynamically switches credentials to support two distinct research pipelines:
+
+*   **Sai's Profile**:
+    *   **Env File**: `sai.env` (loaded dynamically when running for Sai)
+    *   **Render Server**: `https://world-quant.onrender.com`
+    *   **API Token**: `yashthakreop`
+    *   **Cookies**: Saved on disk as `db/session_cookies_saineela731_gmail_com.json`
+*   **Yash's Profile**:
+    *   **Env File**: `yash.env` (loaded dynamically when running for Yash)
+    *   **Render Server**: `https://world-quant-1.onrender.com`
+    *   **API Token**: `yashthakreop1`
+    *   **Cookies**: Saved on disk as `db/session_cookies_beyondsynapse_gmail_com.json`
 
 ---
 
@@ -404,4 +448,26 @@ To launch the interactive control panel on your PC, execute this command from yo
 python desktop_control.py
 ```
 This utility automatically scans your local configuration (`sai.env`, `yash.env`, `.env`) to authenticate via your secure bearer secret token!
+
+---
+
+## 🛠️ 14. Real-Time Security & UI Refactoring Ledger (May 23, 2026)
+
+Today, we resolved critical backend session-hijacking blocks and resolved terminal frontend syntax crashes, restoring the dashboard to 100% stability.
+
+### A. Dynamic Profile-Aware Authentication Resolve (`src/auth.py` & `run_pipeline.py`)
+*   **Problem**: `WQSession` was statically importing Yash's credentials from `src.config` upon loading. When the dashboard was re-authenticated or run for Sai's profile, it dynamically read Sai's email but persistently sent Yash's password, invalidating cookies and preventing Sai's biometric challenge from executing.
+*   **Resolution**: Refactored the module to dynamically resolve `src.config.WQ_EMAIL` and `src.config.WQ_PASSWORD` at runtime from the active environment file (`sai.env` or `yash.env`). All cookie jars are segregated dynamically on disk as `db/session_cookies_[EMAIL].json`.
+
+### B. JavaScript Syntax Engine Restoration (`static/app.js`)
+*   **Problem**: Missing closing braces in the frontend script's `injectAlpha` function and `exportVaultBtn` listener caused an `Unexpected end of input` syntax crash, halting JS initialization entirely and leaving the login/re-auth buttons completely unresponsive.
+*   **Resolution**: Completed syntax blocks, validated the script using Node.js parsing, and ensured safe, exception-guarded DOM queries with strict null-checks on interactive elements.
+
+### C. Compact UI Realignment & Review Inbox Sync (`static/index.html` & `static/styles.css`)
+*   **Problem**: The "Dynamic Alpha Injector" module stretched awkwardly across the main layout, breaking grid alignment.
+*   **Resolution**: 
+    1.  Completely removed the deprecated "Dynamic Alpha Injector" module.
+    2.  Redesigned the **API Review Inbox** to mimic the exact compact, premium card structure of the **Active Backtesting Queue**.
+    3.  Implemented smooth, dynamic micro-animations, glassmorphic card boundaries, and absolute height bounds to prevent overflow and maintain premium visual alignment.
+
 

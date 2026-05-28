@@ -24,11 +24,12 @@ WQ_SIM_URL = "https://api.worldquantbrain.com/simulations"
 WQ_ALPHAS_URL = "https://api.worldquantbrain.com/alphas"
 
 # Database Configuration
-if os.getenv("RENDER") == "true" or Path("/data").exists():
-    DB_DIR = Path("/data")
-else:
+DB_DIR = Path("/data")
+try:
+    DB_DIR.mkdir(exist_ok=True)
+except (PermissionError, OSError):
     DB_DIR = BASE_DIR / "db"
-DB_DIR.mkdir(exist_ok=True)
+    DB_DIR.mkdir(exist_ok=True)
 DB_PATH = DB_DIR / "alpha_vault.db"
 
 # Alphas Output Directory
