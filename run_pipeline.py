@@ -1054,6 +1054,18 @@ def get_session():
 def reauthenticate():
     global active_session, reauth_thread
     
+    # If already polling for biometric verification, do not start a new login attempt
+    if reauth_state["status"] == "POLLING":
+        log_message("WARNING", "Re-authentication is already in progress. Re-using current verification URL.")
+        # If running locally, open the browser tab again for convenience
+        if os.getenv("RENDER") != "true" and reauth_state["url"]:
+            try:
+                import webbrowser
+                webbrowser.open(reauth_state["url"])
+            except Exception:
+                pass
+        return jsonify(reauth_state)
+    
     # Always reset state for a fresh attempt
     reauth_state["status"] = "IDLE"
     reauth_state["url"] = ""
@@ -1093,6 +1105,14 @@ def reauthenticate():
         reauth_state["url"] = e.url
         sess = e.session
         
+        # Open web browser locally if not on Render!
+        if os.getenv("RENDER") != "true":
+            try:
+                import webbrowser
+                webbrowser.open(e.url)
+            except Exception as web_err:
+                log_message("WARNING", f"Failed to open browser locally: {web_err}")
+
         # Send the biometric verification link directly to the user's phone!
         try:
             send_whatsapp(
@@ -1994,6 +2014,10 @@ def robust_request(session, method, url, index=None, **kwargs):
                 lbl = f"Alpha #{index+1}: " if index is not None else ""
                 log_message("WARNING", f"{lbl}Session expired (HTTP 401). Attempting automatic re-authentication...")
                 with reauth_lock:
+                    # Check if session was already updated or cleared (failed re-auth) by another thread
+                    if active_session is None or active_session != current_session:
+                        continue
+                        
                     # Double check if another concurrent thread has already completed the re-authentication
                     try:
                         verify = current_session.get("https://api.worldquantbrain.com/users/self", timeout=15)
