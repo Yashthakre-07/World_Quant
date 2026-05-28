@@ -149,30 +149,55 @@ class WQClient:
 
         try:
             # POST to trigger submission
-            r = self.session.post(submit_url)
+            r = self.session.post(submit_url, timeout=30)
             if r.status_code == 404:
                 agent_logger.warning(f"[SUBMISSION] Alpha {alpha_id} already submitted (404 received).")
                 return {"success": True, "details": "Already submitted"}
 
             # Poll GET to await result
-            while True:
-                submit_r = self.session.get(submit_url)
+            poll_limit = 50
+            for poll_i in range(poll_limit):
+                submit_r = self.session.get(submit_url, timeout=30)
+                
+                # 404 means checks completed successfully and alpha is submitted
                 if submit_r.status_code == 404:
                     agent_logger.info(f"[SUBMISSION] Alpha {alpha_id} submitted successfully!")
                     return {"success": True, "details": "Success"}
+                
+                # 403 means submission checks failed (rejected)
+                if submit_r.status_code == 403:
+                    details = "Submission checks failed"
+                    try:
+                        res_json = submit_r.json()
+                        checks = res_json.get("is", {}).get("checks", [])
+                        failed = [c for c in checks if c.get("result") == "FAIL"]
+                        if failed:
+                            details = "; ".join([f"{c['name']}={c.get('value','')}" for c in failed])
+                    except Exception:
+                        details = submit_r.text[:200]
+                    agent_logger.warning(f"[SUBMISSION] Alpha {alpha_id} rejected: {details}")
+                    return {"success": False, "details": details}
 
-                if submit_r.content:
-                    res_json = submit_r.json()
-                    checks = res_json.get("is", {}).get("checks", [])
-                    for check in checks:
-                        if check.get("name") == "SELF_CORRELATION":
-                            result = check.get("result")
-                            agent_logger.info(f"[SUBMISSION] Self correlation check: {result} -- {check}")
-                            return {"success": result == "PASS", "details": str(check)}
-                    break
-                time.sleep(5)
+                # If 200/201, parse checks and search for failures
+                if submit_r.status_code in (200, 201) and submit_r.content:
+                    try:
+                        res_json = submit_r.json()
+                        checks = res_json.get("is", {}).get("checks", [])
+                        
+                        # Check if any check has failed
+                        failed = [c for c in checks if c.get("result") == "FAIL"]
+                        if failed:
+                            details = "; ".join([f"{c['name']}={c.get('value','')}" for c in failed])
+                            agent_logger.warning(f"[SUBMISSION] Alpha {alpha_id} check failed: {details}")
+                            return {"success": False, "details": details}
+                    except Exception as json_err:
+                        agent_logger.warning(f"[SUBMISSION] Error parsing JSON during polling: {json_err}")
+                
+                agent_logger.info(f"[SUBMISSION] Alpha {alpha_id}: checks in progress... (poll {poll_i+1}/{poll_limit})")
+                time.sleep(10)
             
-            return {"success": True, "details": "Completed"}
+            return {"success": False, "details": "Polling timed out"}
         except Exception as e:
             agent_logger.error(f"[SUBMISSION] Failed submission request: {e}")
             return {"success": False, "details": str(e)}
+
