@@ -88,6 +88,11 @@ def main():
     print(f"\n[3/4] Generating {count} mathematical alpha candidates...")
     field_ids = [f["id"] for f in all_fields]
     
+    # Load registry to prevent generating duplicate alphas
+    registry = AlphaRegistry()
+    seen_formulas = registry.get_formulas()
+    print(f"Loaded {len(seen_formulas)} existing formulas from registry to guarantee uniqueness.")
+    
     # Predefined robust alpha blueprints using placeholder tokens
     blueprints = [
         {"theme": "Revision Reversion", "template": "-rank(ts_delta({F}, {D}))"},
@@ -102,7 +107,6 @@ def main():
     ]
 
     generated_configs = []
-    seen_formulas = set()
     
     lookbacks = [5, 10, 15, 20, 22, 30, 40]
     groups = ["industry", "subindustry"]
@@ -172,7 +176,6 @@ def main():
 
     # 4. Safely append to centralized registry JSON
     print("\n[4/4] Registering and appending to centralized registry...")
-    registry = AlphaRegistry()
     added, skipped = registry.append_batch(generated_configs)
     
     print("\n" + "=" * 60)
