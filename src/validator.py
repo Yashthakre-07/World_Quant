@@ -1,4 +1,5 @@
 import re
+import json
 from src.logger import agent_logger
 
 import csv
@@ -10,6 +11,8 @@ ALLOWED_FIELDS = {"open", "high", "low", "close", "vwap", "returns", "volume", "
 def load_custom_fields():
     custom = set()
     base_dir = Path(__file__).resolve().parent.parent
+    
+    # 1. Load from fields_index.csv
     csv_path = base_dir / "documentation" / "dataset" / "fields_index.csv"
     if csv_path.exists():
         try:
@@ -23,6 +26,20 @@ def load_custom_fields():
                             custom.add(field_id)
         except Exception:
             pass
+            
+    # 2. Dynamically load from any JSON field registries in alphas_dataset/
+    alphas_dataset_dir = base_dir / "alphas_dataset"
+    if alphas_dataset_dir.exists():
+        try:
+            for p in alphas_dataset_dir.glob("**/fields.json"):
+                with open(p, "r", encoding="utf-8") as f:
+                    fields_data = json.load(f)
+                    for item in fields_data:
+                        if isinstance(item, dict) and "id" in item:
+                            custom.add(item["id"])
+        except Exception:
+            pass
+            
     return custom
 
 ALLOWED_FIELDS.update(load_custom_fields())

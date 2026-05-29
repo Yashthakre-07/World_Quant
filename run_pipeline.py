@@ -2715,6 +2715,11 @@ def robust_request(session, method, url, index=None, **kwargs):
                             pass
                         # Fall through to return the raw 401 to let the caller manage/fail as backup
                         return r
+            if r.status_code == 429:
+                lbl = f"Alpha #{index+1}: " if index is not None else ""
+                log_message("WARNING", f"{lbl}Rate limit exceeded (HTTP 429). Waiting 10 seconds to retry...")
+                time.sleep(10)
+                continue
             return r
         except (requests.exceptions.ConnectionError,
                 requests.exceptions.Timeout,

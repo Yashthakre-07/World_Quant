@@ -57,6 +57,28 @@ class SingleSession(requests.Session):
             super(SingleSession, self).__init__(*args, **kwargs)
             self._initialized = True
 
+    def request(self, method, url, *args, **kwargs):
+        while True:
+            response = super().request(method, url, *args, **kwargs)
+            if response.status_code == 429:
+                print(f"[API] Rate limit exceeded (HTTP 429) at {url}. Waiting 10 seconds to retry...")
+                time.sleep(10)
+                continue
+            if response.status_code == 401:
+                print(f"[AUTH] Session expired (HTTP 401). Silent re-authentication triggered...")
+                try:
+                    self.auth = get_credentials()
+                    # Re-post authentication to renew token
+                    r_auth = super().post(brain_api_url + "/authentication")
+                    if r_auth.status_code == 201:
+                        print("[AUTH] Successfully re-authenticated and session renewed!")
+                        continue
+                    else:
+                        print(f"[AUTH] Re-authentication failed with status {r_auth.status_code}.")
+                except Exception as e:
+                    print(f"[AUTH] Silent re-authentication failed: {e}")
+            return response
+
     def get_relogin_lock(self):
         return self._relogin_lock
 
