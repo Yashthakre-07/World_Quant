@@ -85,9 +85,14 @@ reauth_state = {
 }
 reauth_thread = None
 
+import threading
+thread_local = threading.local()
+
 def log_message(level, msg):
+    slot_id = getattr(thread_local, "slot_id", None)
+    slot_prefix = f"[Slot {slot_id}] " if slot_id is not None else ""
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
-    full_msg = f"[{timestamp}] [{level}] {msg}"
+    full_msg = f"[{timestamp}] [{level}] {slot_prefix}{msg}"
     print(full_msg)
     pipeline_state["logs"].append(full_msg)
 
@@ -962,10 +967,12 @@ def get_status():
             run_info = in_memory_info[formula]
             status = run_info.get("status", "PENDING")
             progress = run_info.get("progress", 0)
+            slot_id = run_info.get("slot_id")
         else:
             run_info = runs.get(formula, {})
             status = run_info.get("status", "PENDING")
             progress = 100 if status in ("SUBMITTED", "HARD_REJECT", "SOFT_FAIL", "ERROR") else 0
+            slot_id = None
             
         alphas_state.append({
             "formula": formula,
@@ -976,7 +983,8 @@ def get_status():
             "sharpe": run_info.get("sharpe"),
             "fitness": run_info.get("fitness"),
             "turnover": run_info.get("turnover"),
-            "error_message": run_info.get("error_message")
+            "error_message": run_info.get("error_message"),
+            "slot_id": slot_id
         })
 
     # Read the dynamic status
@@ -1308,7 +1316,7 @@ def queue_alpha_direct():
 
 @app.route("/api/inbox-alphas", methods=["GET"])
 def get_inbox_alphas():
-    inbox_path = Path("db") / "inbox_queue.json"
+    inbox_path = DB_DIR / "inbox_queue.json"
     alphas = []
     if inbox_path.exists():
         try:
@@ -2033,7 +2041,7 @@ def overwrite_queue():
     except Exception as e:
         return jsonify({"error": f"Invalid JSON: {e}"}), 400
 
-    queue_path = Path("db") / "simulation_queue.json"
+    queue_path = DB_DIR / "simulation_queue.json"
     new_queue = []
     for item in data:
         formula = item.get("formula", "").strip()
@@ -2061,7 +2069,7 @@ def overwrite_queue():
 @app.route("/api/queue-status", methods=["GET"])
 def queue_status():
     """Returns a lightweight summary of the live queue — no auth needed for read."""
-    queue_path = Path("db") / "simulation_queue.json"
+    queue_path = DB_DIR / "simulation_queue.json"
     try:
         with open(queue_path) as f:
             q = json.load(f)
@@ -2959,7 +2967,8 @@ def process_completed_alpha(index, task, task_state, alpha_id, nxt_url, run_uuid
         task_state["error_message"] = str(e)
 
 
-def simulate_task(index, task, task_state, session):
+def simulate_task(index, task, task_state, session, slot_id=1):
+    thread_local.slot_id = slot_id
     run_uuid = str(uuid.uuid4())[:8]
     family = task["family"]
     hypothesis = task["hypothesis"]
@@ -3042,7 +3051,7 @@ def simulate_task(index, task, task_state, session):
             task_state["status"] = "PENDING"
             task_state["progress"] = 0
             time.sleep(retry_wait)
-            return simulate_task(index, task, task_state, session)  # Recursive retry
+            return simulate_task(index, task, task_state, session, slot_id=slot_id)  # Recursive retry
             
         if r.status_code not in [200, 201]:
             err_msg = f"HTTP {r.status_code}: {r.text}"
@@ -3139,9 +3148,10 @@ def simulate_task(index, task, task_state, session):
     process_completed_alpha(index, task, task_state, alpha_id, nxt_url, run_uuid, session)
 
 
-def simulate_batch(batch_indices, batch_tasks, batch_states, session):
+def simulate_batch(batch_indices, batch_tasks, batch_states, session, slot_id=1):
+    thread_local.slot_id = slot_id
     if len(batch_tasks) == 1:
-        simulate_task(batch_indices[0], batch_tasks[0], batch_states[0], session)
+        simulate_task(batch_indices[0], batch_tasks[0], batch_states[0], session, slot_id=slot_id)
         return
 
     # Multi-simulation flow
@@ -3189,8 +3199,11 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session):
     if not valid_tasks:
         return
 
+    # Compilation of active index range for batch logs
+    valid_alphas_label = f"Alphas #{valid_indices[0]+1}-{valid_indices[-1]+1}" if len(valid_indices) > 1 else f"Alpha #{valid_indices[0]+1}"
+
     if len(valid_tasks) == 1:
-        simulate_task(valid_indices[0], valid_tasks[0], valid_states[0], session)
+        simulate_task(valid_indices[0], valid_tasks[0], valid_states[0], session, slot_id=slot_id)
         return
 
     # Build WQ simulation submission body (list payload)
@@ -3223,23 +3236,23 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session):
         # Acquire submission lock to ensure sequential spaced requests
         with submission_lock:
             # Enforce 5-second spacing between concurrent thread submissions for Gold tier
-            log_message("INFO", f"Batch ({len(valid_tasks)} alphas): Enforcing 5s submission rate-limit spacing...")
+            log_message("INFO", f"Batch ({valid_alphas_label}): Enforcing 5s submission rate-limit spacing...")
             time.sleep(5)
             r = robust_request(session, "POST", WQ_SIM_URL, index=valid_indices[0], json=payload, timeout=30)
             
         if r.status_code == 429:
             retry_wait = 30 + random.uniform(5, 15)
-            log_message("WARNING", f"Batch ({len(valid_tasks)} alphas): Rate limit exceeded (HTTP 429). Jittered retry in {retry_wait:.1f} seconds...")
+            log_message("WARNING", f"Batch ({valid_alphas_label}): Rate limit exceeded (HTTP 429). Jittered retry in {retry_wait:.1f} seconds...")
             for st in valid_states:
                 st["status"] = "PENDING"
                 st["progress"] = 0
             time.sleep(retry_wait)
-            simulate_batch(valid_indices, valid_tasks, valid_states, session)  # Recursive retry
+            simulate_batch(valid_indices, valid_tasks, valid_states, session, slot_id=slot_id)  # Recursive retry
             return
             
         if r.status_code not in [200, 201]:
             err_msg = f"HTTP {r.status_code}: {r.text}"
-            log_message("ERROR", f"Batch Submission failed: {err_msg}")
+            log_message("ERROR", f"Batch ({valid_alphas_label}) Submission failed: {err_msg}")
             for st, uid, t in zip(valid_states, valid_uuids, valid_tasks):
                 st["status"] = "ERROR"
                 st["error_message"] = err_msg
@@ -3263,7 +3276,7 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session):
 
         if 'Location' not in r.headers:
             err_msg = "Location header missing in API response."
-            log_message("ERROR", f"Batch: {err_msg}")
+            log_message("ERROR", f"Batch ({valid_alphas_label}): {err_msg}")
             for st in valid_states:
                 st["status"] = "ERROR"
                 st["error_message"] = err_msg
@@ -3272,10 +3285,10 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session):
         parent_url = r.headers['Location']
         for st in valid_states:
             st["progress"] = 35
-        log_message("INFO", f"Batch ({len(valid_tasks)} alphas) queued successfully. Parent Link: {parent_url}")
+        log_message("INFO", f"Batch ({valid_alphas_label}) queued successfully. Parent Link: {parent_url}")
 
     except Exception as e:
-        log_message("ERROR", f"Batch Exception: {e}")
+        log_message("ERROR", f"Batch ({valid_alphas_label}) Exception: {e}")
         for st in valid_states:
             st["status"] = "ERROR"
             st["error_message"] = str(e)
@@ -3291,24 +3304,24 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session):
                 time.sleep(15 + random.uniform(2, 6))
                 continue
             if poll_r.status_code != 200:
-                log_message("WARNING", f"Batch poll HTTP status: {poll_r.status_code}")
+                log_message("WARNING", f"Batch ({valid_alphas_label}) poll HTTP status: {poll_r.status_code}")
                 time.sleep(10 + random.uniform(1, 4))
                 continue
 
             res = poll_r.json()
             if 'children' in res:
                 children = res['children']
-                log_message("INFO", f"Batch parent simulation completed on WQ cluster. Children count: {len(children)}")
+                log_message("INFO", f"Batch ({valid_alphas_label}) parent simulation completed on WQ cluster. Children count: {len(children)}")
                 break
 
             progress = int(res.get('progress', 0) * 100)
             for st in valid_states:
                 st["progress"] = max(35, progress)
-            log_message("INFO", f"Batch backtesting progress... {progress}%")
+            log_message("INFO", f"Batch ({valid_alphas_label}) backtesting progress... {progress}%")
 
             if 'message' in res and 'error' in str(res.get('message', '')).lower():
                 err_msg = res['message']
-                log_message("ERROR", f"Batch simulation failed: {err_msg}")
+                log_message("ERROR", f"Batch ({valid_alphas_label}) simulation failed: {err_msg}")
                 for st, uid, t in zip(valid_states, valid_uuids, valid_tasks):
                     st["status"] = "ERROR"
                     st["error_message"] = err_msg
@@ -3330,7 +3343,7 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session):
                     })
                 return
         except Exception as e:
-            log_message("ERROR", f"Batch Polling error: {e}")
+            log_message("ERROR", f"Batch ({valid_alphas_label}) Polling error: {e}")
             retry_count += 1
             if retry_count > 10:
                 for st in valid_states:
@@ -3341,7 +3354,7 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session):
 
     if len(children) != len(valid_tasks):
         err_msg = f"API error: children count ({len(children)}) does not match submitted batch count ({len(valid_tasks)})"
-        log_message("ERROR", err_msg)
+        log_message("ERROR", f"Batch ({valid_alphas_label}): {err_msg}")
         for st in valid_states:
             st["status"] = "ERROR"
             st["error_message"] = err_msg
@@ -3479,27 +3492,67 @@ def main():
                         if formula not in scheduled_formulas:
                             new_tasks.append(task)
                             
-                    # Group them into batches
+                    # Accumulation Delay (Wait-and-Pack)
+                    # If we detect new tasks but they are not a multiple of 10 (i.e. currently being pushed one-by-one),
+                    # sleep for 5 seconds to allow other concurrent injections to finish writing, then re-read queue.
+                    if new_tasks and (len(new_tasks) % 10 != 0):
+                        log_message("INFO", f"Dynamic Queue: Detected {len(new_tasks)} new alphas (not a multiple of 10). Waiting 5s to accumulate full batches...")
+                        time.sleep(5)
+                        try:
+                            with open(queue_file, "r") as f:
+                                tasks = json.load(f)
+                        except Exception:
+                            tasks = []
+                        new_tasks = []
+                        for task in tasks:
+                            formula = task["formula"]
+                            if formula not in scheduled_formulas:
+                                new_tasks.append(task)
+                            
+                    # Group them into batches using our Balanced Tri-Queue system
                     if new_tasks:
-                        batches = []
-                        current_batch = []
+                        # 1. Separate SuperAlphas from Regular alphas
+                        super_tasks = []
+                        regular_tasks = []
                         for task in new_tasks:
                             is_super = (task.get("type") == "SUPER" or "selection" in task or "combo" in task)
                             if is_super:
-                                if current_batch:
-                                    batches.append(current_batch)
-                                    current_batch = []
-                                batches.append([task])
+                                super_tasks.append(task)
                             else:
-                                current_batch.append(task)
-                                if len(current_batch) == 10:
-                                    batches.append(current_batch)
-                                    current_batch = []
-                        if current_batch:
-                            batches.append(current_batch)
+                                regular_tasks.append(task)
+                        
+                        batches = []
+                        
+                        # 2. Add SuperAlphas as individual batches
+                        for stask in super_tasks:
+                            batches.append([stask])
+                            
+                        # 3. Balance regular tasks across 3 streams dynamically
+                        if regular_tasks:
+                            n_total = len(regular_tasks)
+                            if n_total <= 30:
+                                # Divide into 3 batches as equally as possible
+                                q = n_total // 3
+                                r = n_total % 3
+                                
+                                size1 = q + (1 if r >= 1 else 0)
+                                size2 = q + (1 if r >= 2 else 0)
+                                size3 = q
+                                
+                                # Build the 3 batches
+                                idx = 0
+                                for size in [size1, size2, size3]:
+                                    if size > 0:
+                                        batches.append(regular_tasks[idx:idx + size])
+                                        idx += size
+                            else:
+                                # Cap at 30 active simulations (3 batches of 10), leaving remainder in the queue
+                                active_regular = regular_tasks[:30]
+                                for i in range(0, 30, 10):
+                                    batches.append(active_regular[i:i + 10])
                             
                         # Submit each batch
-                        for batch in batches:
+                        for slot_idx, batch in enumerate(batches, 1):
                             batch_indices = []
                             batch_tasks = []
                             batch_states = []
@@ -3518,7 +3571,8 @@ def main():
                                     "sharpe": None,
                                     "fitness": None,
                                     "turnover": None,
-                                    "error_message": None
+                                    "error_message": None,
+                                    "slot_id": slot_idx
                                 }
                                 pipeline_state["alphas"].append(task_state)
                                 
@@ -3529,13 +3583,14 @@ def main():
                                 batch_states.append(task_state)
                             
                             # Submit batch to ThreadPoolExecutor
-                            def make_batch_runner(b_indices, b_tasks, b_states):
+                            def make_batch_runner(b_indices, b_tasks, b_states, slot_id):
                                 def batch_runner():
+                                    thread_local.slot_id = slot_id
                                     time.sleep(1.0)
-                                    simulate_batch(b_indices, b_tasks, b_states, active_session)
+                                    simulate_batch(b_indices, b_tasks, b_states, active_session, slot_id=slot_id)
                                 return batch_runner
                             
-                            futures.append(executor.submit(make_batch_runner(batch_indices, batch_tasks, batch_states)))
+                            futures.append(executor.submit(make_batch_runner(batch_indices, batch_tasks, batch_states, slot_idx)))
                 
                 # Check for any completed alphas to log summaries
                 for idx, alpha in enumerate(pipeline_state["alphas"]):

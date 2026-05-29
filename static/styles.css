@@ -843,6 +843,30 @@ body {
     box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);
 }
 
+.badge-slot-1 {
+    background: rgba(6, 182, 212, 0.15) !important;
+    color: #22d3ee !important;
+    border: 1px solid rgba(6, 182, 212, 0.4) !important;
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);
+    margin-left: 6px;
+}
+
+.badge-slot-2 {
+    background: rgba(168, 85, 247, 0.15) !important;
+    color: #c084fc !important;
+    border: 1px solid rgba(168, 85, 247, 0.4) !important;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.15);
+    margin-left: 6px;
+}
+
+.badge-slot-3 {
+    background: rgba(236, 72, 153, 0.15) !important;
+    color: #f472b6 !important;
+    border: 1px solid rgba(236, 72, 153, 0.4) !important;
+    box-shadow: 0 0 10px rgba(236, 72, 153, 0.15);
+    margin-left: 6px;
+}
+
 .text-danger-red {
     color: #ef4444 !important;
     text-shadow: 0 0 8px rgba(239, 68, 68, 0.3);

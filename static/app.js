@@ -605,10 +605,19 @@ async function pollQueueStatus() {
             const isError = !!alpha.error_message;
             const rawDescText = alpha.error_message || alpha.hypothesis || "";
             
+            let slotBadgeHTML = "";
+            if (alpha.slot_id) {
+                let slotBadgeClass = `badge-slot-${alpha.slot_id}`;
+                slotBadgeHTML = `<span class="badge ${slotBadgeClass}">Slot ${alpha.slot_id}</span>`;
+            }
+            
             card.innerHTML = `
                 <div class="alpha-card-header">
                     <span class="alpha-card-family" title="${escapeHTML(alpha.family)}">#${index + 1}: ${escapeHTML(alpha.family)}</span>
-                    <span class="badge ${statusBadgeClass}">${alpha.status}</span>
+                    <div style="display: flex; gap: 6px; align-items: center;">
+                        <span class="badge ${statusBadgeClass}">${alpha.status}</span>
+                        ${slotBadgeHTML}
+                    </div>
                 </div>
                 <div class="alpha-card-formula" title="${escapeHTML(alpha.formula)}">${escapeHTML(alpha.formula)}</div>
                 <div class="alpha-card-meta">
