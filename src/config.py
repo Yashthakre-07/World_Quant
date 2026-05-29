@@ -27,6 +27,10 @@ WQ_ALPHAS_URL = "https://api.worldquantbrain.com/alphas"
 DB_DIR = Path("/data")
 try:
     DB_DIR.mkdir(exist_ok=True)
+    # Test writability of the directory
+    test_file = DB_DIR / ".write_test"
+    test_file.touch()
+    test_file.unlink()
 except (PermissionError, OSError):
     DB_DIR = BASE_DIR / "db"
     DB_DIR.mkdir(exist_ok=True)
