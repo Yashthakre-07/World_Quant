@@ -64,5 +64,5 @@ SERVER_HOST = "127.0.0.1"
 SERVER_PORT = 8000
 
 # Concurrency settings
-# Increased to 8 for Gold/Consultant tier account, can be overridden via environment variables
-MAX_CONCURRENT_SIMS = int(os.getenv("MAX_CONCURRENT_SIMS", "8"))
+# Set to 3 to align with standard WQ account cap of 3 slots (3 batches of 10 = 30 concurrent alphas)
+MAX_CONCURRENT_SIMS = int(os.getenv("MAX_CONCURRENT_SIMS", "3"))

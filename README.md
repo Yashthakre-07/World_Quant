@@ -73,7 +73,7 @@ AlphaForge is fully profile-aware and dynamically switches credentials to suppor
 *   `run_pipeline.py`: The core orchestrator. Runs the Flask web dashboard, handles the background worker pool using `simulate_batch` for WQ Multi-Simulations, executes the queued batches, and manages self-healing auth and SQLite status updates.
 *   `src/auth.py`: The secure custom `requests.Session` subclass. Manages automatic JWT token decoding, dynamic cookie caching, and multi-process authentication.
 *   `desktop_control.py`: An interactive, zero-dependency local CLI tool that connects securely to the Render servers to push formulas, read telemetry, download generated vault alphas, and check pipeline status.
-*   `trigger_generator.py`: A command-line script to systematically generate 200 combinatorial alphas per dataset and securely push them to the console's "Review Inbox" using the secure Bearer token.
+*   `run_trigger.py`: A unified, high-fidelity command-line trigger script to systematically generate N tailored alphas for *any* WQ dataset using a hybrid Gemini AI generator (with a robust mathematical template fallback) and push them securely to the console's Review Inbox (e.g., `python run_trigger.py --dataset analyst10 --count 200`).
 *   `alpha_generation_guide.md`: A comprehensive cookbook containing WQ FastExpr operators cheat sheet, 20 momentum, mean reversion, and price-volume templates, and tuning directions.
 *   `research.md`: The quantitative research log. Documents in-sample Sharpe ratio sweet spots, decay selections, turnover optimization guides, and successful Alpha Catalogs (Generations 1 to 4).
 *   `instructions.md`: The developer manual and SQLite schema directory. Contains all SQLite tables, endpoints, and quick-start command references.
@@ -96,3 +96,36 @@ If you are an AI agent loaded into this repository to continue this task, execut
     *   Always test any proposed formula by running `python -c "from src.validator import validate_fastexpr; print(validate_fastexpr('<YOUR_FORMULA>'))"` to guarantee syntax correctness before proposing a backtest.
 4.  **Always Update the Manuals**:
     *   If you find a new math anomaly, optimize a decay setting, or fix a backend bug, immediately log it at the end of `research.md` or `instructions.md`. Keep this repository self-documenting!
+5.  **🌟 EXTREMELY IMPORTANT: Chat-Based Dynamic Trigger Flow**:
+    *   If the user says: **"trigger file for generating [number] alphas from [dataset] dataset"**, you must execute the dynamic quant researcher trigger sequence **directly in the chat** without using any code loops or requesting API keys:
+        a. Run a quick script to fetch all available datafields and operators for `[dataset]` via `ace_lib` and display them in the console.
+        b. Read the returned field IDs and descriptions.
+        c. Use your own advanced reasoning (as a premium quant model) to design exactly `[number]` unique, high-fitness WQ FastExpr formulas custom-tailored to these fields.
+        d. Write the complete portfolio of formulas directly to `alphas_dataset/[dataset]/alphas/generated_alphas.json` in standard WQ alpha configurations (delay=1, pasteurization=ON, unitHandling=VERIFY).
+        e. Push the generated alphas directly to the active review inbox `/api/queue-alpha` of the running console server.
+        f. Print all the step-by-step progress and list every generated alpha formula directly in the chat window so the user can review them live!
+
+---
+
+## ⚡ 6. Unified WQ Dataset Trigger Flow
+
+We have built a high-fidelity **Trigger Flow** system that allows developers and quantitative researchers to generate custom, syntactically correct alphas for *any* WorldQuant BRAIN dataset in seconds and inject them directly to the simulation pipeline.
+
+### A. Terminal Execution (`run_trigger.py`)
+Run the script to connect to WQ BRAIN via `ace_lib`, fetch dynamic fields/operators, generate unique alphas, save them in the local portfolio registry, and push them to your active review inbox:
+```bash
+python run_trigger.py --dataset analyst10 --count 200
+```
+- **Target Registry**: Saved locally under `alphas_dataset/<dataset_name>/alphas/generated_alphas.json`.
+- **Arguments**:
+  - `--dataset`: The target dataset search name (defaults to `analyst10`).
+  - `--count`: The target number of unique alphas to generate (defaults to `200`).
+  - `--token`: Secure console Authorization Bearer token (optional).
+  - `--gemini_key`: Gemini API Key override (optional).
+
+### B. Integrated Web Dashboard Tab (⚡ Trigger Flow)
+Click the new **⚡ Trigger Flow** tab inside your browser console:
+1. Input the target **Dataset Name** (e.g., `analyst10`) and target **Alpha Count** (e.g., `200`).
+2. Click **Launch Alpha Forge Sequencer** to start the background executor.
+3. Monitor real-time telemetry: a visual Checklist tracks authentication, dynamic extraction, Gemini synthesis, and injection step-by-step with real-time logs and a live progress bar!
+4. Once completed, your new alphas will be waiting for you inside the **API Review Inbox** on the Orchestrator tab, ready for one-click queue injection.

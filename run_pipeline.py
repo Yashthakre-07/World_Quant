@@ -1591,6 +1591,360 @@ def start_pipeline():
     log_message("INFO", "[API] Pipeline has been RESUMED/STARTED via remote desktop call.")
     return jsonify({"status": "ok", "pipeline_active": True, "message": "Pipeline active."})
 
+# Global state registry for WQ Trigger Flow progress tracking
+trigger_flow_state = {
+    "status": "IDLE",  # IDLE, RUNNING, SUCCESS, ERROR
+    "dataset": "",
+    "target_count": 0,
+    "progress_percent": 0,
+    "current_step": "Idle",
+    "generated_count": 0,
+    "logs": [],
+    "formulas": [],
+    "error_message": ""
+}
+
+def run_trigger_flow_background(dataset_name, count, token, gemini_key):
+    global trigger_flow_state
+    import time
+    import json
+    import re
+    import random
+    from pathlib import Path
+    
+    def web_log(msg, level="INFO"):
+        timestamp = time.strftime("%H:%M:%S")
+        full_msg = f"[{timestamp}] [TRIGGER] [{level}] {msg}"
+        print(full_msg)
+        trigger_flow_state["logs"].append(full_msg)
+        # Also append to primary telemetry logs
+        log_message(level, f"[TRIGGER] {msg}")
+
+    try:
+        trigger_flow_state["status"] = "RUNNING"
+        trigger_flow_state["dataset"] = dataset_name
+        trigger_flow_state["target_count"] = count
+        trigger_flow_state["progress_percent"] = 5
+        trigger_flow_state["current_step"] = "Initializing session"
+        trigger_flow_state["logs"] = []
+        trigger_flow_state["formulas"] = []
+        trigger_flow_state["error_message"] = ""
+        
+        web_log(f"Starting background trigger flow for dataset '{dataset_name}' (Target: {count} alphas)...")
+        
+        # 1. Initialize session via ace_lib
+        web_log("Step 1: Connecting to WorldQuant BRAIN via ace_lib...")
+        trigger_flow_state["progress_percent"] = 15
+        trigger_flow_state["current_step"] = "Authenticating WQ Session"
+        
+        import ace_lib
+        try:
+            session = ace_lib.start_session()
+            web_log("Session successfully started and verified.")
+        except Exception as e:
+            web_log(f"Failed to start WQ session via ace_lib: {e}", "ERROR")
+            trigger_flow_state["status"] = "ERROR"
+            trigger_flow_state["current_step"] = "Authentication failed"
+            trigger_flow_state["error_message"] = str(e)
+            return
+
+        # 2. Fetch fields and operators
+        web_log(f"Step 2: Fetching datafields for dataset '{dataset_name}'...")
+        trigger_flow_state["progress_percent"] = 30
+        trigger_flow_state["current_step"] = "Fetching Fields & Operators"
+        
+        try:
+            fields_df = ace_lib.get_datafields(
+                session,
+                instrument_type="EQUITY",
+                region="USA",
+                delay=1,
+                universe="TOP3000",
+                search=dataset_name,
+            )
+            if fields_df.empty:
+                web_log(f"No fields found for dataset '{dataset_name}'. Using fallback generic fields.", "WARNING")
+                fields = [{"id": f"{dataset_name}_eps_smart", "description": "Fallback generic EPS estimate"}]
+            else:
+                fields = fields_df.to_dict("records")
+                web_log(f"Fetched {len(fields)} fields from WQ Brain.")
+        except Exception as e:
+            web_log(f"Error fetching data fields: {e}", "WARNING")
+            fields = [{"id": f"{dataset_name}_eps_smart", "description": "Fallback generic EPS"}]
+            
+        web_log("Fetching available mathematical operators...")
+        try:
+            operators_df = ace_lib.get_operators(session)
+            operators = operators_df.to_dict("records")
+            web_log(f"Fetched {len(operators)} mathematical operators.")
+        except Exception as e:
+            web_log(f"Error fetching operators: {e}", "WARNING")
+            operators = []
+
+        # 3. Save metadata to registry
+        alpha_dataset_dir = Path("alphas_dataset") / dataset_name / "alphas"
+        alpha_dataset_dir.mkdir(parents=True, exist_ok=True)
+        
+        with open(alpha_dataset_dir / "fields.json", "w", encoding="utf-8") as f:
+            json.dump(fields, f, indent=2)
+        with open(alpha_dataset_dir / "operators.json", "w", encoding="utf-8") as f:
+            json.dump(operators, f, indent=2)
+        web_log(f"Saved dataset metadata registry under alphas_dataset/{dataset_name}/alphas/")
+
+        # 4. Generate Alphas
+        web_log("Step 3: Initiating AI Alpha Generation Sequence...")
+        trigger_flow_state["progress_percent"] = 50
+        trigger_flow_state["current_step"] = "Generating WQ Formulas"
+        
+        field_ids = [fd["id"] for fd in fields]
+        gemini_active = False
+        active_gemini_key = gemini_key or os.getenv("GEMINI_API_KEY", "")
+        
+        if active_gemini_key:
+            try:
+                import google.generativeai as genai
+                genai.configure(api_key=active_gemini_key)
+                model = genai.GenerativeModel('gemini-1.5-flash')
+                gemini_active = True
+                web_log("Gemini API successfully configured. Crafting quantitative blueprints...")
+            except Exception as e:
+                web_log(f"Failed to configure Gemini client: {e}. Switching to rule-based combinatorial generator.", "WARNING")
+
+        blueprints = []
+        if gemini_active:
+            fields_summary = "\n".join([f"- Field ID: {fd.get('id')} | Description: {fd.get('description', '')}" for fd in fields[:25]])
+            prompt = f"""
+You are an expert quantitative finance researcher designing statistical arbitrage alphas for WorldQuant BRAIN.
+We have just fetched a new dataset called '{dataset_name}' containing these fields:
+{fields_summary}
+
+Task: Design exactly 10 WQ FastExpr alpha templates (blueprints) matching these fields.
+Use classic WQ operators: rank, zscore, ts_delta, ts_decay_linear, ts_mean, ts_std_dev, group_neutralize, trade_when, ts_corr, ts_regression.
+
+For each blueprint, use placeholder markers like:
+- {{F}} to represent a primary dataset field.
+- {{F2}} to represent a secondary composite dataset field (if appropriate).
+- {{D}} for lookback days (e.g. 5, 10, 20, 63).
+- {{G}} for neutralizing group (e.g. industry, subindustry).
+
+Return the blueprints in structured XML/JSON-like blocks. Focus on different quantitative themes:
+1. Reversion
+2. Momentum / Trend Following
+3. Volatility-Gated Reversion
+4. Cross-Field composite
+5. Volume interactive (using standard fields like close, volume, returns, cap, adv20)
+
+OUTPUT ONLY a JSON array of templates like this:
+[
+  {{"theme": "Gated Reversion", "template": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear({{F}}, {{D}})), 0), {{G}})"}},
+  ...
+]
+Do NOT return extra conversational text. Output ONLY valid JSON.
+"""
+            try:
+                r = model.generate_content(prompt)
+                clean_text = r.text.strip()
+                clean_text = re.sub(r'```json\s*', '', clean_text)
+                clean_text = re.sub(r'\s*```', '', clean_text)
+                blueprints = json.loads(clean_text)
+                web_log(f"Gemini successfully engineered {len(blueprints)} custom blueprints tailored for {dataset_name}!")
+            except Exception as e:
+                web_log(f"Failed to generate blueprints with Gemini: {e}. Falling back to default blueprints.", "WARNING")
+                blueprints = []
+
+        if not blueprints:
+            web_log("Using robust predefined qualitative trading models...")
+            blueprints = [
+                {"theme": "Revision Reversion", "template": "-rank(ts_delta({F}, {D}))"},
+                {"theme": "Decay Momentum", "template": "group_neutralize(ts_decay_linear(ts_delta({F}, {D}), {D}), {G})"},
+                {"theme": "Mean Reversion", "template": "-rank({F} - ts_mean({F}, {D}))"},
+                {"theme": "Volatility Adjusted Deviation", "template": "-ts_decay_linear(({F} - ts_mean({F}, {D})) / (ts_std_dev({F}, {D}) + 0.001), {D})"},
+                {"theme": "Group Neutral Reversion", "template": "-group_zscore({F}, {G})"},
+                {"theme": "Cross-Field Delta Composite", "template": "rank(ts_delta({F}, {D})) - rank(ts_delta({F2}, {D}))"},
+                {"theme": "Volume Interaction Momentum", "template": "ts_corr(rank({F}), rank(returns), {D})"},
+                {"theme": "Conditional Volume Gating", "template": "trade_when(volume > adv20 * 0.5, -rank(ts_decay_linear({F}, {D})), 0)"},
+                {"theme": "OLS Trend Neutralization", "template": "group_neutralize(ts_regression({F}, {F}, {D}), {G})"},
+                {"theme": "Double-Smooth Composite", "template": "group_neutralize(ts_decay_linear(ts_decay_linear(rank({F}) + rank(-{F2}), 5), {D}), {G})"}
+            ]
+
+        # Generate alphas based on templates
+        generated_configs = []
+        seen_formulas = set()
+        lookbacks = [5, 10, 15, 20, 22, 30, 40, 60, 126, 252]
+        groups = ["industry", "subindustry"]
+        settings_variants = [
+            {"decay": 0, "neutralization": "SUBINDUSTRY", "truncation": 0.08},
+            {"decay": 3, "neutralization": "SUBINDUSTRY", "truncation": 0.08},
+            {"decay": 5, "neutralization": "SUBINDUSTRY", "truncation": 0.08},
+            {"decay": 10, "neutralization": "SUBINDUSTRY", "truncation": 0.08},
+            {"decay": 0, "neutralization": "INDUSTRY", "truncation": 0.08},
+            {"decay": 5, "neutralization": "INDUSTRY", "truncation": 0.05},
+        ]
+
+        attempts = 0
+        max_attempts = count * 20
+        
+        while len(generated_configs) < count and attempts < max_attempts:
+            attempts += 1
+            bp = random.choice(blueprints)
+            template = bp["template"]
+            
+            f1 = random.choice(field_ids)
+            f2 = random.choice(field_ids) if len(field_ids) > 1 else f1
+            if f1 == f2 and len(field_ids) > 1:
+                f2 = random.choice([x for x in field_ids if x != f1])
+                
+            d = random.choice(lookbacks)
+            g = random.choice(groups)
+            
+            formula = template.replace("{F}", f1).replace("{F2}", f2).replace("{D}", str(d)).replace("{G}", g)
+            formula = formula.replace(" ", "")
+            
+            if formula in seen_formulas:
+                continue
+                
+            seen_formulas.add(formula)
+            sv = random.choice(settings_variants)
+            idx = len(generated_configs) + 1
+            
+            alpha_obj = {
+                "name": f"G_{dataset_name}_{idx:03d}",
+                "type": "REGULAR",
+                "settings": {
+                    "instrumentType": "EQUITY",
+                    "region": "USA",
+                    "universe": "TOP3000",
+                    "delay": 1,
+                    "decay": sv["decay"],
+                    "neutralization": sv["neutralization"],
+                    "truncation": sv["truncation"],
+                    "pasteurization": "ON",
+                    "testPeriod": "P0Y0M0D",
+                    "unitHandling": "VERIFY",
+                    "nanHandling": "OFF",
+                    "language": "FASTEXPR",
+                    "visualization": False,
+                },
+                "regular": formula,
+                "dataset": dataset_name,
+                "hypothesis": f"Systematic quantitatively-modeled signal for family '{bp.get('theme', 'Custom')}' using {f1} (Lookback={d} days)."
+            }
+            generated_configs.append(alpha_obj)
+            trigger_flow_state["generated_count"] = len(generated_configs)
+            trigger_flow_state["formulas"].append(formula)
+            
+            current_progress = 50 + int((len(generated_configs) / count) * 30)
+            trigger_flow_state["progress_percent"] = current_progress
+            
+            if len(generated_configs) % 10 == 0 or len(generated_configs) == count:
+                web_log(f"Generated {len(generated_configs)} / {count} alpha expressions...")
+                time.sleep(0.01)
+
+        # 5. Save generated alphas
+        trigger_flow_state["progress_percent"] = 85
+        trigger_flow_state["current_step"] = "Saving registry portfolio"
+        
+        out_file = alpha_dataset_dir / "generated_alphas.json"
+        with open(out_file, "w", encoding="utf-8") as f:
+            json.dump(generated_configs, f, indent=2)
+        web_log(f"Saved complete generated formulas portfolio to alphas_dataset/{dataset_name}/alphas/generated_alphas.json")
+
+        # 6. Push all alphas to dynamic review inbox
+        trigger_flow_state["progress_percent"] = 90
+        trigger_flow_state["current_step"] = "Injecting to Review Inbox"
+        web_log("Step 5: Injecting newly generated alphas into AlphaForge Review Inbox...")
+        
+        inbox_path = DB_DIR / "inbox_queue.json"
+        existing_inbox = []
+        if inbox_path.exists():
+            try:
+                with open(inbox_path) as f:
+                    existing_inbox = json.load(f)
+            except Exception:
+                existing_inbox = []
+
+        existing_formulas = {a.get("formula", "").strip() for a in existing_inbox}
+        queue_path = DB_DIR / "simulation_queue.json"
+        if queue_path.exists():
+            try:
+                with open(queue_path) as f:
+                    q = json.load(f)
+                    existing_formulas.update(x.get("formula", "").strip() for x in q)
+            except Exception:
+                pass
+        
+        added_count = 0
+        for idx, a in enumerate(generated_configs, 1):
+            formula = a["regular"]
+            if formula in existing_formulas:
+                continue
+            
+            task = {
+                "family": f"{dataset_name}_gen",
+                "hypothesis": a["hypothesis"],
+                "formula": formula,
+                "settings": a["settings"]
+            }
+            existing_inbox.append(task)
+            existing_formulas.add(formula)
+            added_count += 1
+            
+        with open(inbox_path, "w") as f:
+            json.dump(existing_inbox, f, indent=2)
+            
+        web_log(f"Review Inbox updated successfully: injected {added_count} alphas into review box queue.")
+        
+        # 7. Complete success
+        trigger_flow_state["progress_percent"] = 100
+        trigger_flow_state["current_step"] = "Completed successfully!"
+        trigger_flow_state["status"] = "SUCCESS"
+        web_log(f"SUCCESS: Trigger flow for dataset '{dataset_name}' fully complete! Alphas are ready for backtesting in the main orchestrator.")
+        
+    except Exception as e:
+        web_log(f"Fatal Trigger Flow Error: {e}", "ERROR")
+        trigger_flow_state["status"] = "ERROR"
+        trigger_flow_state["current_step"] = "Error encountered"
+        trigger_flow_state["error_message"] = str(e)
+
+@app.route("/api/trigger-flow", methods=["POST"])
+def trigger_flow():
+    """Secure endpoint: initiates the background trigger alpha generation sequence."""
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    is_same_origin = request.referrer and request.referrer.startswith(request.url_root)
+    if not is_same_origin and token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    try:
+        data = request.get_json(force=True) or {}
+    except Exception:
+        data = {}
+
+    dataset_name = data.get("dataset", "analyst10").strip()
+    count = int(data.get("count", 200))
+    gemini_key = data.get("gemini_key", "").strip()
+
+    if not dataset_name:
+        return jsonify({"error": "Dataset name is required"}), 400
+
+    if trigger_flow_state["status"] == "RUNNING":
+        return jsonify({"error": "A trigger flow is already actively running!"}), 400
+
+    # Start trigger flow sequence in background
+    trigger_thread = threading.Thread(
+        target=run_trigger_flow_background,
+        args=(dataset_name, count, token, gemini_key),
+        daemon=True
+    )
+    trigger_thread.start()
+
+    return jsonify({"status": "ok", "message": "Trigger flow background sequencer started."})
+
+@app.route("/api/trigger-status", methods=["GET"])
+def get_trigger_status():
+    """Returns the live progress, formulas, and logs of the active trigger flow."""
+    return jsonify(trigger_flow_state)
+
 @app.route("/api/reset-state", methods=["POST"])
 def reset_state():
     """Secure endpoint: fully clears in-memory pipeline_state alphas list.

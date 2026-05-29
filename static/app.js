@@ -1429,10 +1429,12 @@ window.addEventListener("DOMContentLoaded", () => {
     // Wire up Nav Switcher Tabs
     const tabSimBtn = document.getElementById("tab-sim-btn");
     const tabSubmitBtn = document.getElementById("tab-submit-btn");
+    const tabTriggerBtn = document.getElementById("tab-trigger-btn");
     const orchestratorView = document.getElementById("orchestrator-view");
     const submissionView = document.getElementById("submission-view");
+    const triggerView = document.getElementById("trigger-view");
     
-    if (tabSimBtn && tabSubmitBtn && orchestratorView && submissionView) {
+    if (tabSimBtn && tabSubmitBtn && tabTriggerBtn && orchestratorView && submissionView && triggerView) {
         tabSimBtn.addEventListener("click", () => {
             tabSimBtn.style.background = "linear-gradient(135deg, rgba(6,182,212,0.2), rgba(59,130,246,0.2))";
             tabSimBtn.style.borderColor = "rgba(6,182,212,0.4)";
@@ -1441,9 +1443,14 @@ window.addEventListener("DOMContentLoaded", () => {
             tabSubmitBtn.style.background = "none";
             tabSubmitBtn.style.borderColor = "transparent";
             tabSubmitBtn.style.color = "#94a3b8";
+
+            tabTriggerBtn.style.background = "none";
+            tabTriggerBtn.style.borderColor = "transparent";
+            tabTriggerBtn.style.color = "#94a3b8";
             
             orchestratorView.style.display = "block";
             submissionView.style.display = "none";
+            triggerView.style.display = "none";
         });
         
         tabSubmitBtn.addEventListener("click", () => {
@@ -1454,14 +1461,40 @@ window.addEventListener("DOMContentLoaded", () => {
             tabSimBtn.style.background = "none";
             tabSimBtn.style.borderColor = "transparent";
             tabSimBtn.style.color = "#94a3b8";
+
+            tabTriggerBtn.style.background = "none";
+            tabTriggerBtn.style.borderColor = "transparent";
+            tabTriggerBtn.style.color = "#94a3b8";
             
             orchestratorView.style.display = "none";
             submissionView.style.display = "block";
+            triggerView.style.display = "none";
             
             // Initial load for submission view
             fetchPlatformStats();
             loadSubmissionQueue();
             loadSubmissionRegistry();
+        });
+
+        tabTriggerBtn.addEventListener("click", () => {
+            tabTriggerBtn.style.background = "linear-gradient(135deg, rgba(6,182,212,0.2), rgba(59,130,246,0.2))";
+            tabTriggerBtn.style.borderColor = "rgba(6,182,212,0.4)";
+            tabTriggerBtn.style.color = "white";
+            
+            tabSimBtn.style.background = "none";
+            tabSimBtn.style.borderColor = "transparent";
+            tabSimBtn.style.color = "#94a3b8";
+
+            tabSubmitBtn.style.background = "none";
+            tabSubmitBtn.style.borderColor = "transparent";
+            tabSubmitBtn.style.color = "#94a3b8";
+            
+            orchestratorView.style.display = "none";
+            submissionView.style.display = "none";
+            triggerView.style.display = "block";
+
+            // Poll active trigger status once on activation
+            pollTriggerStatus();
         });
     }
 
@@ -1580,4 +1613,259 @@ window.addEventListener("DOMContentLoaded", () => {
     setInterval(pollQueueStatus, 2000);
     // Poll review inbox queue every 2 seconds
     setInterval(pollInboxAlphas, 2000);
+
+    // ==========================================
+    // TRIGGER FLOW CLIENT CONTROLLER
+    // ==========================================
+    const trigDatasetInput = document.getElementById("trig-dataset-input");
+    const trigCountInput = document.getElementById("trig-count-input");
+    const trigGeminiInput = document.getElementById("trig-gemini-input");
+    const trigLaunchBtn = document.getElementById("trig-launch-btn");
+    const trigProgressBarContainer = document.getElementById("trig-progress-bar-container");
+    const trigProgressBar = document.getElementById("trig-progress-bar");
+    const trigCurrentStepLabel = document.getElementById("trig-current-step-label");
+    const trigPercentLabel = document.getElementById("trig-percent-label");
+    const trigLogConsole = document.getElementById("trig-log-console");
+
+    const trigStatusText = document.getElementById("trig-status-text");
+    const trigDatasetText = document.getElementById("trig-dataset-text");
+    const trigCountText = document.getElementById("trig-count-text");
+    const trigProgressText = document.getElementById("trig-progress-text");
+
+    let triggerPollInterval = null;
+    let triggerLastLogLength = 0;
+
+    function renderTriggerLogLine(text) {
+        if (triggerLastLogLength === 0) {
+            trigLogConsole.innerHTML = "";
+        }
+        const lineDiv = document.createElement("div");
+        lineDiv.style.marginBottom = "4px";
+        lineDiv.style.lineHeight = "1.4";
+        
+        if (text.includes("[ERROR]")) {
+            lineDiv.style.color = "#ef4444"; // red
+        } else if (text.includes("[WARNING]")) {
+            lineDiv.style.color = "#fbbf24"; // yellow
+        } else if (text.includes("SUCCESS")) {
+            lineDiv.style.color = "#10b981"; // green
+        } else {
+            lineDiv.style.color = "#a5f3fc"; // cyan
+        }
+        
+        lineDiv.textContent = text;
+        trigLogConsole.appendChild(lineDiv);
+        trigLogConsole.scrollTop = trigLogConsole.scrollHeight;
+    }
+
+    function updateStepChecklist(stepNum, status) {
+        const item = document.getElementById(`trig-step-${stepNum}`);
+        const icon = document.getElementById(`trig-step-${stepNum}-icon`);
+        
+        if (!item || !icon) return;
+
+        if (status === "pending") {
+            icon.textContent = "⚪";
+            icon.style.animation = "";
+            item.style.color = "var(--text-muted, #94a3b8)";
+        } else if (status === "running") {
+            icon.textContent = "⏳";
+            icon.style.animation = "pulse 1.2s infinite";
+            item.style.color = "#38bdf8";
+        } else if (status === "completed") {
+            icon.textContent = "✅";
+            icon.style.animation = "";
+            item.style.color = "#10b981";
+        } else if (status === "error") {
+            icon.textContent = "❌";
+            icon.style.animation = "";
+            item.style.color = "#ef4444";
+        }
+    }
+
+    async function pollTriggerStatus() {
+        try {
+            const res = await fetch("/api/trigger-status");
+            if (!res.ok) return;
+            const data = await res.json();
+
+            // Update stats cards
+            trigStatusText.textContent = data.status || "IDLE";
+            if (data.status === "RUNNING") {
+                trigStatusText.style.color = "#38bdf8";
+            } else if (data.status === "SUCCESS") {
+                trigStatusText.style.color = "#10b981";
+            } else if (data.status === "ERROR") {
+                trigStatusText.style.color = "#ef4444";
+            } else {
+                trigStatusText.style.color = "";
+            }
+
+            trigDatasetText.textContent = data.dataset || "None";
+            trigCountText.textContent = `${data.generated_count || 0} / ${data.target_count || 0}`;
+            trigProgressText.textContent = `${data.progress_percent || 0}%`;
+
+            // Update progress bar
+            if (data.status === "RUNNING" || data.status === "SUCCESS" || data.status === "ERROR") {
+                trigProgressBarContainer.style.display = "block";
+                trigProgressBar.style.width = `${data.progress_percent || 0}%`;
+                trigPercentLabel.textContent = `${data.progress_percent || 0}%`;
+                trigCurrentStepLabel.textContent = data.current_step || "Executing sequence";
+            }
+
+            const progress = data.progress_percent || 0;
+            const status = data.status || "IDLE";
+
+            if (status === "RUNNING") {
+                trigLaunchBtn.disabled = true;
+                trigLaunchBtn.innerHTML = `⚙️ Sequencer Active (${progress}%)`;
+                trigLaunchBtn.style.background = "linear-gradient(135deg, rgba(6,182,212,0.4), rgba(59,130,246,0.4))";
+
+                if (progress < 15) {
+                    updateStepChecklist(1, "running");
+                    [2, 3, 4, 5].forEach(i => updateStepChecklist(i, "pending"));
+                } else if (progress < 30) {
+                    updateStepChecklist(1, "completed");
+                    updateStepChecklist(2, "running");
+                    [3, 4, 5].forEach(i => updateStepChecklist(i, "pending"));
+                } else if (progress < 85) {
+                    updateStepChecklist(1, "completed");
+                    updateStepChecklist(2, "completed");
+                    updateStepChecklist(3, "running");
+                    [4, 5].forEach(i => updateStepChecklist(i, "pending"));
+                } else if (progress < 90) {
+                    updateStepChecklist(1, "completed");
+                    updateStepChecklist(2, "completed");
+                    updateStepChecklist(3, "completed");
+                    updateStepChecklist(4, "running");
+                    updateStepChecklist(5, "pending");
+                } else {
+                    updateStepChecklist(1, "completed");
+                    updateStepChecklist(2, "completed");
+                    updateStepChecklist(3, "completed");
+                    updateStepChecklist(4, "completed");
+                    updateStepChecklist(5, "running");
+                }
+            } else if (status === "SUCCESS") {
+                if (triggerPollInterval) {
+                    clearInterval(triggerPollInterval);
+                    triggerPollInterval = null;
+                }
+
+                [1, 2, 3, 4, 5].forEach(i => updateStepChecklist(i, "completed"));
+
+                trigLaunchBtn.disabled = false;
+                trigLaunchBtn.innerHTML = `✅ Synthesis Succeeded!`;
+                trigLaunchBtn.style.background = "linear-gradient(135deg, #10b981, #059669)";
+
+                pollInboxAlphas();
+                pollQueueStatus();
+
+                setTimeout(() => {
+                    trigLaunchBtn.innerHTML = `🚀 LAUNCH ALPHA FORGE SEQUENCER`;
+                    trigLaunchBtn.style.background = "";
+                }, 3000);
+            } else if (status === "ERROR") {
+                if (triggerPollInterval) {
+                    clearInterval(triggerPollInterval);
+                    triggerPollInterval = null;
+                }
+
+                if (progress < 15) updateStepChecklist(1, "error");
+                else if (progress < 30) { updateStepChecklist(1, "completed"); updateStepChecklist(2, "error"); }
+                else if (progress < 85) { updateStepChecklist(1, "completed"); updateStepChecklist(2, "completed"); updateStepChecklist(3, "error"); }
+                else if (progress < 90) { updateStepChecklist(1, "completed"); updateStepChecklist(2, "completed"); updateStepChecklist(3, "completed"); updateStepChecklist(4, "error"); }
+                else { [1, 2, 3, 4].forEach(i => updateStepChecklist(i, "completed")); updateStepChecklist(5, "error"); }
+
+                trigLaunchBtn.disabled = false;
+                trigLaunchBtn.innerHTML = `❌ Synthesis Failed`;
+                trigLaunchBtn.style.background = "linear-gradient(135deg, #ef4444, #dc2626)";
+
+                setTimeout(() => {
+                    trigLaunchBtn.innerHTML = `🚀 LAUNCH ALPHA FORGE SEQUENCER`;
+                    trigLaunchBtn.style.background = "";
+                }, 3000);
+            }
+
+            if (data.logs && data.logs.length > triggerLastLogLength) {
+                for (let i = triggerLastLogLength; i < data.logs.length; i++) {
+                    renderTriggerLogLine(data.logs[i]);
+                }
+                triggerLastLogLength = data.logs.length;
+            }
+
+        } catch (e) {
+            console.error("Trigger polling error:", e);
+        }
+    }
+
+    async function launchTriggerFlow() {
+        const dataset = trigDatasetInput.value.trim();
+        const count = parseInt(trigCountInput.value);
+        const geminiKey = trigGeminiInput.value.trim();
+
+        if (!dataset) {
+            alert("Please provide a dataset search name (e.g. analyst10)!");
+            return;
+        }
+
+        if (isNaN(count) || count < 5) {
+            alert("Please target at least 5 alphas!");
+            return;
+        }
+
+        trigLaunchBtn.disabled = true;
+        trigLaunchBtn.innerHTML = `⚙️ Preparing Pipeline...`;
+        
+        triggerLastLogLength = 0;
+        trigLogConsole.innerHTML = "";
+        renderTriggerLogLine("[SYSTEM] Initializing background trigger sequence connection...");
+        
+        [1, 2, 3, 4, 5].forEach(i => updateStepChecklist(i, "pending"));
+
+        try {
+            const res = await fetch("/api/trigger-flow", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    dataset: dataset,
+                    count: count,
+                    gemini_key: geminiKey
+                })
+            });
+
+            if (!res.ok) {
+                const err = await res.json();
+                throw new Error(err.error || `HTTP ${res.status}`);
+            }
+
+            renderTriggerLogLine("[SYSTEM] Sequencer booted. Background worker thread launched successfully.");
+            
+            if (triggerPollInterval) clearInterval(triggerPollInterval);
+            triggerPollInterval = setInterval(pollTriggerStatus, 2000);
+            pollTriggerStatus();
+            
+        } catch (e) {
+            renderTriggerLogLine(`[ERROR] Boot failed: ${e.message}`);
+            trigLaunchBtn.disabled = false;
+            trigLaunchBtn.innerHTML = `🚀 LAUNCH ALPHA FORGE SEQUENCER`;
+            alert(`Failed to boot Trigger Flow:\n${e.message}`);
+        }
+    }
+
+    if (trigLaunchBtn) {
+        trigLaunchBtn.addEventListener("click", launchTriggerFlow);
+    }
+    
+    // Auto-resume trigger telemetry polling on reload if active
+    fetch("/api/trigger-status")
+        .then(r => r.json())
+        .then(data => {
+            if (data.status === "RUNNING") {
+                triggerLastLogLength = 0;
+                if (triggerPollInterval) clearInterval(triggerPollInterval);
+                triggerPollInterval = setInterval(pollTriggerStatus, 2000);
+                pollTriggerStatus();
+            }
+        }).catch(err => {});
 });

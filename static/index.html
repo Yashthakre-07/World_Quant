@@ -23,6 +23,7 @@
             <div class="header-center" style="display: flex; gap: 8px; background: rgba(0,0,0,0.3); padding: 4px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
                 <button id="tab-sim-btn" style="background: linear-gradient(135deg, rgba(6,182,212,0.2), rgba(59,130,246,0.2)); border: 1px solid rgba(6,182,212,0.4); color: white; font-size: 0.85rem; font-weight: 700; padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none; display: flex; align-items: center; gap: 6px;">🛠️ Orchestrator</button>
                 <button id="tab-submit-btn" style="background: none; border: 1px solid transparent; color: var(--text-muted, #94a3b8); font-size: 0.85rem; font-weight: 700; padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none; display: flex; align-items: center; gap: 6px;">🚀 Submission Platform</button>
+                <button id="tab-trigger-btn" style="background: none; border: 1px solid transparent; color: var(--text-muted, #94a3b8); font-size: 0.85rem; font-weight: 700; padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none; display: flex; align-items: center; gap: 6px;">⚡ Trigger Flow</button>
             </div>
 
             <div class="header-right" style="display: flex; align-items: center; gap: 12px;">
@@ -420,6 +421,128 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div id="trigger-view" style="display: none;">
+            <!-- Trigger Flow Tab Content -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Active Trigger State</span>
+                        <span class="stat-value" id="trig-status-text" style="font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #ffffff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">IDLE</span>
+                    </div>
+                </div>
+                <div class="stat-card highlight" style="background: linear-gradient(135deg, rgba(6,182,212,0.1), rgba(59,130,246,0.1));">
+                    <div class="stat-icon">🎛️</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Dataset Selected</span>
+                        <span class="stat-value" id="trig-dataset-text" style="font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #06b6d4, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">None</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🧬</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Alphas Generated</span>
+                        <span class="stat-value" id="trig-count-text" style="font-weight: 700;">0 / 0</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Progress Percent</span>
+                        <span class="stat-value" id="trig-progress-text" style="font-weight: 700;">0%</span>
+                    </div>
+                </div>
+            </section>
+
+            <main class="main-content">
+                <!-- Left panel: Control Forms -->
+                <div class="panel-left" style="background: rgba(18, 22, 33, 0.45); border-radius: 12px; padding: 24px; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 20px;">
+                    <div>
+                        <h2 style="font-size: 1.3rem; font-weight: 700; color: white; margin-bottom: 6px;">Alpha Forge Trigger Control</h2>
+                        <p style="font-size: 0.825rem; color: var(--text-muted, #94a3b8);">Launch background quantitative synthesis for any WQ BRAIN dataset.</p>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div>
+                            <label style="display: block; font-size: 0.8rem; color: var(--text-muted, #94a3b8); margin-bottom: 6px; font-weight: 600;">Dataset Search Name</label>
+                            <input type="text" id="trig-dataset-input" value="analyst10" placeholder="e.g. analyst10, fundamental8, social_media1" style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 10px 14px; color: white; outline: none; font-family: monospace;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-size: 0.8rem; color: var(--text-muted, #94a3b8); margin-bottom: 6px; font-weight: 600;">Number of Alphas (Target)</label>
+                            <input type="number" id="trig-count-input" value="200" min="5" max="500" style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 10px 14px; color: white; outline: none;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-size: 0.8rem; color: var(--text-muted, #94a3b8); margin-bottom: 6px; font-weight: 600;">Optional Gemini API Key Override</label>
+                            <input type="password" id="trig-gemini-input" placeholder="Defaults to key set in environment files" style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 10px 14px; color: white; outline: none;">
+                        </div>
+
+                        <button id="trig-launch-btn" class="chrome-btn" style="background: linear-gradient(135deg, #06b6d4, #3b82f6); color: white; border: none; border-radius: 8px; font-weight: 800; padding: 16px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 0 15px rgba(6, 182, 212, 0.25); font-size: 1.05rem; letter-spacing: 0.5px; outline: none; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px;">
+                            🚀 LAUNCH ALPHA FORGE SEQUENCER
+                        </button>
+                    </div>
+
+                    <!-- Progress bar container -->
+                    <div id="trig-progress-bar-container" style="display: none; margin-top: 10px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 8px; color: #a5f3fc;">
+                            <span id="trig-current-step-label" style="font-weight: 600;">Step 1: Connecting...</span>
+                            <span id="trig-percent-label" style="font-family: monospace;">0%</span>
+                        </div>
+                        <div style="width: 100%; height: 12px; background: rgba(255, 255, 255, 0.03); border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+                            <div id="trig-progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #06b6d4, #3b82f6, #10b981); transition: width 0.4s ease;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right panel: Interactive progress Checklist & Live Mini Logs -->
+                <div class="panel-right" style="display: flex; flex-direction: column; gap: 20px;">
+                    <!-- Visual stepped Checklist card -->
+                    <div class="table-card" style="padding: 20px; background: rgba(18, 22, 33, 0.45); border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+                        <h3 style="margin: 0 0 16px 0; font-size: 0.95rem; font-weight: 700; color: white; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; background: linear-gradient(90deg, #06b6d4, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Sequencer Step Registry</h3>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 14px;">
+                            <div class="chk-step" id="trig-step-1" style="display: flex; align-items: center; gap: 12px; color: var(--text-muted, #94a3b8); font-size: 0.85rem; transition: color 0.3s ease;">
+                                <span class="chk-icon" id="trig-step-1-icon" style="font-size: 1.1rem;">⚪</span>
+                                <span>Step 1: Authenticate & Verify WorldQuant Brain Session</span>
+                            </div>
+                            <div class="chk-step" id="trig-step-2" style="display: flex; align-items: center; gap: 12px; color: var(--text-muted, #94a3b8); font-size: 0.85rem; transition: color 0.3s ease;">
+                                <span class="chk-icon" id="trig-step-2-icon" style="font-size: 1.1rem;">⚪</span>
+                                <span>Step 2: Dynamic Fields & Operators Extraction (ace_lib)</span>
+                            </div>
+                            <div class="chk-step" id="trig-step-3" style="display: flex; align-items: center; gap: 12px; color: var(--text-muted, #94a3b8); font-size: 0.85rem; transition: color 0.3s ease;">
+                                <span class="chk-icon" id="trig-step-3-icon" style="font-size: 1.1rem;">⚪</span>
+                                <span>Step 3: Call Gemini AI Model Generator Suite</span>
+                            </div>
+                            <div class="chk-step" id="trig-step-4" style="display: flex; align-items: center; gap: 12px; color: var(--text-muted, #94a3b8); font-size: 0.85rem; transition: color 0.3s ease;">
+                                <span class="chk-icon" id="trig-step-4-icon" style="font-size: 1.1rem;">⚪</span>
+                                <span>Step 4: Save Structured Portfolio (alphas_dataset json)</span>
+                            </div>
+                            <div class="chk-step" id="trig-step-5" style="display: flex; align-items: center; gap: 12px; color: var(--text-muted, #94a3b8); font-size: 0.85rem; transition: color 0.3s ease;">
+                                <span class="chk-icon" id="trig-step-5-icon" style="font-size: 1.1rem;">⚪</span>
+                                <span>Step 5: Inject Alphas into Telemetry Review Inbox</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mini focused logs panel -->
+                    <div class="console-wrapper" style="flex-grow: 1; min-height: 250px; display: flex; flex-direction: column;">
+                        <div class="terminal-chrome">
+                            <div class="chrome-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="chrome-title">Trigger Flow Sequencer Telemetry</div>
+                        </div>
+                        <div class="console-log" id="trig-log-console" style="flex-grow: 1; padding: 12px; font-family: 'Fira Code', monospace; font-size: 0.75rem; background: rgba(5,5,5,0.5); overflow-y: auto; color: #a5f3fc; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; max-height: 300px;">
+                            <div style="color: var(--text-muted, #94a3b8); font-style: italic;">Enter parameters on the left and click Launch to start alpha quantitative synthesis.</div>
                         </div>
                     </div>
                 </div>

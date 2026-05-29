@@ -55,6 +55,9 @@ class SingleSession(requests.Session):
     def __init__(self, *args, **kwargs):
         if not self._initialized:
             super(SingleSession, self).__init__(*args, **kwargs)
+            import urllib3
+            urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+            self.verify = False
             self._initialized = True
 
     def get_relogin_lock(self):

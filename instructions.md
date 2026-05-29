@@ -18,7 +18,16 @@ Every future AI agent or developer loading this workspace **MUST STRICTLY FOLLOW
 6. **LIVING RESEARCH DOCUMENTATION**: Whenever a backtest completes, query `db/alpha_vault.db`. If you identify a formula that successfully qualifies for submission (Sharpe $\ge 1.25$, Fitness $\ge 1.0$), you must immediately write the formula, parameters, and structural insights into the research file [research.md](file:///c:/Users/Admin/Documents/VIBE_YT/wq/research.md). Keep this manual continuously updated with fresh, successful quant ideas.
 7. **RED COLOR TAGGING**: Any qualified alpha must be patched with the color **"RED"** on the remote server via the `/alphas/{id}` API endpoint immediately upon submission.
 8. **API-ONLY QUEUE MANAGEMENT — NEVER GITHUB**: All alpha queue operations (push, append, overwrite, clean) MUST be performed exclusively via the Render server's secure REST API using the token. The scripts to use are `scratch_append_30.py` (append) or `scratch_push_30_master_alphas.py` (overwrite). **NEVER use `git push` to manage the alpha queue.** GitHub pushes are reserved ONLY for code changes (new features, bug fixes). The API endpoints available are: `/api/overwrite-queue` (replace all), `/api/queue-alpha` (add one), `/api/clear-queue` (empty disk queue), `/api/clean-queue` (remove failed), `/api/stop-pipeline`, `/api/start-pipeline`.
-9. **SCHEDULER DEDUP AWARENESS**: The background pipeline thread maintains an in-memory `scheduled_formulas` set. Any formula previously seen in a session will be **skipped** even if re-injected via API. To force a fresh re-schedule of all formulas, slightly modify the epsilon values in formula strings (e.g., `0.001` → `0.0010`) before pushing. This bypasses the string-match dedup while keeping math identical.---
+9. **SCHEDULER DEDUP AWARENESS**: The background pipeline thread maintains an in-memory `scheduled_formulas` set. Any formula previously seen in a session will be **skipped** even if re-injected via API. To force a fresh re-schedule of all formulas, slightly modify the epsilon values in formula strings (e.g., `0.001` → `0.0010`) before pushing. This bypasses the string-match dedup while keeping math identical.
+10. **CHAT-BASED DYNAMIC TRIGGER FLOW MAGIC PHRASE**: If the user says: **"trigger file for generating [number] alphas from [dataset] dataset"**, you must immediately execute the dynamic quant researcher trigger sequence **directly in the chat** without using any code loops or requesting API keys:
+    a. Run a quick script to fetch all available datafields and operators for `[dataset]` via `ace_lib` and display them in the console.
+    b. Read the returned field IDs and descriptions.
+    c. Use your own advanced reasoning (as a premium quant model) to design exactly `[number]` unique, high-fitness WQ FastExpr formulas custom-tailored to these fields.
+    d. Write the complete portfolio of formulas directly to `alphas_dataset/[dataset]/alphas/generated_alphas.json` in standard WQ alpha configurations (delay=1, pasteurization=ON, unitHandling=VERIFY).
+    e. Push the generated alphas directly to the active review inbox `/api/queue-alpha` of the running console server.
+    f. Print all the step-by-step progress and list every generated alpha formula directly in the chat window so the user can review them live!
+
+---
 
 ## 🏗️ 0.5. Pipeline Architecture & Multi-Profile Specs
 
@@ -77,6 +86,7 @@ To run the quant workflow with zero friction, execute these commands or type the
 | **`START PIPELINE`** | Runs queue | `python run_pipeline.py` | Launches the Flask telemetry dashboard on port 8000 and executes the queue under a strict 3-worker limit. |
 | **`PUSH CODES`** | Appends new alphas | `python manage_queue.py append` | Appends up to 5 unique, compliant price/volume formulas from pool to `db/simulation_queue.json`. |
 | **`LOAD CODES`** | Replaces old queue | `python manage_queue.py replace` | Overwrites `db/simulation_queue.json` completely with a fresh set of 5 pricing/volume-based formulas. |
+| **`RUN TRIGGER`** | Initiates trigger pipeline | `python run_trigger.py` | Dynamically fetches fields/operators for a dataset, calls Gemini API to design and expand tailormade mathematical quantitative models, and pushes all generated alphas directly into the web dashboard review inbox (e.g. `python run_trigger.py --dataset analyst10 --count 200`). |
 
 ---
 
@@ -525,5 +535,50 @@ Today, we resolved critical backend session-hijacking blocks and resolved termin
     1.  Completely removed the deprecated "Dynamic Alpha Injector" module.
     2.  Redesigned the **API Review Inbox** to mimic the exact compact, premium card structure of the **Active Backtesting Queue**.
     3.  Implemented smooth, dynamic micro-animations, glassmorphic card boundaries, and absolute height bounds to prevent overflow and maintain premium visual alignment.
+
+---
+
+## ⚡ 15. The Unified Dataset Trigger Flow Specification (May 28, 2026)
+
+We have implemented an industrial-grade **Trigger Flow** system that allows developers and quantitative researchers to generate custom, syntactically correct alphas for *any* WorldQuant BRAIN dataset in seconds and inject them directly to the simulation pipeline.
+
+### A. Core HTTP API Specification
+
+#### 1. POST `/api/trigger-flow`
+Initiates a background thread to fetch fields and operators using `ace_lib` and generate alphas in the background.
+- **Request Body (JSON)**:
+  ```json
+  {
+    "dataset": "analyst10",  // Dataset name to query via ace_lib
+    "count": 200,            // Number of unique alphas to generate
+    "gemini_key": ""         // Optional Gemini API Key override
+  }
+  ```
+- **Returns**: `{"status": "ok", "message": "Trigger flow background sequencer started."}`
+
+#### 2. GET `/api/trigger-status`
+Returns the active state, percentage, step checklists, newly generated formulas list, and live logging buffer.
+- **Returns (JSON)**:
+  ```json
+  {
+    "status": "RUNNING",       // IDLE, RUNNING, SUCCESS, ERROR
+    "dataset": "analyst10",
+    "target_count": 200,
+    "progress_percent": 65,
+    "current_step": "Generating WQ Formulas",
+    "generated_count": 130,
+    "logs": [ ... ],
+    "formulas": [ ... ],
+    "error_message": ""
+  }
+  ```
+
+### B. Dynamic Stepped Checklist Registry
+The visual web UI (`static/index.html` & `static/app.js`) implements a stepped loading checklist tracking progress dynamically:
+- **Step 1**: Authenticate and verify the active WorldQuant session via `ace_lib` (`15%` progress).
+- **Step 2**: Dynamically fetch all fields and mathematical operators matching the search target (`30%` progress).
+- **Step 3**: Invoke the **Gemini API** to design tailored quantitative models (Gated Reversion, Social Sentiment, Volume anomalies) and expand them into `N` unique candidate FastExpr alphas via a programmatic loop (`50%` to `80%` progress).
+- **Step 4**: Save the generated formulas portfolio locally inside the project workspace at `alphas_dataset/<dataset_name>/alphas/generated_alphas.json` (`85%` progress).
+- **Step 5**: Safely inject the new portfolio directly into the console server's **Review Inbox** (`90%` to `100%` progress).
 
 
