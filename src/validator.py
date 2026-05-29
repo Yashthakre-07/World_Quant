@@ -30,7 +30,7 @@ ALLOWED_FIELDS.update(load_custom_fields())
 # List of allowed operators
 ALLOWED_OPS = {
     # Cross sectional
-    "rank", "zscore", "scale", "sigmoid", "exp", "fraction", "log", "log_diff", "pasteurize", "abs", "sign", "signed_power",
+    "rank", "zscore", "scale", "sigmoid", "exp", "fraction", "log", "log_diff", "pasteurize", "abs", "sign", "signed_power", "max", "min",
     # Time series
     "ts_delta", "ts_delay", "ts_rank", "ts_sum", "ts_mean", "ts_std_dev", "ts_corr", "ts_covariance", "ts_regression", 
     "ts_decay_linear", "ts_product", "ts_max", "ts_min", "ts_arg_max", "ts_arg_min", "ts_max_diff", "ts_min_diff", 

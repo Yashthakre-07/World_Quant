@@ -168,9 +168,12 @@ def start_session() -> SingleSession:
     logger.debug(f"New session created (ID: {id(s)}) with authentication response: {r.status_code}, {r.json()}")
     if r.status_code == requests.status_codes.codes.unauthorized:
         if r.headers["WWW-Authenticate"] == "persona":
+            biometric_url = urljoin(r.url, r.headers["Location"])
+            if "api.worldquantbrain.com" in biometric_url:
+                biometric_url = biometric_url.replace("api.worldquantbrain.com", "platform.worldquantbrain.com")
             print(
                 "Complete biometrics authentication and press any key to continue: \n"
-                + urljoin(r.url, r.headers["Location"])
+                + biometric_url
                 + "\n"
             )
             input()

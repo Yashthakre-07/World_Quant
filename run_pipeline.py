@@ -3135,6 +3135,7 @@ def simulate_task(index, task, task_state, session, slot_id=1):
     # Polling Loop
     retry_count = 0
     alpha_id = None
+    last_logged_progress = -1
     while True:
         try:
             poll_r = robust_request(session, "GET", nxt_url, index=index, timeout=30)
@@ -3154,7 +3155,9 @@ def simulate_task(index, task, task_state, session, slot_id=1):
 
             progress = int(res.get('progress', 0) * 100)
             task_state["progress"] = max(35, progress)
-            log_message("INFO", f"Alpha #{index+1}: WorldQuant backtesting progress... {progress}%")
+            if progress != last_logged_progress:
+                log_message("INFO", f"Alpha #{index+1}: WorldQuant backtesting progress... {progress}%")
+                last_logged_progress = progress
 
             if 'message' in res and 'error' in str(res.get('message', '')).lower():
                 err_msg = res['message']
@@ -3339,6 +3342,7 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session, slot_id=1)
     # Polling Loop
     retry_count = 0
     children = []
+    last_logged_progress = -1
     while True:
         try:
             poll_r = robust_request(session, "GET", parent_url, index=valid_indices[0], timeout=30)
@@ -3359,7 +3363,9 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session, slot_id=1)
             progress = int(res.get('progress', 0) * 100)
             for st in valid_states:
                 st["progress"] = max(35, progress)
-            log_message("INFO", f"Batch ({valid_alphas_label}) backtesting progress... {progress}%")
+            if progress != last_logged_progress:
+                log_message("INFO", f"Batch ({valid_alphas_label}) backtesting progress... {progress}%")
+                last_logged_progress = progress
 
             if 'message' in res and 'error' in str(res.get('message', '')).lower():
                 err_msg = res['message']
@@ -3492,7 +3498,8 @@ def main():
         while True:
             try:
                 _req.get(url, timeout=5)
-                log_message("INFO", "[KEEPALIVE] Self-ping OK — Render spin-down prevented.")
+                # Print directly to stdout rather than using log_message to avoid spamming the dashboard UI
+                print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [DEBUG] [KEEPALIVE] Self-ping OK — Render spin-down prevented.")
             except Exception as e:
                 log_message("WARNING", f"[KEEPALIVE] Self-ping failed: {e}")
                 send_whatsapp(f"⚠️ SERVER ALERT\nKeep-alive ping FAILED! Server may be going to sleep.\nError: {str(e)[:100]}")
