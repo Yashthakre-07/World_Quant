@@ -113,16 +113,22 @@ class WQSession(requests.Session):
                 inquiry = r.json()['inquiry']
                 inquiry_id = inquiry.get('id') if isinstance(inquiry, dict) else inquiry
                 
-                # Check for Location header first, otherwise fall back to manual URL assembly
-                if 'Location' in r.headers:
-                    from urllib.parse import urljoin
-                    biometric_url = urljoin(r.url, r.headers['Location'])
-                else:
-                    biometric_url = f"{r.url}/persona?inquiry={inquiry_id}"
+                biometric_url = None
+                # Prioritize the direct Persona verification URL to bypass WorldQuant account and login redirections!
+                if isinstance(inquiry, dict) and 'url' in inquiry and inquiry['url']:
+                    biometric_url = inquiry['url']
                 
-                # Redirect api.worldquantbrain.com to platform.worldquantbrain.com for user-friendly browser verification
-                if "api.worldquantbrain.com" in biometric_url:
-                    biometric_url = biometric_url.replace("api.worldquantbrain.com", "platform.worldquantbrain.com")
+                if not biometric_url:
+                    # Fallback to Location header or manual URL assembly
+                    if 'Location' in r.headers:
+                        from urllib.parse import urljoin
+                        biometric_url = urljoin(r.url, r.headers['Location'])
+                    else:
+                        biometric_url = f"{r.url}/persona?inquiry={inquiry_id}"
+                    
+                    # Redirect api.worldquantbrain.com to platform.worldquantbrain.com for user-friendly browser verification
+                    if "api.worldquantbrain.com" in biometric_url:
+                        biometric_url = biometric_url.replace("api.worldquantbrain.com", "platform.worldquantbrain.com")
                 
                 if self.interactive or not self.cli_mode:
                     raise PersonaRequiredException(biometric_url, r.json(), self)
