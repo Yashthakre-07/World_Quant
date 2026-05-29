@@ -2707,6 +2707,29 @@ def robust_request(session, method, url, index=None, **kwargs):
             log_message("WARNING", f"{lbl}Network connection dropped. Patiently retrying in 30 seconds... (Reason: {e})")
             time.sleep(30)
 
+def update_local_alpha_file_status(alpha_id, new_status, error_message=None):
+    if not alpha_id:
+        return
+    try:
+        out_dir = Path(ALPHAS_OUT_DIR)
+        alpha_file = out_dir / f"alpha_{alpha_id}.json"
+        if alpha_file.exists():
+            if new_status == "HARD_REJECT":
+                # Delete the file so only true, valid submissions remain on disk
+                alpha_file.unlink()
+                log_message("INFO", f"Cleaned up local file: Removed rejected alpha {alpha_id} from disk.")
+            else:
+                # Update status
+                with open(alpha_file, "r") as f:
+                    data = json.load(f)
+                data["status"] = new_status
+                if error_message:
+                    data["error_message"] = error_message
+                with open(alpha_file, "w") as f:
+                    json.dump(data, f, indent=2)
+    except Exception as e:
+        log_message("WARNING", f"Failed to sync local alpha file status: {e}")
+
 def process_completed_alpha(index, task, task_state, alpha_id, nxt_url, run_uuid, session):
     family = task["family"]
     hypothesis = task["hypothesis"]
@@ -2950,6 +2973,9 @@ def process_completed_alpha(index, task, task_state, alpha_id, nxt_url, run_uuid
         # Update database status if it was modified to HARD_REJECT during submission checks
         if task_state["status"] == "HARD_REJECT":
             try:
+                # Sync and clean up local file from disk if rejected
+                update_local_alpha_file_status(alpha_id, "HARD_REJECT")
+                
                 import sqlite3
                 from src.config import DB_PATH
                 conn = sqlite3.connect(DB_PATH)
