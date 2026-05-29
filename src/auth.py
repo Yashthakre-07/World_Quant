@@ -130,44 +130,50 @@ class WQSession(requests.Session):
                     if "api.worldquantbrain.com" in biometric_url:
                         biometric_url = biometric_url.replace("api.worldquantbrain.com", "platform.worldquantbrain.com")
                 
-                if self.interactive or not self.cli_mode:
+                if self.interactive:
                     raise PersonaRequiredException(biometric_url, r.json(), self)
-                
-                import os
-                is_headless = os.environ.get("RENDER") or not os.isatty(0)
+                elif self.cli_mode:
+                    # Direct CLI execution (e.g., manual script execution on terminal): display link and wait
+                    import os
+                    is_headless = os.environ.get("RENDER") or not os.isatty(0)
 
-                if is_headless:
-                    # On Render: log the URL and poll automatically until verified
-                    log_auth("WARNING", "=" * 60)
-                    log_auth("WARNING", "[AUTH] BIOMETRIC VERIFICATION REQUIRED!")
-                    log_auth("WARNING", f"[AUTH] Open this URL in your browser to verify:")
-                    log_auth("WARNING", f"[AUTH] >>> {biometric_url} <<<")
-                    log_auth("WARNING", "[AUTH] Polling for verification every 10 seconds...")
-                    log_auth("WARNING", "=" * 60)
-                    verified = False
-                    for attempt in range(60):  # Wait up to 10 minutes
-                        time.sleep(10)
+                    if is_headless:
+                        # On Render CLI: log the URL and poll automatically until verified
+                        log_auth("WARNING", "=" * 60)
+                        log_auth("WARNING", "[AUTH] BIOMETRIC VERIFICATION REQUIRED!")
+                        log_auth("WARNING", f"[AUTH] Open this URL in your browser to verify:")
+                        log_auth("WARNING", f"[AUTH] >>> {biometric_url} <<<")
+                        log_auth("WARNING", "[AUTH] Polling for verification every 10 seconds...")
+                        log_auth("WARNING", "=" * 60)
+                        verified = False
+                        for attempt in range(60):  # Wait up to 10 minutes
+                            time.sleep(10)
+                            p_r = self.post(f"https://api.worldquantbrain.com/authentication/persona", json=r.json())
+                            if p_r.status_code == 201:
+                                log_auth("INFO", "[AUTH] Biometric verification confirmed! Logged in successfully.")
+                                self.login_expired = False
+                                self.save_persisted_cookies()
+                                verified = True
+                                break
+                            log_auth("INFO", f"[AUTH] Waiting for browser verification... (attempt {attempt+1}/60)")
+                        if not verified:
+                            raise ValueError("Biometric verification timed out after 10 minutes.")
+                    else:
+                        # Local machine CLI: open browser and wait for Enter key
+                        webbrowser.open(biometric_url)
+                        input(f"Complete verification at: {biometric_url}\nThen press Enter here to continue...")
                         p_r = self.post(f"https://api.worldquantbrain.com/authentication/persona", json=r.json())
                         if p_r.status_code == 201:
-                            log_auth("INFO", "[AUTH] Biometric verification confirmed! Logged in successfully.")
+                            log_auth("INFO", "[AUTH] Successfully logged in to WorldQuant Brain after Persona verification!")
                             self.login_expired = False
                             self.save_persisted_cookies()
-                            verified = True
-                            break
-                        log_auth("INFO", f"[AUTH] Waiting for browser verification... (attempt {attempt+1}/60)")
-                    if not verified:
-                        raise ValueError("Biometric verification timed out after 10 minutes.")
+                        else:
+                            raise ValueError(f"Persona verification failed: {p_r.text}")
                 else:
-                    # Local machine: open browser and wait for Enter key
-                    webbrowser.open(biometric_url)
-                    input(f"Complete verification at: {biometric_url}\nThen press Enter here to continue...")
-                    p_r = self.post(f"https://api.worldquantbrain.com/authentication/persona", json=r.json())
-                    if p_r.status_code == 201:
-                        log_auth("INFO", "[AUTH] Successfully logged in to WorldQuant Brain after Persona verification!")
-                        self.login_expired = False
-                        self.save_persisted_cookies()
-                    else:
-                        raise ValueError(f"Persona verification failed: {p_r.text}")
+                    # Headless Background Startup / Deploy: do NOT block, do NOT poll, do NOT alert!
+                    self.login_expired = True
+                    log_auth("WARNING", f"[AUTH] Biometric verification is required for {src.config.WQ_EMAIL}, but interactive/cli mode is False (background startup/deploy). Deferring login until user clicks '🔑 Re-auth Session' on the dashboard.")
+                    return
             else:
                 resp_json = r.json()
                 log_auth("ERROR", f"[AUTH] Authentication response warning: {resp_json}")
