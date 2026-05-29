@@ -1471,6 +1471,9 @@ def purge_vault():
             cursor = conn.cursor()
             cursor.execute("DELETE FROM submitted_alphas")
             cursor.execute("DELETE FROM alpha_runs")
+            cursor.execute("DELETE FROM all_alphas")
+            cursor.execute("DELETE FROM rejected_alphas")
+            cursor.execute("DELETE FROM queue")
             conn.commit()
             conn.close()
             cleared_db = True

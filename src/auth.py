@@ -71,7 +71,13 @@ class WQSession(requests.Session):
                 log_auth("WARNING", f"[AUTH] Failed to verify saved session: {e}")
                 
         if not is_authenticated:
-            self.authenticate()
+            # ONLY attempt automatic login/authentication if interactive or in cli_mode!
+            # During background deploy/startup, we defer login entirely until the user interactively triggers it.
+            if self.interactive or self.cli_mode:
+                self.authenticate()
+            else:
+                self.login_expired = True
+                log_auth("INFO", "[AUTH] Background startup/deploy detected. Skipping authentication attempt silently. Session will be activated when you click '🔑 Re-auth Session' on the dashboard.")
 
     def load_persisted_cookies(self):
         if self.cookies_path.exists():
@@ -114,8 +120,10 @@ class WQSession(requests.Session):
                 inquiry_id = inquiry.get('id') if isinstance(inquiry, dict) else inquiry
                 
                 biometric_url = None
-                # Prioritize the direct Persona verification URL to bypass WorldQuant account and login redirections!
-                if isinstance(inquiry, dict) and 'url' in inquiry and inquiry['url']:
+                # Prioritize direct Persona verification hosted URL to bypass WorldQuant wrapper account login entirely!
+                if inquiry_id:
+                    biometric_url = f"https://inquiry.withpersona.com/verify?inquiry-id={inquiry_id}"
+                elif isinstance(inquiry, dict) and 'url' in inquiry and inquiry['url']:
                     biometric_url = inquiry['url']
                 
                 if not biometric_url:
