@@ -2663,6 +2663,8 @@ def robust_request(session, method, url, index=None, **kwargs):
     """Sends an API request, automatically retries on network drop, and self-heals by logging back in on HTTP 401."""
     import requests
     global active_session
+    auth_retries = 0
+    rate_limit_retries = 0
     while True:
         # Wait if active_session is None, rate-limiting the logs to avoid spamming
         last_log_time = 0
@@ -2680,8 +2682,13 @@ def robust_request(session, method, url, index=None, **kwargs):
                 kwargs['timeout'] = 30
             r = current_session.request(method, url, **kwargs)
             if r.status_code == 401:
+                auth_retries += 1
                 lbl = f"Alpha #{index+1}: " if index is not None else ""
-                log_message("WARNING", f"{lbl}Session expired (HTTP 401). Attempting automatic re-authentication...")
+                if auth_retries > 2:
+                    log_message("ERROR", f"{lbl}Automatic re-authentication limit (2) exceeded. Aborting to prevent account blockage.")
+                    active_session = None
+                    return r
+                log_message("WARNING", f"{lbl}Session expired (HTTP 401). Attempting automatic re-authentication (Attempt {auth_retries}/2)...")
                 with reauth_lock:
                     # Check if session was already updated or cleared (failed re-auth) by another thread
                     if active_session is None or active_session != current_session:
@@ -2716,8 +2723,12 @@ def robust_request(session, method, url, index=None, **kwargs):
                         # Fall through to return the raw 401 to let the caller manage/fail as backup
                         return r
             if r.status_code == 429:
+                rate_limit_retries += 1
                 lbl = f"Alpha #{index+1}: " if index is not None else ""
-                log_message("WARNING", f"{lbl}Rate limit exceeded (HTTP 429). Waiting 10 seconds to retry...")
+                if rate_limit_retries > 5:
+                    log_message("ERROR", f"{lbl}Rate limit exceeded repeatedly (5 times). Aborting request.")
+                    return r
+                log_message("WARNING", f"{lbl}Rate limit exceeded (HTTP 429). Waiting 10 seconds to retry (Attempt {rate_limit_retries}/5)...")
                 time.sleep(10)
                 continue
             return r

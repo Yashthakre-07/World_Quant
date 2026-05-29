@@ -58,14 +58,24 @@ class SingleSession(requests.Session):
             self._initialized = True
 
     def request(self, method, url, *args, **kwargs):
+        auth_retries = 0
+        rate_limit_retries = 0
         while True:
             response = super().request(method, url, *args, **kwargs)
             if response.status_code == 429:
-                print(f"[API] Rate limit exceeded (HTTP 429) at {url}. Waiting 10 seconds to retry...")
+                rate_limit_retries += 1
+                if rate_limit_retries > 5:
+                    print(f"[API] Rate limit exceeded repeatedly (5 times) at {url}. Aborting request to prevent block.")
+                    return response
+                print(f"[API] Rate limit exceeded (HTTP 429) at {url}. Waiting 10 seconds to retry (Attempt {rate_limit_retries}/5)...")
                 time.sleep(10)
                 continue
             if response.status_code == 401:
-                print(f"[AUTH] Session expired (HTTP 401). Silent re-authentication triggered...")
+                auth_retries += 1
+                if auth_retries > 2:
+                    print(f"[AUTH] Re-authentication failed repeatedly (2 times). Aborting to prevent account blockage/lockout.")
+                    return response
+                print(f"[AUTH] Session expired (HTTP 401). Silent re-authentication triggered (Attempt {auth_retries}/2)...")
                 try:
                     self.auth = get_credentials()
                     # Re-post authentication to renew token
