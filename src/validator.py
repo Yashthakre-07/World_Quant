@@ -102,4 +102,12 @@ def validate_fastexpr(formula: str) -> tuple[bool, str]:
     if re.search(r'\b(and|or|not)\b', expr, re.IGNORECASE):
         return False, "Use logical operators '&&', '||', '!' instead of python words 'and', 'or', 'not'."
 
+    # 4. Check for invalid consecutive/adjacent operators (like ++, --, **, //, ++*, *+, etc.)
+    # Spaceless string helps check for cases with extra whitespace (e.g., '+ + *')
+    spaceless_expr = re.sub(r'\s+', '', expr)
+    if re.search(r'\+\++|\-\-+|\*\*|\/\/|%%|&&&|\|\|\|', spaceless_expr):
+        return False, "Invalid consecutive operators detected (like ++, --, **, or //)."
+    if re.search(r'\+\*|\*\+|\/\*|\*\/|\/\+|\+\/|\-\/', spaceless_expr):
+        return False, "Invalid operator combination detected (like +*, *+, /*, */, /+, +/, or -/)."
+
     return True, "Valid syntax."
