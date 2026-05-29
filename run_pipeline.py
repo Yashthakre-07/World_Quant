@@ -3442,10 +3442,37 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session, slot_id=1)
             child_res = child_r.json()
             alpha_id = child_res.get("alpha")
             if not alpha_id:
-                err_msg = child_res.get("message", "Child simulation failed on WQ cluster.")
-                log_message("ERROR", f"Alpha #{idx+1}: {err_msg}")
+                # Robust extraction of the error message from WorldQuant response
+                err_msg = None
+                if "message" in child_res and child_res["message"]:
+                    err_msg = child_res["message"]
+                elif "error" in child_res:
+                    if isinstance(child_res["error"], dict) and "message" in child_res["error"]:
+                        err_msg = child_res["error"]["message"]
+                    else:
+                        err_msg = str(child_res["error"])
+                elif "result" in child_res and isinstance(child_res["result"], dict) and "message" in child_res["result"]:
+                    err_msg = child_res["result"]["message"]
+                elif "logs" in child_res and child_res["logs"]:
+                    err_msg = "; ".join([str(l) for l in child_res["logs"]])
+                
+                if not err_msg:
+                    err_msg = "Child simulation failed on WQ cluster."
+                
+                # Determine if the failure is transient (temporary cluster glitch) vs permanent (bad formula)
+                is_transient = False
+                transient_keywords = ["timeout", "temporary", "transient", "internal cluster error", "database node failed", "502", "503", "504", "try again", "busy"]
+                for kw in transient_keywords:
+                    if kw in err_msg.lower():
+                        is_transient = True
+                        break
+                
+                final_status = "ERROR" if is_transient else "HARD_REJECT"
+                lbl_status = "TRANSIENT_ERROR" if is_transient else "HARD_REJECT"
+                
+                log_message("ERROR", f"Alpha #{idx+1}: {err_msg} ({lbl_status})")
                 st["status"] = "ERROR"
-                st["error_message"] = err_msg
+                st["error_message"] = f"{err_msg} ({lbl_status})"
                 
                 settings = dict(DEFAULT_SIM_SETTINGS)
                 if "settings" in t and t["settings"]:
@@ -3459,7 +3486,7 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session, slot_id=1)
                     "truncation": settings.get("truncation", 0.08),
                     "delay": settings.get("delay", 1),
                     "sharpe": None, "fitness": None, "turnover": None,
-                    "checks_passed": 0, "weight_check": "FAIL", "sub_sharpe": None, "status": "HARD_REJECT",
+                    "checks_passed": 0, "weight_check": "FAIL", "sub_sharpe": None, "status": final_status,
                     "alpha_link": None, "sim_link": child_url, "error_message": err_msg,
                     "llm_model": "gemini-1.5-flash", "parent_id": None
                 })
