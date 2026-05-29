@@ -76,6 +76,8 @@ pipeline_state = {
 
 pipeline_active = True
 active_session = None
+scheduled_formulas = set()
+completed_formulas = set()
 
 # Interactive re-authentication state
 reauth_state = {
@@ -1443,10 +1445,12 @@ def clear_queue():
             json.dump([], f, indent=2)
             
         # Clear dynamic queue in memory
-        global pipeline_state, pipeline_active
+        global pipeline_state, pipeline_active, scheduled_formulas, completed_formulas
         pipeline_state["alphas"] = []
         pipeline_state["status"] = "COMPLETED"
         pipeline_active = False
+        scheduled_formulas = set()
+        completed_formulas = set()
         
         log_message("INFO", "[API] Dynamic Queue & Inbox cleared and memory state reset via API command.")
         return jsonify({"status": "ok", "message": "Queue and memory state cleared successfully."})
@@ -3561,6 +3565,7 @@ def main():
     log_message("INFO", "[KEEPALIVE] Self-ping thread started (interval: 60s)")
 
     # Dynamic Queue Scheduler State
+    global scheduled_formulas, completed_formulas
     scheduled_formulas = set()
     completed_formulas = set()
     futures = []

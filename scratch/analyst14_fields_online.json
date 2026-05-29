@@ -1,0 +1,1552 @@
+[
+  {
+    "id": "anl4_fs_basic_splt_v4_nd_sales_estimate",
+    "description": "Analyst\u2019s estimated sales/revenue for the specified fiscal period",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_basic_splt_v4_nd_eps_estimate",
+    "description": "Analyst\u2019s estimated earnings per share for the specified fiscal period",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9682,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_netprofita_low",
+    "description": "Adjusted net income \u2013 lowest analyst estimate",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8557,
+    "userCount": 1,
+    "alphaCount": 1,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_ptp_number",
+    "description": "Pretax income, number of analyst estimates",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9355,
+    "userCount": 7,
+    "alphaCount": 9,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_grossincome_low",
+    "description": "Lowest analyst estimate for gross income",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6803,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_sh_equity_high",
+    "description": "Shareholders' Equity highest analyst estimate",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7264,
+    "userCount": 2,
+    "alphaCount": 2,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_ebitda_number",
+    "description": "Number of analyst estimates for EBITDA",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7649,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_netprofit_number",
+    "description": "Net Profit - number of analyst estimates",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9409,
+    "userCount": 210,
+    "alphaCount": 253,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_lt_v4_nd_estimate",
+    "description": "Current estimate value reported by the analyst",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9834,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_grossincome_number",
+    "description": "Number of analyst estimates for gross income",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6803,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_ptp_high",
+    "description": "Pretax income, highest analyst estimate",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9355,
+    "userCount": 6,
+    "alphaCount": 9,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_ptp_low",
+    "description": "Pretax income, lowest analyst estimate",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9355,
+    "userCount": 30,
+    "alphaCount": 37,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_ebit_low",
+    "description": "Lowest analyst annual estimate for EBIT",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9326,
+    "userCount": 18,
+    "alphaCount": 22,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_ebitda_low",
+    "description": "Lowest analyst annual estimate for EBITDA",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8021,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_sh_equity_low",
+    "description": "Shareholders' Equity lowest analyst estimate",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7264,
+    "userCount": 4,
+    "alphaCount": 5,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_basic_splt_v4_nd_div_estimate",
+    "description": "Analyst\u2019s estimated dividend per share for the specified fiscal period",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.4541,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_netprofit_low",
+    "description": "Net profit - lowest analyst estimate",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9409,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_ebit_high",
+    "description": "Highest analyst annual estimate for EBIT",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9326,
+    "userCount": 14,
+    "alphaCount": 17,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_grossincome_low",
+    "description": "Lowest analyst annual estimate for Gross Income",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7442,
+    "userCount": 3,
+    "alphaCount": 3,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_ebitda_high",
+    "description": "Highest analyst annual estimate for EBITDA",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8021,
+    "userCount": 1,
+    "alphaCount": 1,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_fcf_number",
+    "description": "Number of analyst estimates for free cash flow",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.5519,
+    "userCount": 7,
+    "alphaCount": 7,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_ptp_high",
+    "description": "Highest analyst estimate for pretax income",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9083,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_fcf_high",
+    "description": "Highest analyst forecast for annual free cash flow",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6984,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_rd_exp_low",
+    "description": "Lowest analyst estimate for Research and Development expenditure",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.3709,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_grossincome_high",
+    "description": "Highest analyst annual estimate for Gross Income",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7442,
+    "userCount": 1,
+    "alphaCount": 1,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_rd_exp_number",
+    "description": "Number of analyst estimates for research and development expense",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.3709,
+    "userCount": 1,
+    "alphaCount": 1,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_fcf_high",
+    "description": "Highest analyst estimate for free cash flow",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.5519,
+    "userCount": 3,
+    "alphaCount": 3,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_fcf_number",
+    "description": "Number of analyst estimates for annual free cash flow",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6984,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_fcf_low",
+    "description": "Lowest analyst forecast for annual free cash flow",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6984,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_sh_equity_high",
+    "description": "Highest analyst annual estimate for Shareholders' Equity",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8724,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_sh_equity_low",
+    "description": "Lowest analyst annual estimate for Shareholders' Equity",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8724,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_ptpr_number",
+    "description": "Number of analyst estimates for reported pretax income",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.4519,
+    "userCount": 12,
+    "alphaCount": 13,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_epsr_low",
+    "description": "Lowest analyst estimate for GAAP EPS (reported EPS)",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8623,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_basic_af_v4_nd_sales_high",
+    "description": "Sales/Revenue highest analyst estimate for the annual period",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9917,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_ptp_mean",
+    "description": "Pretax income, mean of analyst estimates",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9355,
+    "userCount": 7,
+    "alphaCount": 13,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_ebit_mean",
+    "description": "Mean of analyst estimates for EBIT",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9061,
+    "userCount": 3,
+    "alphaCount": 3,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_netdebt_high",
+    "description": "Net debt highest analyst estimate",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.3728,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_ebit_number",
+    "description": "Number of contributing analyst annual estimates for EBIT",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9326,
+    "userCount": 1,
+    "alphaCount": 1,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_netdebt_low",
+    "description": "Lowest analyst annual estimate for Net Debt",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6041,
+    "userCount": 2,
+    "alphaCount": 3,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_sga_high",
+    "description": "Highest analyst estimate for Selling, General and Administrative expenses",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.5475,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_basic_af_v4_nd_sales_low",
+    "description": "Sales/Revenue lowest analyst estimate for the annual period",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9917,
+    "userCount": 1,
+    "alphaCount": 1,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_ptp_median",
+    "description": "Pretax income, median of analyst estimates",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9355,
+    "userCount": 1,
+    "alphaCount": 1,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_ebitda_number",
+    "description": "Number of contributing analyst annual estimates for EBITDA",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8021,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_sga_low",
+    "description": "Lowest analyst estimate for Selling, General and Administrative expenses",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.5475,
+    "userCount": 2,
+    "alphaCount": 3,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_cff_high",
+    "description": "Highest analyst forecast for annual cash flow from financing",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6905,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_ebitda_mean",
+    "description": "Mean of analyst estimates for EBITDA",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7649,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_ptpr_low",
+    "description": "Lowest analyst estimate for annual reported pretax income",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.5126,
+    "userCount": 1,
+    "alphaCount": 1,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_cfi_number",
+    "description": "Number of analyst estimates for annual cash flow from investing",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.692,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimates_advanced_af_nd_netdebt_high",
+    "description": "Highest analyst annual estimate for Net Debt",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6041,
+    "userCount": 1,
+    "alphaCount": 1,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  },
+  {
+    "id": "anl4_fs_detail_estimate_1qf_v4_nd_netprofita_mean",
+    "description": "Mean of analyst estimates for adjusted net income",
+    "dataset": {
+      "id": "analyst4",
+      "name": "Analyst Estimate Data for Equity"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8557,
+    "userCount": 0,
+    "alphaCount": 0,
+    "themes": [],
+    "dataset_id": "analyst4",
+    "dataset_name": "Analyst Estimate Data for Equity",
+    "category_id": "analyst",
+    "category_name": "Analyst",
+    "subcategory_id": "analyst-analyst-estimates",
+    "subcategory_name": "Analyst Estimates"
+  }
+]
