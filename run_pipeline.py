@@ -1022,8 +1022,16 @@ def get_session():
         sai_email = ""
         sai_env_path = Path("sai.env")
         if sai_env_path.exists():
-            from dotenv import dotenv_values
-            sai_config = dotenv_values(sai_env_path)
+            sai_config = {}
+            try:
+                from dotenv import dotenv_values
+                sai_config = dotenv_values(sai_env_path)
+            except ImportError:
+                with open(sai_env_path, "r") as f:
+                    for line in f:
+                        if "=" in line and not line.strip().startswith("#"):
+                            k, v = line.split("=", 1)
+                            sai_config[k.strip()] = v.strip().strip("'").strip('"')
             sai_email = sai_config.get("WQ_EMAIL", "")
             
         email_to_check = sai_email if sai_email else WQ_EMAIL
@@ -1083,12 +1091,20 @@ def reauthenticate():
         from src.auth import WQSession, PersonaRequiredException
         import src.auth
         import src.config
-        from dotenv import load_dotenv
-        
-        # Explicitly load Sai's environment variables
-        sai_env_path = Path("sai.env")
-        if sai_env_path.exists():
-            load_dotenv(sai_env_path, override=True)
+        try:
+            from dotenv import load_dotenv
+            # Explicitly load Sai's environment variables
+            sai_env_path = Path("sai.env")
+            if sai_env_path.exists():
+                load_dotenv(sai_env_path, override=True)
+        except ImportError:
+            sai_env_path = Path("sai.env")
+            if sai_env_path.exists():
+                with open(sai_env_path, "r") as f:
+                    for line in f:
+                        if "=" in line and not line.strip().startswith("#"):
+                            k, v = line.split("=", 1)
+                            os.environ[k.strip()] = v.strip().strip("'").strip('"')
             
         # Update config and auth module variables dynamically
         src.config.WQ_EMAIL = os.getenv("WQ_EMAIL", "")

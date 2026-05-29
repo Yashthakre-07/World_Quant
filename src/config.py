@@ -1,15 +1,17 @@
 import os
 from pathlib import Path
-from dotenv import load_dotenv
-
-# Load environment variables
-for env_name in ["sai.env", "yash.env", ".env"]:
-    env_path = Path(__file__).resolve().parent.parent / env_name
-    if env_path.exists():
-        load_dotenv(env_path, override=True)
-        break
-else:
-    load_dotenv()
+# Load environment variables (optional/conditional to avoid crashes on Render where env vars are set via Dashboard)
+try:
+    from dotenv import load_dotenv
+    for env_name in ["sai.env", "yash.env", ".env"]:
+        env_path = Path(__file__).resolve().parent.parent / env_name
+        if env_path.exists():
+            load_dotenv(env_path, override=True)
+            break
+    else:
+        load_dotenv()
+except ImportError:
+    pass
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
