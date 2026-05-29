@@ -1018,23 +1018,26 @@ def get_status():
 def get_session():
     """Decode the session JWT and return expiry info."""
     try:
-        # Load Sai's email dynamically from sai.env to always check the correct profile!
-        sai_email = ""
-        sai_env_path = Path("sai.env")
-        if sai_env_path.exists():
-            sai_config = {}
-            try:
-                from dotenv import dotenv_values
-                sai_config = dotenv_values(sai_env_path)
-            except ImportError:
-                with open(sai_env_path, "r") as f:
-                    for line in f:
-                        if "=" in line and not line.strip().startswith("#"):
-                            k, v = line.split("=", 1)
-                            sai_config[k.strip()] = v.strip().strip("'").strip('"')
-            sai_email = sai_config.get("WQ_EMAIL", "")
+        # Dynamically load the email based on environment
+        current_email = os.getenv("WQ_EMAIL", "")
+        if not current_email:
+            # If not set in environment (running locally), load from appropriate env file
+            token = os.getenv("API_SECRET_TOKEN", "")
+            env_path = Path("yash.env") if "op1" in token or "yash" in token.lower() else Path("sai.env")
+            if env_path.exists():
+                sai_config = {}
+                try:
+                    from dotenv import dotenv_values
+                    sai_config = dotenv_values(env_path)
+                except ImportError:
+                    with open(env_path, "r") as f:
+                        for line in f:
+                            if "=" in line and not line.strip().startswith("#"):
+                                k, v = line.split("=", 1)
+                                sai_config[k.strip()] = v.strip().strip("'").strip('"')
+                current_email = sai_config.get("WQ_EMAIL", "")
             
-        email_to_check = sai_email if sai_email else WQ_EMAIL
+        email_to_check = current_email if current_email else WQ_EMAIL
         safe_email = email_to_check.replace("@", "_").replace(".", "_") if email_to_check else "default"
         active_cookie_file = DB_DIR / f"session_cookies_{safe_email}.json"
         
@@ -1091,20 +1094,22 @@ def reauthenticate():
         from src.auth import WQSession, PersonaRequiredException
         import src.auth
         import src.config
-        try:
-            from dotenv import load_dotenv
-            # Explicitly load Sai's environment variables
-            sai_env_path = Path("sai.env")
-            if sai_env_path.exists():
-                load_dotenv(sai_env_path, override=True)
-        except ImportError:
-            sai_env_path = Path("sai.env")
-            if sai_env_path.exists():
-                with open(sai_env_path, "r") as f:
-                    for line in f:
-                        if "=" in line and not line.strip().startswith("#"):
-                            k, v = line.split("=", 1)
-                            os.environ[k.strip()] = v.strip().strip("'").strip('"')
+        # Determine the correct credentials based on environment
+        # If running on Render, the env variables are already set by Render, so we DO NOT want to override them!
+        if os.getenv("RENDER") != "true":
+            # Running locally: load the appropriate env file dynamically
+            token = os.getenv("API_SECRET_TOKEN", "")
+            env_path = Path("yash.env") if "op1" in token or "yash" in token.lower() else Path("sai.env")
+            if env_path.exists():
+                try:
+                    from dotenv import load_dotenv
+                    load_dotenv(env_path, override=True)
+                except ImportError:
+                    with open(env_path, "r") as f:
+                        for line in f:
+                            if "=" in line and not line.strip().startswith("#"):
+                                k, v = line.split("=", 1)
+                                os.environ[k.strip()] = v.strip().strip("'").strip('"')
             
         # Update config and auth module variables dynamically
         src.config.WQ_EMAIL = os.getenv("WQ_EMAIL", "")
