@@ -67,6 +67,147 @@ def send_whatsapp(message: str):
 submission_lock = threading.Lock()
 reauth_lock = threading.Lock()
 
+# Adaptive Rate Limiter Coordinator
+class AdaptiveRateLimiter:
+    def __init__(self):
+        self.spacing = 1.0  # start with 1.0 second dynamic delay spacing
+        self.decay_factor = 2.0  # double the spacing on HTTP 429
+        self.recovery_factor = 0.9  # slowly speed up (reduce spacing by 10% on success)
+        self.min_spacing = 0.5  # absolute fastest speed
+        self.max_spacing = 30.0  # absolute slowest speed
+        self.lock = threading.Lock()
+        
+    def wait_spacing(self):
+        with self.lock:
+            current_delay = self.spacing
+        log_message("INFO", f"[RATE] Enforcing adaptive rate-limit spacing of {current_delay:.2f}s...")
+        time.sleep(current_delay)
+        
+    def report_success(self, response_headers):
+        with self.lock:
+            remaining = None
+            for key, val in response_headers.items():
+                if "ratelimit-remaining" in key.lower():
+                    try:
+                        remaining = int(val)
+                    except ValueError:
+                        pass
+            
+            if remaining is not None:
+                if remaining > 15:
+                    self.spacing = max(self.min_spacing, self.spacing * 0.8)
+                else:
+                    self.spacing = min(self.max_spacing, self.spacing * 1.05)
+            else:
+                self.spacing = max(self.min_spacing, self.spacing * self.recovery_factor)
+            self.spacing = max(self.min_spacing, min(self.max_spacing, self.spacing))
+            
+    def report_429(self, retry_after=None):
+        with self.lock:
+            if retry_after:
+                try:
+                    self.spacing = max(self.spacing, float(retry_after))
+                except ValueError:
+                    self.spacing = min(self.max_spacing, self.spacing * self.decay_factor)
+            else:
+                self.spacing = min(self.max_spacing, self.spacing * self.decay_factor)
+            log_message("WARNING", f"[RATE] HTTP 429 detected! Backing off spacing to {self.spacing:.2f}s.")
+
+rate_limiter = AdaptiveRateLimiter()
+
+def check_local_pre_correlation(formula: str) -> tuple[bool, str, float]:
+    """
+    Checks the local structural token Jaccard correlation against successfully
+    submitted alphas in the SQLite database to prune duplicates before API submission.
+    Normalizes numeric parameters to identify parameter-only variations as duplicates.
+    """
+    import sqlite3
+    import re
+    from src.config import DB_PATH
+    
+    def tokenize(f):
+        # Normalize numeric parameters (e.g. ,10) or ,20) or integers to <num>)
+        # to catch structural overlaps with different parameters
+        f_norm = re.sub(r'\b\d+\b', '<num>', f.lower())
+        return set(re.findall(r'\b[a-z_][a-z0-9_]*\b', f_norm))
+        
+    t_new = tokenize(formula)
+    if not t_new:
+        return False, "", 0.0
+        
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+        cursor.execute("SELECT formula FROM alpha_runs WHERE status = 'SUBMITTED'")
+        existing_formulas = [row[0] for row in cursor.fetchall()]
+        conn.close()
+    except Exception as db_err:
+        log_message("WARNING", f"[PRE_CORR] Failed to fetch existing runs for pre-correlation: {db_err}")
+        return False, "", 0.0
+    
+    max_corr = 0.0
+    duplicate_f = ""
+    
+    for f_exist in existing_formulas:
+        t_exist = tokenize(f_exist)
+        if not t_exist:
+            continue
+        intersection = t_new.intersection(t_exist)
+        union = t_new.union(t_exist)
+        corr = len(intersection) / len(union) if union else 0.0
+        if corr > max_corr:
+            max_corr = corr
+            duplicate_f = f_exist
+            
+    if max_corr > 0.70:
+        return True, duplicate_f, max_corr
+    return False, "", max_corr
+
+def mutate_to_orthogonal(formula: str) -> str:
+    """
+    Mutates a formula parameters and operators dynamically (decay, delay, group variables, operators)
+    to generate a structurally and mathematically orthogonal alpha factor.
+    """
+    import re
+    
+    mutated = formula
+    
+    # 1. Neutralization Shift (Subindustry -> Industry or vice versa)
+    if "subindustry" in mutated:
+        mutated = mutated.replace("subindustry", "industry")
+    elif "industry" in mutated:
+        mutated = mutated.replace("industry", "subindustry")
+        
+    # 2. Time-Series Window Shift (e.g. ts_delta(x, 10) -> ts_delta(x, 20))
+    # Finds all occurrences of ts_xxx(field, number) and modifies the number
+    ts_matches = re.findall(r'(ts_[a-z_]+\([^)]+,\s*)(\d+)(\s*\))', mutated)
+    for prefix, num, suffix in ts_matches:
+        try:
+            new_num = str(int(num) * 2) if int(num) <= 10 else str(int(num) // 2)
+            mutated = mutated.replace(f"{prefix}{num}{suffix}", f"{prefix}{new_num}{suffix}")
+        except Exception:
+            pass
+            
+    # 3. Parameter settings shift (e.g., decay shift)
+    if "decay: 6" in mutated:
+        mutated = mutated.replace("decay: 6", "decay: 10")
+    elif "decay: 5" in mutated:
+        mutated = mutated.replace("decay: 5", "decay: 8")
+        
+    # 4. Operator Shift (rank -> ts_rank or adding volume interaction)
+    if mutated == formula: # if no mutation occurred yet
+        if "rank(" in mutated:
+            mutated = mutated.replace("rank(", "ts_rank(")
+        else:
+            mutated = f"trade_when(volume > adv20 * 0.75, rank({mutated}), 0)"
+            
+    # Double check if mutated formula also correlates; if so, apply a volume flow shift
+    is_corr, _, _ = check_local_pre_correlation(mutated)
+    if is_corr:
+        mutated = f"({mutated}) * rank(volume / adv20)"
+        
+    return mutated
+
 # Shared Pipeline State
 pipeline_state = {
     "status": "RUNNING",  # RUNNING, COMPLETED, PAUSED
@@ -2828,9 +2969,17 @@ def robust_request(session, method, url, index=None, **kwargs):
                 if rate_limit_retries > 5:
                     log_message("ERROR", f"{lbl}Rate limit exceeded repeatedly (5 times). Aborting request.")
                     return r
-                log_message("WARNING", f"{lbl}Rate limit exceeded (HTTP 429). Waiting 10 seconds to retry (Attempt {rate_limit_retries}/5)...")
-                time.sleep(10)
+                
+                retry_after = r.headers.get("Retry-After")
+                rate_limiter.report_429(retry_after)
+                
+                with rate_limiter.lock:
+                    current_spacing = rate_limiter.spacing
+                log_message("WARNING", f"{lbl}Rate limit exceeded (HTTP 429). Adaptive delay backed off to {current_spacing:.1f}s (Attempt {rate_limit_retries}/5)...")
+                time.sleep(current_spacing)
                 continue
+            
+            rate_limiter.report_success(r.headers)
             return r
         except (requests.exceptions.ConnectionError,
                 requests.exceptions.Timeout,
@@ -3149,6 +3298,16 @@ def simulate_task(index, task, task_state, session, slot_id=1):
 
     task_state["status"] = "SIMULATING"
     task_state["progress"] = 10
+    
+    # Local Pre-Correlation Filter & Orthogonal Mutation
+    is_corr, dup_f, corr_score = check_local_pre_correlation(formula)
+    if is_corr:
+        mutated_formula = mutate_to_orthogonal(formula)
+        log_message("WARNING", f"Alpha #{index+1} local correlation check failed ({corr_score:.2f} > 0.70 vs existing database alpha: {dup_f[:60]}...). Pruning and substituting with orthogonal candidate...")
+        task["formula"] = mutated_formula
+        task_state["formula"] = mutated_formula
+        formula = mutated_formula
+
     log_message("INFO", f"Alpha #{index+1}: Initiating simulation for {formula}")
 
     # Local Syntax and Operator validation
@@ -3198,9 +3357,8 @@ def simulate_task(index, task, task_state, session, slot_id=1):
     try:
         # Acquire submission lock to ensure sequential spaced requests
         with submission_lock:
-            # Enforce 5-second spacing between concurrent thread submissions for Gold tier
-            log_message("INFO", f"Alpha #{index+1}: Enforcing 5s submission rate-limit spacing...")
-            time.sleep(5)
+            # Enforce dynamic adaptive rate-limit spacing
+            rate_limiter.wait_spacing()
             r = robust_request(session, "POST", WQ_SIM_URL, index=index, json=payload, timeout=30)
             
         if r.status_code == 429:
@@ -3329,6 +3487,16 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session, slot_id=1)
         st["status"] = "SIMULATING"
         st["progress"] = 10
         formula = t["formula"]
+        
+        # Local Pre-Correlation Filter & Orthogonal Mutation
+        is_corr, dup_f, corr_score = check_local_pre_correlation(formula)
+        if is_corr:
+            mutated_formula = mutate_to_orthogonal(formula)
+            log_message("WARNING", f"Alpha #{idx+1} local correlation check failed ({corr_score:.2f} > 0.70 vs existing database alpha: {dup_f[:60]}...). Pruning and substituting with orthogonal candidate...")
+            t["formula"] = mutated_formula
+            st["formula"] = mutated_formula
+            formula = mutated_formula
+            
         is_valid, err = validate_fastexpr(formula)
         if not is_valid:
             err_msg = f"Local Validation Failed: {err}"
@@ -3396,9 +3564,8 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session, slot_id=1)
     try:
         # Acquire submission lock to ensure sequential spaced requests
         with submission_lock:
-            # Enforce 5-second spacing between concurrent thread submissions for Gold tier
-            log_message("INFO", f"Batch ({valid_alphas_label}): Enforcing 5s submission rate-limit spacing...")
-            time.sleep(5)
+            # Enforce dynamic adaptive rate-limit spacing
+            rate_limiter.wait_spacing()
             r = robust_request(session, "POST", WQ_SIM_URL, index=valid_indices[0], json=payload, timeout=30)
             
         if r.status_code == 429:
