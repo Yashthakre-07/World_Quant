@@ -79,15 +79,45 @@ function matchesFilterAndSearch(log) {
         }
     }
     
-    // Search query match
+    // Search query match (supports case-insensitive regular expressions with substring fallback)
     if (searchQuery) {
-        const query = searchQuery.toLowerCase();
-        return log.message.toLowerCase().includes(query) || 
-               log.timestamp.toLowerCase().includes(query) || 
-               log.type.toLowerCase().includes(query);
+        try {
+            const regex = new RegExp(searchQuery, "i");
+            return regex.test(log.message) || 
+                   regex.test(log.timestamp) || 
+                   regex.test(log.type);
+        } catch (e) {
+            const query = searchQuery.toLowerCase();
+            return log.message.toLowerCase().includes(query) || 
+                   log.timestamp.toLowerCase().includes(query) || 
+                   log.type.toLowerCase().includes(query);
+        }
     }
     
     return true;
+}
+
+// Apply curated high-fidelity terminal text formatting for levels and metrics
+function highlightLogText(msg) {
+    let html = escapeHTML(msg);
+    
+    // Color-code levels dynamically
+    // Cyan for [INFO] or INFO
+    html = html.replace(/(\[INFO\])/gi, '<span style="color: #22d3ee; font-weight: 700;">$1</span>');
+    // Amber for [WARNING], [WARN], or WARNING
+    html = html.replace(/(\[WARNING\]|\[WARN\]|WARNING)/gi, '<span style="color: #fbbf24; font-weight: 700;">$1</span>');
+    // Emerald Green for [SUBMITTED], [SUCCESS], SUBMITTED, or SUCCESS
+    html = html.replace(/(\[SUBMITTED\]|\[SUCCESS\]|SUBMITTED|SUCCESS)/gi, '<span style="color: #34d399; font-weight: 700;">$1</span>');
+    // Crimson Red for [ERROR], [FAIL], ERROR, FAILURE, or FAILED
+    html = html.replace(/(\[ERROR\]|\[FAIL\]|ERROR|FAILURE|FAILED|Exception)/gi, '<span style="color: #f43f5e; font-weight: 700;">$1</span>');
+    
+    // Highlight Alpha IDs (e.g. USXXXXXX or alpha_...)
+    html = html.replace(/(US\d{7,10}|alpha_[a-f0-9]+)/gi, '<span style="color: #c084fc; font-weight: 600; background: rgba(192, 132, 252, 0.08); padding: 1px 4px; border-radius: 4px;">$1</span>');
+    
+    // Highlight Sharpe ratio values (e.g. Sharpe: 1.54 or Sharpe: -0.22)
+    html = html.replace(/(Sharpe:\s*[-+]?\d*\.?\d+)/gi, '<span style="color: #f472b6; font-weight: 600;">$1</span>');
+    
+    return html;
 }
 
 // Render a single log entry into DOM
@@ -144,7 +174,7 @@ function createAndAppendLogElement(log) {
         <span class="log-gutter">${lineNum}</span>
         <span class="log-time">${log.timestamp}</span>
         ${tagHTML}
-        <span class="log-text">${escapeHTML(displayMsg)}</span>
+        <span class="log-text">${highlightLogText(displayMsg)}</span>
     `;
     
     logConsole.appendChild(lineDiv);
@@ -536,11 +566,24 @@ async function pollSession() {
         
         if (!btn) return;
         
+        const authStep = document.getElementById("pipe-step-auth");
+        const authIcon = document.getElementById("pipe-step-auth-icon");
+        const authDesc = document.getElementById("pipe-step-auth-desc");
+        const countdownBadge = document.getElementById("session-countdown-badge");
+        
         if (data.expired || data.error) {
             if (btnText) btnText.textContent = "Login (Sai)";
             if (btnIcon) btnIcon.textContent = "🔑";
             btn.style.background = "linear-gradient(135deg, var(--primary-color), var(--cyan-color))";
             btn.style.boxShadow = "0 0 10px rgba(6, 182, 212, 0.25)";
+            
+            // Update checklist step to expired state
+            if (authStep) {
+                authStep.style.color = "#f87171"; // Red text
+                if (authIcon) authIcon.textContent = "⚠️";
+                if (authDesc) authDesc.textContent = "Authentication expired! Please click 'Re-auth Session'.";
+                if (countdownBadge) countdownBadge.style.display = "none";
+            }
         } else {
             const rem = data.remaining_seconds;
             const m = Math.floor(rem / 60);
@@ -551,9 +594,177 @@ async function pollSession() {
             if (btnIcon) btnIcon.textContent = "✅";
             btn.style.background = "linear-gradient(135deg, var(--success-color), #059669)";
             btn.style.boxShadow = "0 0 12px rgba(16, 185, 129, 0.35)";
+            
+            // Update checklist step to active state
+            if (authStep) {
+                authStep.style.color = "#10b981"; // Emerald green
+                if (authIcon) authIcon.textContent = "✅";
+                if (authDesc) authDesc.textContent = "Authenticated. Connected to WorldQuant Brain.";
+                if (countdownBadge) {
+                    countdownBadge.style.display = "inline-block";
+                    countdownBadge.textContent = `Session: ${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+                    countdownBadge.style.background = "rgba(16,185,129,0.1)";
+                    countdownBadge.style.color = "#10b981";
+                    countdownBadge.style.borderColor = "rgba(16,185,129,0.3)";
+                }
+            }
         }
     } catch (e) {
         console.error("Failed to poll session details", e);
+        const authStep = document.getElementById("pipe-step-auth");
+        const authIcon = document.getElementById("pipe-step-auth-icon");
+        const authDesc = document.getElementById("pipe-step-auth-desc");
+        if (authStep) {
+            authStep.style.color = "#ef4444";
+            if (authIcon) authIcon.textContent = "❌";
+            if (authDesc) authDesc.textContent = "Connection error while verifying session.";
+        }
+    }
+}
+
+// Drives the step icons, session countdown timers, and active worker progress bars of the checklist
+function updatePipelineChecklist(alphas) {
+    const simStep = document.getElementById("pipe-step-sim");
+    const simIcon = document.getElementById("pipe-step-sim-icon");
+    const simDesc = document.getElementById("pipe-step-sim-desc");
+    const slotsContainer = document.getElementById("slots-progress-container");
+    
+    const corrStep = document.getElementById("pipe-step-corr");
+    const corrIcon = document.getElementById("pipe-step-corr-icon");
+    const corrDesc = document.getElementById("pipe-step-corr-desc");
+    
+    const submitStep = document.getElementById("pipe-step-submit");
+    const submitIcon = document.getElementById("pipe-step-submit-icon");
+    const submitDesc = document.getElementById("pipe-step-submit-desc");
+    
+    if (!alphas || alphas.length === 0) {
+        // Reset checklist to idle
+        if (simStep) {
+            simStep.style.color = "#94a3b8";
+            if (simIcon) simIcon.textContent = "⚪";
+            if (simDesc) simDesc.textContent = "Waiting for queue items...";
+            if (slotsContainer) {
+                slotsContainer.style.display = "none";
+                slotsContainer.innerHTML = "";
+            }
+        }
+        if (corrStep) {
+            corrStep.style.color = "#94a3b8";
+            if (corrIcon) corrIcon.textContent = "⚪";
+            if (corrDesc) corrDesc.textContent = "Pending simulation results.";
+        }
+        if (submitStep) {
+            submitStep.style.color = "#94a3b8";
+            if (submitIcon) submitIcon.textContent = "⚪";
+            if (submitDesc) submitDesc.textContent = "Pending correlation validation.";
+        }
+        return;
+    }
+    
+    // Group states
+    const completedStatuses = ["SUBMITTED", "HARD_REJECT", "SOFT_FAIL", "ERROR"];
+    const activeAlphas = alphas.filter(a => !completedStatuses.includes(a.status));
+    const submittedAlphas = alphas.filter(a => a.status === "SUBMITTED");
+    const rejectedAlphas = alphas.filter(a => ["HARD_REJECT", "SOFT_FAIL"].includes(a.status));
+    
+    // 1. Batch Worker Simulation
+    if (simStep) {
+        if (activeAlphas.length > 0) {
+            simStep.style.color = "#fbbf24"; // Amber running color
+            if (simIcon) simIcon.textContent = "⏳";
+            const completedCount = alphas.length - activeAlphas.length;
+            if (simDesc) simDesc.textContent = `Processing backtesting batches (${completedCount}/${alphas.length} completed).`;
+            
+            // Build slots dynamic progress bars
+            if (slotsContainer) {
+                slotsContainer.style.display = "flex";
+                slotsContainer.innerHTML = "";
+                
+                // Group active/all slot IDs present in alphas
+                const slotIds = [...new Set(alphas.map(a => a.slot_id || 1))].sort();
+                slotIds.forEach(slot => {
+                    const slotAlphas = alphas.filter(a => (a.slot_id || 1) === slot);
+                    const slotCompleted = slotAlphas.filter(a => completedStatuses.includes(a.status)).length;
+                    const slotActive = slotAlphas.filter(a => !completedStatuses.includes(a.status));
+                    const avgProgress = slotAlphas.reduce((sum, a) => sum + (a.progress || 0), 0) / slotAlphas.length;
+                    
+                    const slotDiv = document.createElement("div");
+                    slotDiv.style.display = "flex";
+                    slotDiv.style.flexDirection = "column";
+                    slotDiv.style.gap = "4px";
+                    
+                    let slotStatusText = "";
+                    if (slotActive.length > 0) {
+                        slotStatusText = `Simulating (${slotCompleted}/${slotAlphas.length})`;
+                    } else {
+                        slotStatusText = `Completed (${slotCompleted}/${slotAlphas.length})`;
+                    }
+                    
+                    slotDiv.innerHTML = `
+                        <div style="display: flex; justify-content: space-between; font-size: 0.725rem; color: #e2e8f0; margin-bottom: 2px;">
+                            <span style="font-weight: 600; color: #a5f3fc;">Slot ${slot}: ${slotStatusText}</span>
+                            <span style="font-family: monospace; color: #3b82f6; font-weight: 700;">${Math.round(avgProgress)}%</span>
+                        </div>
+                        <div style="width: 100%; height: 6px; background: rgba(255, 255, 255, 0.03); border-radius: 3px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+                            <div style="width: ${avgProgress}%; height: 100%; background: linear-gradient(90deg, #3b82f6, #10b981); transition: width 0.4s ease;"></div>
+                        </div>
+                    `;
+                    slotsContainer.appendChild(slotDiv);
+                });
+            }
+        } else {
+            // All completed
+            simStep.style.color = "#10b981"; // Emerald green
+            if (simIcon) simIcon.textContent = "✅";
+            if (simDesc) simDesc.textContent = `All ${alphas.length} alphas processed in batch workers successfully.`;
+            if (slotsContainer) {
+                slotsContainer.style.display = "none";
+                slotsContainer.innerHTML = "";
+            }
+        }
+    }
+    
+    // 2. Self-Correlation Check
+    if (corrStep) {
+        const corrFailed = rejectedAlphas.some(a => (a.error_message || "").toUpperCase().includes("CORRELATION"));
+        if (activeAlphas.length > 0) {
+            corrStep.style.color = "#fbbf24";
+            if (corrIcon) corrIcon.textContent = "⏳";
+            if (corrDesc) corrDesc.textContent = "Running rolling correlation checks on WQ nodes...";
+        } else {
+            if (corrFailed) {
+                corrStep.style.color = "#fbbf24"; // Keep warning yellow/amber
+                if (corrIcon) corrIcon.textContent = "⚠️";
+                if (corrDesc) corrDesc.textContent = "Self-correlation check failed for some alphas (sub-portfolio duplication).";
+            } else if (submittedAlphas.length > 0) {
+                corrStep.style.color = "#10b981";
+                if (corrIcon) corrIcon.textContent = "✅";
+                if (corrDesc) corrDesc.textContent = `Passed! ${submittedAlphas.length} alphas passed self & production correlation checks.`;
+            } else {
+                corrStep.style.color = "#f87171";
+                if (corrIcon) corrIcon.textContent = "❌";
+                if (corrDesc) corrDesc.textContent = "All simulated alphas failed validation/correlation criteria.";
+            }
+        }
+    }
+    
+    // 3. Platform Submission
+    if (submitStep) {
+        if (activeAlphas.length > 0) {
+            submitStep.style.color = "#94a3b8";
+            if (submitIcon) submitIcon.textContent = "⚪";
+            if (submitDesc) submitDesc.textContent = "Awaiting final batch worker completion.";
+        } else {
+            if (submittedAlphas.length > 0) {
+                submitStep.style.color = "#10b981";
+                if (submitIcon) submitIcon.textContent = "✅";
+                if (submitDesc) submitDesc.textContent = `Successfully submitted ${submittedAlphas.length} alphas into your WorldQuant Brain account!`;
+            } else {
+                submitStep.style.color = "#f87171";
+                if (submitIcon) submitIcon.textContent = "❌";
+                if (submitDesc) submitDesc.textContent = "No alphas pushed. All submissions failed/rejected.";
+            }
+        }
     }
 }
 
@@ -570,6 +781,8 @@ async function pollQueueStatus() {
         if (!listContainer) return;
         
         const alphas = data.alphas || [];
+        updatePipelineChecklist(alphas);
+        
         if (alphas.length === 0) {
             listContainer.innerHTML = `<div class="empty-state">No alphas currently simulating in queue.</div>`;
             if (progressBadge) progressBadge.textContent = "0 / 0 Completed";
