@@ -77,7 +77,7 @@ class WQSession(requests.Session):
                 self.authenticate()
             else:
                 self.login_expired = True
-                log_auth("INFO", "[AUTH] Background startup/deploy detected. Skipping authentication attempt silently. Session will be activated when you click '🔑 Re-auth Session' on the dashboard.")
+                log_auth("INFO", "[AUTH] Background startup/deploy detected. Skipping authentication attempt silently. Session will be activated when you click 'Re-auth Session' on the dashboard.")
 
     def load_persisted_cookies(self):
         if self.cookies_path.exists():
@@ -180,7 +180,7 @@ class WQSession(requests.Session):
                 else:
                     # Headless Background Startup / Deploy: do NOT block, do NOT poll, do NOT alert!
                     self.login_expired = True
-                    log_auth("WARNING", f"[AUTH] Biometric verification is required for {src.config.WQ_EMAIL}, but interactive/cli mode is False (background startup/deploy). Deferring login until user clicks '🔑 Re-auth Session' on the dashboard.")
+                    log_auth("WARNING", f"[AUTH] Biometric verification is required for {src.config.WQ_EMAIL}, but interactive/cli mode is False (background startup/deploy). Deferring login until user clicks 'Re-auth Session' on the dashboard.")
                     return
             else:
                 resp_json = r.json()

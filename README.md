@@ -1,6 +1,11 @@
 # Alpha Creation Engine
 
-This project will host all code related to the Alpha Creation Engine
+This project will host all code related to the Alpha Creation Engine.
+
+## 📚 Master Guides & Documentation
+*   **[Alpha Creation Strategy & Master Reference Manual](file:///c:/Users/Admin/Documents/VIBE_YT/wq/documentation/alpha_creation_strategy.md)** - **[CRITICAL READ]** Single source of truth containing FastExpr compiler constraints, event timeline division compliance breakthroughs, and exact resolutions for all cluster/syntax errors.
+*   **[Alpha Generation Guide](file:///c:/Users/Admin/Documents/VIBE_YT/wq/alpha_generation_guide.md)** - Systematic cookbook for combinatorial alpha generation and parameter tuning.
+
 
 **Installation Instructions**
 

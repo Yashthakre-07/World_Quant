@@ -1,5 +1,8 @@
 # Alpha Forge - Systematic Alpha Generation Cookbook
 
+> [!IMPORTANT]
+> **CRITICAL REFERENCE**: Always read the **[Alpha Creation Strategy & Master Reference Manual](file:///c:/Users/Admin/Documents/VIBE_YT/wq/documentation/alpha_creation_strategy.md)** first. It outlines crucial event timeline compliance breakthroughs, FastExpr bounds restrictions, and error resolution protocols.
+
 This guide details how to systematically target WorldQuant datasets from [dataset.md](file:///c:/Users/Admin/Documents/VIBE_YT/wq/dataset.md) and generate up to **200 unique alpha formulas** per dataset. By combining dataset fields with core price, volume, returns, and cross-sectional operators, we can exhaustively explore the combinatorial space of alpha research.
 
 ---
@@ -41,6 +44,11 @@ WorldQuant Brain uses **FastExpr**, a highly optimized vector language. When cre
     *   `max(x, y)` and `min(x, y)` are element-wise comparators and take **two variables**.
     *   *Incorrect*: `ts_max(field_a)` or `max(field_a, 10)`
     *   *Correct*: `ts_max(field_a, 10)` or `max(field_a, close)`
+3.  **Cluster Operator Blacklists**: Avoid using time-series bounds operators like `ts_min` or `ts_max` and exponents like `signed_power` for fundamental/analyst consensus datasets unless they are explicitly whitelisted by the cluster template.
+4.  **Logical Range & Bounded Math**: Never compare mathematically bounded outputs to out-of-bounds metrics (for example, `ts_rank(x, d)` is strictly bounded within $[0.0, 1.0]$, so comparing it as `ts_rank(...) > 5.60` will throw a child validation crash).
+6.  **Event Timeline Division Compliance**: Analyst consensus and fundamental variables are event-based inputs (sparse data). Do NOT divide event variables by daily/continuous variables (like `cap` or price series). If division/normalization is desired, divide by another event variable in the same domain (e.g. `{ebitda_high} / (abs({sales_estimate}) + 0.001)` to create forward margins) or rely on `rank(...)`/`group_neutralize(...)` for scale-free cross-sectional percentiles.
+7.  **Absolutely No Unauthorized Queue Clearing or GitHub Pushes (CRITICAL CONSTRAINT)**: You are strictly prohibited from executing any queue-clearing scripts or hitting database-reset/purge endpoints (like `/api/clear-queue`/`/api/purge-vault`) on either server, and from pushing any files or code to GitHub, without the user's explicit, direct, in-chat permission.
+    *   *Reference*: Refer to the comprehensive **[Alpha Creation Strategy & Master Reference Manual](file:///c:/Users/Admin/Documents/VIBE_YT/wq/documentation/alpha_creation_strategy.md)** for full root causes, mathematical compliance blueprints, and incorrect-vs-corrected quant matrices.
 
 ### Essential Operator Quick Reference
 

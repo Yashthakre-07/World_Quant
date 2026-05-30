@@ -3,15 +3,17 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 url = "https://world-quant.onrender.com/api/status"
-try:
-    r = requests.get(url, timeout=30, verify=False)
-    if r.status_code == 200:
-        data = r.json()
-        alphas = data.get("alphas", [])
-        print(f"Total Alphas in state: {len(alphas)}")
-        for idx, a in enumerate(alphas[:15]):
-            print(f"Alpha #{idx+1}: Status={a['status']}, Progress={a.get('progress')}, Sharpe={a.get('sharpe')}, Error={a.get('error_message')[:50] if a.get('error_message') else None}")
-    else:
-        print(f"HTTP Error: {r.status_code}")
-except Exception as e:
-    print(f"Failed: {e}")
+r = requests.get(url, verify=False)
+if r.status_code == 200:
+    data = r.json()
+    alphas = data.get("alphas", [])
+    print("ALPHAS #61 to #71:")
+    for idx in range(60, min(75, len(alphas))):
+        a = alphas[idx]
+        print(f"Index {idx} (Alpha #{idx+1}):")
+        print(f"  Formula: {a.get('formula')}")
+        print(f"  Status: {a.get('status')}")
+        print(f"  Error Message: {a.get('error_message')}")
+        print("-" * 50)
+else:
+    print(f"Failed to fetch status: {r.status_code}")

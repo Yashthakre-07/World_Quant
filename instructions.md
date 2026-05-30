@@ -26,6 +26,13 @@ Every future AI agent or developer loading this workspace **MUST STRICTLY FOLLOW
     d. Write the complete portfolio of formulas directly to `alphas_dataset/[dataset]/alphas/generated_alphas.json` in standard WQ alpha configurations (delay=1, pasteurization=ON, unitHandling=VERIFY).
     e. Push the generated alphas directly to the active review inbox `/api/queue-alpha` of the running console server.
     f. Print all the step-by-step progress and list every generated alpha formula directly in the chat window so the user can review them live!
+11. **CLUSTER SAFETY & OPERATOR RESTRICTIONS**: Never generate alphas that use prohibited or restricted operators (such as `ts_min`, `ts_max`, `signed_power`) for fundamental or analyst consensus datasets unless verified as supported by the cluster template. Always enforce strict mathematical zero-division protection by adding an offset wrapper (e.g., `+ 0.001` or `+ 0.0001`) to all denominators, and never attempt to construct out-of-bounds logical filters (such as comparing a bounded `ts_rank` $[0.0, 1.0]$ to values greater than `1.0`).
+12. **EVENT TIMELINE DIVISION COMPLIANCE**: Analyst consensus variables are **Event Inputs** (sparse timeline). The WQ division operator `/` does not support dividing an Event input by a daily/continuous variable (like price or `cap`), throwing `Operator divide does not support event inputs`.
+    * *Rule*: To normalize Event variables, either:
+      1. Divide them by another Event variable in the same domain (e.g., `{ebitda_high} / (abs({sales_estimate}) + 0.001)` to create forward margin ratios).
+      2. Rely entirely on cross-sectional percentile normalization via `rank(...)` or `group_neutralize(...)` without division by scale variables.
+13. **ABSOLUTELY NO UNAUTHORIZED QUEUE CLEARING OR GITHUB PUSHES (CRITICAL CONSTRAINT)**: You are strictly forbidden from clearing the queues or inboxes on either server (do not run queue-clearing scripts or hit `/api/clear-queue`/`/api/purge-vault` endpoints) and from pushing any code/formulas to GitHub, without the user's explicit, direct, in-chat permission. Breaking this constraint will cause severe operational disruption.
+    * *Reference*: Refer to the comprehensive **[Alpha Creation Strategy & Master Reference Manual](file:///c:/Users/Admin/Documents/VIBE_YT/wq/documentation/alpha_creation_strategy.md)** for full root causes, mathematical compliance blueprints, and incorrect-vs-corrected quant matrices.
 
 ---
 

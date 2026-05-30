@@ -957,7 +957,8 @@ def get_status():
                 "sharpe": a.get("sharpe"),
                 "fitness": a.get("fitness"),
                 "turnover": a.get("turnover"),
-                "error_message": a.get("error_message")
+                "error_message": a.get("error_message"),
+                "slot_id": a.get("slot_id")
             }
 
     # 5. Construct live state dynamically
