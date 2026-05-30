@@ -115,26 +115,89 @@ class AdaptiveRateLimiter:
 
 rate_limiter = AdaptiveRateLimiter()
 
+def get_ast_signature(formula: str) -> str:
+    """
+    Generates an algebraically normalized AST signature for a formula:
+    1. Sorts commutative Additions and Multiplications.
+    2. Folds floating-point stability constants (catch parameter-only tweaks).
+    3. Normalizes subtraction sign inversions: A - B => -(B - A).
+    """
+    import ast
+    try:
+        py_formula = formula.replace("&&", " and ").replace("||", " or ").replace("!", " not ")
+        tree = ast.parse(py_formula)
+        
+        class AdvancedFormulaNormalizer(ast.NodeTransformer):
+            def visit_BinOp(self, node):
+                self.generic_visit(node)
+                # 1. Canonicalize Commutative Operations
+                if isinstance(node.op, (ast.Add, ast.Mult)):
+                    left_repr = ast.dump(node.left)
+                    right_repr = ast.dump(node.right)
+                    if left_repr > right_repr:
+                        node.left, node.right = node.right, node.left
+                
+                # 2. Subtraction Sign Inversion: A - B => -(B - A)
+                elif isinstance(node.op, ast.Sub):
+                    left_repr = ast.dump(node.left)
+                    right_repr = ast.dump(node.right)
+                    if left_repr > right_repr:
+                        node.left, node.right = node.right, node.left
+                        return ast.UnaryOp(op=ast.USub(), operand=node)
+                return node
+
+            def visit_Constant(self, node):
+                # 3. Parameter Epsilon Folding: treat marginal constant offsets as equivalent
+                if isinstance(node.value, (int, float)):
+                    if 0.0 < abs(node.value) < 0.05:
+                        node.value = 0.001  # Canonical stability epsilon
+                return node
+
+        normalizer = AdvancedFormulaNormalizer()
+        normalizer.visit(tree)
+        return ast.dump(tree)
+    except Exception:
+        return "".join(sorted(formula.lower().replace(" ", "")))
+
+def predict_local_turnover_risk(formula: str, decay: int) -> tuple[str, str]:
+    """
+    Analyzes formula operators and decay settings locally to predict turnover risk.
+    Returns (risk_level, recommended_action).
+    """
+    import re
+    expr = formula.lower().replace(" ", "")
+    
+    # Extract lookbacks inside ts_ operators
+    lookbacks = [int(n) for n in re.findall(r'ts_[a-z_]+\([^,]+,\s*(\d+)\)', expr)]
+    
+    if not lookbacks:
+        return "MEDIUM", "No time-series operators detected."
+        
+    min_lookback = min(lookbacks)
+    
+    # 1. High Turnover Danger (Short lookback + low decay)
+    if min_lookback < 5 and decay < 3:
+        return "HIGH_RISK", f"Turnover likely >80% due to lookback={min_lookback} and decay={decay}. Increase lookback to >=10 or decay to >=5."
+        
+    # 2. Optimal Sweet Spot
+    if 10 <= min_lookback <= 40 and 4 <= decay <= 8:
+        return "OPTIMAL", "Parameters align perfectly with optimal low-turnover regimes."
+        
+    return "SAFE", "Low turnover footprint predicted."
+
 def check_local_pre_correlation(formula: str) -> tuple[bool, str, float]:
     """
-    Checks the local structural token Jaccard correlation against successfully
-    submitted alphas in the SQLite database to prune duplicates before API submission.
-    Normalizes numeric parameters to identify parameter-only variations as duplicates.
+    Checks local correlation against submitted alphas using a hybrid approach:
+    1. Direct AST algebraic equivalence (Signature match).
+    2. Lexical Jaccard token correlation as backup.
     """
     import sqlite3
     import re
     from src.config import DB_PATH
     
-    def tokenize(f):
-        # Normalize numeric parameters (e.g. ,10) or ,20) or integers to <num>)
-        # to catch structural overlaps with different parameters
-        f_norm = re.sub(r'\b\d+\b', '<num>', f.lower())
-        return set(re.findall(r'\b[a-z_][a-z0-9_]*\b', f_norm))
-        
-    t_new = tokenize(formula)
-    if not t_new:
-        return False, "", 0.0
-        
+    # 1. AST algebraic signature check
+    new_sig = get_ast_signature(formula)
+    
     try:
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
@@ -143,6 +206,21 @@ def check_local_pre_correlation(formula: str) -> tuple[bool, str, float]:
         conn.close()
     except Exception as db_err:
         log_message("WARNING", f"[PRE_CORR] Failed to fetch existing runs for pre-correlation: {db_err}")
+        return False, "", 0.0
+
+    # Direct AST Signature check
+    for f_exist in existing_formulas:
+        if get_ast_signature(f_exist) == new_sig:
+            log_message("WARNING", f"[PRE_CORR] Exact AST algebraic duplicate found: {f_exist}")
+            return True, f_exist, 1.0
+
+    # 2. Tokenizer Jaccard fallback
+    def tokenize(f):
+        f_norm = re.sub(r'\b\d+\b', '<num>', f.lower())
+        return set(re.findall(r'\b[a-z_][a-z0-9_]*\b', f_norm))
+        
+    t_new = tokenize(formula)
+    if not t_new:
         return False, "", 0.0
     
     max_corr = 0.0
@@ -1389,6 +1467,8 @@ def queue_alpha():
     # Also skip formulas already in memory
     existing_formulas.update(a["formula"].strip() for a in pipeline_state["alphas"])
 
+    from src.validator import validate_fastexpr
+
     for item in data:
         formula = item.get("formula", "").strip()
         if not formula:
@@ -1398,12 +1478,24 @@ def queue_alpha():
             skipped.append({"reason": "Already queued or in inbox", "formula": formula})
             continue
 
+        # Local syntax pre-validation
+        is_valid, err_msg = validate_fastexpr(formula)
+        if not is_valid:
+            skipped.append({"reason": f"Syntax failed: {err_msg}", "formula": formula})
+            continue
+
+        # Local turnover risk checks
+        decay = item.get("settings", {}).get("decay", 5)
+        risk, recom = predict_local_turnover_risk(formula, decay)
+        if risk == "HIGH_RISK":
+            log_message("WARNING", f"[API] High turnover risk flagged: {formula[:60]}... -> {recom}")
+
         task = {
             "family": item.get("family", "API Injected"),
             "hypothesis": item.get("hypothesis", "Injected via secure API bridge"),
             "formula": formula,
             "settings": item.get("settings", {
-                "decay": 5, "neutralization": "SUBINDUSTRY",
+                "decay": decay, "neutralization": item.get("settings", {}).get("neutralization", "SUBINDUSTRY"),
                 "universe": "TOP3000", "truncation": 0.08
             })
         }

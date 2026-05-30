@@ -70,6 +70,18 @@ def validate_fastexpr(formula: str) -> tuple[bool, str]:
     if not expr:
         return False, "Formula is empty."
 
+    # Compiler Safety: absolute value operator is prohibited
+    expr_clean = expr.replace(" ", "").lower()
+    if "abs(" in expr_clean:
+        return False, "BANNED OPERATOR: 'abs()' is prohibited."
+
+    # Compiler Safety: Banned smoothing on event fields
+    illegal_smoothers = ("ts_decay_linear", "ts_mean", "ts_std_dev", "ts_sum")
+    for smoother in illegal_smoothers:
+        pattern = rf"{smoother}\([^)]*anl"
+        if re.search(pattern, expr_clean):
+            return False, f"COMPILER VIOLATION: Cannot smooth event fields using '{smoother}'."
+
     # 1. Bracket Matching Check
     stack = []
     brackets = {"(": ")", "[": "]", "{": "}"}
@@ -94,6 +106,9 @@ def validate_fastexpr(formula: str) -> tuple[bool, str]:
             continue
         # If it is inside allowed fields or operators, skip
         if word in ALLOWED_FIELDS or word in ALLOWED_OPS:
+            continue
+        # Allow Analyst 10, 14, and 15 fields dynamically
+        if word.startswith("anl10_") or word.startswith("anl4_"):
             continue
         # Some words could be noise or Python leaks
         return False, f"Illegal token found: '{word}'. Not in allowed data fields or operator list."

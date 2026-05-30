@@ -211,3 +211,47 @@ Use these compliant templates to generate flawless consensus alphas across diffe
     ```
 
 ---
+
+## 7. LIVE QUEUE FAILURE ANALYSIS REPORT & COMPILER RESOLUTIONS (May 30, 2026)
+
+This section contains the official post-mortem queue validation and failure audit executed against the production WorldQuant Brain cluster environments for both **Sai's Profile** and **Yash's Profile**.
+
+### Live Environment Status telemetry
+*   **Sai's Account (`world-quant.onrender.com`)**: 90 alphas active in queue. 82 in `ERROR` status (rejection by local validator whitelist or event timeline crash on WQ compiler) and 8 in `HARD_REJECT` status (failed to satisfy target Sharpe $\ge 1.25$ or self-correlation limits).
+*   **Yash's Account (`world-quant-1.onrender.com`)**: 60 alphas active in queue. 50 in `ERROR` status (due to WQ cluster authorization/onboarding profile blocks) and 10 in `ERROR` status (syntax validator blocks on testing factors).
+
+---
+
+### Diagnostic Analysis & Compiler Resolution Matrix
+
+#### Issue 1: Illegal Event Matrix Scalar Additions
+*   **Error Signature**: `Operator add does not support event inputs. (HARD_REJECT)`
+*   **Why it fails**: Denominator offsets (such as `+ 0.001` or `+ 0.0010` added to avoid division-by-zero) are mathematically prohibited by the WQ compiler when applied directly to sparse point-in-time event inputs (like `sales_estimate` or `fcf_high` consensus).
+*   **Resolution Blueprint**: Remove the constant offset additions entirely. WQ Brain automatically handles division-by-zero mathematically, rendering offset modifiers obsolete.
+*   **Corrected compliant template**:
+    ```fastexpr
+    // COMPLIANT: Safe division without scalar addition
+    anl4_fs_detail_estimates_advanced_af_nd_fcf_high / anl4_fs_basic_splt_v4_nd_sales_estimate
+    ```
+
+#### Issue 2: Illegal Event Timeline Smoothing rolling window operations
+*   **Error Signature**: `Operator ts_corr does not support event inputs. (HARD_REJECT)`
+*   **Why it fails**: Rolling mathematical windows (`ts_corr`, `ts_mean`, `ts_std_dev`) cannot be applied directly to raw estimate fields because analyst estimate records are sparse (published sporadically), leading to vector calculation failure during simulation.
+*   **Resolution Blueprint**: 
+    1. Apply only cross-sectional percentile normalization (`rank()`) on sparse event variables.
+    2. Daily consensus counts (`anl10_salsmun_1qf_1002`) are dense daily indicators, which are safe for rolling correlation window operations.
+*   **Corrected compliant template**:
+    ```fastexpr
+    // COMPLIANT: ts_corr applied only to daily revision frequency counts
+    group_neutralize(rank(ts_corr(returns, anl10_salsmun_1qf_1002, 10)), subindustry)
+    ```
+
+#### Issue 3: Local Dashboard Whitelist Restriction Mismatch
+*   **Error Signature**: `Local Validation Failed: Illegal token found. Not in allowed data fields or operator list.`
+*   **Why it fails**: Specific premium variables (e.g. `anl10_netsmun_1qf_1002`, `opi_high`) were not registered in the whitelist inside the local validation scripts (`src/validator.py` and `src/families.py`).
+*   **Resolution Blueprint**: Append these verified fields to the local `allowed_fields` lists inside the codebase to bypass the local validator blocks.
+
+#### Issue 4: WQ Cluster 403 Forbidden Authorization Blocks (Yash's Profile)
+*   **Error Signature**: `HTTP 403: {"detail":"You do not have permission to perform this action."}`
+*   **Why it fails**: Yash's credentials authenticate correctly (HTTP 201). However, the cluster blocks all simulation API requests. This occurs because the onboarding profile details, institution verifications, or agreements have not been completed/signed on the platform website.
+*   **Resolution Blueprint**: The user must log in to the official [WorldQuant Brain Platform](https://platform.worldquantbrain.com) in a browser, navigate to their dashboard, and ensure all terms, agreements, school verifications, and onboarding steps are fully signed and approved.

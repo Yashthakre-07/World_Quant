@@ -588,4 +588,56 @@ The visual web UI (`static/index.html` & `static/app.js`) implements a stepped l
 - **Step 4**: Save the generated formulas portfolio locally inside the project workspace at `alphas_dataset/<dataset_name>/alphas/generated_alphas.json` (`85%` progress).
 - **Step 5**: Safely inject the new portfolio directly into the console server's **Review Inbox** (`90%` to `100%` progress).
 
+---
+
+## 🔬 16. LIVE QUEUE FAILURE ANALYSIS REPORT & COMPILER RESOLUTIONS (May 30, 2026)
+
+This section documents the live quantitative failure analysis conducted on the production WorldQuant Brain queue for both **Sai's Profile** and **Yash's Profile**. It outlines the exact error signatures, why the WorldQuant Brain cluster or local dashboard threw these rejections, and the exact mathematical/credential adjustments required for flawless execution.
+
+### A. Executive Dashboard Summary of Live Queue Statuses
+* **Sai's Web Dashboard (`world-quant.onrender.com`)**: 90 total alphas in queue. 82 are in `ERROR` status (blocked by local validation or rejected by the compiler) and 8 are in `HARD_REJECT` status (successfully simulated on the cluster but failed to qualify).
+* **Yash's Web Dashboard (`world-quant-1.onrender.com`)**: 60 total alphas in queue. 50 are in `ERROR` status (blocked due to credential/onboarding permission rejections) and 10 are in `ERROR` status (blocked by syntax validators).
+
+---
+
+### B. Core Issue Register, Root Causes, & Compliant Fixes
+
+#### 1. Banned Event-Field Additions (`+ 0.001` or `+ 0.0010`)
+* **Error Signature**: `Operator add does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages> (HARD_REJECT)`
+* **Failing Formula Example**:
+  `group_neutralize(trade_when(volume > adv20 * 1.00000 * 0.70, rank(anl4_fs_detail_estimates_advanced_af_nd_fcf_high / (anl4_fs_basic_splt_v4_nd_sales_estimate + 0.001)) - rank(anl4_fs_detail_estimate_1qf_v4_nd_netprofit_high / (anl4_fs_basic_splt_v4_nd_sales_estimate + 0.001)), 0), subindustry)`
+* **The Root Cause**: Analyst estimates (Analyst 14/15 datasets) are sparse **Event inputs**, not dense daily price matrices. The WQ cluster compiler strictly prohibits standard arithmetic addition/subtraction operators (like `+` or `-`) between sparse event variables and numeric constants (like `0.001` to prevent division-by-zero).
+* **Technical Resolution**: Remove the `+ 0.001` safety buffers completely. The WorldQuant Brain cluster has built-in division-by-zero protection that returns `NaN` (which is safely bypassed during ranking and neutralizing) instead of crashing the simulation.
+* **Corrected Compliant Syntax**:
+  `group_neutralize(trade_when(volume > adv20 * 0.70, rank(anl4_fs_detail_estimates_advanced_af_nd_fcf_high / anl4_fs_basic_splt_v4_nd_sales_estimate) - rank(anl4_fs_detail_estimate_1qf_v4_nd_netprofit_high / anl4_fs_basic_splt_v4_nd_sales_estimate), 0), subindustry)`
+
+#### 2. Illegal Time-Series Smoothing on Event Fields
+* **Error Signature**: `Operator ts_corr does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages> (HARD_REJECT)`
+* **Failing Formula Example**:
+  `group_neutralize(rank(ts_corr(volume, anl4_fs_basic_splt_v4_nd_sales_estimate, 15)), subindustry)`
+* **The Root Cause**: Analyst estimate fields are published sporadically (sparse event timeline). Running rolling window calculations (like `ts_corr`, `ts_mean`, `ts_decay_linear`) directly on sparse events is mathematically invalid on the cluster and triggers a compiler crash.
+* **Technical Resolution**:
+  1. Do not smooth or correlate raw sparse estimate fields (like `sales_estimate`) over time.
+  2. You **are** allowed to run `ts_corr` on **Analyst 10 revision consensus counts** (like `anl10_salsmun_1qf_1002`) because they represent daily updated frequency metrics rather than raw sparse estimate values.
+* **Corrected Compliant Syntax**:
+  `group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_corr(returns, anl10_salsmun_1qf_1002, 10)), 0), subindustry)`
+
+#### 3. Local Web Validator Whitelist Mismatch
+* **Error Signature**: `Local Validation Failed: Illegal token found: '...' Not in allowed data fields or operator list.`
+* **Failing Formula Example**:
+  `group_neutralize(rank(anl10_salsmun_1qf_1002 / (anl10_netsmun_1qf_1002 + 0.0001)), subindustry)`
+* **The Root Cause**: The local website dashboard includes a validation engine (`src/validator.py`) to verify formulas before hitting the network. Because Analyst 10 consensus counts and specific advanced estimate fields were not registered in the whitelist inside the codebase, the local engine automatically blocked them.
+* **Technical Resolution**: Register the required fields (like `anl10_salsmun_1qf_1002`, `anl10_netsmun_1qf_1002`, and the Analyst 14/15 fields) inside `src/validator.py` or `src/families.py` to allow the local pipeline to accept them.
+
+#### 4. WQ Brain Cluster Authorization Restrictions (Yash's Profile)
+* **Error Signature**: `HTTP 403: {"detail":"You do not have permission to perform this action."}`
+* **Failing Formula Example**: Any simulation request sent via Yash's profile account (`beyondsynapse@gmail.com`).
+* **The Root Cause**: Yash's credentials are correct and authenticate successfully (HTTP 201). However, the WorldQuant Brain cluster rejects all simulation requests with a 403 Forbidden detail. This is due to the account not having completed the onboarding profile setup, missing signatures on terms and conditions, or platform restrictions.
+* **Technical Resolution**: The user must log in to the official [WorldQuant Brain Web Interface](https://platform.worldquantbrain.com) using the browser, navigate to their profile, and ensure all onboarding details, school/institution verification, and terms of service agreements are completed and signed.
+
+#### 5. Validation of Syntactically Faulty Alphas
+* **Error Signature**: `Local Validation Failed: Invalid consecutive operators detected (like ++, --, **, or //).`
+* **Failing Formula Example**: `close ++* high / (low -- open) * 1`
+* **The Root Cause**: These were explicit mock alphas added to the queue to test the local validation parser. The validator correctly identified the invalid consecutive operators and successfully blocked them. No correction is required as this verifies local system health.
+
 

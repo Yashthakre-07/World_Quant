@@ -1,30 +1,8 @@
 [
   {
-    "family": "Upper Shadow Pressure Signal",
-    "hypothesis": "The upper candle shadow represents failed bullish attempts. Persistent upper shadows signal overhead selling pressure and a bearish short-term outlook. Using math formula ((A + B + abs(A - B)) / 2) to compute max bypasses illegal max operator check.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(high - ((open + close + abs(open - close)) / 2), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 5,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Lower Shadow Demand Signal",
-    "hypothesis": "The lower candle shadow represents rejected bearish attempts and buying support. Large lower shadows signal strong demand at price lows. Using math formula ((A + B - abs(A - B)) / 2) to compute min bypasses illegal min operator check.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_decay_linear(((open + close - abs(open - close)) / 2) - low, 5)), 0), subindustry)",
-    "settings": {
-      "decay": 5,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Volatility-Normalized Overnight Gap Reversion",
-    "hypothesis": "Overnight price gaps normalized by dynamic 10-day return volatility represent pure dislocation signals. By applying a 75% liquidity gate and a smooth 6-day decay, we minimize turnover and maximize risk-adjusted payout.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.0001), 6)), 0), subindustry)",
+    "formula": "group_neutralize(rank(ts_corr(returns,anl10_salsmun_1qf_1002,10)),subindustry)",
+    "family": "quant_analyst_group_1",
+    "hypothesis": "Earnings revision momentum: Upward revisions in sales consensus count correlate with 10-day price momentum.",
     "settings": {
       "decay": 6,
       "neutralization": "SUBINDUSTRY",
@@ -33,42 +11,9 @@
     }
   },
   {
-    "family": "VWAP Displacement Reversal",
-    "hypothesis": "Extreme price displacement from VWAP normalized by intraday range measures session stretch on high volume. Reversion captures fade to mean value.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((close - vwap) / (high - low + 0.001), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 5,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Volatility-Scaled Exponential Momentum Reversal",
-    "hypothesis": "Short-term cumulative return momentum normalized by dynamic 10-day return volatility identifies market-independent exhaustion points.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(ts_sum(returns, 3) / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 5,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Intraday Range Location Divergence",
-    "hypothesis": "Comparing open position vs close position within daily high-low channel on large volume exposes early-session buyer traps that mean-revert.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - low) - (open - low)) / (high - low + 0.001), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 5,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Volume-Weighted Price Change Correlation Reversal",
-    "hypothesis": "Correlation between returns and relative volume captures drying institutional liquidity. High correlation acts as a reversion signal.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(ts_corr(returns, volume / adv20, 10), 6)), 0), subindustry)",
+    "formula": "group_neutralize(rank(ts_corr(returns,anl10_netsmun_1qf_1002,10)),subindustry)",
+    "family": "quant_analyst_group_1",
+    "hypothesis": "Net income consensus attention: Rolling correlation between returns and net profit estimate frequency count.",
     "settings": {
       "decay": 6,
       "neutralization": "SUBINDUSTRY",
@@ -77,523 +22,198 @@
     }
   },
   {
-    "family": "Overnight-to-Intraday Stretch Reversion",
-    "hypothesis": "Overnight price gap return minus active session intraday return, scaled by dynamic standard deviation, captures overnight sentiment excesses.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((open - ts_delay(close, 1)) - (close - open)) / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)",
+    "formula": "group_neutralize(trade_when(volume>adv20*0.75,rank(ts_corr(returns,anl10_salsmun_1qf_1002,10)),0),subindustry)",
+    "family": "quant_analyst_group_1",
+    "hypothesis": "Gated consensus revision momentum: High volume gated sales estimate revisions counts correlation.",
     "settings": {
-      "decay": 5,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Volume-weighted Relative Volatility Reversion",
-    "hypothesis": "Daily return relative to its 10-day volatility, scaled by relative trading volume, identifies high-activity exhaustion extremes.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((returns / (ts_std_dev(returns, 10) + 0.0001)) * (volume / adv20), 5)), 0), subindustry)",
+    "formula": "group_neutralize(trade_when(volume>adv20*0.75,rank(ts_corr(returns,anl10_netsmun_1qf_1002,10)),0),subindustry)",
+    "family": "quant_analyst_group_1",
+    "hypothesis": "Gated net income momentum: High volume gated net profit estimate revisions counts correlation.",
     "settings": {
-      "decay": 5,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Signed Intraday Spread Reversion",
-    "hypothesis": "Standardized intraday high-to-low range signed by daily return captures volatility exhaustion on high-conviction days.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((high - low) / (ts_mean(high - low, 20) + 0.001)) * returns, 5)), 0), subindustry)",
+    "formula": "group_neutralize(rank(ts_corr(returns,anl10_salsmun_1qf_1002,20)),subindustry)",
+    "family": "quant_analyst_group_1",
+    "hypothesis": "Longer-term sales revision count momentum: 20-day correlation reduces trading noise.",
     "settings": {
-      "decay": 5,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "formula": "close ++* high / (low -- open) * 1",
-    "family": "Faulty Alphas",
-    "hypothesis": "Test invalid syntax validation 1"
-  },
-  {
-    "formula": "close ++* high / (low -- open) * 2",
-    "family": "Faulty Alphas",
-    "hypothesis": "Test invalid syntax validation 2"
-  },
-  {
-    "formula": "close ++* high / (low -- open) * 3",
-    "family": "Faulty Alphas",
-    "hypothesis": "Test invalid syntax validation 3"
-  },
-  {
-    "formula": "close ++* high / (low -- open) * 4",
-    "family": "Faulty Alphas",
-    "hypothesis": "Test invalid syntax validation 4"
-  },
-  {
-    "formula": "close ++* high / (low -- open) * 5",
-    "family": "Faulty Alphas",
-    "hypothesis": "Test invalid syntax validation 5"
-  },
-  {
-    "formula": "close ++* high / (low -- open) * 6",
-    "family": "Faulty Alphas",
-    "hypothesis": "Test invalid syntax validation 6"
-  },
-  {
-    "formula": "close ++* high / (low -- open) * 7",
-    "family": "Faulty Alphas",
-    "hypothesis": "Test invalid syntax validation 7"
-  },
-  {
-    "formula": "close ++* high / (low -- open) * 8",
-    "family": "Faulty Alphas",
-    "hypothesis": "Test invalid syntax validation 8"
-  },
-  {
-    "formula": "close ++* high / (low -- open) * 9",
-    "family": "Faulty Alphas",
-    "hypothesis": "Test invalid syntax validation 9"
-  },
-  {
-    "formula": "close ++* high / (low -- open) * 10",
-    "family": "Faulty Alphas",
-    "hypothesis": "Test invalid syntax validation 10"
-  },
-  {
-    "family": "Dynamic Test",
-    "hypothesis": "Test alpha",
-    "formula": "ts_decay_linear(close-open, 5)",
+    "formula": "group_neutralize(rank(ts_corr(returns,anl10_netsmun_1qf_1002,20)),subindustry)",
+    "family": "quant_analyst_group_2",
+    "hypothesis": "Longer-term net profit revision count momentum: 20-day correlation reduces trading noise.",
     "settings": {
-      "decay": 5,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Dynamic Test 2",
-    "hypothesis": "Test alpha 2",
-    "formula": "ts_decay_linear(close-open, 7)",
+    "formula": "group_neutralize(rank(ts_corr(returns,anl10_salsmun_1qf_1002+anl10_netsmun_1qf_1002,10)),subindustry)",
+    "family": "quant_analyst_group_2",
+    "hypothesis": "Composite consensus revision momentum: Combines top-line and bottom-line analyst revisions.",
     "settings": {
-      "decay": 5,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Intraday Close-Open Reversion (Gate 0.7)",
-    "hypothesis": "Intraday price reversion captures same-day liquidity corrections on high relative volume.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(close - open, 5)), 0), subindustry)",
+    "formula": "group_neutralize(trade_when(volume>adv20*0.80,rank(ts_corr(returns,anl10_salsmun_1qf_1002,15)),0),subindustry)",
+    "family": "quant_analyst_group_2",
+    "hypothesis": "Conservative gated revision momentum: 15-day sales count correlation with high volume gate.",
     "settings": {
-      "decay": 12,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Intraday Close-Open Reversion (Gate 0.85)",
-    "hypothesis": "Intraday price reversion captures same-day liquidity corrections on high relative volume.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(close - open, 6)), 0), subindustry)",
+    "formula": "group_neutralize(trade_when(volume>adv20*0.80,rank(ts_corr(returns,anl10_netsmun_1qf_1002,15)),0),subindustry)",
+    "family": "quant_analyst_group_2",
+    "hypothesis": "Conservative gated net profit revision momentum: 15-day net profit count correlation with high volume gate.",
     "settings": {
-      "decay": 10,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Intraday Range Position Reversion (Gate 0.85)",
-    "hypothesis": "Comparing close vs open positions in the high-low daily range identifies intraday exhaustions.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((close - low) - (open - low)) / (high - low + 0.001), 6)), 0), subindustry)",
+    "formula": "group_neutralize(rank(ts_corr(returns,anl10_salsmun_1qf_1002,5)),subindustry)",
+    "family": "quant_analyst_group_2",
+    "hypothesis": "Short-term revision momentum: Highly responsive 5-day correlation between price and sales revision count.",
     "settings": {
-      "decay": 10,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "VWAP Displacement Reversion (Gate 0.85)",
-    "hypothesis": "Closing prices deviating from the day's volume-weighted average price tend to mean-revert.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear((close - vwap) / (high - low + 0.001), 6)), 0), subindustry)",
+    "formula": "group_neutralize(rank(ts_corr(returns,anl10_netsmun_1qf_1002,5)),subindustry)",
+    "family": "quant_analyst_group_3",
+    "hypothesis": "Short-term net profit revision momentum: Highly responsive 5-day correlation between price and net profit revision count.",
     "settings": {
-      "decay": 10,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Short-Term Momentum Reversal (Gate 0.7)",
-    "hypothesis": "Extreme 5-day price changes are overextended and correct in the opposite direction.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(ts_delta(close, 5), 5)), 0), subindustry)",
+    "formula": "group_neutralize(rank(ts_corr(returns,anl10_salsmun_1qf_1002,10))-rank(ts_corr(returns,anl10_netsmun_1qf_1002,10)),subindustry)",
+    "family": "quant_analyst_group_3",
+    "hypothesis": "Analyst sentiment spread: Divergence between top-line and bottom-line analyst revision momentum.",
     "settings": {
-      "decay": 12,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Short-Term Momentum Reversal (Gate 0.85)",
-    "hypothesis": "Extreme 5-day price changes are overextended and correct in the opposite direction.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(ts_delta(close, 5), 6)), 0), subindustry)",
+    "formula": "group_neutralize(trade_when(volume>adv20*0.70,rank(ts_corr(returns,anl10_salsmun_1qf_1002+anl10_netsmun_1qf_1002,10)),0),subindustry)",
+    "family": "quant_analyst_group_3",
+    "hypothesis": "Composite sentiment gated reversion: Spaced liquidity gate applied to composite consensus revisions.",
     "settings": {
-      "decay": 10,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Volatility-Normalized Return Reversion (Gate 0.7)",
-    "hypothesis": "Daily return normalized by its 10-day historical standard deviation isolates statistical anomalies.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(returns / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)",
+    "formula": "group_neutralize(rank(ts_corr(returns,anl10_salsmun_1qf_1002,22)),subindustry)",
+    "family": "quant_analyst_group_3",
+    "hypothesis": "Monthly revision momentum: Stable 22-day correlation to capture persistent institutional sentiment.",
     "settings": {
-      "decay": 12,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Volatility-Normalized Return Reversion (Gate 0.85)",
-    "hypothesis": "Daily return normalized by its 10-day historical standard deviation isolates statistical anomalies.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(returns / (ts_std_dev(returns, 10) + 0.0001), 6)), 0), subindustry)",
+    "formula": "group_neutralize(rank(ts_corr(returns,anl10_netsmun_1qf_1002,22)),subindustry)",
+    "family": "quant_analyst_group_3",
+    "hypothesis": "Monthly net profit revision momentum: Stable 22-day correlation on net profit revisions.",
     "settings": {
-      "decay": 10,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Overnight Gap Reversion (Gate 0.7)",
-    "hypothesis": "Overnight opening gaps normalized by volatility represent institutional imbalances that correct.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)",
+    "formula": "group_neutralize(rank(anl4_fs_detail_estimates_advanced_af_nd_ebitda_high/anl4_fs_basic_splt_v4_nd_sales_estimate),subindustry)",
+    "family": "quant_analyst_group_4",
+    "hypothesis": "Consensus EBITDA margin: EBITDA high estimates scaled by Sales consensus estimates.",
     "settings": {
-      "decay": 12,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Overnight Gap Reversion (Gate 0.85)",
-    "hypothesis": "Overnight opening gaps normalized by volatility represent institutional imbalances that correct.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.0001), 6)), 0), subindustry)",
+    "formula": "group_neutralize(rank(anl4_fs_detail_estimates_advanced_af_nd_fcf_high/anl4_fs_basic_splt_v4_nd_sales_estimate),subindustry)",
+    "family": "quant_analyst_group_4",
+    "hypothesis": "FCF margin consensus: Free cash flow high estimates scaled by Sales consensus estimates.",
     "settings": {
-      "decay": 10,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Price-Volume Correlation Reversion (Gate 0.7)",
-    "hypothesis": "Rolling 10-day correlation between price and volume identifies structural overbuying/overselling.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(ts_corr(close, volume, 10), 5)), 0), subindustry)",
+    "formula": "group_neutralize(rank(anl4_fs_detail_estimates_advanced_af_nd_fcf_high/anl4_fs_detail_estimates_advanced_af_nd_ebitda_high),subindustry)",
+    "family": "quant_analyst_group_4",
+    "hypothesis": "Operating Cash conversion: Highlights firms expected to convert operating EBITDA to FCF.",
     "settings": {
-      "decay": 12,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Price-Volume Correlation Reversion (Gate 0.85)",
-    "hypothesis": "Rolling 10-day correlation between price and volume identifies structural overbuying/overselling.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(ts_corr(close, volume, 10), 6)), 0), subindustry)",
+    "formula": "group_neutralize(rank(anl4_fs_detail_estimate_1qf_v4_nd_netprofit_high/anl4_fs_basic_splt_v4_nd_sales_estimate),subindustry)",
+    "family": "quant_analyst_group_4",
+    "hypothesis": "Consensus Net Profit margin: Net profit high estimates scaled by Sales consensus estimates.",
     "settings": {
-      "decay": 10,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
     }
   },
   {
-    "family": "Return-Volume Correlation Reversion (Gate 0.7)",
-    "hypothesis": "Rolling correlation between daily returns and relative volume exposes buyer fatigue extremes.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(ts_corr(returns, volume / adv20, 10), 5)), 0), subindustry)",
+    "formula": "group_neutralize(rank(anl4_fs_detail_estimates_advanced_af_nd_ebitda_high/anl4_fs_detail_estimates_advanced_af_nd_sh_equity_high),subindustry)",
+    "family": "quant_analyst_group_4",
+    "hypothesis": "Operating Return on Equity: EBITDA consensus scaled by Shareholder Equity high estimates.",
     "settings": {
-      "decay": 12,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Return-Volume Correlation Reversion (Gate 0.85)",
-    "hypothesis": "Rolling correlation between daily returns and relative volume exposes buyer fatigue extremes.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(ts_corr(returns, volume / adv20, 10), 6)), 0), subindustry)",
-    "settings": {
-      "decay": 10,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Volatility Expansion Reversion (Gate 0.7)",
-    "hypothesis": "High-low daily ranges expanding past their 20-day average indicate overreactions.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((high - low) / (ts_mean(high - low, 20) + 0.001), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 12,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Volatility Expansion Reversion (Gate 0.85)",
-    "hypothesis": "High-low daily ranges expanding past their 20-day average indicate overreactions.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear((high - low) / (ts_mean(high - low, 20) + 0.001), 6)), 0), subindustry)",
-    "settings": {
-      "decay": 10,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Intraday Shadow Ratio Reversion (Gate 0.7)",
-    "hypothesis": "Imbalance between upper and lower shadow sizes relative to total range predicts intraday reversion.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((high - (close > open ? close : open)) - ((close > open ? open : close) - low)) / (high - low + 0.001), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 12,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Intraday Shadow Ratio Reversion (Gate 0.85)",
-    "hypothesis": "Imbalance between upper and lower shadow sizes relative to total range predicts intraday reversion.",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((high - (close > open ? close : open)) - ((close > open ? open : close) - low)) / (high - low + 0.001), 6)), 0), subindustry)",
-    "settings": {
-      "decay": 10,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Intraday Close to Previous Open Reversion (Gate 0.65)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(close - ts_delay(open, 1), 4)), 0), subindustry)",
-    "settings": {
-      "decay": 12,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Intraday Close to Previous Open Reversion (Gate 0.8)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.8, -rank(ts_decay_linear(close - ts_delay(open, 1), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 10,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Intraday Momentum Change Reversion (Gate 0.65)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear((close - open) - ts_delay(close - open, 1), 4)), 0), subindustry)",
-    "settings": {
-      "decay": 12,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "Intraday Momentum Change Reversion (Gate 0.8)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.8, -rank(ts_decay_linear((close - open) - ts_delay(close - open, 1), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 10,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "VWAP Opening Deviation Reversion (Gate 0.65)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear((vwap - open) / (ts_std_dev(returns, 15) + 0.0001), 4)), 0), subindustry)",
-    "settings": {
-      "decay": 12,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "VWAP Opening Deviation Reversion (Gate 0.8)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.8, -rank(ts_decay_linear((vwap - open) / (ts_std_dev(returns, 15) + 0.0001), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 10,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "3-Day Price Momentum Reversal (Gate 0.65)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(ts_delta(close, 3), 4)), 0), subindustry)",
-    "settings": {
-      "decay": 12,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "3-Day Price Momentum Reversal (Gate 0.8)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.8, -rank(ts_decay_linear(ts_delta(close, 3), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 10,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "5-Day VWAP Momentum Reversal (Gate 0.65)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(ts_delta(vwap, 5), 4)), 0), subindustry)",
-    "settings": {
-      "decay": 12,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "5-Day VWAP Momentum Reversal (Gate 0.8)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.8, -rank(ts_decay_linear(ts_delta(vwap, 5), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 10,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "15-Day Volatility-Normalized Returns (Gate 0.65)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(returns / (ts_std_dev(returns, 15) + 0.0001), 4)), 0), subindustry)",
-    "settings": {
-      "decay": 12,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "15-Day Volatility-Normalized Returns (Gate 0.8)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.8, -rank(ts_decay_linear(returns / (ts_std_dev(returns, 15) + 0.0001), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 10,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "2-Day Gap Volatility Reversion (Gate 0.65)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear((open - ts_delay(close, 2)) / (ts_std_dev(returns, 15) + 0.0001), 4)), 0), subindustry)",
-    "settings": {
-      "decay": 12,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "2-Day Gap Volatility Reversion (Gate 0.8)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.8, -rank(ts_decay_linear((open - ts_delay(close, 2)) / (ts_std_dev(returns, 15) + 0.0001), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 10,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "15-Day Price-Volume Correlation (Gate 0.65)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(ts_corr(close, volume, 15), 4)), 0), subindustry)",
-    "settings": {
-      "decay": 12,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "15-Day Price-Volume Correlation (Gate 0.8)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.8, -rank(ts_decay_linear(ts_corr(close, volume, 15), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 10,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "15-Day Return-Relative Volume Correlation (Gate 0.65)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(ts_corr(returns, volume / adv20, 15), 4)), 0), subindustry)",
-    "settings": {
-      "decay": 12,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "15-Day Return-Relative Volume Correlation (Gate 0.8)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.8, -rank(ts_decay_linear(ts_corr(returns, volume / adv20, 15), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 10,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "15-Day Range Volatility Reversion (Gate 0.65)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear((high - low) / (ts_mean(high - low, 15) + 0.001), 4)), 0), subindustry)",
-    "settings": {
-      "decay": 12,
-      "neutralization": "SUBINDUSTRY",
-      "universe": "TOP3000",
-      "truncation": 0.08
-    }
-  },
-  {
-    "family": "15-Day Range Volatility Reversion (Gate 0.8)",
-    "hypothesis": "Dynamic alpha testing",
-    "formula": "group_neutralize(trade_when(volume > adv20 * 0.8, -rank(ts_decay_linear((high - low) / (ts_mean(high - low, 15) + 0.001), 5)), 0), subindustry)",
-    "settings": {
-      "decay": 10,
+      "decay": 6,
       "neutralization": "SUBINDUSTRY",
       "universe": "TOP3000",
       "truncation": 0.08
