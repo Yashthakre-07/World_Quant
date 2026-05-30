@@ -85,6 +85,7 @@
                             <div style="display: flex; align-items: center; gap: 8px;">
                                 <button class="chrome-btn" id="clean-queue-btn" title="Clean failed & errored queue tasks" style="padding: 4px 8px; font-size: 0.7rem; font-weight: 700; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; cursor: pointer;">🧹 Clean</button>
                                 <button class="chrome-btn" id="purge-queue-btn" title="Purge entire simulation queue" style="padding: 4px 8px; font-size: 0.7rem; font-weight: 700; color: #f87171; border-color: rgba(239, 68, 68, 0.3); background: rgba(239,68,68,0.05); border-radius: 6px; cursor: pointer;">🗑️ Purge All</button>
+                                <button class="chrome-btn" id="purge-top50-btn" title="Clear the top 50 alphas from queue" style="padding: 4px 8px; font-size: 0.7rem; font-weight: 700; color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); background: rgba(251,191,36,0.05); border-radius: 6px; cursor: pointer;">🧹 Clear Top 50</button>
                                 <span id="queue-progress-badge" class="badge badge-success" style="font-size: 0.75rem; padding: 3px 8px;">0 / 0 Completed</span>
                             </div>
                         </div>
@@ -222,6 +223,11 @@
                                 <!-- Export Button -->
                                 <button class="chrome-btn" id="export-vault-btn" title="Export simulated alphas as CSV" style="padding: 6px 12px; font-size: 0.75rem; font-weight: 700; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 4px;">
                                     📥 Export CSV
+                                </button>
+                                
+                                <!-- Purge Vault Button -->
+                                <button class="chrome-btn" id="purge-vault-btn" title="Completely purge simulated vault registry and database" style="padding: 6px 12px; font-size: 0.75rem; font-weight: 700; color: #f87171; border-color: rgba(239, 68, 68, 0.3); background: rgba(239,68,68,0.05); border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s ease;">
+                                    🧹 Purge Vault
                                 </button>
                             </div>
                         </div>

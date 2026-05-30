@@ -1445,16 +1445,102 @@ def clear_queue():
         with open(inbox_path, "w") as f:
             json.dump([], f, indent=2)
             
-        # Clear dynamic queue in memory
+        # Clear dynamic queue in memory, keeping pipeline active to continuously listen
         global pipeline_state, pipeline_active, scheduled_formulas, completed_formulas
         pipeline_state["alphas"] = []
         pipeline_state["status"] = "COMPLETED"
-        pipeline_active = False
+        pipeline_active = True  # Keep pipeline active and always running
         scheduled_formulas = set()
         completed_formulas = set()
         
         log_message("INFO", "[API] Dynamic Queue & Inbox cleared and memory state reset via API command.")
-        return jsonify({"status": "ok", "message": "Queue and memory state cleared successfully."})
+        return jsonify({"status": "ok", "message": "Queue cleared and remains active."})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/delete-alpha", methods=["POST"])
+def delete_alpha():
+    """Secure endpoint: delete a specific alpha from simulation and inbox queues by formula."""
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    is_same_origin = request.referrer and request.referrer.startswith(request.url_root)
+    if not is_same_origin and token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    try:
+        req_data = request.get_json(force=True) or {}
+    except Exception:
+        return jsonify({"error": "Invalid JSON"}), 400
+
+    formula = req_data.get("formula", "").strip()
+    if not formula:
+        return jsonify({"error": "Missing formula parameter"}), 400
+
+    queue_path = DB_DIR / "simulation_queue.json"
+    inbox_path = DB_DIR / "inbox_queue.json"
+    try:
+        # 1. Update simulation_queue.json
+        if queue_path.exists():
+            with open(queue_path, "r") as f:
+                tasks = json.load(f)
+            new_tasks = [t for t in tasks if t.get("formula", "").strip() != formula]
+            with open(queue_path, "w") as f:
+                json.dump(new_tasks, f, indent=2)
+
+        # 2. Update inbox_queue.json
+        if inbox_path.exists():
+            with open(inbox_path, "r") as f:
+                inbox_tasks = json.load(f)
+            new_inbox = [t for t in inbox_tasks if t.get("formula", "").strip() != formula]
+            with open(inbox_path, "w") as f:
+                json.dump(new_inbox, f, indent=2)
+
+        # 3. Update memory state
+        global pipeline_state, scheduled_formulas, completed_formulas
+        scheduled_formulas.discard(formula)
+        completed_formulas.discard(formula)
+        pipeline_state["alphas"] = [a for a in pipeline_state["alphas"] if a.get("formula", "").strip() != formula]
+
+        log_message("INFO", f"[API] Deleted specific alpha from queue: {formula[:60]}...")
+        return jsonify({"status": "ok", "message": "Alpha deleted successfully."})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/clear-top-50", methods=["POST"])
+def clear_top_50():
+    """Secure endpoint: clear the top 50 pending/simulated alphas from the queue."""
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    is_same_origin = request.referrer and request.referrer.startswith(request.url_root)
+    if not is_same_origin and token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    queue_path = DB_DIR / "simulation_queue.json"
+    try:
+        if queue_path.exists():
+            with open(queue_path, "r") as f:
+                tasks = json.load(f)
+            
+            top_50 = tasks[:50]
+            remaining = tasks[50:]
+            
+            # Write back remaining
+            with open(queue_path, "w") as f:
+                json.dump(remaining, f, indent=2)
+
+            # Clear memory lists for the deleted ones
+            global pipeline_state, scheduled_formulas, completed_formulas
+            deleted_formulas = {t.get("formula", "").strip() for t in top_50 if t.get("formula")}
+            for f in deleted_formulas:
+                scheduled_formulas.discard(f)
+                completed_formulas.discard(f)
+            
+            pipeline_state["alphas"] = [a for a in pipeline_state["alphas"] if a.get("formula", "").strip() not in deleted_formulas]
+
+            log_message("INFO", f"[API] Cleared top {len(top_50)} alphas from the queue.")
+            return jsonify({"status": "ok", "message": f"Cleared top {len(top_50)} alphas successfully.", "cleared": len(top_50)})
+        else:
+            return jsonify({"status": "ok", "message": "Queue is empty.", "cleared": 0})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
@@ -1480,6 +1566,7 @@ def purge_vault():
             cursor.execute("DELETE FROM rejected_alphas")
             cursor.execute("DELETE FROM queue")
             conn.commit()
+            cursor.execute("VACUUM")
             conn.close()
             cleared_db = True
         except Exception as e:
@@ -3577,151 +3664,154 @@ def main():
     with ThreadPoolExecutor(max_workers=concurrency_limit) as executor:
         try:
             while True:
-                if not pipeline_active:
-                    pipeline_state["status"] = "PAUSED"
-                    time.sleep(3)
-                    continue
-                
-                # Poll db/simulation_queue.json for new alphas
-                queue_file = DB_DIR / "simulation_queue.json"
-                if queue_file.exists():
-                    try:
-                        with open(queue_file, "r") as f:
-                            tasks = json.load(f)
-                    except Exception:
-                        tasks = []
+                try:
+                    if not pipeline_active:
+                        pipeline_state["status"] = "PAUSED"
+                        time.sleep(3)
+                        continue
                     
-                    # Detect unscheduled tasks
-                    new_tasks = []
-                    for task in tasks:
-                        formula = task["formula"]
-                        if formula not in scheduled_formulas:
-                            new_tasks.append(task)
-                            
-                    # Accumulation Delay (Wait-and-Pack)
-                    # If we detect new tasks but they are not a multiple of 10 (i.e. currently being pushed one-by-one),
-                    # sleep for 5 seconds to allow other concurrent injections to finish writing, then re-read queue.
-                    if new_tasks and (len(new_tasks) % 10 != 0):
-                        log_message("INFO", f"Dynamic Queue: Detected {len(new_tasks)} new alphas (not a multiple of 10). Waiting 5s to accumulate full batches...")
-                        time.sleep(5)
+                    # Poll db/simulation_queue.json for new alphas
+                    queue_file = DB_DIR / "simulation_queue.json"
+                    if queue_file.exists():
                         try:
                             with open(queue_file, "r") as f:
                                 tasks = json.load(f)
                         except Exception:
                             tasks = []
+                        
+                        # Detect unscheduled tasks
                         new_tasks = []
                         for task in tasks:
                             formula = task["formula"]
                             if formula not in scheduled_formulas:
                                 new_tasks.append(task)
-                            
-                    # Group them into batches using our Balanced Tri-Queue system
-                    if new_tasks:
-                        # 1. Separate SuperAlphas from Regular alphas
-                        super_tasks = []
-                        regular_tasks = []
-                        for task in new_tasks:
-                            is_super = (task.get("type") == "SUPER" or "selection" in task or "combo" in task)
-                            if is_super:
-                                super_tasks.append(task)
-                            else:
-                                regular_tasks.append(task)
-                        
-                        batches = []
-                        
-                        # 2. Add SuperAlphas as individual batches
-                        for stask in super_tasks:
-                            batches.append([stask])
-                            
-                        # 3. Balance regular tasks across 3 streams dynamically
-                        if regular_tasks:
-                            n_total = len(regular_tasks)
-                            if n_total <= 30:
-                                # Divide into 3 batches as equally as possible
-                                q = n_total // 3
-                                r = n_total % 3
                                 
-                                size1 = q + (1 if r >= 1 else 0)
-                                size2 = q + (1 if r >= 2 else 0)
-                                size3 = q
-                                
-                                # Build the 3 batches
-                                idx = 0
-                                for size in [size1, size2, size3]:
-                                    if size > 0:
-                                        batches.append(regular_tasks[idx:idx + size])
-                                        idx += size
-                            else:
-                                # Cap at 30 active simulations (3 batches of 10), leaving remainder in the queue
-                                active_regular = regular_tasks[:30]
-                                for i in range(0, 30, 10):
-                                    batches.append(active_regular[i:i + 10])
-                            
-                        # Submit each batch
-                        for slot_idx, batch in enumerate(batches, 1):
-                            batch_indices = []
-                            batch_tasks = []
-                            batch_states = []
-                            for task in batch:
+                        # Accumulation Delay (Wait-and-Pack)
+                        # If we detect new tasks but they are not a multiple of 10 (i.e. currently being pushed one-by-one),
+                        # sleep for 5 seconds to allow other concurrent injections to finish writing, then re-read queue.
+                        if new_tasks and (len(new_tasks) % 10 != 0):
+                            log_message("INFO", f"Dynamic Queue: Detected {len(new_tasks)} new alphas (not a multiple of 10). Waiting 5s to accumulate full batches...")
+                            time.sleep(5)
+                            try:
+                                with open(queue_file, "r") as f:
+                                    tasks = json.load(f)
+                            except Exception:
+                                tasks = []
+                            new_tasks = []
+                            for task in tasks:
                                 formula = task["formula"]
-                                scheduled_formulas.add(formula)
-                                idx = len(pipeline_state["alphas"])
+                                if formula not in scheduled_formulas:
+                                    new_tasks.append(task)
                                 
-                                # Add to shared pipeline state dynamically
-                                task_state = {
-                                    "formula": formula,
-                                    "family": task["family"],
-                                    "hypothesis": task["hypothesis"],
-                                    "status": "PENDING",
-                                    "progress": 0,
-                                    "sharpe": None,
-                                    "fitness": None,
-                                    "turnover": None,
-                                    "error_message": None,
-                                    "slot_id": slot_idx
-                                }
-                                pipeline_state["alphas"].append(task_state)
-                                
-                                log_message("INFO", f"Dynamic Queue: Detected and queued new alpha #{idx+1}: {formula}")
-                                
-                                batch_indices.append(idx)
-                                batch_tasks.append(task)
-                                batch_states.append(task_state)
-                            
-                            # Submit batch to ThreadPoolExecutor
-                            def make_batch_runner(b_indices, b_tasks, b_states, slot_id):
-                                def batch_runner():
-                                    thread_local.slot_id = slot_id
-                                    time.sleep(1.0)
-                                    simulate_batch(b_indices, b_tasks, b_states, active_session, slot_id=slot_id)
-                                return batch_runner
-                            
-                            futures.append(executor.submit(make_batch_runner(batch_indices, batch_tasks, batch_states, slot_idx)))
-                
-                # Check for any completed alphas to log summaries
-                for idx, alpha in enumerate(pipeline_state["alphas"]):
-                    formula = alpha["formula"]
-                    if formula not in completed_formulas and alpha["status"] in ("SUBMITTED", "HARD_REJECT", "SOFT_FAIL", "ERROR"):
-                        completed_formulas.add(formula)
-                        sharpe = f"{alpha['sharpe']:.2f}" if alpha['sharpe'] is not None else "-"
-                        log_message("INFO", f"Alpha #{idx+1} finished! Status: {alpha['status']} | Sharpe: {sharpe}")
-
-                # Update pipeline status in state
-                if scheduled_formulas and len(completed_formulas) == len(scheduled_formulas):
-                    if pipeline_state["status"] != "COMPLETED":
-                        pipeline_state["status"] = "COMPLETED"
-                        # Send WhatsApp complete alert!
-                        success_count = sum(1 for a in pipeline_state["alphas"] if a["status"] == "SUBMITTED")
-                        fail_count = sum(1 for a in pipeline_state["alphas"] if a["status"] in ("HARD_REJECT", "SOFT_FAIL", "ERROR"))
-                        send_whatsapp(
-                            f"🏁 PIPELINE COMPLETED!\n"
-                            f"Total processed: {len(pipeline_state['alphas'])}\n"
-                            f"✅ Submitted: {success_count}\n"
-                            f"❌ Rejected/Failed: {fail_count}\n"
-                            f"All operations are now idle."
-                        )
-                else:
-                    pipeline_state["status"] = "RUNNING"
+                        # Group them into batches using our Balanced Tri-Queue system
+                        if new_tasks:
+                          # 1. Separate SuperAlphas from Regular alphas
+                          super_tasks = []
+                          regular_tasks = []
+                          for task in new_tasks:
+                              is_super = (task.get("type") == "SUPER" or "selection" in task or "combo" in task)
+                              if is_super:
+                                  super_tasks.append(task)
+                              else:
+                                  regular_tasks.append(task)
+                          
+                          batches = []
+                          
+                          # 2. Add SuperAlphas as individual batches
+                          for stask in super_tasks:
+                              batches.append([stask])
+                              
+                          # 3. Balance regular tasks across 3 streams dynamically
+                          if regular_tasks:
+                              n_total = len(regular_tasks)
+                              if n_total <= 30:
+                                  # Divide into 3 batches as equally as possible
+                                  q = n_total // 3
+                                  r = n_total % 3
+                                  
+                                  size1 = q + (1 if r >= 1 else 0)
+                                  size2 = q + (1 if r >= 2 else 0)
+                                  size3 = q
+                                  
+                                  # Build the 3 batches
+                                  idx = 0
+                                  for size in [size1, size2, size3]:
+                                      if size > 0:
+                                          batches.append(regular_tasks[idx:idx + size])
+                                          idx += size
+                              else:
+                                  # Cap at 30 active simulations (3 batches of 10), leaving remainder in the queue
+                                  active_regular = regular_tasks[:30]
+                                  for i in range(0, 30, 10):
+                                      batches.append(active_regular[i:i + 10])
+                              
+                          # Submit each batch
+                          for slot_idx, batch in enumerate(batches, 1):
+                              batch_indices = []
+                              batch_tasks = []
+                              batch_states = []
+                              for task in batch:
+                                  formula = task["formula"]
+                                  scheduled_formulas.add(formula)
+                                  idx = len(pipeline_state["alphas"])
+                                  
+                                  # Add to shared pipeline state dynamically
+                                  task_state = {
+                                      "formula": formula,
+                                      "family": task["family"],
+                                      "hypothesis": task["hypothesis"],
+                                      "status": "PENDING",
+                                      "progress": 0,
+                                      "sharpe": None,
+                                      "fitness": None,
+                                      "turnover": None,
+                                      "error_message": None,
+                                      "slot_id": slot_idx
+                                  }
+                                  pipeline_state["alphas"].append(task_state)
+                                  
+                                  log_message("INFO", f"Dynamic Queue: Detected and queued new alpha #{idx+1}: {formula}")
+                                  
+                                  batch_indices.append(idx)
+                                  batch_tasks.append(task)
+                                  batch_states.append(task_state)
+                              
+                              # Submit batch to ThreadPoolExecutor
+                              def make_batch_runner(b_indices, b_tasks, b_states, slot_id):
+                                  def batch_runner():
+                                      thread_local.slot_id = slot_id
+                                      time.sleep(1.0)
+                                      simulate_batch(b_indices, b_tasks, b_states, active_session, slot_id=slot_id)
+                                  return batch_runner
+                              
+                              futures.append(executor.submit(make_batch_runner(batch_indices, batch_tasks, batch_states, slot_idx)))
+                  
+                    # Check for any completed alphas to log summaries
+                    for idx, alpha in enumerate(pipeline_state["alphas"]):
+                        formula = alpha["formula"]
+                        if formula not in completed_formulas and alpha["status"] in ("SUBMITTED", "HARD_REJECT", "SOFT_FAIL", "ERROR"):
+                            completed_formulas.add(formula)
+                            sharpe = f"{alpha['sharpe']:.2f}" if alpha['sharpe'] is not None else "-"
+                            log_message("INFO", f"Alpha #{idx+1} finished! Status: {alpha['status']} | Sharpe: {sharpe}")
+  
+                    # Update pipeline status in state
+                    if scheduled_formulas and len(completed_formulas) == len(scheduled_formulas):
+                        if pipeline_state["status"] != "COMPLETED":
+                            pipeline_state["status"] = "COMPLETED"
+                            # Send WhatsApp complete alert!
+                            success_count = sum(1 for a in pipeline_state["alphas"] if a["status"] == "SUBMITTED")
+                            fail_count = sum(1 for a in pipeline_state["alphas"] if a["status"] in ("HARD_REJECT", "SOFT_FAIL", "ERROR"))
+                            send_whatsapp(
+                                f"🏁 PIPELINE COMPLETED!\n"
+                                f"Total processed: {len(pipeline_state['alphas'])}\n"
+                                f"✅ Submitted: {success_count}\n"
+                                f"❌ Rejected/Failed: {fail_count}\n"
+                                f"All operations are now idle."
+                            )
+                    else:
+                        pipeline_state["status"] = "RUNNING"
+                except Exception as loop_ex:
+                    log_message("ERROR", f"Error in pipeline scheduler loop: {loop_ex}")
                 
                 # Polling interval
                 time.sleep(3)

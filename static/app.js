@@ -617,6 +617,7 @@ async function pollQueueStatus() {
                     <div style="display: flex; gap: 6px; align-items: center;">
                         <span class="badge ${statusBadgeClass}">${alpha.status}</span>
                         ${slotBadgeHTML}
+                        <button class="delete-alpha-btn" data-formula="${escapeHTML(alpha.formula)}" style="background: none; border: none; color: #f87171; cursor: pointer; font-size: 0.85rem; padding: 0 4px; display: inline-flex; align-items: center; outline: none; transition: transform 0.2s ease;" title="Delete this alpha from queue">❌</button>
                     </div>
                 </div>
                 <div class="alpha-card-formula" title="${escapeHTML(alpha.formula)}">${escapeHTML(alpha.formula)}</div>
@@ -910,6 +911,119 @@ purgeQueueBtn.addEventListener("click", async () => {
         purgeQueueBtn.innerHTML = `🗑️ Purge All`;
     }
 });
+
+// Queue Clear Top 50 Integration
+const purgeTop50Btn = document.getElementById("purge-top50-btn");
+if (purgeTop50Btn) {
+    purgeTop50Btn.addEventListener("click", async () => {
+        if (!confirm("⚠️ WARNING!\nAre you sure you want to clear the first 50 alphas from the dynamic simulation queue?\nThis action cannot be undone.")) {
+            return;
+        }
+        
+        purgeTop50Btn.disabled = true;
+        purgeTop50Btn.innerHTML = `🧹 Clearing...`;
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[SYSTEM] Initiating purge of top 50 pending dynamic alphas from the queue..." });
+        
+        try {
+            const res = await fetch("/api/clear-top-50", { method: "POST" });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+            
+            appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[SYSTEM] Successfully cleared top ${data.cleared || 0} alphas from backtesting queue.` });
+            
+            // Reload dashboard to refresh active list and state
+            window.location.reload();
+        } catch (e) {
+            appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[SYSTEM] ERROR: Failed to clear top 50: ${e.message}` });
+            alert(`Failed to clear top 50 queue: ${e.message}`);
+            purgeTop50Btn.disabled = false;
+            purgeTop50Btn.innerHTML = `🧹 Clear Top 50`;
+        }
+    });
+}
+
+// Vault Purge & Reset Integration
+const purgeVaultBtn = document.getElementById("purge-vault-btn");
+if (purgeVaultBtn) {
+    purgeVaultBtn.addEventListener("click", async () => {
+        if (!confirm("🚨 WARNING! HIGH-RISK OPERATION 🚨\nAre you sure you want to completely PURGE the Alpha Vault database and delete all local generated files?\nThis will wipe out all past backtesting progress and cannot be undone.")) {
+            return;
+        }
+        if (!confirm("CONFIRMATION REQUIRED:\nDo you really want to clear the quantitative registry tables completely?")) {
+            return;
+        }
+        
+        purgeVaultBtn.disabled = true;
+        purgeVaultBtn.innerHTML = `🧹 Purging...`;
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[SYSTEM] Initiating full database purge & vault registry optimization..." });
+        
+        try {
+            const res = await fetch("/api/purge-vault", { method: "POST" });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            
+            appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[SYSTEM] Alpha Vault Registry successfully purged and optimized via SQLite VACUUM." });
+            alert("Alpha Vault and local files successfully purged!");
+            
+            window.location.reload();
+        } catch (e) {
+            appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[SYSTEM] ERROR: Failed to purge vault: ${e.message}` });
+            alert(`Failed to purge vault: ${e.message}`);
+            purgeVaultBtn.disabled = false;
+            purgeVaultBtn.innerHTML = `🧹 Purge Vault`;
+        }
+    });
+}
+
+// Event delegation for deleting individual alphas from simulation queue
+const alphaListContainer = document.getElementById("alpha-list");
+if (alphaListContainer) {
+    alphaListContainer.addEventListener("click", async (event) => {
+        // Find if target or any parent is .delete-alpha-btn
+        const deleteBtn = event.target.closest(".delete-alpha-btn");
+        if (!deleteBtn) return;
+        
+        const formula = deleteBtn.getAttribute("data-formula");
+        if (!formula) return;
+        
+        if (!confirm(`⚠️ Confirm Deletion\nAre you sure you want to delete this alpha from the dynamic backtesting queue?\nFormula: ${formula.slice(0, 80)}...`)) {
+            return;
+        }
+        
+        // Visual feedback: fade card
+        const card = deleteBtn.closest(".alpha-card");
+        if (card) {
+            card.style.opacity = "0.4";
+            card.style.pointerEvents = "none";
+        }
+        
+        appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[SYSTEM] Requesting deletion of specific alpha: ${formula.slice(0, 50)}...` });
+        
+        try {
+            const res = await fetch("/api/delete-alpha", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ formula: formula })
+            });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            
+            appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[SYSTEM] Specific alpha successfully deleted from backtesting queue.` });
+            
+            // Instantly poll queue to redraw UI seamlessly without full reload!
+            if (typeof pollQueueStatus === "function") {
+                await pollQueueStatus();
+            } else {
+                window.location.reload();
+            }
+        } catch (e) {
+            appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[SYSTEM] ERROR: Failed to delete alpha: ${e.message}` });
+            alert(`Failed to delete alpha: ${e.message}`);
+            if (card) {
+                card.style.opacity = "";
+                card.style.pointerEvents = "";
+            }
+        }
+    });
+}
 
 // CSV Portfolio Exporter
 const exportVaultBtn = document.getElementById("export-vault-btn");
