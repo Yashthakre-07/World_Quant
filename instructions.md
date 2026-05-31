@@ -31,8 +31,8 @@ Every future AI agent or developer loading this workspace **MUST STRICTLY FOLLOW
     * *Rule*: To normalize Event variables, either:
       1. Divide them by another Event variable in the same domain (e.g., `{ebitda_high} / (abs({sales_estimate}) + 0.001)` to create forward margin ratios).
       2. Rely entirely on cross-sectional percentile normalization via `rank(...)` or `group_neutralize(...)` without division by scale variables.
-13. **ABSOLUTELY NO UNAUTHORIZED QUEUE CLEARING OR GITHUB PUSHES (CRITICAL CONSTRAINT)**: You are strictly forbidden from clearing the queues or inboxes on either server (do not run queue-clearing scripts or hit `/api/clear-queue`/`/api/purge-vault` endpoints) and from pushing any code/formulas to GitHub, without the user's explicit, direct, in-chat permission. Breaking this constraint will cause severe operational disruption.
-    * *Reference*: Refer to the comprehensive **[Alpha Creation Strategy & Master Reference Manual](file:///c:/Users/Admin/Documents/VIBE_YT/wq/documentation/alpha_creation_strategy.md)** for full root causes, mathematical compliance blueprints, and incorrect-vs-corrected quant matrices.
+13. **ABSOLUTELY NO UNAUTHORIZED GITHUB PUSHES (CRITICAL GATED CONSTRAINT)**: Antigravity is strictly and legally forbidden from executing `git push` or any remote git synchronization commands in the terminal without first detailing the exact code modifications in chat and receiving an explicit, direct in-chat confirmation ("Yes" or similar) from the user. This is a mandatory dual-approval operational gate.
+    * *Reference*: Refer to the comprehensive **[Alpha Creation Strategy & Master Reference Manual](file:///c:/Users/Admin/Documents/VIBE_YT/wq/documentation/alpha_creation_strategy.md)** for full details.
 
 ---
 

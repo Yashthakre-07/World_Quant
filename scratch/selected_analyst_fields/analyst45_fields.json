@@ -1,0 +1,4708 @@
+[
+  {
+    "id": "absolute_price_change_today",
+    "description": "Change in stock price since previous day close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1963,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "adjusted_return_for_bias",
+    "description": "The return on the idea adjusted for contributor or model bias.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2476,
+    "userCount": 4,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "aggregate_idea_return",
+    "description": "The sum of realized and unrealized returns for the trade idea.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1947,
+    "userCount": 1,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "aggregate_return_ex_fx",
+    "description": "The total return for the idea excluding foreign exchange effects.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1947,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "aggregate_return_percent",
+    "description": "The total return as a percentage of average investment.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1991,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "aggregate_trade_return",
+    "description": "Sum of realised and unrealised returns",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1958,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "allocated_funds_currency",
+    "description": "The currency used for the investment in the trade idea.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2498,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_ad_rel_ret_per",
+    "description": "Average daily index relative return percentage",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5409,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_ad_ret_per",
+    "description": "Average daily percent return over the idea’s lifetime",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.553,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_ang_inv",
+    "description": "Time-weighted average investment",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.664,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_avg_dur",
+    "description": "Average age of the idea limited to the selected period",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6641,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_avg_initial_prc",
+    "description": "Average share price weighted by volume of each share purchase",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5427,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_avg_initial_prc_wfee",
+    "description": "The avg initial price adjusted to include fee payment when fees are applied",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5427,
+    "userCount": 6,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_beta",
+    "description": "A measure of the volatility or systematic risk of a security compared to the market, updated monthly based on last 20 months",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.612,
+    "userCount": 5,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_bias_weighted_ret",
+    "description": "Non-Functional",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6632,
+    "userCount": 2,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_bm_exchange_rate",
+    "description": "Exchange Rate by which the Benchmark will be measured",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.0042,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_bm_fx_ret",
+    "description": "FX return made by the benchmark due to currency movements",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5986,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_bm_ret",
+    "description": "Return of the benchmark index",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5793,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_bm_ret_wo_fx",
+    "description": "Benchmark’s return excluding foreign exchange effects (raw benchmark return)",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5793,
+    "userCount": 3,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_closed_prc",
+    "description": "Price at which the idea was closed",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5096,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_current_inv",
+    "description": "Current investment amount, including increases and partial closures",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6641,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_days_since_inception",
+    "description": "Number of trading days since the idea was submitted",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6641,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_idea_count",
+    "description": "Number of ideas in a group, useful when grouping ideas",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6641,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_index_period_end_prc",
+    "description": "Benchmark or index end price for the selected performance period",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.587,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_index_period_start_prc",
+    "description": "Benchmark or index start price for the selected performance period",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5925,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_index_ret_per",
+    "description": "Return percentage had the investment been made in the selected index",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5868,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_initial_inv",
+    "description": "Initial investment amount allocated to the idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6641,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_inv_exchange_rate",
+    "description": "Exchange rate between stock and investment currencies / FX Rate on the period End date",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.0043,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_jensensalpha",
+    "description": "Risk-adjusted performance measure representing return over market",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6025,
+    "userCount": 3,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_latest_prc",
+    "description": "The current price of the stock in the idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4845,
+    "userCount": 3,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_net_market_exposure",
+    "description": "Difference in fractional total value between long and short ideas (net market exposure)",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6639,
+    "userCount": 10,
+    "alphaCount": 16,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_new_value",
+    "description": "New value set for the stop-loss percent, target price, or capital allocation",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6668,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_old_value",
+    "description": "Previous value of the stop-loss percent, target price, or capital allocation before the latest change",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6668,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_period_end_prc",
+    "description": "Close price on day at end of selected period",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5419,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_period_start_prc",
+    "description": "Close price on day before start of selected period",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5427,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_prc",
+    "description": "The price given to the investment change",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6661,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_prc_change_per_today",
+    "description": "Percent change in stock price since previous close of day price",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5324,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_prc_change_today",
+    "description": "Change in stock price since previous day close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5448,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_prev_close_prc",
+    "description": "Last available close price for the stock",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5214,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_probability",
+    "description": "Tag giving a quantative measure of conviction",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1347,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_real_ret",
+    "description": "Realized return from closed portions of the idea since inception",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5426,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_real_ret_today",
+    "description": "Increase in realized return since the previous market close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5225,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_real_value",
+    "description": "Monetary value of the realized (closed) portion of the idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5426,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_rel_index_ret",
+    "description": "Difference in return percentage between the idea and the comparative index",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5286,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_rel_index_ret_per",
+    "description": "Difference in return percentage between the idea and the comparative index",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5409,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_rel_ret_per_today",
+    "description": "Relative return percentage today",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5201,
+    "userCount": 1,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_rel_ret_today",
+    "description": "Increase in realised return since last market close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.507,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_ret_per_today",
+    "description": "Percentage return since last market close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5324,
+    "userCount": 1,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_ret_today",
+    "description": "Increase in realised return since last market close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5448,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_risk_free_rate",
+    "description": "The unrealised return on an open idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6653,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_stock_ret_per",
+    "description": "Net total return from all ideas since the previous market close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5418,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_stock_ret_per_relative",
+    "description": "Average daily return percentage had the investment been made in the relative benchmark index",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5287,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_target_prc",
+    "description": "Author’s stated likely exit price for the idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.516,
+    "userCount": 5,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_time",
+    "description": "Approximate time horizon for the idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.667,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_tot_ret",
+    "description": "Sum of realised and unrealised returns",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5419,
+    "userCount": 1,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_tot_ret_per",
+    "description": "Total return as a percentage of average investment",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.553,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_tot_ret_wo_fx",
+    "description": "Total return excluding any foreign exchange effects",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5418,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_transaction_charge",
+    "description": "Transaction fee charged for the idea (in calculation currency)",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.667,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_treynor_ratio",
+    "description": "A ratio that measures returns earned in excess of that which could have been earned on a riskless investment (such as the risk free rate).??",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6099,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_unreal_ret",
+    "description": "Unrealized return on the open idea (mark-to-market)",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5419,
+    "userCount": 4,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_unreal_ret_today",
+    "description": "Increase in unrealised return since the last market close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5197,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl45_unreal_value",
+    "description": "Unrealised value of an open idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5419,
+    "userCount": 4,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "average_daily_relative_return_percent",
+    "description": "Average daily index relative return percentage",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1946,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "average_daily_return_percent",
+    "description": "Average daily percent return over the lifetime of the idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2003,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "average_idea_duration",
+    "description": "Average age of the idea (limited to the period selected)",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2491,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "average_initial_price_with_fee",
+    "description": "The avg initial price adjusted to include fee payment when fees are applied",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1962,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "average_initial_trade_price",
+    "description": "Average share price weighted by volume of each share purchase",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1962,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "average_investment_amount",
+    "description": "Time-weighted average investment",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2491,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "benchmark_conversion_rate",
+    "description": "Exchange rate used to measure/convert the benchmark",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.0003,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "benchmark_currency_abbreviation",
+    "description": "Currency of the benchmark",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2499,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "benchmark_currency_code",
+    "description": "Currency of the benchmark",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.667,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "benchmark_fx_return_value",
+    "description": "Foreign exchange return attributable to the benchmark (movement due to currency differences)",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2191,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "benchmark_index_return_percent",
+    "description": "The return percentage of the index over the selected period.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2044,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "benchmark_period_closing_price",
+    "description": "The index price at the end of the selected period.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2084,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "benchmark_period_opening_price",
+    "description": "The index price at the start of the selected period.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.214,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "benchmark_return_ex_fx",
+    "description": "Basically tracking the raw returns of the benchmark",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2105,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "benchmark_total_return",
+    "description": "Return of the benchmark over the measurement period",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2105,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "bias_adjusted_return_value",
+    "description": "Non functional field retained for compatibility not used in calculations",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2491,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "conversion_rate_summary",
+    "description": "Exchange rate between investment and performance currencies.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "currency_gain_percentage",
+    "description": "The percentage return generated from currency movements.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "currency_gain_value",
+    "description": "The return generated from currency movements.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "current_investment_amount",
+    "description": "Current investment amount of the idea, including all increases and partial closures",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2491,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "daily_price_change_percent",
+    "description": "The percentage change in price since the previous day's close.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1922,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "daily_price_delta",
+    "description": "The change in the security's price since the previous market close.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1962,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "daily_unrealized_gain",
+    "description": "The increase in unrealized return since the last market close.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1872,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "days_since_idea_start",
+    "description": "Number of trading days since the idea was submitted",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2499,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "entry_price_inclusive_fees",
+    "description": "The average initial price adjusted for transaction fees.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1959,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "event_associated_price",
+    "description": "The price associated with an investment change or event.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2493,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "expected_exit_price_2",
+    "description": "The projected price at which the contributor expects to close the position.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.0589,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "expected_exit_price_3",
+    "description": "Author’s likely exit price for the idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.0589,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "final_closing_price",
+    "description": "The price at which the trade idea was closed or exited.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1662,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "foreign_exchange_gain",
+    "description": "The return generated from foreign exchange rate changes.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "foreign_exchange_return_value",
+    "description": "Return generated from variations in foreign exchange rates affecting the idea's PnL",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5463,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "fx_gain_percentage",
+    "description": "The percentage return generated from foreign exchange rate movements.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.0,
+    "userCount": 1,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "fx_return_percentage",
+    "description": "Return from FX movements expressed as a percentage of the investment",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5463,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "gain_percent_today",
+    "description": "The percentage return for the idea since the last market close.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1922,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "grouped_idea_total",
+    "description": "The number of ideas in a group or view.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2491,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "index_period_ending_price",
+    "description": "Benchmark/Index end price based on the performance period you chose",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2131,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "index_period_starting_price",
+    "description": "Benchmark/Index start price based on the performance period you chose",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2169,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "index_return_percentage",
+    "description": "Return percentage had the investment been made in the comparative index",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2142,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "investment_conversion_rate",
+    "description": "Exchange rate between stock and investment currencies, i.e., FX rate on the period end date",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.0003,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "investment_currency_abbreviation",
+    "description": "Currency of the idea investment",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2499,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "investment_currency_code",
+    "description": "Currency of the investment",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.667,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "investment_fx_conversion_rate",
+    "description": "The exchange rate between stock and investment currencies.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.0003,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "investment_performance_fx_rate",
+    "description": "The exchange rate between investment and performance currencies.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "jensens_alpha_value",
+    "description": "Risk-adjusted performance measure representing return above the market (Jensen’s Alpha)",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2212,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "mean_daily_relative_return_percent",
+    "description": "The average daily index-relative return percentage over the idea’s lifetime.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1856,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "mean_daily_return_percent",
+    "description": "The average daily percent return over the idea’s lifetime.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1991,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "mean_idea_age_period",
+    "description": "The average age of the idea within the selected period.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2491,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "mean_invested_amount",
+    "description": "The time-weighted average amount allocated to the trade idea.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.249,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "most_recent_market_price",
+    "description": "The most recent price of the security in the trade idea.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1527,
+    "userCount": 1,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "most_recent_security_price",
+    "description": "The current price of the stock in the idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1556,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "net_exposure_to_market",
+    "description": "The net exposure to market movements, calculated as long minus short positions.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2489,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "net_market_exposure_value",
+    "description": "Difference in fractional total value between long and short ideas",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.249,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "net_stock_return_percent",
+    "description": "The net total return from all ideas since the previous market close.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1947,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "open_position_return",
+    "description": "The return on open (unrealized) positions in the trade idea.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1947,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "open_position_value",
+    "description": "The value of unrealized (open) parts of the trade idea.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1947,
+    "userCount": 3,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "period_closing_price",
+    "description": "The closing price at the end of the selected period.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1947,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "period_ending_security_price",
+    "description": "Close price on day at end of selected period",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1958,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "period_opening_price",
+    "description": "The closing price before the start of the selected period.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1959,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "period_starting_security_price",
+    "description": "Close price on day before start of selected period",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1962,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "present_invested_amount",
+    "description": "The current total amount allocated to the trade idea.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2491,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "previous_closing_security_price",
+    "description": "Last available closing price for the stock",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1942,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "previous_field_value",
+    "description": "The value before a change in stop loss, target price, or capital.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2496,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "previous_field_value_2",
+    "description": "Previous value of a stop-loss percent, target price, or capital change",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2496,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "previous_market_close_price",
+    "description": "The last available closing price for the security.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1885,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "price_change_percent_today",
+    "description": "Percentage change in stock price since previous day's close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1988,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "realized_gain_today",
+    "description": "The increase in realized return since the last market close.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.189,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "realized_idea_gain",
+    "description": "The realized return on the idea from closed positions.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1959,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "realized_position_value",
+    "description": "The value of closed (realized) parts of the trade idea.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1959,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "realized_position_value_2",
+    "description": "Value of the realised (closed) portions of the idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1962,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "realized_return_today_value",
+    "description": "Increase in realized return since the last market close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1946,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "realized_trade_return",
+    "description": "Realised return on the idea since inception or closure",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1962,
+    "userCount": 1,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "reference_fx_rate",
+    "description": "The exchange rate used to convert benchmark returns to the reporting currency.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.0003,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "reference_index_currency",
+    "description": "The currency in which the benchmark index is denominated.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2498,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "reference_index_fx_gain",
+    "description": "Return generated from foreign exchange movements in the benchmark.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.219,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "reference_index_return",
+    "description": "The return of the benchmark index over the selected period.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2004,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "reference_index_return_ex_fx",
+    "description": "Benchmark return excluding foreign exchange effects.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2004,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "relative_gain_percent_today",
+    "description": "The relative return percentage for the idea for today.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1791,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "relative_gain_today",
+    "description": "The change in relative return for the idea since the last market close.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1734,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "relative_index_gain",
+    "description": "The return if all investments had been made in the benchmark index.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1802,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "relative_index_return_percent",
+    "description": "The difference in return percentage between the idea and the benchmark index.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1856,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "relative_index_return_percentage",
+    "description": "Percentage difference in return between the idea and the comparative index",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1946,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "relative_index_return_value",
+    "description": "Difference in return percentage between investing in the idea and the chosen benchmark index",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1895,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "relative_return_percent_today",
+    "description": "Relative return percentage for today",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1943,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "relative_return_today_value",
+    "description": "Increase in realised return since the last market close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.189,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "relative_stock_return_percent",
+    "description": "The average daily return percentage if all investments were in the index.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1804,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "return_percentage_today",
+    "description": "Percentage return since last market close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1988,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "risk_adjusted_excess_return",
+    "description": "The performance of the idea above market return, adjusted for risk.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2212,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "risk_adjusted_return_per_beta",
+    "description": "A risk-adjusted return measure relative to the risk-free rate and beta.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2278,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "riskless_investment_rate",
+    "description": "The unrealised return on an open idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2499,
+    "userCount": 1,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "security_currency_code_8",
+    "description": "Currency in which the security is traded",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2499,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "security_relative_return_percent",
+    "description": "Average daily return percentage had all investments been in the relative index",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1895,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "security_return_percent",
+    "description": "Net total return from all ideas since the previous market close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1958,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "security_trade_price",
+    "description": "Price used for the investment change at the event time",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2496,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "security_trading_currency_2",
+    "description": "The currency in which the security is traded.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2498,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "security_trading_currency_3",
+    "description": "Currency in which the security is traded",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.667,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "starting_invested_amount",
+    "description": "The initial amount allocated to the trade idea.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2491,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "starting_investment_amount",
+    "description": "Initial investment amount for the idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2491,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "success_likelihood_score_2",
+    "description": "A quantitative measure of the likelihood of the idea’s success.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1326,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "summary_conversion_rate",
+    "description": "Exchange rate between investment and performance currencies",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5463,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "systematic_risk_beta",
+    "description": "A measure of the security’s systematic risk versus the market, updated monthly based on the last ~20 months",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2299,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "systematic_risk_measure",
+    "description": "A measure of the idea's volatility relative to the overall market.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2298,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "theoretical_zero_risk_rate",
+    "description": "The theoretical rate of return of a risk-free investment.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2497,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "total_gain_today",
+    "description": "The total increase in return for the idea since the last market close.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1962,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "total_return_excluding_fx",
+    "description": "Return excluding any foreign exchange effects",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1958,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "total_return_percentage",
+    "description": "Total return as a percentage of average investment",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2003,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "total_return_today_value",
+    "description": "Increase in realised return since last market close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1963,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "trade_execution_fee",
+    "description": "The transaction fee charged for executing the trade idea.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2498,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "trade_idea_closed_price",
+    "description": "The price at which the idea was closed",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1662,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "trade_idea_count",
+    "description": "Number of ideas in the group/context, useful for grouping",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2491,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "trade_idea_success_probability",
+    "description": "Quantitative measure of conviction for the idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1326,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "trade_transaction_fee",
+    "description": "Transaction fee charged for the idea in the calculation currency",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2499,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "trading_days_since_submission",
+    "description": "The number of trading days since the idea was submitted.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2498,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "treynor_performance_ratio",
+    "description": "Risk-adjusted return ratio measuring excess return per unit of systematic risk relative to the risk-free rate",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2292,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "unrealized_position_value",
+    "description": "Unrealised value of an open idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1958,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "unrealized_return_today_value",
+    "description": "Increase in unrealised return since the last market close",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1939,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "unrealized_trade_return",
+    "description": "The unrealised return on an open idea",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.1958,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "updated_field_value",
+    "description": "The new value after a change in stop loss, target price, or capital.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2496,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "updated_field_value_2",
+    "description": "New value of a stop-loss percent, target price, or capital change",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2496,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "volume_weighted_entry_price",
+    "description": "The average share price weighted by purchase volume at entry.",
+    "dataset": {
+      "id": "analyst45",
+      "name": "Analyst Trade Ideas"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.1959,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  }
+]

@@ -24,3 +24,6 @@ credentials.json
 
 # Private research notes
 prompt.txt
+session_json.txt
+ace.log
+

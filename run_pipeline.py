@@ -4036,14 +4036,14 @@ def main():
                                   batch_states.append(task_state)
                               
                               # Submit batch to ThreadPoolExecutor
-                              def make_batch_runner(b_indices, b_tasks, b_states, slot_id):
+                              def make_batch_runner(b_indices, b_tasks, b_states, session, slot_id):
                                   def batch_runner():
                                       thread_local.slot_id = slot_id
                                       time.sleep(1.0)
-                                      simulate_batch(b_indices, b_tasks, b_states, active_session, slot_id=slot_id)
+                                      simulate_batch(b_indices, b_tasks, b_states, session, slot_id=slot_id)
                                   return batch_runner
                               
-                              futures.append(executor.submit(make_batch_runner(batch_indices, batch_tasks, batch_states, slot_idx)))
+                              futures.append(executor.submit(make_batch_runner(batch_indices, batch_tasks, batch_states, active_session, slot_idx)))
                   
                     # Check for any completed alphas to log summaries
                     for idx, alpha in enumerate(pipeline_state["alphas"]):

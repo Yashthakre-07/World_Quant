@@ -108,7 +108,7 @@ def validate_fastexpr(formula: str) -> tuple[bool, str]:
         if word in ALLOWED_FIELDS or word in ALLOWED_OPS:
             continue
         # Allow Analyst 10, 14, and 15 fields dynamically
-        if word.startswith("anl10_") or word.startswith("anl4_"):
+        if word.startswith("anl10_") or word.startswith("anl14_") or word.startswith("anl15_") or word.startswith("anl4_"):
             continue
         # Some words could be noise or Python leaks
         return False, f"Illegal token found: '{word}'. Not in allowed data fields or operator list."

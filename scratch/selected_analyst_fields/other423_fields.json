@@ -1,0 +1,444 @@
+[
+  {
+    "id": "oth423_b_mtl_dlyspe",
+    "description": "Earnings yield",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.28,
+    "userCount": 10,
+    "alphaCount": 26,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_cfrnoa",
+    "description": "Cash flow return/asset",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2764,
+    "userCount": 8,
+    "alphaCount": 22,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_div_payout",
+    "description": "Dividend payout",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2799,
+    "userCount": 3,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_divyld",
+    "description": "Dividend yield",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2801,
+    "userCount": 18,
+    "alphaCount": 47,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_divyld_exp",
+    "description": "Expected dividend yield",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2801,
+    "userCount": 15,
+    "alphaCount": 24,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_find",
+    "description": "Find score",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2801,
+    "userCount": 72,
+    "alphaCount": 174,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_gva_mmocer_se",
+    "description": "Sell side average recommendation for the stock",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2711,
+    "userCount": 11,
+    "alphaCount": 48,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_m1m21_ntr",
+    "description": "Momentum Neutralized",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2801,
+    "userCount": 6,
+    "alphaCount": 19,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_m3r_mtn_spd_se",
+    "description": "DPS revision",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2646,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_m3r_mtn_spe_se",
+    "description": "EPS Revision",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.275,
+    "userCount": 6,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_mktcap",
+    "description": "Market cap",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2801,
+    "userCount": 9,
+    "alphaCount": 14,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_news_sent_3m",
+    "description": "News sentiment change",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.267,
+    "userCount": 5,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_ntr_pt",
+    "description": "Target price return",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2733,
+    "userCount": 24,
+    "alphaCount": 64,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_roe",
+    "description": "Return on Equity",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2798,
+    "userCount": 9,
+    "alphaCount": 18,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_spd_rtni_rg",
+    "description": "Dividend growth",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2618,
+    "userCount": 5,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_spe_rtni_rg",
+    "description": "Earnings Growth",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2794,
+    "userCount": 8,
+    "alphaCount": 17,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "oth423_ve_fcf",
+    "description": "Free Cash Flow",
+    "dataset": {
+      "id": "other423",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2772,
+    "userCount": 11,
+    "alphaCount": 25,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  }
+]
