@@ -51,14 +51,14 @@ ALLOWED_OPS = {
     # Time series
     "ts_delta", "ts_delay", "ts_rank", "ts_sum", "ts_mean", "ts_std_dev", "ts_corr", "ts_covariance", "ts_regression", 
     "ts_decay_linear", "ts_product", "ts_max", "ts_min", "ts_arg_max", "ts_arg_min", "ts_max_diff", "ts_min_diff", 
-    "ts_av_diff", "ts_ir", "ts_skewness", "ts_kurtosis", "ts_entropy", "ts_median",
+    "ts_av_diff", "ts_ir", "ts_skewness", "ts_kurtosis", "ts_entropy", "ts_median", "ts_backfill",
     # Group operators
     "group_neutralize", "group_zscore", "group_rank", "group_mean", "group_std_dev", "group_sum", "group_scale", 
-    "group_max", "group_median",
+    "group_max", "group_median", "group_backfill",
     # Groups
     "market", "sector", "industry", "subindustry",
-    # Conditional
-    "trade_when"
+    # Conditional / Gating
+    "trade_when", "is_nan"
 }
 
 def validate_fastexpr(formula: str) -> tuple[bool, str]:
@@ -70,17 +70,18 @@ def validate_fastexpr(formula: str) -> tuple[bool, str]:
     if not expr:
         return False, "Formula is empty."
 
-    # Compiler Safety: absolute value operator is prohibited
+    # Compiler Safety: absolute value operator is prohibited directly on raw event fields
     expr_clean = expr.replace(" ", "").lower()
-    if "abs(" in expr_clean:
-        return False, "BANNED OPERATOR: 'abs()' is prohibited."
+    pattern_abs = r"abs\(\s*anl(4|14|15)_"
+    if re.search(pattern_abs, expr_clean):
+        return False, "COMPILER VIOLATION: Cannot apply 'abs()' directly on raw event fields."
 
-    # Compiler Safety: Banned smoothing on event fields
-    illegal_smoothers = ("ts_decay_linear", "ts_mean", "ts_std_dev", "ts_sum")
+    # Compiler Safety: Banned smoothing directly on raw event fields
+    illegal_smoothers = ("ts_decay_linear", "ts_mean", "ts_std_dev", "ts_sum", "ts_corr", "ts_delta")
     for smoother in illegal_smoothers:
-        pattern = rf"{smoother}\([^)]*anl"
+        pattern = rf"{smoother}\(\s*anl(4|14|15)_"
         if re.search(pattern, expr_clean):
-            return False, f"COMPILER VIOLATION: Cannot smooth event fields using '{smoother}'."
+            return False, f"COMPILER VIOLATION: Cannot smooth event fields directly using '{smoother}'."
 
     # 1. Bracket Matching Check
     stack = []
