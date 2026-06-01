@@ -97,11 +97,13 @@ def generate_10_alphas():
                 field1 = ANL10_FIELDS[seed % len(ANL10_FIELDS)]
                 formula = f"group_neutralize(trade_when(volume > adv20 * {gate1:.2f}, ts_corr(returns, rank({field1}), {lookback1}), 0), subindustry)"
                 candidate = {
-                    "family": "Analyst_Optimized",
+                    "family": "ThemePool_USA_D1",
                     "dataset": "analyst10",
+                    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
                     "hypothesis": f"Rolling return correlation with the cross-sectional rank of coverage count {field1}.",
+                    "anomaly_basis": "Analyst Herding / Attention",
                     "formula": formula,
-                    "settings": {"decay": 5, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+                    "settings": {"region": "USA", "delay": 1, "decay": 5, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
                 }
             elif slot == 1:
                 lookback2 = 12 + (seed % 3) * 4
@@ -109,22 +111,26 @@ def generate_10_alphas():
                 field2 = ANL10_FIELDS[(seed + 1) % len(ANL10_FIELDS)]
                 formula = f"group_neutralize(trade_when(volume > adv20 * {gate2:.2f}, ts_rank(rank({field2}), {lookback2}), 0), subindustry)"
                 candidate = {
-                    "family": "Analyst_Optimized",
+                    "family": "ThemePool_USA_D1",
                     "dataset": "analyst10",
+                    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
                     "hypothesis": f"Rolling percentile rank of coverage count {field2}.",
+                    "anomaly_basis": "Analyst Herding / Attention",
                     "formula": formula,
-                    "settings": {"decay": 5, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+                    "settings": {"region": "USA", "delay": 1, "decay": 5, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
                 }
             else:
                 gate3 = 0.68 + (seed % 3) * 0.04
                 field3 = ANL10_FIELDS[(seed + 2) % len(ANL10_FIELDS)]
                 formula = f"group_neutralize(trade_when(volume > adv20 * {gate3:.2f}, (returns < 0) ? -rank({field3}) : rank({field3}), 0), subindustry)"
                 candidate = {
-                    "family": "Analyst_Optimized",
+                    "family": "ThemePool_USA_D1",
                     "dataset": "analyst10",
+                    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
                     "hypothesis": f"Conviction polarity trigger mapping daily consensus field {field3} under negative returns.",
+                    "anomaly_basis": "Analyst Herding / Attention",
                     "formula": formula,
-                    "settings": {"decay": 5, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+                    "settings": {"region": "USA", "delay": 1, "decay": 5, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
                 }
                 
         # 2. analyst14 Slots (3, 4, 5, 6)
@@ -134,31 +140,37 @@ def generate_10_alphas():
                 field4 = ANL14_15_FIELDS[seed % len(ANL14_15_FIELDS)]
                 formula = f"group_neutralize(trade_when(volume > adv20 * {gate4:.2f}, rank(group_zscore(ts_backfill({field4}, 252), subindustry)), 0), subindustry)"
                 candidate = {
-                    "family": "Analyst_Optimized",
+                    "family": "ThemePool_USA_D1",
                     "dataset": "analyst14",
+                    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
                     "hypothesis": f"Peer-relative cross-sectional ranking of backfilled {field4} to capture valuation revision anomalies.",
+                    "anomaly_basis": "Post-Earnings Announcement Drift (PEAD)",
                     "formula": formula,
-                    "settings": {"decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+                    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
                 }
             elif slot == 4:
                 gate5 = 0.66 + (seed % 3) * 0.05
                 formula = f"group_neutralize(trade_when(volume > adv20 * {gate5:.2f}, rank(ts_backfill(anl4_fs_detail_estimates_advanced_af_nd_ebitda_high, 252) / ts_backfill(anl4_fs_basic_splt_v4_nd_sales_estimate, 252)), 0), subindustry)"
                 candidate = {
-                    "family": "Analyst_Optimized",
+                    "family": "ThemePool_USA_D1",
                     "dataset": "analyst14",
+                    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
                     "hypothesis": "Consensus EBITDA to Sales margin ratio minimizes scale bias dynamically using backfilled events.",
+                    "anomaly_basis": "Analyst Disagreement / Dispersion",
                     "formula": formula,
-                    "settings": {"decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+                    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
                 }
             elif slot == 5:
                 gate6 = 0.74 + (seed % 2) * 0.03
                 formula = f"group_neutralize(trade_when(volume > adv20 * {gate6:.2f}, rank(ts_backfill(anl4_fs_detail_estimates_advanced_af_nd_ptp_high, 252) / ts_backfill(anl4_fs_basic_splt_v4_nd_sales_estimate, 252)), 0), subindustry)"
                 candidate = {
-                    "family": "Analyst_Optimized",
+                    "family": "ThemePool_USA_D1",
                     "dataset": "analyst14",
+                    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
                     "hypothesis": "Consensus Pre-tax Income normalized by Sales using backfilled events.",
+                    "anomaly_basis": "Analyst Disagreement / Dispersion",
                     "formula": formula,
-                    "settings": {"decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+                    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
                 }
             else:
                 gate7 = 0.70 + (seed % 3) * 0.04
@@ -166,11 +178,13 @@ def generate_10_alphas():
                 field7_b = ANL14_15_FIELDS[(seed + 1) % len(ANL14_15_FIELDS)]
                 formula = f"group_neutralize(trade_when(volume > adv20 * {gate7:.2f}, rank({field7_a}) * group_zscore(ts_backfill({field7_b}, 252), subindustry), 0), subindustry)"
                 candidate = {
-                    "family": "Analyst_Optimized",
+                    "family": "ThemePool_USA_D1",
                     "dataset": "analyst14",
+                    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
                     "hypothesis": f"Attention count {field7_a} combined with consensus field {field7_b}.",
+                    "anomaly_basis": "Consensus Recommendation Conviction",
                     "formula": formula,
-                    "settings": {"decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+                    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
                 }
 
         # 3. analyst15 Slots (7, 8, 9)
@@ -179,22 +193,26 @@ def generate_10_alphas():
                 gate8 = 0.65 + (seed % 2) * 0.05
                 formula = f"group_neutralize(trade_when(volume > adv20 * {gate8:.2f}, rank(ts_backfill(anl4_fs_detail_estimates_advanced_af_nd_ebitda_low, 252) / ts_backfill(anl4_fs_basic_splt_v4_nd_sales_estimate, 252)), 0), subindustry)"
                 candidate = {
-                    "family": "Analyst_Optimized",
+                    "family": "ThemePool_USA_D1",
                     "dataset": "analyst15",
+                    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
                     "hypothesis": "Pessimistic forward operating margin using EBITDA low estimate consensus.",
+                    "anomaly_basis": "Analyst Disagreement / Dispersion",
                     "formula": formula,
-                    "settings": {"decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+                    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
                 }
             elif slot == 8:
                 gate9 = 0.75 + (seed % 2) * 0.02
                 field9_a = ANL10_FIELDS[(seed + 4) % len(ANL10_FIELDS)]
                 formula = f"group_neutralize(trade_when(volume > adv20 * {gate9:.2f}, rank({field9_a}) * group_zscore(ts_backfill(anl4_fs_detail_estimate_1qf_v4_nd_netprofit_low, 252), subindustry), 0), subindustry)"
                 candidate = {
-                    "family": "Analyst_Optimized",
+                    "family": "ThemePool_USA_D1",
                     "dataset": "analyst15",
+                    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
                     "hypothesis": f"Coverage {field9_a} combined with consensus net profit floor.",
+                    "anomaly_basis": "Consensus Recommendation Conviction",
                     "formula": formula,
-                    "settings": {"decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+                    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
                 }
             else:
                 gate10 = 0.71 + (seed % 3) * 0.03
@@ -202,11 +220,13 @@ def generate_10_alphas():
                 field10 = ANL14_15_FIELDS[(seed + 2) % len(ANL14_15_FIELDS)]
                 formula = f"group_neutralize(trade_when(volume > adv20 * {gate10:.2f}, ts_corr(returns, rank(ts_backfill({field10}, 252)), {lookback10}), 0), subindustry)"
                 candidate = {
-                    "family": "Analyst_Optimized",
+                    "family": "ThemePool_USA_D1",
                     "dataset": "analyst15",
+                    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
                     "hypothesis": f"Rolling correlation of returns with backfilled event field {field10}.",
+                    "anomaly_basis": "Post-Earnings Announcement Drift (PEAD)",
                     "formula": formula,
-                    "settings": {"decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+                    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
                 }
 
         # Check uniqueness against historical list
