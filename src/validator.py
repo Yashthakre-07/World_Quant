@@ -72,14 +72,14 @@ def validate_fastexpr(formula: str) -> tuple[bool, str]:
 
     # Compiler Safety: absolute value operator is prohibited directly on raw event fields
     expr_clean = expr.replace(" ", "").lower()
-    pattern_abs = r"abs\(\s*anl(4|14|15)_"
+    pattern_abs = r"abs\(\s*anl(4|14|15|16|44|45)_"
     if re.search(pattern_abs, expr_clean):
         return False, "COMPILER VIOLATION: Cannot apply 'abs()' directly on raw event fields."
 
     # Compiler Safety: Banned smoothing directly on raw event fields
     illegal_smoothers = ("ts_decay_linear", "ts_mean", "ts_std_dev", "ts_sum", "ts_corr", "ts_delta")
     for smoother in illegal_smoothers:
-        pattern = rf"{smoother}\(\s*anl(4|14|15)_"
+        pattern = rf"{smoother}\(\s*anl(4|14|15|16|44|45)_"
         if re.search(pattern, expr_clean):
             return False, f"COMPILER VIOLATION: Cannot smooth event fields directly using '{smoother}'."
 
@@ -108,8 +108,8 @@ def validate_fastexpr(formula: str) -> tuple[bool, str]:
         # If it is inside allowed fields or operators, skip
         if word in ALLOWED_FIELDS or word in ALLOWED_OPS:
             continue
-        # Allow Analyst 10, 14, and 15 fields dynamically
-        if word.startswith("anl10_") or word.startswith("anl14_") or word.startswith("anl15_") or word.startswith("anl4_"):
+        # Allow Analyst 10, 14, 15, 16, 44, 45, and 4 fields dynamically
+        if word.startswith("anl10_") or word.startswith("anl14_") or word.startswith("anl15_") or word.startswith("anl16_") or word.startswith("anl44_") or word.startswith("anl45_") or word.startswith("anl4_"):
             continue
         # Some words could be noise or Python leaks
         return False, f"Illegal token found: '{word}'. Not in allowed data fields or operator list."
