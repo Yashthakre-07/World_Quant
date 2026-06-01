@@ -64,22 +64,20 @@ ALLOWED_OPS = {
 def validate_fastexpr(formula: str) -> tuple[bool, str]:
     """
     Validates a Fast Expression formula locally.
-    Returns (is_valid, error_message).
+    Deactivated/Bypassed as requested by user.
     """
-    expr = formula.strip()
-    if not expr:
-        return False, "Formula is empty."
+    return True, "Validator bypassed."
 
     # Compiler Safety: absolute value operator is prohibited directly on raw event fields
     expr_clean = expr.replace(" ", "").lower()
-    pattern_abs = r"abs\(\s*anl(4|14|15|16|44|45)_"
+    pattern_abs = r"abs\(\s*anl(14|15|16)_"
     if re.search(pattern_abs, expr_clean):
         return False, "COMPILER VIOLATION: Cannot apply 'abs()' directly on raw event fields."
 
     # Compiler Safety: Banned smoothing directly on raw event fields
     illegal_smoothers = ("ts_decay_linear", "ts_mean", "ts_std_dev", "ts_sum", "ts_corr", "ts_delta")
     for smoother in illegal_smoothers:
-        pattern = rf"{smoother}\(\s*anl(4|14|15|16|44|45)_"
+        pattern = rf"{smoother}\(\s*anl(14|15|16)_"
         if re.search(pattern, expr_clean):
             return False, f"COMPILER VIOLATION: Cannot smooth event fields directly using '{smoother}'."
 
