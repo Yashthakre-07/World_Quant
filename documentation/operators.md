@@ -85,18 +85,25 @@
 ## 2. Event Timeline Safety Rules (Crucial for Consensus Datasets)
 
 1.  **NO Raw Event Division by Daily Variables**:
-    *   ❌ Banned: `anl14_eps_estimate / close`
+    *   ❌ Banned: `anl14_eps_estimate / close` (Failed: `Operator divide does not support event inputs`)
     *   🟢 Compliant: Divide by another event field in the same domain, or use rank normalisation:
         *   `anl14_eps_estimate / (anl14_sales_estimate + 0.001)`
         *   `group_neutralize(rank(anl14_eps_estimate), subindustry)`
 2.  **NO Raw Event Time-Series Smoothing**:
-    *   ❌ Banned: `ts_decay_linear(anl14_eps_estimate, 10)`
-    *   🟢 Compliant: Rank the event field first to map it to a daily timeline coordinate:
-        *   `ts_decay_linear(rank(anl14_eps_estimate), 10)`
+    *   ❌ Banned: `ts_decay_linear(anl14_eps_estimate, 10)` (Failed: `Operator ts_decay_linear does not support event inputs`)
+    *   🟢 Compliant: Rank the event field first (if it's a daily count consensus) to map it to a daily timeline coordinate:
+        *   `ts_decay_linear(rank(anl10_daily_count_field), 10)`
 3.  **NO absolute values (abs) on raw event fields**:
-    *   ❌ Banned: `abs(anl14_eps_estimate)`
-    *   🟢 Compliant: Wrap the event field in rank first:
-        *   `abs(rank(anl14_eps_estimate))`
+    *   ❌ Banned: `abs(anl14_eps_estimate)` (Failed: `Operator abs does not support event inputs`)
+    *   🟢 Compliant: Wrap the event field in rank first (if compatible daily consensus):
+        *   `abs(rank(anl10_daily_count_field))`
+4.  **NO Cross-Sectional Ranking on Raw Sparse Events**:
+    *   ❌ Banned: `rank(anl14_eps_estimate)` (Failed: `Operator rank does not support event inputs`)
+    *   🟢 Compliant: Rank is allowed ONLY on daily count consensus (like `analyst10` fields). Raw sparse forecasts (like `eps_estimate` or `sales_estimate` in `analyst14/15`) are blocked from cross-sectional ranking. Use `group_zscore` or neutralization settings to normalize size instead of raw `rank()`.
+5.  **NO Constant Scalar Additions on Raw Sparse Events**:
+    *   ❌ Banned: `anl14_sales_estimate + 0.001` (Failed: `Operator add does not support event inputs`)
+    *   🟢 Compliant: Omit safety offsets entirely since WorldQuant has built-in division-by-zero protection that returns `NaN` safely. E.g. `anl4_fs_detail_estimates_advanced_af_nd_ebitda_high / anl4_fs_basic_splt_v4_nd_sales_estimate`.
+
 
 ---
 

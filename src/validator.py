@@ -58,28 +58,32 @@ ALLOWED_OPS = {
     # Groups
     "market", "sector", "industry", "subindustry",
     # Conditional / Gating
-    "trade_when", "is_nan"
+    "trade_when", "is_nan",
+    # Vector reduction
+    "vec_avg", "vec_sum", "vec_max", "vec_min", "vec_stddev", "vec_count"
 }
 
 def validate_fastexpr(formula: str) -> tuple[bool, str]:
     """
     Validates a Fast Expression formula locally.
-    Deactivated/Bypassed as requested by user.
+    Enforces absolute compliance to event operators, bracket matching, and tokens.
     """
-    return True, "Validator bypassed."
-
-    # Compiler Safety: absolute value operator is prohibited directly on raw event fields
+    expr = formula
     expr_clean = expr.replace(" ", "").lower()
-    pattern_abs = r"abs\(\s*anl(14|15|16)_"
+    
+    # Compiler Safety: absolute value operator is prohibited directly on raw event fields
+    # Also check anl4_, anl44_, anl45_ as those are also event fields
+    pattern_abs = r"abs\(\s*anl(4|14|15|16|44|45)_"
     if re.search(pattern_abs, expr_clean):
         return False, "COMPILER VIOLATION: Cannot apply 'abs()' directly on raw event fields."
 
-    # Compiler Safety: Banned smoothing directly on raw event fields
-    illegal_smoothers = ("ts_decay_linear", "ts_mean", "ts_std_dev", "ts_sum", "ts_corr", "ts_delta")
+    # Compiler Safety: Banned time series operators directly on event fields
+    # Note: ts_backfill is excluded here as it is a matrix-conversion operator
+    illegal_smoothers = ("ts_decay_linear", "ts_mean", "ts_std_dev", "ts_sum", "ts_corr", "ts_delta", "ts_arg_max", "ts_arg_min", "ts_delay", "ts_rank")
     for smoother in illegal_smoothers:
-        pattern = rf"{smoother}\(\s*anl(14|15|16)_"
+        pattern = rf"{smoother}\(\s*anl(4|14|15|16|44|45)_"
         if re.search(pattern, expr_clean):
-            return False, f"COMPILER VIOLATION: Cannot smooth event fields directly using '{smoother}'."
+            return False, f"COMPILER VIOLATION: Cannot smooth/time-series event fields directly using '{smoother}'."
 
     # 1. Bracket Matching Check
     stack = []
@@ -106,8 +110,10 @@ def validate_fastexpr(formula: str) -> tuple[bool, str]:
         # If it is inside allowed fields or operators, skip
         if word in ALLOWED_FIELDS or word in ALLOWED_OPS:
             continue
-        # Allow Analyst 10, 14, 15, 16, 44, 45, and 4 fields dynamically
-        if word.startswith("anl10_") or word.startswith("anl14_") or word.startswith("anl15_") or word.startswith("anl16_") or word.startswith("anl44_") or word.startswith("anl45_") or word.startswith("anl4_"):
+        # Allow Analyst 10, 14, 15, 16, 44, 45, and 4 fields dynamically, and active relative return matrix fields
+        if (word.startswith("anl10_") or word.startswith("anl14_") or word.startswith("anl15_") or 
+            word.startswith("anl16_") or word.startswith("anl44_") or word.startswith("anl45_") or 
+            word.startswith("anl4_") or word in {"average_daily_relative_return_percent", "relative_return_percent_today"}):
             continue
         # Some words could be noise or Python leaks
         return False, f"Illegal token found: '{word}'. Not in allowed data fields or operator list."

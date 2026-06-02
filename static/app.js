@@ -179,6 +179,11 @@ function createAndAppendLogElement(log) {
     
     logConsole.appendChild(lineDiv);
     
+    // Limit DOM node count to 500 lines to prevent DOM bloat and memory leaks
+    while (logConsole.childElementCount > 500) {
+        logConsole.removeChild(logConsole.firstChild);
+    }
+    
     if (autoscrollChk.checked) {
         logConsole.scrollTop = logConsole.scrollHeight;
     }
@@ -199,7 +204,9 @@ function updateTerminalStats() {
 function rebuildLogsDisplay() {
     logConsole.innerHTML = "";
     const filteredLogs = allLogs.filter(matchesFilterAndSearch);
-    filteredLogs.forEach(log => {
+    // Limit to latest 500 to keep it extremely fast
+    const logsToDisplay = filteredLogs.slice(-500);
+    logsToDisplay.forEach(log => {
         createAndAppendLogElement(log);
     });
     updateTerminalStats();
@@ -219,6 +226,12 @@ function appendLog(line) {
     };
     
     allLogs.push(logObj);
+    
+    // Cap memory usage by keeping only the last 5000 logs in the session history array
+    if (allLogs.length > 5000) {
+        allLogs.shift();
+    }
+    
     updateTerminalStats();
     
     if (matchesFilterAndSearch(logObj)) {
@@ -790,20 +803,25 @@ async function pollQueueStatus() {
         }
         
         let completedCount = 0;
-        listContainer.innerHTML = "";
+        
+        // Find existing cards in the container
+        const existingCards = Array.from(listContainer.children).filter(el => el.classList.contains("alpha-card"));
+        const cardMap = new Map();
+        existingCards.forEach(c => {
+            const formula = c.getAttribute("data-formula");
+            if (formula) cardMap.set(formula, c);
+        });
         
         alphas.forEach((alpha, index) => {
             if (["SUBMITTED", "HARD_REJECT", "SOFT_FAIL", "ERROR"].includes(alpha.status)) {
                 completedCount++;
             }
             
-            const card = document.createElement("div");
             let stateClass = "";
             if (alpha.status === "SIMULATING") stateClass = "simulating";
             else if (alpha.status === "SUBMITTED") stateClass = "submitted";
             else if (alpha.status === "EVALUATING") stateClass = "evaluating";
             else if (["HARD_REJECT", "SOFT_FAIL", "ERROR"].includes(alpha.status)) stateClass = "failed";
-            card.className = `alpha-card ${stateClass}`;
             
             const sharpeVal = alpha.sharpe !== null ? Number(alpha.sharpe).toFixed(2) : "-";
             const fitnessVal = alpha.fitness !== null ? Number(alpha.fitness).toFixed(2) : "-";
@@ -824,33 +842,120 @@ async function pollQueueStatus() {
                 slotBadgeHTML = `<span class="badge ${slotBadgeClass}">Slot ${alpha.slot_id}</span>`;
             }
             
-            card.innerHTML = `
-                <div class="alpha-card-header">
-                    <span class="alpha-card-family" title="${escapeHTML(alpha.family)}">#${index + 1}: ${escapeHTML(alpha.family)}</span>
-                    <div style="display: flex; gap: 6px; align-items: center;">
-                        <span class="badge ${statusBadgeClass}">${alpha.status}</span>
-                        ${slotBadgeHTML}
-                        <button class="delete-alpha-btn" data-formula="${escapeHTML(alpha.formula)}" style="background: none; border: none; color: #f87171; cursor: pointer; font-size: 0.85rem; padding: 0 4px; display: inline-flex; align-items: center; outline: none; transition: transform 0.2s ease;" title="Delete this alpha from queue">❌</button>
-                    </div>
-                </div>
-                <div class="alpha-card-formula" title="${escapeHTML(alpha.formula)}">${escapeHTML(alpha.formula)}</div>
-                <div class="alpha-card-meta">
-                    <span style="font-size: 0.7rem; min-width: 0; flex-grow: 1; margin-right: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block;${isError ? ' color: var(--danger-color); font-weight: 500;' : ''}" title="${escapeHTML(rawDescText)}">
-                        ${escapeHTML(rawDescText)}
-                    </span>
-                    <div class="alpha-card-metrics" style="flex-shrink: 0;">
-                        <span>S: <strong style="color: var(--primary-color)">${sharpeVal}</strong></span>
-                        <span>F: <strong style="color: var(--success-color)">${fitnessVal}</strong></span>
-                        <span>T: <strong>${turnoverVal}</strong></span>
-                    </div>
-                </div>
-                <div class="alpha-card-progress-wrapper">
-                    <div class="alpha-card-progress" style="width: ${alpha.progress || 0}%"></div>
-                </div>
-            `;
+            const newClassName = `alpha-card ${stateClass}`;
+            const newProgress = String(alpha.progress || 0);
+            const newSlot = String(alpha.slot_id || "");
+            const newNum = String(index + 1);
             
-            listContainer.appendChild(card);
+            let card = cardMap.get(alpha.formula);
+            if (card) {
+                // Reuse existing card element and perform selective updates
+                const oldStatus = card.getAttribute("data-status");
+                const oldSharpe = card.getAttribute("data-sharpe");
+                const oldFitness = card.getAttribute("data-fitness");
+                const oldTurnover = card.getAttribute("data-turnover");
+                const oldProgress = card.getAttribute("data-progress");
+                const oldSlot = card.getAttribute("data-slot");
+                const oldDesc = card.getAttribute("data-desc");
+                const oldNum = card.getAttribute("data-num");
+                
+                if (
+                    oldStatus !== alpha.status ||
+                    oldSharpe !== sharpeVal ||
+                    oldFitness !== fitnessVal ||
+                    oldTurnover !== turnoverVal ||
+                    oldProgress !== newProgress ||
+                    oldSlot !== newSlot ||
+                    oldDesc !== rawDescText ||
+                    oldNum !== newNum ||
+                    card.className !== newClassName
+                ) {
+                    if (card.className !== newClassName) {
+                        card.className = newClassName;
+                    }
+                    card.innerHTML = `
+                        <div class="alpha-card-header">
+                            <span class="alpha-card-family" title="${escapeHTML(alpha.family)}">#${index + 1}: ${escapeHTML(alpha.family)}</span>
+                            <div style="display: flex; gap: 6px; align-items: center;">
+                                <span class="badge ${statusBadgeClass}">${alpha.status}</span>
+                                ${slotBadgeHTML}
+                                <button class="delete-alpha-btn" data-formula="${escapeHTML(alpha.formula)}" style="background: none; border: none; color: #f87171; cursor: pointer; font-size: 0.85rem; padding: 0 4px; display: inline-flex; align-items: center; outline: none; transition: transform 0.2s ease;" title="Delete this alpha from queue">❌</button>
+                            </div>
+                        </div>
+                        <div class="alpha-card-formula" title="${escapeHTML(alpha.formula)}">${escapeHTML(alpha.formula)}</div>
+                        <div class="alpha-card-meta">
+                            <span style="font-size: 0.7rem; min-width: 0; flex-grow: 1; margin-right: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block;${isError ? ' color: var(--danger-color); font-weight: 500;' : ''}" title="${escapeHTML(rawDescText)}">
+                                ${escapeHTML(rawDescText)}
+                            </span>
+                            <div class="alpha-card-metrics" style="flex-shrink: 0;">
+                                <span>S: <strong style="color: var(--primary-color)">${sharpeVal}</strong></span>
+                                <span>F: <strong style="color: var(--success-color)">${fitnessVal}</strong></span>
+                                <span>T: <strong>${turnoverVal}</strong></span>
+                            </div>
+                        </div>
+                        <div class="alpha-card-progress-wrapper">
+                            <div class="alpha-card-progress" style="width: ${alpha.progress || 0}%"></div>
+                        </div>
+                    `;
+                    card.setAttribute("data-status", alpha.status);
+                    card.setAttribute("data-sharpe", sharpeVal);
+                    card.setAttribute("data-fitness", fitnessVal);
+                    card.setAttribute("data-turnover", turnoverVal);
+                    card.setAttribute("data-progress", newProgress);
+                    card.setAttribute("data-slot", newSlot);
+                    card.setAttribute("data-desc", rawDescText);
+                    card.setAttribute("data-num", newNum);
+                }
+                cardMap.delete(alpha.formula);
+            } else {
+                // Create a completely new card element
+                card = document.createElement("div");
+                card.className = newClassName;
+                card.setAttribute("data-formula", alpha.formula);
+                card.setAttribute("data-status", alpha.status);
+                card.setAttribute("data-sharpe", sharpeVal);
+                card.setAttribute("data-fitness", fitnessVal);
+                card.setAttribute("data-turnover", turnoverVal);
+                card.setAttribute("data-progress", newProgress);
+                card.setAttribute("data-slot", newSlot);
+                card.setAttribute("data-desc", rawDescText);
+                card.setAttribute("data-num", newNum);
+                
+                card.innerHTML = `
+                    <div class="alpha-card-header">
+                        <span class="alpha-card-family" title="${escapeHTML(alpha.family)}">#${index + 1}: ${escapeHTML(alpha.family)}</span>
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            <span class="badge ${statusBadgeClass}">${alpha.status}</span>
+                            ${slotBadgeHTML}
+                            <button class="delete-alpha-btn" data-formula="${escapeHTML(alpha.formula)}" style="background: none; border: none; color: #f87171; cursor: pointer; font-size: 0.85rem; padding: 0 4px; display: inline-flex; align-items: center; outline: none; transition: transform 0.2s ease;" title="Delete this alpha from queue">❌</button>
+                        </div>
+                    </div>
+                    <div class="alpha-card-formula" title="${escapeHTML(alpha.formula)}">${escapeHTML(alpha.formula)}</div>
+                    <div class="alpha-card-meta">
+                        <span style="font-size: 0.7rem; min-width: 0; flex-grow: 1; margin-right: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block;${isError ? ' color: var(--danger-color); font-weight: 500;' : ''}" title="${escapeHTML(rawDescText)}">
+                            ${escapeHTML(rawDescText)}
+                        </span>
+                        <div class="alpha-card-metrics" style="flex-shrink: 0;">
+                            <span>S: <strong style="color: var(--primary-color)">${sharpeVal}</strong></span>
+                            <span>F: <strong style="color: var(--success-color)">${fitnessVal}</strong></span>
+                            <span>T: <strong>${turnoverVal}</strong></span>
+                        </div>
+                    </div>
+                    <div class="alpha-card-progress-wrapper">
+                        <div class="alpha-card-progress" style="width: ${alpha.progress || 0}%"></div>
+                    </div>
+                `;
+            }
+            
+            // Re-order card in DOM
+            const currentChild = listContainer.children[index];
+            if (currentChild !== card) {
+                listContainer.insertBefore(card, currentChild || null);
+            }
         });
+        
+        // Clean up remaining nodes that are no longer present
+        cardMap.forEach(card => card.remove());
         
         if (progressBadge) {
             progressBadge.textContent = `${completedCount} / ${alphas.length} Completed`;
@@ -1298,45 +1403,77 @@ async function pollInboxAlphas() {
             return;
         }
         
-        listContainer.innerHTML = "";
-        data.forEach((alpha, idx) => {
-            const card = document.createElement("div");
-            card.className = "alpha-card";
-            
-            // Standardized alpha-card styling structure (exact match to queue)
-            card.innerHTML = `
-                <div class="alpha-card-header">
-                    <span class="alpha-card-family" title="${escapeHTML(alpha.family || 'API Push')}">#${idx + 1}: ${escapeHTML(alpha.family || 'API Push')}</span>
-                    <button class="chrome-btn inbox-push-btn" style="padding: 3px 8px; font-size: 0.65rem; font-weight: 700; background: rgba(244, 63, 94, 0.15); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 4px; cursor: pointer; outline: none; transition: all 0.2s ease;">Push 🚀</button>
-                </div>
-                <div class="alpha-card-formula" title="${escapeHTML(alpha.formula)}">${escapeHTML(alpha.formula)}</div>
-                <div class="alpha-card-meta">
-                    <span style="font-size: 0.65rem; color: var(--text-muted); display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;" title="${escapeHTML(alpha.hypothesis || '')}">
-                        ${escapeHTML(alpha.hypothesis || 'No description provided.')}
-                    </span>
-                </div>
-            `;
-            
-            // Wire up premium hover states and click events for the button
-            const pushBtn = card.querySelector(".inbox-push-btn");
-            pushBtn.addEventListener("mouseenter", () => {
-                pushBtn.style.background = "#f43f5e";
-                pushBtn.style.color = "white";
-                pushBtn.style.boxShadow = "0 0 8px rgba(244, 63, 94, 0.4)";
-            });
-            pushBtn.addEventListener("mouseleave", () => {
-                pushBtn.style.background = "rgba(244, 63, 94, 0.15)";
-                pushBtn.style.color = "#f43f5e";
-                pushBtn.style.boxShadow = "none";
-            });
-            pushBtn.addEventListener("click", async () => {
-                pushBtn.disabled = true;
-                pushBtn.textContent = "⚙️...";
-                await pushInboxAlpha(alpha.formula);
-            });
-            
-            listContainer.appendChild(card);
+        // Find existing cards in the container
+        const existingCards = Array.from(listContainer.children).filter(el => el.classList.contains("alpha-card"));
+        const cardMap = new Map();
+        existingCards.forEach(c => {
+            const formula = c.getAttribute("data-formula");
+            if (formula) cardMap.set(formula, c);
         });
+        
+        data.forEach((alpha, idx) => {
+            let card = cardMap.get(alpha.formula);
+            
+            if (card) {
+                // Update index and details if position changed, preserving event listeners
+                const familySpan = card.querySelector(".alpha-card-family");
+                if (familySpan) {
+                    const newText = `#${idx + 1}: ${alpha.family || 'API Push'}`;
+                    if (familySpan.textContent !== newText) {
+                        familySpan.textContent = newText;
+                        familySpan.setAttribute("title", alpha.family || 'API Push');
+                    }
+                }
+                cardMap.delete(alpha.formula);
+            } else {
+                // Create a completely new card element
+                card = document.createElement("div");
+                card.className = "alpha-card";
+                card.setAttribute("data-formula", alpha.formula);
+                
+                // Standardized alpha-card styling structure (exact match to queue)
+                card.innerHTML = `
+                    <div class="alpha-card-header">
+                        <span class="alpha-card-family" title="${escapeHTML(alpha.family || 'API Push')}">#${idx + 1}: ${escapeHTML(alpha.family || 'API Push')}</span>
+                        <button class="chrome-btn inbox-push-btn" style="padding: 3px 8px; font-size: 0.65rem; font-weight: 700; background: rgba(244, 63, 94, 0.15); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 4px; cursor: pointer; outline: none; transition: all 0.2s ease;">Push 🚀</button>
+                    </div>
+                    <div class="alpha-card-formula" title="${escapeHTML(alpha.formula)}">${escapeHTML(alpha.formula)}</div>
+                    <div class="alpha-card-meta">
+                        <span style="font-size: 0.65rem; color: var(--text-muted); display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;" title="${escapeHTML(alpha.hypothesis || '')}">
+                            ${escapeHTML(alpha.hypothesis || 'No description provided.')}
+                        </span>
+                    </div>
+                `;
+                
+                // Wire up premium hover states and click events for the button
+                const pushBtn = card.querySelector(".inbox-push-btn");
+                pushBtn.addEventListener("mouseenter", () => {
+                    pushBtn.style.background = "#f43f5e";
+                    pushBtn.style.color = "white";
+                    pushBtn.style.boxShadow = "0 0 8px rgba(244, 63, 94, 0.4)";
+                });
+                pushBtn.addEventListener("mouseleave", () => {
+                    pushBtn.style.background = "rgba(244, 63, 94, 0.15)";
+                    pushBtn.style.color = "#f43f5e";
+                    pushBtn.style.boxShadow = "none";
+                });
+                pushBtn.addEventListener("click", async () => {
+                    pushBtn.disabled = true;
+                    pushBtn.textContent = "⚙️...";
+                    await pushInboxAlpha(alpha.formula);
+                });
+            }
+            
+            // Position DOM element correctly
+            const currentChild = listContainer.children[idx];
+            if (currentChild !== card) {
+                listContainer.insertBefore(card, currentChild || null);
+            }
+        });
+        
+        // Remove old elements
+        cardMap.forEach(card => card.remove());
+        
     } catch (e) {
         console.error("Failed to poll inbox status", e);
     }

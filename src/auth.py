@@ -178,10 +178,10 @@ class WQSession(requests.Session):
                         else:
                             raise ValueError(f"Persona verification failed: {p_r.text}")
                 else:
-                    # Headless Background Startup / Deploy: do NOT block, do NOT poll, do NOT alert!
+                    # Headless Background Startup / Deploy: Raise exception to halt loops and prevent account blockage
                     self.login_expired = True
-                    log_auth("WARNING", f"[AUTH] Biometric verification is required for {src.config.WQ_EMAIL}, but interactive/cli mode is False (background startup/deploy). Deferring login until user clicks 'Re-auth Session' on the dashboard.")
-                    return
+                    log_auth("WARNING", f"[AUTH] Biometric verification is required for {src.config.WQ_EMAIL}. Halting execution to prevent automated account blockages.")
+                    raise PersonaRequiredException(biometric_url, r.json(), self)
             else:
                 resp_json = r.json()
                 log_auth("ERROR", f"[AUTH] Authentication response warning: {resp_json}")

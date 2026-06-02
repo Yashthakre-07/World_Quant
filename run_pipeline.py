@@ -3911,6 +3911,28 @@ def main():
     ping_thread.start()
     log_message("INFO", "[KEEPALIVE] Self-ping thread started (interval: 60s)")
 
+    # WorldQuant keep-alive loop to prevent session expiry (every 10 minutes / 600 seconds)
+    def wq_keepalive_loop():
+        time.sleep(30)  # wait for startup authentication
+        while True:
+            global active_session
+            if active_session is not None and not getattr(active_session, "login_expired", False):
+                try:
+                    # GET /users/self is lightweight and keeps the session active
+                    r = active_session.get("https://api.worldquantbrain.com/users/self", timeout=15)
+                    if r.status_code == 200:
+                        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [DEBUG] [WQ-KEEPALIVE] WorldQuant session active. Session cookies refreshed successfully.")
+                    else:
+                        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [DEBUG] [WQ-KEEPALIVE] WorldQuant ping returned status {r.status_code}. Attempting automatic re-auth...")
+                        active_session.authenticate()
+                except Exception as e:
+                    print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [WARNING] [WQ-KEEPALIVE] WorldQuant keep-alive failed: {e}")
+            time.sleep(600)  # 10 minutes
+
+    wq_ping_thread = threading.Thread(target=wq_keepalive_loop, daemon=True)
+    wq_ping_thread.start()
+    log_message("INFO", "[KEEPALIVE] WorldQuant session keep-alive thread started (interval: 10m)")
+
     # Dynamic Queue Scheduler State
     global scheduled_formulas, completed_formulas
     scheduled_formulas = set()
