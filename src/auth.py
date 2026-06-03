@@ -203,8 +203,14 @@ class WQSession(requests.Session):
                     raise PersonaRequiredException(biometric_url, resp_json, self)
             else:
                 err_json = r.json()
+                detail = err_json.get("detail", "")
+                if "BIOMETRICS_THROTTLED" in str(detail):
+                    log_auth("WARNING", "[AUTH] WorldQuant Brain has throttled biometric requests. Please wait 5-10 minutes before requesting a new login.")
+                    raise ValueError("BIOMETRICS_THROTTLED: Please wait 5-10 minutes for the platform cooldown to expire before attempting re-authentication.")
+                
                 log_auth("ERROR", f"[AUTH] Authentication response warning: {err_json}")
                 raise ValueError(f"Login failed: {err_json}")
         except Exception as e:
             log_auth("ERROR", f"[AUTH] Error during authentication: {e}")
             raise e
+

@@ -4019,15 +4019,16 @@ def main():
                     if r.status_code == 200:
                         print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [DEBUG] [WQ-KEEPALIVE] WorldQuant session active. Session cookies refreshed successfully.")
                     else:
-                        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [DEBUG] [WQ-KEEPALIVE] WorldQuant ping returned status {r.status_code}. Attempting automatic re-auth...")
-                        active_session.authenticate()
+                        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [WARNING] [WQ-KEEPALIVE] WorldQuant session expired (status {r.status_code}). Session must be re-authenticated manually via the web dashboard.")
+                        active_session.login_expired = True
                 except Exception as e:
                     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [WARNING] [WQ-KEEPALIVE] WorldQuant keep-alive failed: {e}")
             time.sleep(600)  # 10 minutes
 
     wq_ping_thread = threading.Thread(target=wq_keepalive_loop, daemon=True)
     wq_ping_thread.start()
-    log_message("INFO", "[KEEPALIVE] WorldQuant session keep-alive thread started (interval: 10m)")
+    log_message("INFO", "[KEEPALIVE] WorldQuant session keep-alive thread disabled automatic background logins. Manual UI re-auth only.")
+
 
     # Dynamic Queue Scheduler State
     global scheduled_formulas, completed_formulas
