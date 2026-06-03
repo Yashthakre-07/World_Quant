@@ -116,30 +116,49 @@ class WQSession(requests.Session):
                 self.login_expired = False
                 self.save_persisted_cookies()
             elif 'inquiry' in r.json():
-                inquiry = r.json()['inquiry']
-                inquiry_id = inquiry.get('id') if isinstance(inquiry, dict) else inquiry
-                
+                resp_json = r.json()
+                inquiry = resp_json.get('inquiry', {})
+
+                # inquiry can be a plain string ID or a dict {id: ..., url: ...}
+                if isinstance(inquiry, str):
+                    inquiry_id = inquiry
+                    inquiry_url_from_resp = None
+                elif isinstance(inquiry, dict):
+                    inquiry_id = inquiry.get('id') or inquiry.get('inquiry_id') or ''
+                    inquiry_url_from_resp = inquiry.get('url') or inquiry.get('redirect_url') or ''
+                else:
+                    inquiry_id = ''
+                    inquiry_url_from_resp = None
+
+                # Build biometric URL — try sources in best→worst order
                 biometric_url = None
-                # Prioritize direct Persona verification hosted URL to bypass WorldQuant wrapper account login entirely!
+
+                # 1. Direct Persona verification link (most reliable, bypasses WQ wrapper)
                 if inquiry_id:
                     biometric_url = f"https://inquiry.withpersona.com/verify?inquiry-id={inquiry_id}"
-                elif isinstance(inquiry, dict) and 'url' in inquiry and inquiry['url']:
-                    biometric_url = inquiry['url']
-                
-                if not biometric_url:
-                    # Fallback to Location header or manual URL assembly
-                    if 'Location' in r.headers:
-                        from urllib.parse import urljoin
-                        biometric_url = urljoin(r.url, r.headers['Location'])
-                    else:
-                        biometric_url = f"{r.url}/persona?inquiry={inquiry_id}"
-                    
-                    # Redirect api.worldquantbrain.com to platform.worldquantbrain.com for user-friendly browser verification
+
+                # 2. URL field from the response JSON
+                if not biometric_url and inquiry_url_from_resp:
+                    biometric_url = inquiry_url_from_resp
+
+                # 3. Location header fallback
+                if not biometric_url and 'Location' in r.headers:
+                    from urllib.parse import urljoin
+                    biometric_url = urljoin(r.url, r.headers['Location'])
                     if "api.worldquantbrain.com" in biometric_url:
-                        biometric_url = biometric_url.replace("api.worldquantbrain.com", "platform.worldquantbrain.com")
-                
+                        biometric_url = biometric_url.replace(
+                            "api.worldquantbrain.com", "platform.worldquantbrain.com"
+                        )
+
+                # 4. Hard fallback to platform login page (user can manually log in)
+                if not biometric_url:
+                    biometric_url = "https://platform.worldquantbrain.com/sign-in"
+                    log_auth("WARNING", "[AUTH] Could not extract Persona URL from WQ response. Falling back to platform login page.")
+
+                log_auth("INFO", f"[AUTH] Biometric verification URL resolved: {biometric_url}")
+
                 if self.interactive:
-                    raise PersonaRequiredException(biometric_url, r.json(), self)
+                    raise PersonaRequiredException(biometric_url, resp_json, self)
                 elif self.cli_mode:
                     # Direct CLI execution (e.g., manual script execution on terminal): display link and wait
                     import os
@@ -156,7 +175,7 @@ class WQSession(requests.Session):
                         verified = False
                         for attempt in range(60):  # Wait up to 10 minutes
                             time.sleep(10)
-                            p_r = self.post(f"https://api.worldquantbrain.com/authentication/persona", json=r.json())
+                            p_r = self.post(f"https://api.worldquantbrain.com/authentication/persona", json=resp_json)
                             if p_r.status_code == 201:
                                 log_auth("INFO", "[AUTH] Biometric verification confirmed! Logged in successfully.")
                                 self.login_expired = False
@@ -170,7 +189,7 @@ class WQSession(requests.Session):
                         # Local machine CLI: open browser and wait for Enter key
                         webbrowser.open(biometric_url)
                         input(f"Complete verification at: {biometric_url}\nThen press Enter here to continue...")
-                        p_r = self.post(f"https://api.worldquantbrain.com/authentication/persona", json=r.json())
+                        p_r = self.post(f"https://api.worldquantbrain.com/authentication/persona", json=resp_json)
                         if p_r.status_code == 201:
                             log_auth("INFO", "[AUTH] Successfully logged in to WorldQuant Brain after Persona verification!")
                             self.login_expired = False
@@ -181,11 +200,11 @@ class WQSession(requests.Session):
                     # Headless Background Startup / Deploy: Raise exception to halt loops and prevent account blockage
                     self.login_expired = True
                     log_auth("WARNING", f"[AUTH] Biometric verification is required for {src.config.WQ_EMAIL}. Halting execution to prevent automated account blockages.")
-                    raise PersonaRequiredException(biometric_url, r.json(), self)
+                    raise PersonaRequiredException(biometric_url, resp_json, self)
             else:
-                resp_json = r.json()
-                log_auth("ERROR", f"[AUTH] Authentication response warning: {resp_json}")
-                raise ValueError(f"Login failed: {resp_json}")
+                err_json = r.json()
+                log_auth("ERROR", f"[AUTH] Authentication response warning: {err_json}")
+                raise ValueError(f"Login failed: {err_json}")
         except Exception as e:
             log_auth("ERROR", f"[AUTH] Error during authentication: {e}")
             raise e

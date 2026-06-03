@@ -1008,20 +1008,47 @@ if (reauthBtn) {
             } else if (data.status === "POLLING") {
                 // Persona challenge required!
                 const biometricUrl = data.url;
-                appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[AUTH] Biometric verification challenge generated. Redirecting to: ${biometricUrl}` });
-                
-                // 1. Set modal attributes
+
+                if (!biometricUrl) {
+                    appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] ERROR: No biometric URL received from server. Check server credentials." });
+                    reauthBtn.disabled = false;
+                    if (btnText) btnText.textContent = "Login";
+                    if (btnIcon) btnIcon.textContent = "🔑";
+                    return;
+                }
+
+                appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[AUTH] Biometric verification required. Opening verification link...` });
+
+                // 1. Set modal content & open link button
                 reauthModalLink.href = biometricUrl;
+                reauthModalLink.setAttribute("target", "_blank");
+                reauthModalLink.setAttribute("rel", "noopener noreferrer");
                 reauthModalIcon.textContent = "🔐";
                 reauthModalIcon.style.animation = "pulse 2s infinite";
                 reauthModalTitle.textContent = "Biometric Verification Required";
-                reauthModalText.innerHTML = `WorldQuant requires Persona biometric verification to securely authenticate your session.<br><strong style="color: #fca5a5; font-weight: bold;">Please complete verification in the new tab.</strong>`;
                 reauthModalLoader.style.display = "flex";
                 reauthModalLink.style.display = "inline-block";
-                
-                // 2. Open Persona in a new tab immediately
-                window.open(biometricUrl, "_blank");
-                
+
+                // 2. Try to open in new tab — handle popup blockers gracefully
+                const newTab = window.open(biometricUrl, "_blank");
+                if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
+                    // Popup was blocked — guide the user to click manually
+                    reauthModalText.innerHTML = `WorldQuant requires Persona biometric verification.<br>
+                        <strong style="color:#fca5a5; font-weight:bold;">⚠️ Popup was blocked.</strong><br>
+                        Click the <strong style="color:#7dd3fc;">"🔗 Open Verification Link"</strong> button below to open it manually.`;
+                    appendLog({ timestamp: new Date().toLocaleTimeString(), message: "[AUTH] Popup blocked by browser. User must click the verification link manually." });
+                } else {
+                    reauthModalText.innerHTML = `WorldQuant requires Persona biometric verification to securely authenticate your session.<br>
+                        <strong style="color:#fca5a5; font-weight:bold;">Please complete verification in the new tab.</strong><br>
+                        <span style="font-size:0.85em; color:#94a3b8;">If the tab didn't open, click the button below.</span>`;
+                    appendLog({ timestamp: new Date().toLocaleTimeString(), message: `[AUTH] Verification tab opened: ${biometricUrl}` });
+                }
+
+                // Re-enable login button so user can retry if something goes wrong
+                reauthBtn.disabled = false;
+                if (btnText) btnText.textContent = "Waiting...";
+                if (btnIcon) btnIcon.textContent = "⏳";
+
                 // 3. Open Modal
                 reauthModal.style.display = "flex";
                 

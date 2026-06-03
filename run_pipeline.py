@@ -1948,6 +1948,54 @@ def start_pipeline():
     log_message("INFO", "[API] Pipeline has been RESUMED/STARTED via remote desktop call.")
     return jsonify({"status": "ok", "pipeline_active": True, "message": "Pipeline active."})
 
+# Global state registries for Group A and Group B active statuses
+groupa_active = True
+groupb_active = True
+
+@app.route("/api/groupa/stop", methods=["POST"])
+def stop_groupa():
+    global groupa_active
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    if token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+    groupa_active = False
+    log_message("WARNING", "[API] Group A Pipeline (Slots 1-4) has been PAUSED.")
+    return jsonify({"status": "ok", "groupa_active": False, "message": "Group A paused."})
+
+@app.route("/api/groupa/start", methods=["POST"])
+def start_groupa():
+    global groupa_active
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    if token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+    groupa_active = True
+    log_message("INFO", "[API] Group A Pipeline (Slots 1-4) has been RESUMED/STARTED.")
+    return jsonify({"status": "ok", "groupa_active": True, "message": "Group A active."})
+
+@app.route("/api/groupb/stop", methods=["POST"])
+def stop_groupb():
+    global groupb_active
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    if token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+    groupb_active = False
+    log_message("WARNING", "[API] Group B Pipeline (Slots 5-8) has been PAUSED.")
+    return jsonify({"status": "ok", "groupb_active": False, "message": "Group B paused."})
+
+@app.route("/api/groupb/start", methods=["POST"])
+def start_groupb():
+    global groupb_active
+    auth_header = request.headers.get("Authorization", "")
+    token = auth_header.replace("Bearer ", "").strip()
+    if token != API_SECRET_TOKEN:
+        return jsonify({"error": "Unauthorized"}), 401
+    groupb_active = True
+    log_message("INFO", "[API] Group B Pipeline (Slots 5-8) has been RESUMED/STARTED.")
+    return jsonify({"status": "ok", "groupb_active": True, "message": "Group B active."})
+
 # Global state registry for WQ Trigger Flow progress tracking
 trigger_flow_state = {
     "status": "IDLE",  # IDLE, RUNNING, SUCCESS, ERROR
@@ -3499,10 +3547,32 @@ def simulate_task(index, task, task_state, session, slot_id=1):
         return
 
     # Polling Loop
+    start_poll_time = time.time()
     retry_count = 0
     alpha_id = None
     last_logged_progress = -1
     while True:
+        # 10 minutes timeout check
+        if time.time() - start_poll_time > 600:
+            err_msg = "Simulation timeout: Alpha hung/stuck in simulating status on WQ cluster for over 10 minutes."
+            log_message("ERROR", f"Alpha #{index+1} {err_msg}")
+            task_state["status"] = "ERROR"
+            task_state["error_message"] = err_msg
+            save_alpha_run({
+                "run_id": run_uuid, "family": family, "hypothesis": hypothesis, "formula": formula,
+                "region": settings.get("region", "USA"),
+                "universe": settings.get("universe", "TOP3000"),
+                "neutralization": settings.get("neutralization", "SUBINDUSTRY"),
+                "decay": settings.get("decay", 6),
+                "truncation": settings.get("truncation", 0.08),
+                "delay": settings.get("delay", 1),
+                "sharpe": None, "fitness": None, "turnover": None,
+                "checks_passed": 0, "weight_check": "FAIL", "sub_sharpe": None, "status": "HARD_REJECT",
+                "alpha_link": None, "sim_link": nxt_url, "error_message": err_msg,
+                "llm_model": "gemini-1.5-flash", "parent_id": None
+            })
+            return
+
         try:
             poll_r = robust_request(session, "GET", nxt_url, index=index, timeout=30)
             if poll_r.status_code == 429:
@@ -3715,10 +3785,36 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session, slot_id=1)
         return
 
     # Polling Loop
+    start_poll_time = time.time()
     retry_count = 0
     children = []
     last_logged_progress = -1
     while True:
+        # 10 minutes timeout check
+        if time.time() - start_poll_time > 600:
+            err_msg = "Simulation timeout: Alpha hung/stuck in simulating status on WQ cluster for over 10 minutes."
+            log_message("ERROR", f"Batch ({valid_alphas_label}) {err_msg}")
+            for st, uid, t in zip(valid_states, valid_uuids, valid_tasks):
+                st["status"] = "ERROR"
+                st["error_message"] = err_msg
+                settings = dict(DEFAULT_SIM_SETTINGS)
+                if "settings" in t and t["settings"]:
+                    settings.update(t["settings"])
+                save_alpha_run({
+                    "run_id": uid, "family": t["family"], "hypothesis": t["hypothesis"], "formula": t["formula"],
+                    "region": settings.get("region", "USA"),
+                    "universe": settings.get("universe", "TOP3000"),
+                    "neutralization": settings.get("neutralization", "SUBINDUSTRY"),
+                    "decay": settings.get("decay", 6),
+                    "truncation": settings.get("truncation", 0.08),
+                    "delay": settings.get("delay", 1),
+                    "sharpe": None, "fitness": None, "turnover": None,
+                    "checks_passed": 0, "weight_check": "FAIL", "sub_sharpe": None, "status": "HARD_REJECT",
+                    "alpha_link": None, "sim_link": parent_url, "error_message": err_msg,
+                    "llm_model": "gemini-1.5-flash", "parent_id": None
+                })
+            return
+
         try:
             poll_r = robust_request(session, "GET", parent_url, index=valid_indices[0], timeout=30)
             if poll_r.status_code == 429:

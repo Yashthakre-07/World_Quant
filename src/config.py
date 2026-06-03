@@ -20,9 +20,24 @@ WQ_EMAIL = os.getenv("WQ_EMAIL", "")
 WQ_PASSWORD = os.getenv("WQ_PASSWORD", "")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
+# Yash Thakre OPI (Slots 1-4)
+OPI_EMAIL = os.getenv("OPI_EMAIL", "saineela731@gmail.com")
+OPI_PASSWORD = os.getenv("OPI_PASSWORD", "iitg@123")
+OPI_API_TOKEN = os.getenv("OPI_API_TOKEN", "yashthakreop")
+GROUPA_API_TOKEN = OPI_API_TOKEN
+
+# Yash Thakre OPI Pro (Slots 5-8)
+OPI_PRO_EMAIL = os.getenv("OPI_PRO_EMAIL", "beyondsynapse@gmail.com")
+OPI_PRO_PASSWORD = os.getenv("OPI_PRO_PASSWORD", "Web3@ytop")
+OPI_PRO_API_TOKEN = os.getenv("OPI_PRO_API_TOKEN", "yashthakrepro")
+GROUPB_API_TOKEN = OPI_PRO_API_TOKEN
+
+
+
 # API Endpoints
 WQ_AUTH_URL = "https://api.worldquantbrain.com/authentication"
 WQ_SIM_URL = "https://api.worldquantbrain.com/simulations"
+
 WQ_ALPHAS_URL = "https://api.worldquantbrain.com/alphas"
 
 # Database Configuration
