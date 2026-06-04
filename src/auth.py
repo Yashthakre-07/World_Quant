@@ -42,15 +42,17 @@ class PersonaRequiredException(Exception):
         super().__init__(f"Persona biometric verification required: {url}")
 
 class WQSession(requests.Session):
-    def __init__(self, interactive=False, cli_mode=False):
+    def __init__(self, email=None, password=None, interactive=False, cli_mode=False):
         super().__init__()
         self.verify = False
         self.login_expired = False
         self.interactive = interactive
         self.cli_mode = cli_mode
+        self.email = email if email else src.config.WQ_EMAIL
+        self.password = password if password else src.config.WQ_PASSWORD
         
         # Unique cookie file based on email to support switching profiles
-        safe_email = src.config.WQ_EMAIL.replace("@", "_").replace(".", "_")
+        safe_email = self.email.replace("@", "_").replace(".", "_")
         self.cookies_path = src.config.DB_DIR / f"session_cookies_{safe_email}.json"
         
         # Try loading persisted cookies
@@ -63,7 +65,7 @@ class WQSession(requests.Session):
                 # GET /users/self is protected and returns 200 if logged in
                 r = self.get("https://api.worldquantbrain.com/users/self", timeout=15)
                 if r.status_code == 200:
-                    log_auth("INFO", f"[AUTH] Reused existing authenticated session for {src.config.WQ_EMAIL}!")
+                    log_auth("INFO", f"[AUTH] Reused existing authenticated session for {self.email}!")
                     is_authenticated = True
                 else:
                     log_auth("WARNING", f"[AUTH] Saved session cookies invalid or expired (status {r.status_code}).")
@@ -77,7 +79,7 @@ class WQSession(requests.Session):
                 self.authenticate()
             else:
                 self.login_expired = True
-                log_auth("INFO", "[AUTH] Background startup/deploy detected. Skipping authentication attempt silently. Session will be activated when you click 'Re-auth Session' on the dashboard.")
+                log_auth("INFO", f"[AUTH] Background startup/deploy detected. Skipping authentication attempt silently for {self.email}. Session will be activated when you click 'Re-auth Session' on the dashboard.")
 
     def load_persisted_cookies(self):
         if self.cookies_path.exists():
@@ -102,12 +104,12 @@ class WQSession(requests.Session):
             log_auth("WARNING", f"[AUTH] Failed to save session cookies: {e}")
 
     def authenticate(self):
-        if not src.config.WQ_EMAIL or not src.config.WQ_PASSWORD:
-            log_auth("ERROR", "[AUTH] Credentials not found in environment. Please set WQ_EMAIL and WQ_PASSWORD in your env file.")
+        if not self.email or not self.password:
+            log_auth("ERROR", f"[AUTH] Credentials not found. Please verify they are correctly configured.")
             raise ValueError("Credentials missing.")
 
-        self.auth = (src.config.WQ_EMAIL, src.config.WQ_PASSWORD)
-        log_auth("INFO", f"[AUTH] Attempting authentication with WorldQuant Brain for user: {src.config.WQ_EMAIL}")
+        self.auth = (self.email, self.password)
+        log_auth("INFO", f"[AUTH] Attempting authentication with WorldQuant Brain for user: {self.email}")
 
         try:
             r = self.post(WQ_AUTH_URL)
@@ -199,7 +201,7 @@ class WQSession(requests.Session):
                 else:
                     # Headless Background Startup / Deploy: Raise exception to halt loops and prevent account blockage
                     self.login_expired = True
-                    log_auth("WARNING", f"[AUTH] Biometric verification is required for {src.config.WQ_EMAIL}. Halting execution to prevent automated account blockages.")
+                    log_auth("WARNING", f"[AUTH] Biometric verification is required for {self.email}. Halting execution to prevent automated account blockages.")
                     raise PersonaRequiredException(biometric_url, resp_json, self)
             else:
                 err_json = r.json()

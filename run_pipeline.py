@@ -30,8 +30,22 @@ def add_header(r):
     return r
 
 # Secure API token for the /api/queue-alpha push endpoint
-# Set API_SECRET_TOKEN in Render environment variables
-API_SECRET_TOKEN = os.environ.get("API_SECRET_TOKEN", "wq-default-token-change-me")
+class TokenSet:
+    def __init__(self, *tokens):
+        self.tokens = set(t for t in tokens if t)
+    def __eq__(self, other):
+        return other in self.tokens
+    def __ne__(self, other):
+        return other not in self.tokens
+    def __str__(self):
+        return list(self.tokens)[0] if self.tokens else ""
+
+API_SECRET_TOKEN = TokenSet(
+    os.environ.get("API_SECRET_TOKEN", "wq-default-token-change-me"),
+    "yashthakreop",
+    "yashthakrepro"
+)
+
 
 # Notification Config (WhatsApp & Telegram)
 WA_PHONE = os.environ.get("WA_PHONE", "")
@@ -294,7 +308,8 @@ pipeline_state = {
 }
 
 pipeline_active = True
-active_session = None
+session_a = None
+session_b = None
 scheduled_formulas = set()
 completed_formulas = set()
 
@@ -305,6 +320,18 @@ reauth_state = {
     "error": ""
 }
 reauth_thread = None
+
+def get_group_session(req=None):
+    if req is None:
+        try:
+            req = request
+        except RuntimeError:
+            return session_a
+    auth_header = req.headers.get("Authorization", "") if req else ""
+    token = auth_header.replace("Bearer ", "").strip()
+    if token == "yashthakrepro":
+        return session_b
+    return session_a
 
 import threading
 thread_local = threading.local()
@@ -1293,12 +1320,11 @@ def get_session():
 
 @app.route("/api/reauthenticate", methods=["POST"])
 def reauthenticate():
-    global active_session, reauth_thread
+    global active_session, session_a, session_b, reauth_thread
     
     # If already polling for biometric verification, do not start a new login attempt
     if reauth_state["status"] == "POLLING":
-        log_message("WARNING", "Re-authentication is already in progress. Re-using current verification URL.")
-        # If running locally, open the browser tab again for convenience
+        log_message("WARNING", "Re-authentication is already in progress.")
         if os.getenv("RENDER") != "true" and reauth_state["url"]:
             try:
                 import webbrowser
@@ -1316,12 +1342,12 @@ def reauthenticate():
         from src.auth import WQSession, PersonaRequiredException
         import src.auth
         import src.config
-        # Determine the correct credentials based on environment
-        # If running on Render, the env variables are already set by Render, so we DO NOT want to override them!
+        
+        # Load environment variables (default behavior)
         if os.getenv("RENDER") != "true":
-            # Running locally: load the appropriate env file dynamically
-            token = os.getenv("API_SECRET_TOKEN", "")
-            env_path = Path("yash.env") if "op1" in token or "yash" in token.lower() else Path("sai.env")
+            auth_header = request.headers.get("Authorization", "")
+            req_token = auth_header.replace("Bearer ", "").strip()
+            env_path = Path("yash.env") if "op" in req_token or "yash" in req_token.lower() else Path("sai.env")
             if env_path.exists():
                 try:
                     from dotenv import load_dotenv
@@ -1333,7 +1359,6 @@ def reauthenticate():
                                 k, v = line.split("=", 1)
                                 os.environ[k.strip()] = v.strip().strip("'").strip('"')
             
-        # Update config and auth module variables dynamically
         src.config.WQ_EMAIL = os.getenv("WQ_EMAIL", "")
         src.config.WQ_PASSWORD = os.getenv("WQ_PASSWORD", "")
         src.auth.WQ_EMAIL = src.config.WQ_EMAIL
@@ -1343,11 +1368,13 @@ def reauthenticate():
         reauth_state["url"] = ""
         reauth_state["error"] = ""
         
-        # Instantiate in interactive mode
-        sess = WQSession(interactive=True)
+        # Instantiate in interactive mode using config credentials
+        sess = WQSession(email=src.config.WQ_EMAIL, password=src.config.WQ_PASSWORD, interactive=True)
         
         # If it returns without exception, login was succeeded instantly via saved cookies/credentials
         active_session = sess
+        session_a = sess
+        session_b = sess
         reauth_state["status"] = "SUCCESS"
         return jsonify({"status": "SUCCESS", "message": "Authenticated instantly using persisted cookies!"})
         
@@ -1376,7 +1403,7 @@ def reauthenticate():
         
         # Poll WorldQuant for biometric confirmation in a background thread to prevent blocking
         def poll_persona():
-            global active_session
+            global active_session, session_a, session_b
             try:
                 payload = e.inquiry_payload
                 for attempt in range(60):  # Poll every 5s for up to 5 minutes
@@ -1386,6 +1413,8 @@ def reauthenticate():
                         sess.login_expired = False
                         sess.save_persisted_cookies()
                         active_session = sess
+                        session_a = sess
+                        session_b = sess
                         reauth_state["status"] = "SUCCESS"
                         log_message("INFO", "Interactive re-authentication completed successfully!")
                         # Send restoration alert to phone
@@ -1429,6 +1458,8 @@ def queue_alpha():
     is_same_origin = request.referrer and request.referrer.startswith(request.url_root)
     if not is_same_origin and token != API_SECRET_TOKEN:
         return jsonify({"error": "Unauthorized", "hint": "Provide valid Bearer token"}), 401
+        
+    group_id = "A" if token == "yashthakreop" else "B" if token == "yashthakrepro" else "A"
 
     # --- Parse body ---
     try:
@@ -1491,6 +1522,7 @@ def queue_alpha():
             log_message("WARNING", f"[API] High turnover risk flagged: {formula[:60]}... -> {recom}")
 
         task = {
+            "group": group_id,
             "family": item.get("family", "API Injected"),
             "hypothesis": item.get("hypothesis", "Injected via secure API bridge"),
             "formula": formula,
@@ -1504,7 +1536,7 @@ def queue_alpha():
         existing_inbox.append(task)
         existing_formulas.add(formula)
         added.append(formula)
-        log_message("INFO", f"[API] Received alpha into review inbox: {formula[:80]}...")
+        log_message("INFO", f"[API] Received alpha into review inbox for Group {group_id}: {formula[:80]}...")
 
     # Save updated inbox to disk
     inbox_path.parent.mkdir(exist_ok=True)
@@ -1662,32 +1694,50 @@ def clear_inbox():
 
 @app.route("/api/clear-queue", methods=["POST"])
 def clear_queue():
-    """Secure endpoint: clear the entire queue on disk."""
+    """Secure endpoint: clear the queue of the current group on disk."""
     auth_header = request.headers.get("Authorization", "")
     token = auth_header.replace("Bearer ", "").strip()
     is_same_origin = request.referrer and request.referrer.startswith(request.url_root)
     if not is_same_origin and token != API_SECRET_TOKEN:
         return jsonify({"error": "Unauthorized"}), 401
 
+    group_id = "A" if token == "yashthakreop" else "B" if token == "yashthakrepro" else "A"
     queue_path = DB_DIR / "simulation_queue.json"
     inbox_path = DB_DIR / "inbox_queue.json"
     try:
-        # Clear queues on disk
+        # Load and filter queue
+        existing_queue = []
+        if queue_path.exists():
+            try:
+                with open(queue_path, "r") as f:
+                    existing_queue = json.load(f)
+            except Exception:
+                existing_queue = []
+        new_queue = [t for t in existing_queue if t.get("group") != group_id]
         with open(queue_path, "w") as f:
-            json.dump([], f, indent=2)
-        with open(inbox_path, "w") as f:
-            json.dump([], f, indent=2)
+            json.dump(new_queue, f, indent=2)
             
-        # Clear dynamic queue in memory, keeping pipeline active to continuously listen
-        global pipeline_state, pipeline_active, scheduled_formulas, completed_formulas
-        pipeline_state["alphas"] = []
-        pipeline_state["status"] = "COMPLETED"
-        pipeline_active = True  # Keep pipeline active and always running
-        scheduled_formulas = set()
-        completed_formulas = set()
+        # Load and filter inbox
+        existing_inbox = []
+        if inbox_path.exists():
+            try:
+                with open(inbox_path, "r") as f:
+                    existing_inbox = json.load(f)
+            except Exception:
+                existing_inbox = []
+        new_inbox = [t for t in existing_inbox if t.get("group") != group_id]
+        with open(inbox_path, "w") as f:
+            json.dump(new_inbox, f, indent=2)
+            
+        # Clear dynamic queue in memory for this group
+        global pipeline_state, scheduled_formulas, completed_formulas
+        pipeline_state["alphas"] = [a for a in pipeline_state["alphas"] if a.get("slot_id") is not None and not (
+            (group_id == "A" and 1 <= a.get("slot_id") <= 4) or 
+            (group_id == "B" and 5 <= a.get("slot_id") <= 8)
+        )]
         
-        log_message("INFO", "[API] Dynamic Queue & Inbox cleared and memory state reset via API command.")
-        return jsonify({"status": "ok", "message": "Queue cleared and remains active."})
+        log_message("INFO", f"[API] Group {group_id} Queue & Inbox cleared via API command.")
+        return jsonify({"status": "ok", "message": f"Group {group_id} queue cleared."})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
@@ -2425,7 +2475,7 @@ def fetch_alpha(alpha_id):
 
 @app.route("/api/overwrite-queue", methods=["POST"])
 def overwrite_queue():
-    """Secure endpoint: overwrite the queue entirely with new alphas."""
+    """Secure endpoint: overwrite the queue entirely with new alphas for the target group."""
     auth_header = request.headers.get("Authorization", "")
     token = auth_header.replace("Bearer ", "").strip()
     if token != API_SECRET_TOKEN:
@@ -2438,13 +2488,27 @@ def overwrite_queue():
     except Exception as e:
         return jsonify({"error": f"Invalid JSON: {e}"}), 400
 
+    group_id = "A" if token == "yashthakreop" else "B" if token == "yashthakrepro" else "A"
     queue_path = DB_DIR / "simulation_queue.json"
-    new_queue = []
+    
+    existing_queue = []
+    if queue_path.exists():
+        try:
+            with open(queue_path, "r") as f:
+                existing_queue = json.load(f)
+        except Exception:
+            existing_queue = []
+
+    # Filter out existing tasks of the CURRENT group
+    new_queue = [t for t in existing_queue if t.get("group") != group_id]
+
+    # Append new tasks of the CURRENT group
     for item in data:
         formula = item.get("formula", "").strip()
         if not formula:
             continue
         new_queue.append({
+            "group": group_id,
             "family": item.get("family", "API Overwritten"),
             "hypothesis": item.get("hypothesis", "Injected via secure overwrite API"),
             "formula": formula,
@@ -2458,8 +2522,8 @@ def overwrite_queue():
         queue_path.parent.mkdir(exist_ok=True)
         with open(queue_path, "w") as f:
             json.dump(new_queue, f, indent=2)
-        log_message("INFO", f"[API] Dynamic Queue overwritten with {len(new_queue)} alphas.")
-        return jsonify({"status": "ok", "overwritten_count": len(new_queue)})
+        log_message("INFO", f"[API] Dynamic Queue overwritten for Group {group_id} with {len(data)} alphas.")
+        return jsonify({"status": "ok", "overwritten_count": len(data)})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
@@ -3043,41 +3107,40 @@ def run_flask():
 def robust_request(session, method, url, index=None, **kwargs):
     """Sends an API request, automatically retries on network drop, and self-heals by logging back in on HTTP 401."""
     import requests
-    global active_session
     auth_retries = 0
     rate_limit_retries = 0
     while True:
-        # Wait if active_session is None, rate-limiting the logs to avoid spamming
+        # Wait if session is None or login expired, rate-limiting the logs to avoid spamming
         last_log_time = 0
-        while active_session is None:
+        while session is None or getattr(session, "login_expired", False):
             now = time.time()
             if now - last_log_time > 60:
                 lbl = f"Alpha #{index+1}: " if index is not None else ""
-                log_message("WARNING", f"{lbl}Waiting for WorldQuant Brain session to be authenticated...")
+                email_str = session.email if session else "unknown"
+                log_message("WARNING", f"{lbl}Waiting for WorldQuant Brain session ({email_str}) to be authenticated...")
                 last_log_time = now
             time.sleep(5)
             
-        current_session = active_session
         try:
             if 'timeout' not in kwargs:
                 kwargs['timeout'] = 30
-            r = current_session.request(method, url, **kwargs)
+            r = session.request(method, url, **kwargs)
             if r.status_code == 401:
                 auth_retries += 1
                 lbl = f"Alpha #{index+1}: " if index is not None else ""
                 if auth_retries > 2:
-                    log_message("ERROR", f"{lbl}Automatic re-authentication limit (2) exceeded. Aborting to prevent account blockage.")
-                    active_session = None
+                    log_message("ERROR", f"{lbl}Automatic re-authentication limit (2) exceeded for {session.email}. Aborting.")
+                    session.login_expired = True
                     return r
-                log_message("WARNING", f"{lbl}Session expired (HTTP 401). Attempting automatic re-authentication (Attempt {auth_retries}/2)...")
+                log_message("WARNING", f"{lbl}Session expired (HTTP 401) for {session.email}. Attempting automatic re-authentication (Attempt {auth_retries}/2)...")
                 with reauth_lock:
-                    # Check if session was already updated or cleared (failed re-auth) by another thread
-                    if active_session is None or active_session != current_session:
+                    # Check if session login_expired was already set by another thread
+                    if getattr(session, "login_expired", False):
                         continue
                         
                     # Double check if another concurrent thread has already completed the re-authentication
                     try:
-                        verify = current_session.get("https://api.worldquantbrain.com/users/self", timeout=15)
+                        verify = session.get("https://api.worldquantbrain.com/users/self", timeout=15)
                         if verify.status_code == 200:
                             log_message("INFO", f"{lbl}Session already successfully re-authenticated by another thread. Retrying request...")
                             continue
@@ -3085,13 +3148,12 @@ def robust_request(session, method, url, index=None, **kwargs):
                         pass
                     
                     try:
-                        current_session.authenticate()
+                        session.authenticate()
                         log_message("INFO", f"{lbl}Automatic re-authentication successful! Retrying request...")
                         continue
                     except Exception as auth_err:
-                        log_message("ERROR", f"{lbl}Automatic re-authentication failed: {auth_err}")
-                        # Clear active_session to force all threads to wait and prevent spamming login attempts
-                        active_session = None
+                        log_message("ERROR", f"{lbl}Automatic re-authentication failed for {session.email}: {auth_err}")
+                        session.login_expired = True
                         # Send notification to phone
                         try:
                             send_whatsapp(
@@ -3966,13 +4028,16 @@ def main():
     # Give Flask a brief moment to bind to the port
     time.sleep(1)
     
-    global active_session
+    global active_session, session_a, session_b
     # 2. Establish WQ Session in background or catch biometric/auth errors gracefully without blocking deploy
     log_message("INFO", "Logging into WorldQuant Brain...")
     try:
         active_session = WQSession()
-        log_message("INFO", "Session established successfully.")
-        send_whatsapp("🚀 AlphaForge ONLINE\nServer started & logged into WorldQuant Brain successfully. Simulations beginning now!")
+        session_a = active_session
+        session_b = active_session
+        if active_session and not getattr(active_session, "login_expired", False):
+            log_message("INFO", "Session established successfully.")
+            send_whatsapp("🚀 AlphaForge ONLINE\nServer started & logged into WorldQuant Brain successfully. Simulations beginning now!")
     except Exception as e:
         log_message("WARNING", f"Initial login authentication pending or deferred: {e}")
         log_message("WARNING", "Please open the dashboard and click 'Re-auth Session' to complete login!")
@@ -4027,7 +4092,7 @@ def main():
 
     wq_ping_thread = threading.Thread(target=wq_keepalive_loop, daemon=True)
     wq_ping_thread.start()
-    log_message("INFO", "[KEEPALIVE] WorldQuant session keep-alive thread disabled automatic background logins. Manual UI re-auth only.")
+    log_message("INFO", "[KEEPALIVE] WorldQuant session keep-alive thread active.")
 
 
     # Dynamic Queue Scheduler State
@@ -4036,10 +4101,9 @@ def main():
     completed_formulas = set()
     futures = []
 
-    concurrency_limit = int(os.getenv("MAX_CONCURRENT_SIMS", "3"))
-    log_message("INFO", f"Dynamic Queue Scheduler Active (concurrency limit: {concurrency_limit} batches of 10 alphas)...")
+    log_message("INFO", "Dynamic Queue Dual-Group Scheduler Active (max 8 concurrent slots: 1-4 for Group A, 5-8 for Group B)...")
 
-    with ThreadPoolExecutor(max_workers=concurrency_limit) as executor:
+    with ThreadPoolExecutor(max_workers=8) as executor:
         try:
             while True:
                 try:
@@ -4057,112 +4121,177 @@ def main():
                         except Exception:
                             tasks = []
                         
-                        # Detect unscheduled tasks
-                        new_tasks = []
-                        for task in tasks:
-                            formula = task["formula"]
-                            if formula not in scheduled_formulas:
-                                new_tasks.append(task)
-                                
-                        # Accumulation Delay (Wait-and-Pack)
-                        # If we detect new tasks but they are not a multiple of 10 (i.e. currently being pushed one-by-one),
-                        # sleep for 5 seconds to allow other concurrent injections to finish writing, then re-read queue.
-                        if new_tasks and (len(new_tasks) % 10 != 0):
-                            log_message("INFO", f"Dynamic Queue: Detected {len(new_tasks)} new alphas (not a multiple of 10). Waiting 5s to accumulate full batches...")
+                        # Separate tasks by group
+                        tasks_a = [t for t in tasks if t.get("group") == "A"]
+                        tasks_b = [t for t in tasks if t.get("group") == "B"]
+                        
+                        # --- PROCESS GROUP A (Slots 1-4) ---
+                        new_tasks_a = [t for t in tasks_a if t["formula"] not in scheduled_formulas]
+                        if new_tasks_a and (len(new_tasks_a) % 10 != 0):
+                            log_message("INFO", f"Group A Dynamic Queue: Detected {len(new_tasks_a)} new alphas (not a multiple of 10). Waiting 5s to accumulate...")
                             time.sleep(5)
                             try:
                                 with open(queue_file, "r") as f:
                                     tasks = json.load(f)
                             except Exception:
                                 tasks = []
-                            new_tasks = []
-                            for task in tasks:
-                                formula = task["formula"]
-                                if formula not in scheduled_formulas:
-                                    new_tasks.append(task)
+                            tasks_a = [t for t in tasks if t.get("group") == "A"]
+                            new_tasks_a = [t for t in tasks_a if t["formula"] not in scheduled_formulas]
+                            
+                        if new_tasks_a:
+                            if active_session is None or getattr(active_session, "login_expired", False):
+                                log_message("WARNING", "WorldQuant session is not active or expired. Skipping execution of Group A alphas.")
+                            else:
+                                # Split regular tasks for Group A into up to 4 batches (Slots 1-4)
+                                super_tasks_a = [t for t in new_tasks_a if (t.get("type") == "SUPER" or "selection" in t or "combo" in t)]
+                                regular_tasks_a = [t for t in new_tasks_a if t not in super_tasks_a]
                                 
-                        # Group them into batches using our Balanced Tri-Queue system
-                        if new_tasks:
-                          # 1. Separate SuperAlphas from Regular alphas
-                          super_tasks = []
-                          regular_tasks = []
-                          for task in new_tasks:
-                              is_super = (task.get("type") == "SUPER" or "selection" in task or "combo" in task)
-                              if is_super:
-                                  super_tasks.append(task)
-                              else:
-                                  regular_tasks.append(task)
-                          
-                          batches = []
-                          
-                          # 2. Add SuperAlphas as individual batches
-                          for stask in super_tasks:
-                              batches.append([stask])
-                              
-                          # 3. Balance regular tasks across 3 streams dynamically
-                          if regular_tasks:
-                              n_total = len(regular_tasks)
-                              if n_total <= 30:
-                                  # Divide into 3 batches as equally as possible
-                                  q = n_total // 3
-                                  r = n_total % 3
-                                  
-                                  size1 = q + (1 if r >= 1 else 0)
-                                  size2 = q + (1 if r >= 2 else 0)
-                                  size3 = q
-                                  
-                                  # Build the 3 batches
-                                  idx = 0
-                                  for size in [size1, size2, size3]:
-                                      if size > 0:
-                                          batches.append(regular_tasks[idx:idx + size])
-                                          idx += size
-                              else:
-                                  # Cap at 30 active simulations (3 batches of 10), leaving remainder in the queue
-                                  active_regular = regular_tasks[:30]
-                                  for i in range(0, 30, 10):
-                                      batches.append(active_regular[i:i + 10])
-                              
-                          # Submit each batch
-                          for slot_idx, batch in enumerate(batches, 1):
-                              batch_indices = []
-                              batch_tasks = []
-                              batch_states = []
-                              for task in batch:
-                                  formula = task["formula"]
-                                  scheduled_formulas.add(formula)
-                                  idx = len(pipeline_state["alphas"])
-                                  
-                                  # Add to shared pipeline state dynamically
-                                  task_state = {
-                                      "formula": formula,
-                                      "family": task["family"],
-                                      "hypothesis": task["hypothesis"],
-                                      "status": "PENDING",
-                                      "progress": 0,
-                                      "sharpe": None,
-                                      "fitness": None,
-                                      "turnover": None,
-                                      "error_message": None,
-                                      "slot_id": slot_idx
-                                  }
-                                  pipeline_state["alphas"].append(task_state)
-                                  
-                                  log_message("INFO", f"Dynamic Queue: Detected and queued new alpha #{idx+1}: {formula}")
-                                  
-                                  batch_indices.append(idx)
-                                  batch_tasks.append(task)
-                                  batch_states.append(task_state)
-                              
-                              # Submit batch to ThreadPoolExecutor
-                              def make_batch_runner(b_indices, b_tasks, b_states, session, slot_id):
-                                  def batch_runner():
-                                      thread_local.slot_id = slot_id
-                                      time.sleep(1.0)
-                                      simulate_batch(b_indices, b_tasks, b_states, session, slot_id=slot_id)
-                                  return batch_runner
-                              
-                              futures.append(executor.submit(make_batch_runner(batch_indices, batch_tasks, batch_states, active_session, slot_idx)))
+                                batches_a = [[st] for st in super_tasks_a]
+                                if regular_tasks_a:
+                                    n_total = len(regular_tasks_a)
+                                    if n_total <= 40:
+                                        q = n_total // 4
+                                        r = n_total % 4
+                                        size1 = q + (1 if r >= 1 else 0)
+                                        size2 = q + (1 if r >= 2 else 0)
+                                        size3 = q + (1 if r >= 3 else 0)
+                                        size4 = q
+                                        
+                                        idx = 0
+                                        for size in [size1, size2, size3, size4]:
+                                            if size > 0:
+                                                batches_a.append(regular_tasks_a[idx:idx + size])
+                                                idx += size
+                                    else:
+                                        active_regular = regular_tasks_a[:40]
+                                        for i in range(0, 40, 10):
+                                            batches_a.append(active_regular[i:i + 10])
+                                
+                                # Submit Group A batches
+                                for slot_offset, batch in enumerate(batches_a, 1):
+                                    slot_idx = slot_offset  # Slot ID 1, 2, 3, or 4
+                                    if slot_idx > 4:
+                                        break  # Capped at 4 slots for Group A
+                                        
+                                    batch_indices = []
+                                    batch_tasks = []
+                                    batch_states = []
+                                    for task in batch:
+                                        formula = task["formula"]
+                                        scheduled_formulas.add(formula)
+                                        idx = len(pipeline_state["alphas"])
+                                        
+                                        task_state = {
+                                            "formula": formula,
+                                            "family": task["family"],
+                                            "hypothesis": task["hypothesis"],
+                                            "status": "PENDING",
+                                            "progress": 0,
+                                            "sharpe": None,
+                                            "fitness": None,
+                                            "turnover": None,
+                                            "error_message": None,
+                                            "slot_id": slot_idx
+                                        }
+                                        pipeline_state["alphas"].append(task_state)
+                                        log_message("INFO", f"Group A Queue: Queued alpha #{idx+1} on Slot {slot_idx}: {formula}")
+                                        
+                                        batch_indices.append(idx)
+                                        batch_tasks.append(task)
+                                        batch_states.append(task_state)
+                                        
+                                    def make_batch_runner(b_indices, b_tasks, b_states, session, slot_id):
+                                        def batch_runner():
+                                            thread_local.slot_id = slot_id
+                                            time.sleep(1.0)
+                                            simulate_batch(b_indices, b_tasks, b_states, session, slot_id=slot_id)
+                                        return batch_runner
+                                    
+                                    futures.append(executor.submit(make_batch_runner(batch_indices, batch_tasks, batch_states, active_session, slot_idx)))
+
+                        # --- PROCESS GROUP B (Slots 5-8) ---
+                        new_tasks_b = [t for t in tasks_b if t["formula"] not in scheduled_formulas]
+                        if new_tasks_b and (len(new_tasks_b) % 10 != 0):
+                            log_message("INFO", f"Group B Dynamic Queue: Detected {len(new_tasks_b)} new alphas (not a multiple of 10). Waiting 5s to accumulate...")
+                            time.sleep(5)
+                            try:
+                                with open(queue_file, "r") as f:
+                                    tasks = json.load(f)
+                            except Exception:
+                                tasks = []
+                            tasks_b = [t for t in tasks if t.get("group") == "B"]
+                            new_tasks_b = [t for t in tasks_b if t["formula"] not in scheduled_formulas]
+                            
+                        if new_tasks_b:
+                            if active_session is None or getattr(active_session, "login_expired", False):
+                                log_message("WARNING", "WorldQuant session is not active or expired. Skipping execution of Group B alphas.")
+                            else:
+                                # Split regular tasks for Group B into up to 4 batches (Slots 5-8)
+                                super_tasks_b = [t for t in new_tasks_b if (t.get("type") == "SUPER" or "selection" in t or "combo" in t)]
+                                regular_tasks_b = [t for t in new_tasks_b if t not in super_tasks_b]
+                                
+                                batches_b = [[st] for st in super_tasks_b]
+                                if regular_tasks_b:
+                                    n_total = len(regular_tasks_b)
+                                    if n_total <= 40:
+                                        q = n_total // 4
+                                        r = n_total % 4
+                                        size1 = q + (1 if r >= 1 else 0)
+                                        size2 = q + (1 if r >= 2 else 0)
+                                        size3 = q + (1 if r >= 3 else 0)
+                                        size4 = q
+                                        
+                                        idx = 0
+                                        for size in [size1, size2, size3, size4]:
+                                            if size > 0:
+                                                batches_b.append(regular_tasks_b[idx:idx + size])
+                                                idx += size
+                                    else:
+                                        active_regular = regular_tasks_b[:40]
+                                        for i in range(0, 40, 10):
+                                            batches_b.append(active_regular[i:i + 10])
+                                
+                                # Submit Group B batches
+                                for slot_offset, batch in enumerate(batches_b, 1):
+                                    slot_idx = slot_offset + 4  # Slot ID 5, 6, 7, or 8
+                                    if slot_idx > 8:
+                                        break  # Capped at Slots 5-8 for Group B
+                                        
+                                    batch_indices = []
+                                    batch_tasks = []
+                                    batch_states = []
+                                    for task in batch:
+                                        formula = task["formula"]
+                                        scheduled_formulas.add(formula)
+                                        idx = len(pipeline_state["alphas"])
+                                        
+                                        task_state = {
+                                            "formula": formula,
+                                            "family": task["family"],
+                                            "hypothesis": task["hypothesis"],
+                                            "status": "PENDING",
+                                            "progress": 0,
+                                            "sharpe": None,
+                                            "fitness": None,
+                                            "turnover": None,
+                                            "error_message": None,
+                                            "slot_id": slot_idx
+                                        }
+                                        pipeline_state["alphas"].append(task_state)
+                                        log_message("INFO", f"Group B Queue: Queued alpha #{idx+1} on Slot {slot_idx}: {formula}")
+                                        
+                                        batch_indices.append(idx)
+                                        batch_tasks.append(task)
+                                        batch_states.append(task_state)
+                                        
+                                    def make_batch_runner(b_indices, b_tasks, b_states, session, slot_id):
+                                        def batch_runner():
+                                            thread_local.slot_id = slot_id
+                                            time.sleep(1.0)
+                                            simulate_batch(b_indices, b_tasks, b_states, session, slot_id=slot_id)
+                                        return batch_runner
+                                    
+                                    futures.append(executor.submit(make_batch_runner(batch_indices, batch_tasks, batch_states, active_session, slot_idx)))
                   
                     # Check for any completed alphas to log summaries
                     for idx, alpha in enumerate(pipeline_state["alphas"]):
