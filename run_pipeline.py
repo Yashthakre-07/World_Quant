@@ -1,3 +1,9 @@
+# ==============================================================================
+# CRITICAL CONSTRAINTS WARNING:
+# - NO GITHUB PUSH: NEVER TRIGGER GIT PUSH FROM THE AGENT CONTEXT OR SCRIPTS.
+# - NO BIOMETRIC TRIGGER: NEVER TRIGGER PERSONA BIOMETRIC VERIFICATION FLOWS.
+# ==============================================================================
+
 import os
 import sys
 import json

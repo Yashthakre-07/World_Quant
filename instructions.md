@@ -6,6 +6,11 @@ This manifest is the single source of truth for the **AlphaForge Automation Pipe
 
 ## 🔴 0. CRITICAL PROTOCOLS FOR FUTURE AI AGENTS (MANDATORY)
 
+> [!CAUTION]
+> **CRITICAL CONSTRAINTS:**
+> - **NO GITHUB PUSH**: Never trigger, run, or perform any git push commands under any circumstances.
+> - **NO BIOMETRIC TRIGGER**: Never trigger or generate biometric verification/Persona flows.
+
 Every future AI agent or developer loading this workspace **MUST STRICTLY FOLLOW** these absolute rules:
 
 1. **READ MANDATORY GUIDES FIRST**: You must read `instructions.md`, `research.md`, and [dataset.md](file:///c:/Users/Admin/Documents/VIBE_YT/wq/dataset.md) in full before running any code, submitting alphas, or suggesting formulas. Do not attempt to guess or hallucinate. If you have any doubt about the platform, APIs, datasets, or how to write/submit alphas, **always use the official ACE API package** unzipped in [ace_api_extracted](file:///c:/Users/Admin/Documents/VIBE_YT/wq/documentation/ace_api_extracted) because it contains the official WQ documentation, examples, and files on how to use all elements.

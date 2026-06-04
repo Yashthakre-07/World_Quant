@@ -1,5 +1,10 @@
 # Alpha Creation Engine
 
+> [!CAUTION]
+> **CRITICAL CONSTRAINTS:**
+> - **NO GITHUB PUSH**: Never trigger, run, or perform any git push commands under any circumstances.
+> - **NO BIOMETRIC TRIGGER**: Never trigger or generate biometric verification/Persona flows.
+
 This project will host all code related to the Alpha Creation Engine.
 
 ## 📚 Master Guides & Documentation
