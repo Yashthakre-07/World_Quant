@@ -3888,7 +3888,8 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session, slot_id=1)
                 continue
 
             res = poll_r.json()
-            if 'children' in res:
+            is_done = poll_r.headers.get("Retry-After") is None or res.get("status") in ("COMPLETE", "COMPLETED", "ERROR")
+            if is_done and 'children' in res:
                 children = res['children']
                 log_message("INFO", f"Batch ({valid_alphas_label}) parent simulation completed on WQ cluster. Children count: {len(children)}")
                 break
