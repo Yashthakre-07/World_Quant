@@ -1,5 +1,5 @@
 {
-  "current_generation": 4,
+  "current_generation": 6,
   "history": [
     {
       "generation_number": 1,
@@ -337,6 +337,672 @@
     {
       "generation_number": 2,
       "timestamp": "2026-06-05T20:35:45.578458",
+      "summary": {
+        "submitted": 0,
+        "soft_fail": 1,
+        "hard_reject": 22,
+        "error": 17,
+        "best_sharpe": 1.05
+      },
+      "details": [
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.9, -rank(ts_decay_linear(close - vwap, 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": null,
+          "fitness": null,
+          "turnover": null,
+          "error_message": "Polling errors exceeded limit: cannot access local variable 'random' where it is not associated with a value"
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(broad_market_factor_exposure_3))) / (authorized_stock_repurchase_amount + 0.00121), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'broad_market_factor_exposure_3'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (acquisition_identifiable_assets_recognized + 0.00131), 10)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.35,
+          "fitness": 0.1,
+          "turnover": 19.12,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.00141)) / (acquired_finite_intangible_assets_total + 0.00141), 5)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.3,
+          "fitness": 0.05,
+          "turnover": 31.290000000000003,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.00141)) / (accumulated_depreciation_depletion_amortization_ppne + 0.00141), 5)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.06,
+          "fitness": 0.01,
+          "turnover": 31.5,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((ts_sum(returns, 3)) * (1.001 - abs(returns))) / (acquisition_identifiable_assets_recognized + 0.00141), 12)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.56,
+          "fitness": 0.24,
+          "turnover": 17.05,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - open) * (1.001 - abs(apparel_industry_exposure_score))) / (acquired_finite_intangible_assets_total + 0.00101), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'apparel_industry_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (accrued_liabilities_total + 0.00131), 10)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": -0.43,
+          "fitness": -0.15,
+          "turnover": 18.07,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (accumulated_depreciation_depletion_amortization_ppne + 0.00131), 10)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.12,
+          "fitness": 0.02,
+          "turnover": 18.5,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(ts_delta(vwap, 10) / (ts_mean(vwap, 20) + 0.001), 10)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": null,
+          "fitness": null,
+          "turnover": null,
+          "error_message": "HTTP 401: {\"detail\":\"Incorrect authentication credentials.\"}"
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(airlines_exposure_score))) / (accumulated_amortization_customer_intangibles + 0.00121), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'airlines_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - open) * (1.001 - abs(broad_market_factor_score))) / (actual_return_on_pension_plan_assets + 0.00101), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'broad_market_factor_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.60, -rank(ts_decay_linear(((ts_sum(returns, 3) / (ts_std_dev(returns, 10) + 0.000101)) * (1.001 - abs(automobiles_exposure_score))) / (acquisition_Identifiable_assets_recognized + 0.00141), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'automobiles_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (acquired_finite_intangible_assets_total + 0.00131), 10)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.22,
+          "fitness": 0.05,
+          "turnover": 18.27,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(returns))) / (allocated_sbp_expense_total + 0.00121), 11)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.79,
+          "fitness": 0.32,
+          "turnover": 18.459999999999997,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(aluminum_steel_exposure_score))) / (accumulated_depreciation_depletion_amortization_ppne + 0.00131), 6)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'aluminum_steel_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.90, -rank(ts_decay_linear((close - ts_mean(vwap, 7)) / (ts_std_dev(close, 12) + 0.001), 6)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.8,
+          "fitness": 0.35,
+          "turnover": 23.630000000000003,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (authorized_stock_repurchase_amount + 0.00131), 10)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.52,
+          "fitness": 0.17,
+          "turnover": 18.64,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - vwap) / (high - low + 0.00101)) / (authorized_stock_repurchase_amount + 0.00131), 6)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.81,
+          "fitness": 0.26,
+          "turnover": 30.78,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - open) * (1.001 - abs(returns))) / (allocated_sbp_expense_total + 0.00101), 10)), 0), subindustry)",
+          "status": "SOFT_FAIL",
+          "sharpe": 1.05,
+          "fitness": 0.54,
+          "turnover": 20.24,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(banking_sector_exposure_score_2))) / (allocated_sbp_expense_total + 0.00131), 6)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'banking_sector_exposure_score_2'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - open) * (1.001 - abs(airlines_exposure_score))) / (accumulated_amortization_customer_intangibles + 0.00101), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'airlines_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((ts_sum(returns, 3)) * (1.001 - abs(returns))) / (accrued_liabilities_total + 0.00141), 12)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.36,
+          "fitness": 0.15,
+          "turnover": 16.59,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((ts_sum(returns, 3)) / (ts_std_dev(returns, 10) + 0.00151)) / (authorized_stock_repurchase_amount + 0.00151), 6)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.63,
+          "fitness": 0.22,
+          "turnover": 28.42,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(returns))) / (acquired_finite_intangible_assets_total + 0.00121), 11)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.68,
+          "fitness": 0.25,
+          "turnover": 18.509999999999998,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - vwap) / (high - low + 0.00101)) / (acquisition_identifiable_assets_recognized + 0.00131), 6)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.92,
+          "fitness": 0.32,
+          "turnover": 31.230000000000004,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - vwap) / (high - low + 0.00101)) / (available_for_sale_securities_value + 0.00131), 6)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.89,
+          "fitness": 0.32,
+          "turnover": 31.240000000000002,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.24,
+          "fitness": 0.04,
+          "turnover": 34.239999999999995,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((ts_sum(returns, 3)) / (ts_std_dev(returns, 10) + 0.00151)) / (allocated_sbp_expense_total + 0.00151), 6)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.67,
+          "fitness": 0.25,
+          "turnover": 27.54,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.60, -rank(ts_decay_linear(((ts_sum(returns, 3) / (ts_std_dev(returns, 10) + 0.000101)) * (1.001 - abs(apparel_industry_exposure_score))) / (acquired_finite_intangible_assets_total + 0.00141), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'apparel_industry_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((((close - open) / (high - low + 0.00101)) * (1.001 - abs(aerospace_defense_exposure_score))) / (accrued_liabilities_total + 0.00111), 4)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'aerospace_defense_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.00141)) / (available_for_sale_securities_amortized_cost + 0.00141), 5)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": -0.46,
+          "fitness": -0.11,
+          "turnover": 32.46,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(broad_market_factor_score))) / (actual_return_on_pension_plan_assets + 0.00121), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'broad_market_factor_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((((close - open) / (high - low + 0.00101)) * (1.001 - abs(beverages_tobacco_exposure_score))) / (available_for_sale_securities_value + 0.00111), 4)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'beverages_tobacco_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(returns))) / (available_for_sale_securities_value + 0.00121), 11)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.84,
+          "fitness": 0.37,
+          "turnover": 19.35,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - open) * (1.001 - abs(returns))) / (accumulated_amortization_customer_intangibles + 0.00101), 10)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.65,
+          "fitness": 0.29,
+          "turnover": 20.599999999999998,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - open) * (1.001 - abs(automobiles_exposure_score))) / (acquisition_Identifiable_assets_recognized + 0.00101), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'automobiles_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(ts_std_dev(returns, 20), 6)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.26,
+          "fitness": 0.12,
+          "turnover": 6.13,
+          "error_message": ""
+        },
+        {
+          "formula": "group_zscore(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear((close - ts_mean(close, 10)) / (ts_std_dev(close, 10) + 0.001), 8)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": null,
+          "fitness": null,
+          "turnover": null,
+          "error_message": "HTTP 401: {\"detail\":\"Incorrect authentication credentials.\"}"
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(ts_covariance(close, volume, 20), 10)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": null,
+          "fitness": null,
+          "turnover": null,
+          "error_message": "HTTP 401: {\"detail\":\"Incorrect authentication credentials.\"}"
+        }
+      ]
+    },
+    {
+      "generation_number": 3,
+      "timestamp": "2026-06-05T21:00:39.864508",
+      "summary": {
+        "submitted": 0,
+        "soft_fail": 1,
+        "hard_reject": 22,
+        "error": 17,
+        "best_sharpe": 1.05
+      },
+      "details": [
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.9, -rank(ts_decay_linear(close - vwap, 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": null,
+          "fitness": null,
+          "turnover": null,
+          "error_message": "Polling errors exceeded limit: cannot access local variable 'random' where it is not associated with a value"
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(broad_market_factor_exposure_3))) / (authorized_stock_repurchase_amount + 0.00121), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'broad_market_factor_exposure_3'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (acquisition_identifiable_assets_recognized + 0.00131), 10)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.35,
+          "fitness": 0.1,
+          "turnover": 19.12,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.00141)) / (acquired_finite_intangible_assets_total + 0.00141), 5)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.3,
+          "fitness": 0.05,
+          "turnover": 31.290000000000003,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.00141)) / (accumulated_depreciation_depletion_amortization_ppne + 0.00141), 5)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.06,
+          "fitness": 0.01,
+          "turnover": 31.5,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((ts_sum(returns, 3)) * (1.001 - abs(returns))) / (acquisition_identifiable_assets_recognized + 0.00141), 12)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.56,
+          "fitness": 0.24,
+          "turnover": 17.05,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - open) * (1.001 - abs(apparel_industry_exposure_score))) / (acquired_finite_intangible_assets_total + 0.00101), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'apparel_industry_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (accrued_liabilities_total + 0.00131), 10)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": -0.43,
+          "fitness": -0.15,
+          "turnover": 18.07,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (accumulated_depreciation_depletion_amortization_ppne + 0.00131), 10)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.12,
+          "fitness": 0.02,
+          "turnover": 18.5,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(ts_delta(vwap, 10) / (ts_mean(vwap, 20) + 0.001), 10)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": null,
+          "fitness": null,
+          "turnover": null,
+          "error_message": "HTTP 401: {\"detail\":\"Incorrect authentication credentials.\"}"
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(airlines_exposure_score))) / (accumulated_amortization_customer_intangibles + 0.00121), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'airlines_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - open) * (1.001 - abs(broad_market_factor_score))) / (actual_return_on_pension_plan_assets + 0.00101), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'broad_market_factor_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.60, -rank(ts_decay_linear(((ts_sum(returns, 3) / (ts_std_dev(returns, 10) + 0.000101)) * (1.001 - abs(automobiles_exposure_score))) / (acquisition_Identifiable_assets_recognized + 0.00141), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'automobiles_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (acquired_finite_intangible_assets_total + 0.00131), 10)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.22,
+          "fitness": 0.05,
+          "turnover": 18.27,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(returns))) / (allocated_sbp_expense_total + 0.00121), 11)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.79,
+          "fitness": 0.32,
+          "turnover": 18.459999999999997,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(aluminum_steel_exposure_score))) / (accumulated_depreciation_depletion_amortization_ppne + 0.00131), 6)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'aluminum_steel_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.90, -rank(ts_decay_linear((close - ts_mean(vwap, 7)) / (ts_std_dev(close, 12) + 0.001), 6)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.8,
+          "fitness": 0.35,
+          "turnover": 23.630000000000003,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (authorized_stock_repurchase_amount + 0.00131), 10)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.52,
+          "fitness": 0.17,
+          "turnover": 18.64,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - vwap) / (high - low + 0.00101)) / (authorized_stock_repurchase_amount + 0.00131), 6)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.81,
+          "fitness": 0.26,
+          "turnover": 30.78,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - open) * (1.001 - abs(returns))) / (allocated_sbp_expense_total + 0.00101), 10)), 0), subindustry)",
+          "status": "SOFT_FAIL",
+          "sharpe": 1.05,
+          "fitness": 0.54,
+          "turnover": 20.24,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(banking_sector_exposure_score_2))) / (allocated_sbp_expense_total + 0.00131), 6)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'banking_sector_exposure_score_2'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - open) * (1.001 - abs(airlines_exposure_score))) / (accumulated_amortization_customer_intangibles + 0.00101), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'airlines_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((ts_sum(returns, 3)) * (1.001 - abs(returns))) / (accrued_liabilities_total + 0.00141), 12)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.36,
+          "fitness": 0.15,
+          "turnover": 16.59,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((ts_sum(returns, 3)) / (ts_std_dev(returns, 10) + 0.00151)) / (authorized_stock_repurchase_amount + 0.00151), 6)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.63,
+          "fitness": 0.22,
+          "turnover": 28.42,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(returns))) / (acquired_finite_intangible_assets_total + 0.00121), 11)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.68,
+          "fitness": 0.25,
+          "turnover": 18.509999999999998,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - vwap) / (high - low + 0.00101)) / (acquisition_identifiable_assets_recognized + 0.00131), 6)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.92,
+          "fitness": 0.32,
+          "turnover": 31.230000000000004,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - vwap) / (high - low + 0.00101)) / (available_for_sale_securities_value + 0.00131), 6)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.89,
+          "fitness": 0.32,
+          "turnover": 31.240000000000002,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.24,
+          "fitness": 0.04,
+          "turnover": 34.239999999999995,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((ts_sum(returns, 3)) / (ts_std_dev(returns, 10) + 0.00151)) / (allocated_sbp_expense_total + 0.00151), 6)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.67,
+          "fitness": 0.25,
+          "turnover": 27.54,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.60, -rank(ts_decay_linear(((ts_sum(returns, 3) / (ts_std_dev(returns, 10) + 0.000101)) * (1.001 - abs(apparel_industry_exposure_score))) / (acquired_finite_intangible_assets_total + 0.00141), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'apparel_industry_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((((close - open) / (high - low + 0.00101)) * (1.001 - abs(aerospace_defense_exposure_score))) / (accrued_liabilities_total + 0.00111), 4)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'aerospace_defense_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.00141)) / (available_for_sale_securities_amortized_cost + 0.00141), 5)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": -0.46,
+          "fitness": -0.11,
+          "turnover": 32.46,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(broad_market_factor_score))) / (actual_return_on_pension_plan_assets + 0.00121), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'broad_market_factor_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((((close - open) / (high - low + 0.00101)) * (1.001 - abs(beverages_tobacco_exposure_score))) / (available_for_sale_securities_value + 0.00111), 4)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'beverages_tobacco_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(returns))) / (available_for_sale_securities_value + 0.00121), 11)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.84,
+          "fitness": 0.37,
+          "turnover": 19.35,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - open) * (1.001 - abs(returns))) / (accumulated_amortization_customer_intangibles + 0.00101), 10)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.65,
+          "fitness": 0.29,
+          "turnover": 20.599999999999998,
+          "error_message": ""
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - open) * (1.001 - abs(automobiles_exposure_score))) / (acquisition_Identifiable_assets_recognized + 0.00101), 5)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": 0.0,
+          "fitness": 0.0,
+          "turnover": 0.0,
+          "error_message": "Local Validation Failed: Illegal token found: 'automobiles_exposure_score'. Not in allowed data fields or operator list."
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(ts_std_dev(returns, 20), 6)), 0), subindustry)",
+          "status": "HARD_REJECT",
+          "sharpe": 0.26,
+          "fitness": 0.12,
+          "turnover": 6.13,
+          "error_message": ""
+        },
+        {
+          "formula": "group_zscore(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear((close - ts_mean(close, 10)) / (ts_std_dev(close, 10) + 0.001), 8)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": null,
+          "fitness": null,
+          "turnover": null,
+          "error_message": "HTTP 401: {\"detail\":\"Incorrect authentication credentials.\"}"
+        },
+        {
+          "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(ts_covariance(close, volume, 20), 10)), 0), subindustry)",
+          "status": "ERROR",
+          "sharpe": null,
+          "fitness": null,
+          "turnover": null,
+          "error_message": "HTTP 401: {\"detail\":\"Incorrect authentication credentials.\"}"
+        }
+      ]
+    },
+    {
+      "generation_number": 4,
+      "timestamp": "2026-06-05T21:02:44.146659",
       "summary": {
         "submitted": 0,
         "soft_fail": 1,
