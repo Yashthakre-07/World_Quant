@@ -47,6 +47,7 @@ class PersonaRequiredException(Exception):
         self.session = session
         super().__init__(f"Persona biometric verification required: {url}")
 
+class WQSession(requests.Session):
     def __init__(self, email=None, password=None, interactive=False, cli_mode=False, allow_biometrics=False):
         super().__init__()
         self.verify = False
