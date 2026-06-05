@@ -1369,7 +1369,7 @@ def reauthenticate():
         reauth_state["error"] = ""
         
         # Instantiate in interactive mode using config credentials
-        sess = WQSession(email=src.config.WQ_EMAIL, password=src.config.WQ_PASSWORD, interactive=True)
+        sess = WQSession(email=src.config.WQ_EMAIL, password=src.config.WQ_PASSWORD, interactive=True, allow_biometrics=True)
         
         # If it returns without exception, login was succeeded instantly via saved cookies/credentials
         active_session = sess
@@ -3132,11 +3132,11 @@ def robust_request(session, method, url, index=None, **kwargs):
             if r.status_code == 401:
                 auth_retries += 1
                 lbl = f"Alpha #{index+1}: " if index is not None else ""
-                if auth_retries > 2:
-                    log_message("ERROR", f"{lbl}Automatic re-authentication limit (2) exceeded for {session.email}. Aborting.")
+                if auth_retries > 1:
+                    log_message("ERROR", f"{lbl}Automatic re-authentication limit (1) exceeded for {session.email}. Aborting.")
                     session.login_expired = True
                     return r
-                log_message("WARNING", f"{lbl}Session expired (HTTP 401) for {session.email}. Attempting automatic re-authentication (Attempt {auth_retries}/2)...")
+                log_message("WARNING", f"{lbl}Session expired (HTTP 401) for {session.email}. Attempting automatic re-authentication (Attempt {auth_retries}/1)...")
                 with reauth_lock:
                     # Check if session login_expired was already set by another thread
                     if getattr(session, "login_expired", False):
