@@ -1372,12 +1372,19 @@ def reauthenticate():
         sess = WQSession(email=src.config.WQ_EMAIL, password=src.config.WQ_PASSWORD, interactive=True, allow_biometrics=True)
         
         # If it returns without exception, login was succeeded instantly via saved cookies/credentials
-        active_session = sess
+        # CRITICAL: Reset login_expired on old session objects so slot worker threads unblock immediately
+        sess.login_expired = False
         if is_group_b:
+            if session_b is not None:
+                session_b.login_expired = False
             session_b = sess
         else:
+            if session_a is not None:
+                session_a.login_expired = False
             session_a = sess
+        active_session = sess
         reauth_state["status"] = "SUCCESS"
+        log_message("INFO", f"[AUTH] Session unblocked for Group {'B' if is_group_b else 'A'} — slot workers will resume.")
         return jsonify({"status": "SUCCESS", "message": f"Authenticated Group {'B' if is_group_b else 'A'} instantly using persisted cookies!"})
         
     except PersonaRequiredException as e:
