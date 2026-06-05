@@ -1,0 +1,1442 @@
+[
+  {
+    "id": "buy_to_sell_amount_ratio_1mo",
+    "description": "Ratio of insider purchase value to sell value over the past month.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7842,
+    "userCount": 56,
+    "alphaCount": 79,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "buy_to_sell_amount_ratio_1wk",
+    "description": "Ratio of insider purchase value to sell value over the past week.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7842,
+    "userCount": 21,
+    "alphaCount": 26,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "buy_to_sell_amount_ratio_1yr",
+    "description": "Ratio of insider purchase value to sell value over the past year.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7842,
+    "userCount": 56,
+    "alphaCount": 94,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "buy_to_sell_amount_ratio_2mo",
+    "description": "Ratio of insider purchase value to sell value over the past two months.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7842,
+    "userCount": 26,
+    "alphaCount": 33,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "buy_to_sell_amount_ratio_2wk",
+    "description": "Ratio of insider purchase value to sell value over the past two weeks.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7842,
+    "userCount": 16,
+    "alphaCount": 18,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "buy_to_sell_amount_ratio_6mo",
+    "description": "Ratio of insider purchase value to sell value over the past half year.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7842,
+    "userCount": 88,
+    "alphaCount": 123,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "buy_to_sell_amount_ratio_qtr",
+    "description": "Ratio of insider purchase value to sell value over the past quarter.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7842,
+    "userCount": 63,
+    "alphaCount": 103,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "buy_to_total_amount_ratio_1mo",
+    "description": "Ratio of insider purchase value to total transaction value over the past month.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7842,
+    "userCount": 11,
+    "alphaCount": 12,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "buy_to_total_amount_ratio_1wk",
+    "description": "Ratio of insider purchase value to total transaction value over the past week.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7842,
+    "userCount": 29,
+    "alphaCount": 34,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "buy_to_total_amount_ratio_1yr",
+    "description": "Ratio of insider purchase value to total transaction value over the past year.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7842,
+    "userCount": 29,
+    "alphaCount": 32,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "buy_to_total_amount_ratio_2mo",
+    "description": "Ratio of insider purchase value to total transaction value over the past two months.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7842,
+    "userCount": 8,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "buy_to_total_amount_ratio_2wk",
+    "description": "Ratio of insider purchase value to total transaction value over the past two weeks.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7842,
+    "userCount": 14,
+    "alphaCount": 16,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "buy_to_total_amount_ratio_6mo",
+    "description": "Ratio of insider purchase value to total transaction value over the past half year.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7842,
+    "userCount": 27,
+    "alphaCount": 32,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "buy_to_total_amount_ratio_qtr",
+    "description": "Ratio of insider purchase value to total transaction value over the past quarter.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7842,
+    "userCount": 32,
+    "alphaCount": 40,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "insd1_gvkey",
+    "description": "Compustat Global Company Identifier (Global Value Key) for the issuer",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.756,
+    "userCount": 252,
+    "alphaCount": 551,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "insd1_holdings",
+    "description": "Total equity share holdings of the insider after the transaction",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.756,
+    "userCount": 266,
+    "alphaCount": 928,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "insd1_price",
+    "description": "Transaction price per share; if a range was reported, this is the minimum price",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.756,
+    "userCount": 143,
+    "alphaCount": 292,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "insd1_shares",
+    "description": "Number of shares (or units) traded in the transaction",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.756,
+    "userCount": 160,
+    "alphaCount": 374,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "insd1_tradesignificance",
+    "description": "Significance score of the trade (1 = low significance, 3 = high significance)",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.756,
+    "userCount": 207,
+    "alphaCount": 501,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "insd1_value",
+    "description": "Total value of the transaction in original currency",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.756,
+    "userCount": 118,
+    "alphaCount": 285,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "insd1_valueeur",
+    "description": "Total value of the transaction in Euro",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.756,
+    "userCount": 121,
+    "alphaCount": 278,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "max_trade_price",
+    "description": "Maximum transaction price per share when a price range was reported",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.756,
+    "userCount": 8,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mean_return_all",
+    "description": "Average return for all positions.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.4263,
+    "userCount": 8,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mean_return_long",
+    "description": "Average return for long positions.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.3407,
+    "userCount": 7,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mean_return_short",
+    "description": "Average return for short positions.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.4263,
+    "userCount": 12,
+    "alphaCount": 12,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mean_sharpe_all",
+    "description": "Average Sharpe ratio for all positions.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.4263,
+    "userCount": 17,
+    "alphaCount": 20,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mean_sharpe_long",
+    "description": "Average Sharpe ratio for long positions.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.3407,
+    "userCount": 10,
+    "alphaCount": 11,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mean_sharpe_short",
+    "description": "Average Sharpe ratio for short positions.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.4263,
+    "userCount": 3,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "transaction_currency_code",
+    "description": "Three-letter ISO currency code of the transaction\u2019s currency",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.756,
+    "userCount": 5,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "txn_amount_checkpoint",
+    "description": "Transaction value at checkpoint.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.4488,
+    "userCount": 18,
+    "alphaCount": 20,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "txn_days_checkpoint",
+    "description": "Number of days for transaction at checkpoint.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.4488,
+    "userCount": 9,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "txn_di_checkpoint",
+    "description": "Checkpoint value for transaction direction indicator.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.4488,
+    "userCount": 18,
+    "alphaCount": 19,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "txn_return_long_checkpoint",
+    "description": "Return for long transaction at checkpoint.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.4488,
+    "userCount": 8,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "txn_return_mean_checkpoint",
+    "description": "Mean return for transaction at checkpoint.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.4488,
+    "userCount": 20,
+    "alphaCount": 21,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "txn_return_short_checkpoint",
+    "description": "Return for short transaction at checkpoint.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.4488,
+    "userCount": 8,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "txn_return_variance_checkpoint",
+    "description": "Variance of transaction returns at checkpoint.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.4488,
+    "userCount": 23,
+    "alphaCount": 27,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "txn_sharpe_long_checkpoint",
+    "description": "Sharpe ratio for long transaction at checkpoint.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.4488,
+    "userCount": 9,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "txn_sharpe_ratio_checkpoint",
+    "description": "Sharpe ratio for the transaction at checkpoint.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.4488,
+    "userCount": 8,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "txn_sharpe_short_checkpoint",
+    "description": "Sharpe ratio for short transaction at checkpoint.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.4488,
+    "userCount": 7,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "weighted_return_all",
+    "description": "Weighted return for all positions.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.4263,
+    "userCount": 9,
+    "alphaCount": 11,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "weighted_return_long",
+    "description": "Weighted return for long positions.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.3407,
+    "userCount": 6,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "weighted_return_short",
+    "description": "Weighted return for short positions.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.4263,
+    "userCount": 6,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "weighted_sharpe_all",
+    "description": "Weighted Sharpe ratio for all positions.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.4263,
+    "userCount": 10,
+    "alphaCount": 14,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "weighted_sharpe_long",
+    "description": "Weighted Sharpe ratio for long positions.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.3407,
+    "userCount": 8,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "weighted_sharpe_short",
+    "description": "Weighted Sharpe ratio for short positions.",
+    "dataset": {
+      "id": "insiders1",
+      "name": "Global Insider Trading Data"
+    },
+    "category": {
+      "id": "insiders",
+      "name": "Insiders"
+    },
+    "subcategory": {
+      "id": "insiders-insider-data",
+      "name": "Insider Data"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.4263,
+    "userCount": 8,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  }
+]

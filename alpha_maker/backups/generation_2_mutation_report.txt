@@ -1,0 +1,46 @@
+=== QUANT RESEARCH REPORT: GENERATION 2 ===
+Evolved On: 2026-06-02 22:23:46
+
+--- PRACTICAL DISCOVERIES & LESSONS ---
+[RECOMMENDED ACTION: WHAT WE SHOULD DO]
+- Lowercase neutralize groups ('subindustry', 'industry', 'sector') to ensure clean variable mapping.
+- Inject 'group_neutralize' wrappers on Sharpe ratios below 1.25 to neutralize country/sector exposure.
+- Wrap high-turnover alphas (>70%) with ts_decay_linear smoothers (window 10) to control trade friction.
+- Diversify lookback parameters (sliding ts lookback parameters by +5 intervals) to search for parameter stability.
+
+[PREVENTATIVE DEFICIT RULES: WHAT WE SHOULD NOT DO]
+- Never use capitalized neutralizing groups; always map as lowercase subindustry/industry/sector.
+- Do not use ts_min or ts_max on scalar pairs like open and close; use max() and min() instead.
+- Never let turnover exceed 70% without active linear decay smoothing wrappers.
+
+--- EVOLVED PORTFOLIO FORMULAS ---
+  [01] group_neutralize(trade_when(volume>adv20*0.65,-rank(ts_decay_linear(returns/(ts_std_dev(returns,20)+0.0001),4)),0),subindustry)
+  [02] group_neutralize(trade_when(volume>adv20*1.5,-rank(ts_decay_linear((close-open)/(high-low+0.001),5)),0),subindustry)
+  [03] group_neutralize(trade_when(volume>adv20*0.75,-rank(ts_decay_linear((returns/(ts_std_dev(returns,20)+0.0001))*(volume/adv20),6)),0),subindustry)
+  [04] group_neutralize(trade_when(volume>adv20*0.72,-rank(ts_decay_linear((close-open)/(high-low+0.001),5)),0),subindustry)
+  [05] group_neutralize(trade_when(volume>adv20*0.80,-rank(ts_decay_linear(vwap-open,4)),0),subindustry)
+  [06] group_neutralize(trade_when(volume>adv20*0.65,-rank(ts_decay_linear(close-open,4)),0),subindustry)
+  [07] group_neutralize(trade_when(volume>adv20*0.85,-rank(ts_decay_linear((returns/(ts_std_dev(returns,15)+0.0001))*(volume/adv20),6)),0),subindustry)
+  [08] group_neutralize(trade_when(volume>adv20*0.75,-rank(ts_decay_linear(((close-open)*(1.001-abs(returns)))/(available_for_sale_securities_value+0.00101),15)),0),subindustry)
+  [09] group_neutralize(trade_when(volume>adv20*1.10,-rank(ts_decay_linear(close-open,4)),0),subindustry)
+  [10] group_neutralize(trade_when(volume>adv20*0.95,-rank(ts_decay_linear((close-open)/(high-low+0.001),5)),0),subindustry)
+  [11] group_neutralize(trade_when(volume>adv20*0.70,-rank(ts_decay_linear(close-open,5)),0),subindustry)
+  [12] group_neutralize(trade_when(volume>adv20*0.7,-rank(ts_decay_linear((close-open)/(high-low+0.001),20)),0),subindustry)
+  [13] group_neutralize(trade_when(volume>adv20*0.72,-rank(ts_decay_linear(close-open,6)),0),subindustry)
+  [14] group_neutralize(trade_when(volume>adv20*0.8,-rank(ts_decay_linear((((close-open)/(high-low+0.00101))/(ts_std_dev(returns,15)+0.00111))/(allocated_sbp_expense_total+0.00121),5)),0),subindustry)
+  [15] group_neutralize(trade_when(volume>adv20*0.70,-rank(ts_decay_linear((close-open)/(high-low+0.001),5)),0),subindustry)
+  [16] group_neutralize(trade_when(volume>adv20*0.90,-rank(ts_decay_linear(close-open,4)),0),subindustry)
+  [17] group_neutralize(trade_when(volume>adv20*0.75,-rank(ts_decay_linear((returns/(ts_std_dev(returns,10)+0.0001))*(volume/adv20),6)),0),subindustry)
+  [18] group_neutralize(trade_when(volume>adv20*0.55,-rank(ts_decay_linear(close-open,6)),0),subindustry)
+  [19] group_neutralize(trade_when(volume>adv20*0.80,-rank(ts_decay_linear((returns/(ts_std_dev(returns,15)+0.0001))*(volume/adv20),6)),0),subindustry)
+  [20] group_neutralize(trade_when(volume>adv20*0.85,-rank(ts_decay_linear((returns/(ts_std_dev(returns,20)+0.0001))*(volume/adv20),6)),0),subindustry)
+  [21] group_neutralize(trade_when(volume>adv20*0.70,-rank(ts_decay_linear(close-open,6)),0),subindustry)
+  [22] group_neutralize(trade_when(volume>adv20*1.15,-rank(ts_decay_linear((close-open)/(high-low+0.001),5)),0),subindustry)
+  [23] group_neutralize(trade_when(volume>adv20*0.85,-rank(ts_decay_linear(close/(vwap+0.001)-1,5)),0),subindustry)
+  [24] group_neutralize(trade_when(volume>adv20*0.75,-rank(ts_decay_linear(close-open,4)),0),subindustry)
+  [25] group_neutralize(trade_when(volume>adv20*0.65,-rank(ts_decay_linear(close-open,5)),0),subindustry)
+  [26] group_neutralize(trade_when(volume>adv20*0.7,-rank(ts_decay_linear((close-open)/(high-low+0.001),15)),0),subindustry)
+  [27] group_neutralize(trade_when(volume>adv20*0.65,rank(ts_decay_linear((vwap-close)/(ts_std_dev(returns,20)*close+0.001),5)),0),subindustry)
+  [28] group_neutralize(trade_when(volume>adv20*0.7,-rank(ts_decay_linear(ts_corr(high-low,volume,15)*returns,5)),0),subindustry)
+  [29] group_neutralize(trade_when(volume>adv20*0.65,-rank(ts_decay_linear(close/(vwap+0.001)-1,5)),0),subindustry)
+  [30] group_neutralize(trade_when(volume>adv20*0.68,rank(ts_decay_linear((vwap-close)/(ts_std_dev(returns,20)*close+0.001),5)),0),subindustry)

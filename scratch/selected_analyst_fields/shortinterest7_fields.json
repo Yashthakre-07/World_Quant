@@ -1,0 +1,514 @@
+[
+  {
+    "id": "shrt7_combo_age",
+    "description": "Normalized average age in days of loans",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9763,
+    "userCount": 50,
+    "alphaCount": 174,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_combo_crossdeltaactivity",
+    "description": "Normalized cross-sectional difference in units, tickets, and utilization between overnight and standard contracts",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9762,
+    "userCount": 25,
+    "alphaCount": 163,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_combo_deltaactivity",
+    "description": "Normalized time series difference in units, tickets, and utilization of contracts",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9732,
+    "userCount": 45,
+    "alphaCount": 211,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_combo_deltacrossdelta",
+    "description": "Normalized cross-sectional difference in units, tickets, and utilization between loans",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9759,
+    "userCount": 66,
+    "alphaCount": 294,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_combo_deltarate",
+    "description": "Normalized time series difference in loan rate of contracts",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9742,
+    "userCount": 42,
+    "alphaCount": 159,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_combo_loanrate1",
+    "description": "Normalized aggregated loan cash collateral rate",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9761,
+    "userCount": 78,
+    "alphaCount": 252,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_combo_loanrate2",
+    "description": "Normalized aggregated loan non-cash collateral rate",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9763,
+    "userCount": 42,
+    "alphaCount": 140,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_combo_ltdelta",
+    "description": "Normalized long-term difference in units, tickets, and utilization between overnight and standard contracts",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9673,
+    "userCount": 42,
+    "alphaCount": 140,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_combo_tickets",
+    "description": "Normalized aggregation for ticket data",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9763,
+    "userCount": 41,
+    "alphaCount": 136,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_combo_utilisation",
+    "description": "Normalized utilization data",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9684,
+    "userCount": 42,
+    "alphaCount": 171,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_combo_utilisation_x_rate",
+    "description": "Normalized aggregation of utilization multiplied by loan rate",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9684,
+    "userCount": 57,
+    "alphaCount": 189,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_gvkey",
+    "description": "main company identifier",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9782,
+    "userCount": 36,
+    "alphaCount": 73,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_isin",
+    "description": "ISIN security identifier",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9782,
+    "userCount": 26,
+    "alphaCount": 79,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_shortlasso1d",
+    "description": "Model score using current day's data",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 58,
+    "alphaCount": 160,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_shortlasso30d",
+    "description": "Model score using last 30 days of data",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 82,
+    "alphaCount": 474,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "shrt7_shortlasso92d",
+    "description": "Model score using last 92 days of data",
+    "dataset": {
+      "id": "shortinterest7",
+      "name": "Short Selling Model"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-estimates-models",
+      "name": "Estimates Models"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 87,
+    "alphaCount": 347,
+    "pyramidMultiplier": 1.4,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  }
+]

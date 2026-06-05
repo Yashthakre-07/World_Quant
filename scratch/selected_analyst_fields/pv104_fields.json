@@ -1,0 +1,1474 @@
+[
+  {
+    "id": "pv104_63000_intv_sum",
+    "description": "Sum Of Interval Volume I.E. Sum(Shares))",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.8379,
+    "coverage": 1.0,
+    "userCount": 77,
+    "alphaCount": 1523,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_abde_mean",
+    "description": "Daily mean of the per-minute sum of absolute deviations from the median trade price",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 60,
+    "alphaCount": 1004,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_hask_mean",
+    "description": "Daily mean of the per-minute highest ask price",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 49,
+    "alphaCount": 625,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_hasz_mean",
+    "description": "Daily mean of the per-minute highest ask size",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 48,
+    "alphaCount": 539,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_hbid_mean",
+    "description": "Daily mean of the per-minute highest bid price",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 58,
+    "alphaCount": 670,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_hbsz_mean",
+    "description": "Daily mean of the per-minute highest bid size",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 77,
+    "alphaCount": 1223,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_hlts_mean",
+    "description": "Daily mean of the per-minute highest last trade size",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 63,
+    "alphaCount": 1730,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_inam_mean",
+    "description": "Daily mean of the per-minute number of trades executed above the mid-quote",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 65,
+    "alphaCount": 1155,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_insm_mean",
+    "description": "Daily mean of the per-minute smflow ratio: sum of bid size increases with bid price unchanged divided by sum of ask size increases with ask price unchanged",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 89,
+    "alphaCount": 2456,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_intf_mean",
+    "description": "Daily mean of the first trade price in each minute",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 51,
+    "alphaCount": 745,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_inth_mean",
+    "description": "Daily mean of the per-minute high trade price",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 51,
+    "alphaCount": 642,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_intl_mean",
+    "description": "Daily mean of the per-minute low trade price",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 44,
+    "alphaCount": 601,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_intv_mean",
+    "description": "Daily mean of the per-minute traded share volume",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 77,
+    "alphaCount": 885,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_intv_sum",
+    "description": "Total shares traded during the US premarket session for the day, computed as the sum of 1-minute interval volumes (irregular premarket pattern)",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.8379,
+    "coverage": 1.0,
+    "userCount": 55,
+    "alphaCount": 1421,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_ivam_mean",
+    "description": "Daily mean of the per-minute volume of trades executed above the mid-quote",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 73,
+    "alphaCount": 1112,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_lask_mean",
+    "description": "Daily mean of the per-minute lowest ask price",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 39,
+    "alphaCount": 614,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_lasz_mean",
+    "description": "Daily mean of the per-minute lowest ask size",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 40,
+    "alphaCount": 562,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_lbid_mean",
+    "description": "Daily mean of the per-minute lowest bid price",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 49,
+    "alphaCount": 692,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_lbsz_mean",
+    "description": "Daily mean of the per-minute lowest bid size",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 38,
+    "alphaCount": 905,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_lilp_last_all",
+    "description": "Lit Iso Last Trade Price",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.8379,
+    "coverage": 0.7514,
+    "userCount": 44,
+    "alphaCount": 814,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_lolp_mean",
+    "description": "Last Trade Price",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.716,
+    "coverage": 0.6525,
+    "userCount": 43,
+    "alphaCount": 552,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_lsas_mean",
+    "description": "Daily mean of the per-minute last ask size",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 37,
+    "alphaCount": 599,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_lsbs_mean",
+    "description": "Daily mean of the per-minute last bid size",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 47,
+    "alphaCount": 1152,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_lsta_mean",
+    "description": "Daily mean of the per-minute last ask price",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 41,
+    "alphaCount": 745,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_lstb_mean",
+    "description": "Daily mean of the per-minute last bid price",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 38,
+    "alphaCount": 600,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_lstp_mean",
+    "description": "Daily mean of the per-minute last traded price",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 44,
+    "alphaCount": 568,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_lsts_mean",
+    "description": "Daily mean of the per-minute last trade size",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 62,
+    "alphaCount": 1916,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_mask_mean",
+    "description": "Daily mean of the per-minute average ask price per ask message",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 39,
+    "alphaCount": 605,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_masz_mean",
+    "description": "Daily mean of the per-minute average ask size per ask message",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 32,
+    "alphaCount": 713,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_mbid_mean",
+    "description": "Daily mean of the per-minute average bid price per bid message",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 36,
+    "alphaCount": 659,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_mbsz_mean",
+    "description": "Daily mean of the per-minute average bid size per bid message",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 40,
+    "alphaCount": 925,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_medn_mean",
+    "description": "Daily mean of the per-minute median trade price without filtering",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 40,
+    "alphaCount": 695,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_mlrt_mean",
+    "description": "Daily mean of the per-minute average of log(bid size over ask size)",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 42,
+    "alphaCount": 1336,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_nask_mean",
+    "description": "Daily mean of the per-minute signed count of ask quote changes, +1 for uptick and -1 for downtick",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 49,
+    "alphaCount": 1280,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_nbid_mean",
+    "description": "Number of bid quote changes in the interval, counting +1 for upticks and -1 for downticks",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 106,
+    "alphaCount": 3159,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_ntrd_mean",
+    "description": "Number of trades executed in the interval",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 54,
+    "alphaCount": 956,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_sprc_mean",
+    "description": "Sum of trade prices over the interval",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 43,
+    "alphaCount": 480,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_sprv_mean",
+    "description": "Sum of shares times price for trades in the interval (dollar volume)",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 43,
+    "alphaCount": 531,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_spsq_mean",
+    "description": "Sum of squared trade prices over the interval",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 33,
+    "alphaCount": 517,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_task_mean",
+    "description": "Time-weighted ask price during the interval",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 41,
+    "alphaCount": 586,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_tasz_mean",
+    "description": "Time-weighted ask size during the interval",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 35,
+    "alphaCount": 608,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_tbid_mean",
+    "description": "Time-weighted bid price during the interval",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 40,
+    "alphaCount": 467,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_tbsz_mean",
+    "description": "Time-weighted bid size during the interval",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 45,
+    "alphaCount": 1086,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_tlrt_mean",
+    "description": "Time-weighted log ratio of bid size to ask size during the interval",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 43,
+    "alphaCount": 1681,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv104_tlsp_mean",
+    "description": "Time-weighted last traded price during the interval",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 46,
+    "alphaCount": 473,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "recent_low_liquidity_price_us_premarket",
+    "description": "Lit Iso Last Trade Price",
+    "dataset": {
+      "id": "pv104",
+      "name": "Market Microstructure Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.8379,
+    "coverage": 0.3147,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  }
+]

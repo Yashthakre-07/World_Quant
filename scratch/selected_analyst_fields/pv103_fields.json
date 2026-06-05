@@ -1,0 +1,2459 @@
+[
+  {
+    "id": "market_close_auction_clearing_price",
+    "description": "Final price at which the market close auction is executed.",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9994,
+    "userCount": 23,
+    "alphaCount": 30,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "market_close_auction_total_volume",
+    "description": "Total number of shares or contracts traded during the market close auction.",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9994,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "market_open_auction_clearing_price",
+    "description": "Final price at which the market open auction is executed.",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9997,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "market_open_auction_total_volume",
+    "description": "Total number of shares or contracts traded during the market open auction.",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9997,
+    "userCount": 11,
+    "alphaCount": 16,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_1m_cusm_mean",
+    "description": "Daily mean of cumulative smflow over 1-minute intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 229,
+    "alphaCount": 1083,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_1m_insm_mean",
+    "description": "daily mean of 1-minute-interval smflow",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 131,
+    "alphaCount": 426,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_1m_ivam_mean",
+    "description": "daily mean of 1-minute-interval volume above mid quote",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 97,
+    "alphaCount": 308,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_1m_lask_mean",
+    "description": "Daily mean of 1-minute-interval lowest ask price",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 67,
+    "alphaCount": 162,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_1m_lbid_mean",
+    "description": "Daily mean of 1-minute interval lowest bid price",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 65,
+    "alphaCount": 134,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_1m_maks_mean",
+    "description": "Daily mean of average ask size per message over 1-minute intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 56,
+    "alphaCount": 251,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_1m_mask_mean",
+    "description": "Daily mean of average ask price per message over 1-minute intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 49,
+    "alphaCount": 97,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_1m_mbds_mean",
+    "description": "daily mean of average bid size per message over 1-minute-intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 70,
+    "alphaCount": 153,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_1m_mbid_mean",
+    "description": "daily mean of average bid price per message over 1-minute-intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 72,
+    "alphaCount": 176,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_1m_mlrt_mean",
+    "description": "Daily mean of 1-minute-interval average log(bid size/ask size)",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 65,
+    "alphaCount": 192,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_1m_task_mean",
+    "description": "daily mean of 1-minute-interval time-averaged ask price",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 51,
+    "alphaCount": 141,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_1m_tbid_mean",
+    "description": "daily mean of 1-minute-interval time-averaged bid price",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 58,
+    "alphaCount": 120,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_1m_tlrt_mean",
+    "description": "Daily mean of 1-minute interval time-weighted log(bidsize / asksize)",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 41,
+    "alphaCount": 137,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_c_price",
+    "description": "Indicative or clearing price for the U.S. Market-On-Close auction",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9997,
+    "userCount": 162,
+    "alphaCount": 999,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_c_volume",
+    "description": "Shares executed in the U.S. Market-On-Close auction (auction trade volume)",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9997,
+    "userCount": 116,
+    "alphaCount": 901,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_ctwp_mean",
+    "description": "daily mean of time-weighted average price of 1-minute-intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 54,
+    "alphaCount": 142,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_hask_mean",
+    "description": "Daily mean of interval highest ask price over 1-minute-intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 38,
+    "alphaCount": 127,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_hasz_mean",
+    "description": "Daily mean of 1-minute interval highest ask size",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 50,
+    "alphaCount": 232,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_hbid_mean",
+    "description": "Daily mean of 1-minute-interval highest bid price",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 41,
+    "alphaCount": 79,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_hbsz_mean",
+    "description": "Daily mean of 1-minute-interval highest bid size",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 55,
+    "alphaCount": 102,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_htsz_mean",
+    "description": "daily mean of max last size of 1-minute-intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 64,
+    "alphaCount": 312,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_inam_mean",
+    "description": "Daily mean of 1-minute interval number of trades above mid quote",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 54,
+    "alphaCount": 297,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_insm_topofbook_insm_mean",
+    "description": "daily mean of 5-minute-interval smflow of top of order",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 107,
+    "alphaCount": 1006,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_inth_mean",
+    "description": "Daily mean of interval high price over 5-minute intervals of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 69,
+    "alphaCount": 460,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_intl_mean",
+    "description": "daily mean of interval low price over 5-minute-intervals of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 61,
+    "alphaCount": 236,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_intv_mean",
+    "description": "daily mean of interval volume over 5-minute-intervals of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 48,
+    "alphaCount": 141,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_ivam_sum",
+    "description": "daily sum of interval volume above mid quote",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 60,
+    "alphaCount": 297,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_ivam_topofbook_ivam_mean",
+    "description": "daily mean of 5-minute-interval volume above mid quote of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 70,
+    "alphaCount": 609,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_ivwp_mean",
+    "description": "Daily mean of 5-minute-interval VWAP of top of order",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 60,
+    "alphaCount": 346,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_laks_mean",
+    "description": "Daily mean of 5-minute interval last ask size of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 37,
+    "alphaCount": 188,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_lask_topofbook_lask_mean",
+    "description": "Daily mean of 5-minute interval last ask size of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 53,
+    "alphaCount": 248,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_lasz_mean",
+    "description": "Daily mean of 1-minute interval lowest ask size",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 31,
+    "alphaCount": 199,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_lbid_topofbook_lbid_mean",
+    "description": "Daily mean of 5-minute-interval lowest bid price of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 49,
+    "alphaCount": 237,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_lbsz_mean",
+    "description": "Daily mean of 1-minute interval lowest bid size",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 33,
+    "alphaCount": 325,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_lstp_mean",
+    "description": "Daily mean of 5-minute interval last trade price of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 57,
+    "alphaCount": 190,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_madt_mean",
+    "description": "Full order book: daily mean of time average of mean ask distance from mid per order over 5-minute intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 32,
+    "alphaCount": 183,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_maks_topofbook_maks_mean",
+    "description": "daily mean of average ask size per message over 5-minute-intervals of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 41,
+    "alphaCount": 239,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_mask_topofbook_mask_mean",
+    "description": "daily mean of average ask price per message over 5-minute-intervals of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 48,
+    "alphaCount": 227,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_masz_mean",
+    "description": "Full order book: daily mean of time average of mean ask size over 5-minute-intervals of full order book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 39,
+    "alphaCount": 266,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_maud_mean",
+    "description": "Full order book: daily mean of mean ask distance from mid per update message over 5-minute intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 45,
+    "alphaCount": 232,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_maus_mean",
+    "description": "Full order book: daily mean of mean ask size change per update message over 5-minute intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 36,
+    "alphaCount": 111,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_mbds_topofbook_mbds_mean",
+    "description": "daily mean of average bid size per message over 5-minute-intervals of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 36,
+    "alphaCount": 286,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_mbdt_mean",
+    "description": "Full order book: daily mean of time average of mean bid distance from mid per order over 5-minute-intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 62,
+    "alphaCount": 557,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_mbid_topofbook_mbid_mean",
+    "description": "Daily mean of average bid price per message over 5-minute intervals of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 56,
+    "alphaCount": 444,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_mbsz_mean",
+    "description": "Full order book: daily mean of time average of mean bid size over 5-minute intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 40,
+    "alphaCount": 189,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_mbud_mean",
+    "description": "Full order book: daily mean of mean bid distance from mid per update message over 5-minute-intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 38,
+    "alphaCount": 172,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_mbus_mean",
+    "description": "Full order book: daily mean of mean bid size change per update message over 5-minute intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 41,
+    "alphaCount": 225,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_medn_mean",
+    "description": "daily mean of 1-minute-interval median trade price",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 29,
+    "alphaCount": 55,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_mlrt_topofbook_mlrt_mean",
+    "description": "daily mean of average log(bid size/ask size) per message over 5-minute-intervals of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 60,
+    "alphaCount": 737,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_mtrd_mean",
+    "description": "daily mean of 1-minute-interval mean of last price",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 28,
+    "alphaCount": 107,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_mtsq_mean",
+    "description": "Daily mean of 1-minute interval mean of square root of last price",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 21,
+    "alphaCount": 65,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_nalv_mean",
+    "description": "Full order book: daily mean of time average of number of ask levels over 5-minute-intervals of full order book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 56,
+    "alphaCount": 307,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_naod_mean",
+    "description": "Full order book: daily mean of time average of ask orders over 5-minute-intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 34,
+    "alphaCount": 92,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_nask_mean",
+    "description": "Daily mean of 1-minute-interval number of ask changes (+1, -1)",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 34,
+    "alphaCount": 55,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_naup_mean",
+    "description": "Full order book: daily mean of number of ask updates in the interval over 5-minute-intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 40,
+    "alphaCount": 188,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_nbid_mean",
+    "description": "daily mean of 1-minute-interval number of bid changes (+1,-1)",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 25,
+    "alphaCount": 44,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_nblv_mean",
+    "description": "Full order book: daily mean of time average of number of bid levels over 5-minute-intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 36,
+    "alphaCount": 121,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_nbod_mean",
+    "description": "Full order book: daily mean of time average of bid orders over 5-minute-intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 76,
+    "alphaCount": 210,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_nbup_mean",
+    "description": "Full order book: daily mean of number of bid updates in the interval over 5-minute intervals of full order book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 30,
+    "alphaCount": 118,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_ntrd_mean",
+    "description": "daily mean of number of trades in the 1-minute-interval",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 47,
+    "alphaCount": 132,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_ntrd_sum",
+    "description": "Daily sum of interval number of trades",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 75,
+    "alphaCount": 485,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_o_price",
+    "description": "Open/Close auction indicative price",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9995,
+    "userCount": 48,
+    "alphaCount": 211,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_o_volume",
+    "description": "Shares traded in the USA Market-On-Open auction (opening auction volume)",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9995,
+    "userCount": 47,
+    "alphaCount": 215,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_saps_mean",
+    "description": "Full order book: daily mean of time average of sum((1 / (asklevel_n)^n) * (asksize_n / max((ask_1 - ask_n)*100,1))) over 5-minute-intervals of full order book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 33,
+    "alphaCount": 336,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_sasz_mean",
+    "description": "Full order book: daily mean of time average of sum(asksize_n / (mid - ask_n)) over 5-minute intervals of full order book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 37,
+    "alphaCount": 115,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_sbps_mean",
+    "description": "Full order book: daily mean of time average of sum((1 / (bidlevel_n)^n) * (bidsize_n / max((bid_1 - bid_n) * 100, 1))) over 5-minute intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 29,
+    "alphaCount": 88,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_sbsz_mean",
+    "description": "Full order book: daily mean of time average of sum(bidsize_n / (mid - bid_n)) over 5-minute intervals",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 72,
+    "alphaCount": 187,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_taks_mean",
+    "description": "daily mean of time-averaged ask size over 5-minute-intervals of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 33,
+    "alphaCount": 244,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_task_topofbook_task_mean",
+    "description": "Daily mean of 5-minute interval time-averaged ask price of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 51,
+    "alphaCount": 287,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_tasz_mean",
+    "description": "Daily mean of 1-minute interval time-weighted ask size",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 25,
+    "alphaCount": 162,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_tbds_mean",
+    "description": "daily mean of time-averaged bid size over 5-minute-intervals of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 38,
+    "alphaCount": 126,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_tbid_topofbook_tbid_mean",
+    "description": "Daily mean of 5-minute interval time-averaged bid price of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 61,
+    "alphaCount": 347,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_tbsz_mean",
+    "description": "daily mean of 1-minute-interval time-weighted bid size",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 40,
+    "alphaCount": 184,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_tlrt_topofbook_tlrt_mean",
+    "description": "Daily mean of 5-minute interval time-weighted log(bidsize / asksize) of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 61,
+    "alphaCount": 853,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv103_vlty_mean",
+    "description": "Daily mean of 5-minute-interval volatility of trade price of top of book",
+    "dataset": {
+      "id": "pv103",
+      "name": "Interval and MOO&MOC statistics"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 99,
+    "alphaCount": 558,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  }
+]

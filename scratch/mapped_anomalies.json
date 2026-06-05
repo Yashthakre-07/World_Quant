@@ -1,0 +1,14 @@
+{
+  "revision_momentum": [
+    "anl4_fs_basic_splt_v4_nd_eps_estimate",
+    "anl4_fs_basic_splt_v4_nd_eps_previosestimate",
+    "anl4_fs_basic_splt_v4_nd_sales_estimate",
+    "anl4_fs_basic_splt_v4_nd_sales_previosestimate"
+  ],
+  "accrual_reversion": [
+    "accrued_liabilities_total",
+    "accrued_liabilities_total_2",
+    "accumulated_depreciation_depletion_amortization_ppne",
+    "acquired_goodwill_value"
+  ]
+}

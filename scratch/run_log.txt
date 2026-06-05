@@ -1,0 +1,372 @@
+2026-05-31T22:10:24.823573 | ONLINE
+2026-05-31T22:10:24.828767 | Workspace audit: PASS
+2026-05-31T22:10:25.742668 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T11:23:27.167704 | ONLINE
+2026-06-01T11:23:27.177849 | Workspace audit: PASS
+2026-06-01T11:23:28.169522 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T11:25:13.871834 | ABORTED: internet offline
+2026-06-01T11:25:57.874156 | ONLINE
+2026-06-01T11:25:57.876132 | Workspace audit: PASS
+2026-06-01T11:25:58.891443 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T11:28:26.450090 | ONLINE
+2026-06-01T11:28:26.450090 | Workspace audit: PASS
+2026-06-01T11:28:27.618668 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T11:30:07.348225 | ONLINE
+2026-06-01T11:30:07.352209 | Workspace audit: PASS
+2026-06-01T11:30:07.962414 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T11:32:04.249720 | ONLINE
+2026-06-01T11:32:04.251723 | Workspace audit: PASS
+2026-06-01T11:32:05.271325 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T11:33:14.555465 | ONLINE
+2026-06-01T11:33:14.556449 | Workspace audit: PASS
+2026-06-01T11:33:15.501746 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T11:50:20.374345 | ONLINE
+2026-06-01T11:50:20.376347 | Workspace audit: PASS
+2026-06-01T11:50:20.902816 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T12:00:04.711555 | ONLINE
+2026-06-01T12:00:04.713551 | Workspace audit: PASS
+2026-06-01T12:00:05.300300 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T12:10:04.320333 | ONLINE
+2026-06-01T12:10:04.322989 | Workspace audit: PASS
+2026-06-01T12:10:04.987465 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T12:20:03.513834 | ONLINE
+2026-06-01T12:20:03.516800 | Workspace audit: PASS
+2026-06-01T12:20:04.259645 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T12:30:10.333658 | ONLINE
+2026-06-01T12:30:10.336592 | Workspace audit: PASS
+2026-06-01T12:30:11.038728 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T12:34:52.495611 | ONLINE
+2026-06-01T12:34:52.497016 | Workspace audit: PASS
+2026-06-01T12:34:53.537946 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T12:37:01.218870 | ONLINE
+2026-06-01T12:37:01.219878 | Workspace audit: PASS
+2026-06-01T12:37:02.611236 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T12:40:10.188028 | ONLINE
+2026-06-01T12:40:10.190053 | Workspace audit: PASS
+2026-06-01T12:40:11.243111 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T12:44:32.757764 | ONLINE
+2026-06-01T12:44:32.759952 | Workspace audit: PASS
+2026-06-01T12:44:34.037163 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T12:49:12.118799 | ONLINE
+2026-06-01T12:49:12.135715 | Workspace audit: PASS
+2026-06-01T12:49:12.955208 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T12:50:26.542744 | ONLINE
+2026-06-01T12:50:26.554394 | Workspace audit: PASS
+2026-06-01T12:50:27.305236 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T12:54:13.851630 | ONLINE
+2026-06-01T12:54:13.853178 | Workspace audit: PASS
+2026-06-01T12:54:15.790095 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T12:54:34.619373 | ONLINE
+2026-06-01T12:54:34.622887 | Workspace audit: PASS
+2026-06-01T12:54:35.713912 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T12:57:02.631529 | ONLINE
+2026-06-01T12:57:02.634765 | Workspace audit: PASS
+2026-06-01T12:57:03.602571 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T14:11:28.814295 | ONLINE
+2026-06-01T14:11:28.818272 | Workspace audit: PASS
+2026-06-01T14:11:29.294795 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T14:12:06.811103 | ONLINE
+2026-06-01T14:12:06.812101 | Workspace audit: PASS
+2026-06-01T14:12:06.814737 | WARN: Generated 39 unique alphas (some might have been filtered as duplicates). Continuing...
+2026-06-01T14:12:07.255814 | PUSHED: 39 alphas to review inbox | HTTP 200
+2026-06-01T14:20:06.145510 | ONLINE
+2026-06-01T14:20:06.150044 | Workspace audit: PASS
+2026-06-01T14:20:06.630345 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T14:30:08.214455 | ONLINE
+2026-06-01T14:30:08.217450 | Workspace audit: PASS
+2026-06-01T14:30:09.094750 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T14:40:03.953779 | ONLINE
+2026-06-01T14:40:03.954780 | Workspace audit: PASS
+2026-06-01T14:40:04.580499 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T14:45:21.627077 | ONLINE
+2026-06-01T14:45:21.630106 | Workspace audit: PASS
+2026-06-01T14:45:22.219100 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T14:45:58.301015 | ONLINE
+2026-06-01T14:45:58.302012 | Workspace audit: PASS
+2026-06-01T14:45:58.786016 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T14:46:21.443960 | ONLINE
+2026-06-01T14:46:21.445014 | Workspace audit: PASS
+2026-06-01T14:46:21.983604 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T14:49:17.952696 | ONLINE
+2026-06-01T14:49:17.959736 | Workspace audit: PASS
+2026-06-01T14:49:18.499102 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T14:50:07.581777 | ONLINE
+2026-06-01T14:50:07.585344 | Workspace audit: PASS
+2026-06-01T14:50:08.074708 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T15:00:07.574147 | ONLINE
+2026-06-01T15:00:07.581315 | Workspace audit: PASS
+2026-06-01T15:00:08.783992 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T15:10:03.493581 | ONLINE
+2026-06-01T15:10:03.495085 | Workspace audit: PASS
+2026-06-01T15:10:03.969590 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T15:20:04.015293 | ONLINE
+2026-06-01T15:20:04.017347 | Workspace audit: PASS
+2026-06-01T15:20:04.682210 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T15:30:04.586600 | ONLINE
+2026-06-01T15:30:04.588188 | Workspace audit: PASS
+2026-06-01T15:30:05.503452 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T15:40:04.015169 | ONLINE
+2026-06-01T15:40:04.015689 | Workspace audit: PASS
+2026-06-01T15:40:04.620338 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T15:50:07.992296 | ONLINE
+2026-06-01T15:50:07.993849 | Workspace audit: PASS
+2026-06-01T15:50:08.487908 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T16:00:05.661864 | ONLINE
+2026-06-01T16:00:05.664075 | Workspace audit: PASS
+2026-06-01T16:00:06.163647 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T16:10:04.981416 | ONLINE
+2026-06-01T16:10:04.983953 | Workspace audit: PASS
+2026-06-01T16:10:05.613782 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T16:20:04.711005 | ONLINE
+2026-06-01T16:20:04.711997 | Workspace audit: PASS
+2026-06-01T16:20:05.312554 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T16:30:04.487687 | ONLINE
+2026-06-01T16:30:04.489211 | Workspace audit: PASS
+2026-06-01T16:30:05.425879 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T16:40:05.130597 | ONLINE
+2026-06-01T16:40:05.131104 | Workspace audit: PASS
+2026-06-01T16:40:06.399645 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T16:50:05.343752 | ONLINE
+2026-06-01T16:50:05.344760 | Workspace audit: PASS
+2026-06-01T16:50:05.948795 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T17:00:05.157181 | ONLINE
+2026-06-01T17:00:05.158649 | Workspace audit: PASS
+2026-06-01T17:00:05.793030 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T17:10:06.387698 | ONLINE
+2026-06-01T17:10:06.396943 | Workspace audit: PASS
+2026-06-01T17:10:07.133342 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T17:18:41.580777 | ONLINE
+2026-06-01T17:18:41.584863 | Workspace audit: PASS
+2026-06-01T17:18:42.333755 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T17:22:06.587271 | ONLINE
+2026-06-01T17:22:06.587779 | Workspace audit: PASS
+2026-06-01T17:22:07.138149 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T17:25:30.968865 | ONLINE
+2026-06-01T17:25:30.968865 | Workspace audit: PASS
+2026-06-01T17:25:31.576606 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T17:30:46.026644 | ONLINE
+2026-06-01T17:30:46.033062 | Workspace audit: PASS
+2026-06-01T17:30:46.649522 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T17:37:28.657993 | ONLINE
+2026-06-01T17:37:28.657993 | Workspace audit: PASS
+2026-06-01T17:37:29.260487 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T17:58:21.717946 | ONLINE
+2026-06-01T17:58:21.722522 | Workspace audit: PASS
+2026-06-01T17:58:22.378208 | PUSHED: 10 alphas | HTTP 200
+2026-06-01T18:15:15.360591 | ONLINE
+2026-06-01T18:15:15.360591 | Workspace audit: PASS
+2026-06-01T18:15:15.384674 | Generated 20 alphas | Datasets: ['analyst45', 'analyst44', 'analyst4', 'analyst16']
+2026-06-01T18:15:16.066853 | PUSHED: 20 alphas | HTTP 200
+2026-06-01T18:27:26.766468 | ONLINE
+2026-06-01T18:27:26.784415 | Generated 100 flawless, vector-averaged alphas for push.
+2026-06-01T18:27:27.438921 | PUSH SUCCESS: 100 alphas pushed | HTTP 200
+2026-06-01T20:45:51.992576 | ONLINE
+2026-06-01T20:45:51.997005 | Generated 100 flawless, vector-averaged alphas using 100% whitelisted fields.
+2026-06-01T20:45:52.477569 | PUSH SUCCESS: 100 alphas pushed | HTTP 200
+2026-06-01T21:33:45.924235 | ======================================================================
+2026-06-01T21:33:45.925233 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 10)
+2026-06-01T21:33:56.918138 | ======================================================================
+2026-06-01T21:33:56.919424 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 10)
+2026-06-01T21:33:56.920435 | ======================================================================
+2026-06-01T21:33:56.921430 | [*] Reading accepted alphas from SQLite: \data\alpha_vault.db
+2026-06-01T21:33:56.924497 | [*] Total unique accepted alphas identified: 0
+2026-06-01T21:33:56.925432 | [*] Alphas selected for submission: 0
+2026-06-01T21:33:56.925432 | [*] Verification details:
+2026-06-01T21:33:56.926508 |     - Generated Alphas Count: 0
+2026-06-01T21:33:56.927437 |     - Accepted Alphas Count:  0
+2026-06-01T21:33:56.928511 |     - Selected Alphas Count:  0
+2026-06-01T21:33:56.929515 | [CRITICAL ERROR] Count mismatch exists. Aborting submission to prevent partial pushing.
+2026-06-01T21:34:13.566686 | ======================================================================
+2026-06-01T21:34:13.568665 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 10)
+2026-06-01T21:34:13.569690 | ======================================================================
+2026-06-01T21:34:13.570600 | [*] Reading accepted alphas from SQLite: C:\Users\Admin\Documents\VIBE_YT\wq\db\alpha_vault.db
+2026-06-01T21:34:13.574603 | [*] Total unique accepted alphas identified: 10
+2026-06-01T21:34:13.575593 | [*] Alphas selected for submission: 10
+2026-06-01T21:34:13.576595 | [*] Verification details:
+2026-06-01T21:34:13.577596 |     - Generated Alphas Count: 11
+2026-06-01T21:34:13.579837 |     - Accepted Alphas Count:  10
+2026-06-01T21:34:13.580858 |     - Selected Alphas Count:  10
+2026-06-01T21:34:13.581862 | [SUCCESS] Submission Verification PASS: Exactly 10 unique accepted alphas match the target count.
+2026-06-01T21:34:13.582872 | [DRY-RUN] Verification complete. Payload sample:
+2026-06-01T21:35:36.888874 | ======================================================================
+2026-06-01T21:35:36.889872 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 10)
+2026-06-01T21:35:36.890880 | ======================================================================
+2026-06-01T21:35:36.891871 | [*] Reading accepted alphas from SQLite: C:\Users\Admin\Documents\VIBE_YT\wq\db\alpha_vault.db
+2026-06-01T21:35:36.893865 | [*] Total unique accepted alphas identified: 10
+2026-06-01T21:35:36.893865 | [*] Alphas selected for submission: 10
+2026-06-01T21:35:36.895383 | [*] Verification details:
+2026-06-01T21:35:36.896404 |     - Generated Alphas Count: 11
+2026-06-01T21:35:36.897403 |     - Accepted Alphas Count:  10
+2026-06-01T21:35:36.898407 |     - Selected Alphas Count:  10
+2026-06-01T21:35:36.899404 | [SUCCESS] Submission Verification PASS: Exactly 10 unique accepted alphas match the target count.
+2026-06-01T21:35:36.900402 | [*] Connecting to https://world-quant.onrender.com/api/queue-alpha ...
+2026-06-01T21:35:37.429644 | [SUCCESS] All 10 accepted alphas successfully pushed to Review API.
+2026-06-01T21:35:37.430653 | Server Response Body: {"added":10,"added_formulas":["group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.60, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 1.2, -rank(ts_decay_linear((close - open) / (high - low + 0.001), 5)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - low) - (open - low)) / (high - low + 0.001), 5)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)"],"skipped":0,"skipped_details":[],"status":"ok"}
+
+2026-06-01T21:35:37.432657 | [*] Appended submitted alphas to historical_scheduled_alphas.json and recorded timestamp.
+2026-06-01T21:52:19.310467 | ======================================================================
+2026-06-01T21:52:19.311626 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 20)
+2026-06-01T21:52:19.312114 | ======================================================================
+2026-06-01T21:52:19.313120 | [*] Loading alphas from file: alphas_portfolio_20.json
+2026-06-01T21:52:19.314121 | [*] Total unique accepted alphas identified: 20
+2026-06-01T21:52:19.315119 | [*] Alphas selected for submission: 20
+2026-06-01T21:52:19.315119 | [*] Verification details:
+2026-06-01T21:52:19.316161 |     - Generated Alphas Count: 20
+2026-06-01T21:52:19.317212 |     - Accepted Alphas Count:  20
+2026-06-01T21:52:19.318119 |     - Selected Alphas Count:  20
+2026-06-01T21:52:19.319123 | [SUCCESS] Submission Verification PASS: Exactly 20 unique accepted alphas match the target count.
+2026-06-01T21:52:19.320137 | [DRY-RUN] Verification complete. Payload sample:
+2026-06-01T21:52:26.983424 | ======================================================================
+2026-06-01T21:52:26.985262 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 20)
+2026-06-01T21:52:26.986319 | ======================================================================
+2026-06-01T21:52:26.987322 | [*] Loading alphas from file: alphas_portfolio_20.json
+2026-06-01T21:52:26.989330 | [*] Total unique accepted alphas identified: 20
+2026-06-01T21:52:26.990321 | [*] Alphas selected for submission: 20
+2026-06-01T21:52:26.991466 | [*] Verification details:
+2026-06-01T21:52:26.991466 |     - Generated Alphas Count: 20
+2026-06-01T21:52:26.992481 |     - Accepted Alphas Count:  20
+2026-06-01T21:52:26.993562 |     - Selected Alphas Count:  20
+2026-06-01T21:52:26.994570 | [SUCCESS] Submission Verification PASS: Exactly 20 unique accepted alphas match the target count.
+2026-06-01T21:52:26.994570 | [*] Connecting to https://world-quant.onrender.com/api/queue-alpha ...
+2026-06-01T21:53:14.132634 | [WARNING] API endpoint is unreachable or connection error occurred: HTTPSConnectionPool(host='world-quant.onrender.com', port=443): Max retries exceeded with url: /api/queue-alpha (Caused by NewConnectionError("HTTPSConnection(host='world-quant.onrender.com', port=443): Failed to establish a new connection: [WinError 10065] A socket operation was attempted to an unreachable host"))
+2026-06-01T21:53:14.135142 | [SUCCESS] Alphas preserved locally. Saved backup to: C:\Users\Admin\Documents\VIBE_YT\wq\scratch\locally_saved_alphas_backup_20260601_215314.json
+2026-06-01T21:54:52.000752 | ======================================================================
+2026-06-01T21:54:52.002334 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 20)
+2026-06-01T21:54:52.004000 | ======================================================================
+2026-06-01T21:54:52.005005 | [*] Loading alphas from file: alphas_portfolio_20.json
+2026-06-01T21:54:52.006006 | [*] Total unique accepted alphas identified: 20
+2026-06-01T21:54:52.006006 | [*] Alphas selected for submission: 20
+2026-06-01T21:54:52.007006 | [*] Verification details:
+2026-06-01T21:54:52.008006 |     - Generated Alphas Count: 20
+2026-06-01T21:54:52.009005 |     - Accepted Alphas Count:  20
+2026-06-01T21:54:52.010024 |     - Selected Alphas Count:  20
+2026-06-01T21:54:52.011005 | [SUCCESS] Submission Verification PASS: Exactly 20 unique accepted alphas match the target count.
+2026-06-01T21:54:52.011005 | [*] Connecting to https://world-quant.onrender.com/api/queue-alpha ...
+2026-06-01T21:54:53.181780 | [SUCCESS] All 20 accepted alphas successfully pushed to Review API.
+2026-06-01T21:54:53.182780 | Server Response Body: {"added":20,"added_formulas":["group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_high) / vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_low), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ptp_mean), 22)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.78, -rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ptp_high) / vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ptp_low), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.67, rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_fcf_high), 30)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_av_diff(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_fcf_low), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.69, rank(ts_delta(ts_backfill(anl14_mean_eps_fp1, 252), 22)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.73, -rank(ts_av_diff(ts_backfill(anl14_mean_sales_fp1, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.76, rank(ts_delta(vec_avg(anl44_analyst), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_av_diff(vec_avg(anl44_analyst), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_delta(vec_avg(anl45_ad_rel_ret_per), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.77, rank(ts_delta(vec_avg(anl45_jensensalpha), 25)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl45_beta), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.71, rank(ts_delta(vec_avg(anl45_ad_ret_per), 30)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.79, rank(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 15) * vec_avg(anl44_analyst)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl45_jensensalpha), 20) + ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, rank(ts_delta(ts_backfill(anl14_mean_eps_fp1, 252), 10) * vec_avg(anl45_ad_rel_ret_per)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.66, rank(ts_delta(vec_avg(anl44_analyst), 15) * vec_avg(anl45_beta)), 0), subindustry)"],"skipped":0,"skipped_details":[],"status":"ok"}
+
+2026-06-01T21:54:53.186388 | [*] Appended submitted alphas to historical_scheduled_alphas.json and recorded timestamp.
+2026-06-01T22:03:12.143775 | ======================================================================
+2026-06-01T22:03:12.145318 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 20)
+2026-06-01T22:03:12.146323 | ======================================================================
+2026-06-01T22:03:12.147324 | [*] Loading alphas from file: alphas_portfolio_20.json
+2026-06-01T22:03:12.148324 | [*] Total unique accepted alphas identified: 20
+2026-06-01T22:03:12.149325 | [*] Alphas selected for submission: 20
+2026-06-01T22:03:12.149325 | [*] Verification details:
+2026-06-01T22:03:12.150527 |     - Generated Alphas Count: 20
+2026-06-01T22:03:12.151134 |     - Accepted Alphas Count:  20
+2026-06-01T22:03:12.152161 |     - Selected Alphas Count:  20
+2026-06-01T22:03:12.153141 | [SUCCESS] Submission Verification PASS: Exactly 20 unique accepted alphas match the target count.
+2026-06-01T22:03:12.154662 | [DRY-RUN] Verification complete. Payload sample:
+2026-06-01T22:03:20.338482 | ======================================================================
+2026-06-01T22:03:20.340100 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 20)
+2026-06-01T22:03:20.340584 | ======================================================================
+2026-06-01T22:03:20.341594 | [*] Loading alphas from file: alphas_portfolio_20.json
+2026-06-01T22:03:20.341594 | [*] Total unique accepted alphas identified: 20
+2026-06-01T22:03:20.343126 | [*] Alphas selected for submission: 20
+2026-06-01T22:03:20.344137 | [*] Verification details:
+2026-06-01T22:03:20.345138 |     - Generated Alphas Count: 20
+2026-06-01T22:03:20.345138 |     - Accepted Alphas Count:  20
+2026-06-01T22:03:20.346282 |     - Selected Alphas Count:  20
+2026-06-01T22:03:20.347312 | [SUCCESS] Submission Verification PASS: Exactly 20 unique accepted alphas match the target count.
+2026-06-01T22:03:20.348283 | [*] Connecting to https://world-quant.onrender.com/api/queue-alpha ...
+2026-06-01T22:03:21.232252 | [SUCCESS] All 20 accepted alphas successfully pushed to Review API.
+2026-06-01T22:03:21.233246 | Server Response Body: {"added":20,"added_formulas":["group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl4_afv4_eps_mean), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_av_diff(vec_avg(anl4_afv4_eps_mean), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_afv4_eps_high) / vec_avg(anl4_afv4_eps_low), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, rank(ts_delta(vec_avg(anl4_ebitda_mean), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_av_diff(vec_avg(anl4_ebitda_mean), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.78, -rank(ts_delta(vec_avg(anl4_ebitda_high) / vec_avg(anl4_ebitda_low), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.67, rank(ts_delta(ts_backfill(anl14_actvalue_eps_fp0, 252), 22)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_av_diff(ts_backfill(anl14_actvalue_eps_fp0, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.69, rank(ts_delta(ts_backfill(anl14_high_eps_fp1, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.73, -rank(ts_av_diff(ts_backfill(anl14_high_eps_fp1, 252), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.76, rank(ts_delta(ts_backfill(anl14_high_ebitda_fp1, 252), 30)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_av_diff(ts_backfill(anl14_high_ebitda_fp1, 252), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_delta(vec_avg(anl45_jensensalpha), 25)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.77, -rank(ts_av_diff(vec_avg(anl45_jensensalpha), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, rank(ts_delta(vec_avg(average_daily_relative_return_percent), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_av_diff(vec_avg(average_daily_relative_return_percent), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.79, rank(ts_delta(vec_avg(relative_return_percent_today), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl4_afv4_eps_mean), 15) * vec_avg(average_daily_relative_return_percent)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, rank(ts_delta(ts_backfill(anl14_high_eps_fp1, 252), 20) * vec_avg(anl45_jensensalpha)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.66, rank(ts_delta(vec_avg(anl4_ebitda_mean), 10) * vec_avg(relative_return_percent_today)), 0), subindustry)"],"skipped":0,"skipped_details":[],"status":"ok"}
+
+2026-06-01T22:03:21.235276 | [*] Appended submitted alphas to historical_scheduled_alphas.json and recorded timestamp.
+2026-06-01T22:19:20.486279 | ======================================================================
+2026-06-01T22:19:20.491302 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 20)
+2026-06-01T22:19:20.495558 | ======================================================================
+2026-06-01T22:19:20.499195 | [*] Loading alphas from file: alphas_portfolio_20.json
+2026-06-01T22:19:20.501773 | [*] Total unique accepted alphas identified: 20
+2026-06-01T22:19:20.504041 | [*] Alphas selected for submission: 20
+2026-06-01T22:19:20.507920 | [*] Verification details:
+2026-06-01T22:19:20.513001 |     - Generated Alphas Count: 20
+2026-06-01T22:19:20.515533 |     - Accepted Alphas Count:  20
+2026-06-01T22:19:20.517574 |     - Selected Alphas Count:  20
+2026-06-01T22:19:20.519566 | [SUCCESS] Submission Verification PASS: Exactly 20 unique accepted alphas match the target count.
+2026-06-01T22:19:20.520566 | [*] Connecting to https://world-quant.onrender.com/api/queue-alpha ...
+2026-06-01T22:19:21.106790 | [SUCCESS] All 20 accepted alphas successfully pushed to Review API.
+2026-06-01T22:19:21.109597 | Server Response Body: {"added":5,"added_formulas":["group_neutralize(trade_when(volume > adv20 * 0.72, rank(ts_delta(average_daily_relative_return_percent, 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_av_diff(average_daily_relative_return_percent, 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.79, rank(ts_delta(relative_return_percent_today, 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl4_afv4_eps_mean), 15) * average_daily_relative_return_percent), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.66, rank(ts_delta(vec_avg(anl4_ebitda_mean), 10) * relative_return_percent_today), 0), subindustry)"],"skipped":15,"skipped_details":[{"formula":"group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl4_afv4_eps_mean), 10)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_av_diff(vec_avg(anl4_afv4_eps_mean), 12)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_afv4_eps_high) / vec_avg(anl4_afv4_eps_low), 15)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.72, rank(ts_delta(vec_avg(anl4_ebitda_mean), 20)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_av_diff(vec_avg(anl4_ebitda_mean), 15)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.78, -rank(ts_delta(vec_avg(anl4_ebitda_high) / vec_avg(anl4_ebitda_low), 10)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.67, rank(ts_delta(ts_backfill(anl14_actvalue_eps_fp0, 252), 22)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_av_diff(ts_backfill(anl14_actvalue_eps_fp0, 252), 15)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.69, rank(ts_delta(ts_backfill(anl14_high_eps_fp1, 252), 15)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.73, -rank(ts_av_diff(ts_backfill(anl14_high_eps_fp1, 252), 20)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.76, rank(ts_delta(ts_backfill(anl14_high_ebitda_fp1, 252), 30)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_av_diff(ts_backfill(anl14_high_ebitda_fp1, 252), 12)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_delta(vec_avg(anl45_jensensalpha), 25)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.77, -rank(ts_av_diff(vec_avg(anl45_jensensalpha), 10)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.74, rank(ts_delta(ts_backfill(anl14_high_eps_fp1, 252), 20) * vec_avg(anl45_jensensalpha)), 0), subindustry)","reason":"Already queued or in inbox"}],"status":"ok"}
+
+2026-06-01T22:19:21.118164 | [*] Appended submitted alphas to historical_scheduled_alphas.json and recorded timestamp.
+2026-06-01T22:23:58.039363 | ======================================================================
+2026-06-01T22:23:58.045342 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 20)
+2026-06-01T22:23:58.045342 | ======================================================================
+2026-06-01T22:23:58.045342 | [*] Loading alphas from file: alphas_portfolio_20.json
+2026-06-01T22:23:58.054126 | [*] Total unique accepted alphas identified: 20
+2026-06-01T22:23:58.054126 | [*] Alphas selected for submission: 20
+2026-06-01T22:23:58.054126 | [*] Verification details:
+2026-06-01T22:23:58.059864 |     - Generated Alphas Count: 20
+2026-06-01T22:23:58.064743 |     - Accepted Alphas Count:  20
+2026-06-01T22:23:58.064743 |     - Selected Alphas Count:  20
+2026-06-01T22:23:58.068807 | [SUCCESS] Submission Verification PASS: Exactly 20 unique accepted alphas match the target count.
+2026-06-01T22:23:58.068807 | [*] Connecting to https://world-quant.onrender.com/api/queue-alpha ...
+2026-06-01T22:23:59.076171 | [SUCCESS] All 20 accepted alphas successfully pushed to Review API.
+2026-06-01T22:23:59.077693 | Server Response Body: {"added":18,"added_formulas":["group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_av_diff(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_high) / vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_low), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_av_diff(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.78, -rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_high) / vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_low), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.67, rank(ts_delta(ts_backfill(anl14_mean_eps_fp1, 252), 22)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_av_diff(ts_backfill(anl14_mean_eps_fp1, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.69, rank(ts_delta(ts_backfill(anl14_mean_eps_fp1, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.73, -rank(ts_av_diff(ts_backfill(anl14_mean_eps_fp1, 252), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.76, rank(ts_delta(ts_backfill(anl14_mean_eps_fp1, 252), 30)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_av_diff(ts_backfill(anl14_mean_eps_fp1, 252), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, rank(ts_delta(vec_avg(anl45_ad_rel_ret_per), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_av_diff(vec_avg(anl45_ad_rel_ret_per), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.79, rank(ts_delta(vec_avg(anl45_ad_rel_ret_per), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 15) * vec_avg(anl45_ad_rel_ret_per)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, rank(ts_delta(ts_backfill(anl14_mean_eps_fp1, 252), 20) * vec_avg(anl45_jensensalpha)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.66, rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean), 10) * vec_avg(anl45_ad_rel_ret_per)), 0), subindustry)"],"skipped":2,"skipped_details":[{"formula":"group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_delta(vec_avg(anl45_jensensalpha), 25)), 0), subindustry)","reason":"Already queued or in inbox"},{"formula":"group_neutralize(trade_when(volume > adv20 * 0.77, -rank(ts_av_diff(vec_avg(anl45_jensensalpha), 10)), 0), subindustry)","reason":"Already queued or in inbox"}],"status":"ok"}
+
+2026-06-01T22:23:59.083428 | [*] Appended submitted alphas to historical_scheduled_alphas.json and recorded timestamp.
+2026-06-01T22:24:04.105758 | ======================================================================
+2026-06-01T22:24:04.112860 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 20)
+2026-06-01T22:24:04.113888 | ======================================================================
+2026-06-01T22:24:04.113888 | [*] Loading alphas from file: alphas_portfolio_20.json
+2026-06-01T22:24:04.118521 | [*] Total unique accepted alphas identified: 20
+2026-06-01T22:24:04.118521 | [*] Alphas selected for submission: 20
+2026-06-01T22:24:04.122078 | [*] Verification details:
+2026-06-01T22:24:04.123676 |     - Generated Alphas Count: 20
+2026-06-01T22:24:04.123676 |     - Accepted Alphas Count:  20
+2026-06-01T22:24:04.123676 |     - Selected Alphas Count:  20
+2026-06-01T22:24:04.127690 | [SUCCESS] Submission Verification PASS: Exactly 20 unique accepted alphas match the target count.
+2026-06-01T22:24:04.130411 | [*] Connecting to https://world-quant.onrender.com/api/queue-alpha ...
+2026-06-01T22:24:04.672762 | [SUCCESS] All 20 accepted alphas successfully pushed to Review API.
+2026-06-01T22:24:04.672762 | Server Response Body: {"added":20,"added_formulas":["group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_av_diff(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_high) / vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_low), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_av_diff(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.78, -rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_high) / vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_low), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.67, rank(ts_delta(ts_backfill(anl14_mean_eps_fp1, 252), 22)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_av_diff(ts_backfill(anl14_mean_eps_fp1, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.69, rank(ts_delta(ts_backfill(anl14_mean_eps_fp1, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.73, -rank(ts_av_diff(ts_backfill(anl14_mean_eps_fp1, 252), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.76, rank(ts_delta(ts_backfill(anl14_mean_eps_fp1, 252), 30)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_av_diff(ts_backfill(anl14_mean_eps_fp1, 252), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_delta(vec_avg(anl45_jensensalpha), 25)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.77, -rank(ts_av_diff(vec_avg(anl45_jensensalpha), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, rank(ts_delta(vec_avg(anl45_ad_rel_ret_per), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_av_diff(vec_avg(anl45_ad_rel_ret_per), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.79, rank(ts_delta(vec_avg(anl45_ad_rel_ret_per), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 15) * vec_avg(anl45_ad_rel_ret_per)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, rank(ts_delta(ts_backfill(anl14_mean_eps_fp1, 252), 20) * vec_avg(anl45_jensensalpha)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.66, rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean), 10) * vec_avg(anl45_ad_rel_ret_per)), 0), subindustry)"],"skipped":0,"skipped_details":[],"status":"ok"}
+
+2026-06-01T22:24:04.687123 | [*] Appended submitted alphas to historical_scheduled_alphas.json and recorded timestamp.
+2026-06-01T22:31:21.677776 | ======================================================================
+2026-06-01T22:31:21.677776 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 20)
+2026-06-01T22:31:21.677776 | ======================================================================
+2026-06-01T22:31:21.684824 | [*] Loading alphas from file: alphas_portfolio_20.json
+2026-06-01T22:31:21.685358 | [*] Total unique accepted alphas identified: 20
+2026-06-01T22:31:21.685358 | [*] Alphas selected for submission: 20
+2026-06-01T22:31:21.685358 | [*] Verification details:
+2026-06-01T22:31:21.692386 |     - Generated Alphas Count: 20
+2026-06-01T22:31:21.692386 |     - Accepted Alphas Count:  20
+2026-06-01T22:31:21.695399 |     - Selected Alphas Count:  20
+2026-06-01T22:31:21.695399 | [SUCCESS] Submission Verification PASS: Exactly 20 unique accepted alphas match the target count.
+2026-06-01T22:31:21.695399 | [*] Connecting to https://world-quant.onrender.com/api/queue-alpha ...
+2026-06-01T22:31:22.358890 | [SUCCESS] All 20 accepted alphas successfully pushed to Review API.
+2026-06-01T22:31:22.358890 | Server Response Body: {"added":20,"added_formulas":["group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(anl4_afv4_eps_mean, 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_av_diff(anl4_afv4_eps_mean, 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(anl4_afv4_eps_high / anl4_afv4_eps_low, 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, rank(ts_delta(anl4_ebitda_mean, 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_av_diff(anl4_ebitda_mean, 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.78, -rank(ts_delta(anl4_ebitda_high / anl4_ebitda_low, 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.67, rank(ts_delta(ts_backfill(anl14_actvalue_eps_fp0, 252), 22)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_av_diff(ts_backfill(anl14_actvalue_eps_fp0, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.69, rank(ts_delta(ts_backfill(anl14_high_eps_fp1, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.73, -rank(ts_av_diff(ts_backfill(anl14_high_eps_fp1, 252), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.76, rank(ts_delta(ts_backfill(anl14_high_ebitda_fp1, 252), 30)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_av_diff(ts_backfill(anl14_high_ebitda_fp1, 252), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_delta(vec_avg(anl45_jensensalpha), 25)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.77, -rank(ts_av_diff(vec_avg(anl45_jensensalpha), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, rank(ts_delta(average_daily_relative_return_percent, 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_av_diff(average_daily_relative_return_percent, 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.79, rank(ts_delta(vec_avg(relative_return_percent_today), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(anl4_afv4_eps_mean, 15) * average_daily_relative_return_percent), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, rank(ts_delta(ts_backfill(anl14_high_eps_fp1, 252), 20) * vec_avg(anl45_jensensalpha)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.66, rank(ts_delta(anl4_ebitda_mean, 10) * vec_avg(relative_return_percent_today)), 0), subindustry)"],"skipped":0,"skipped_details":[],"status":"ok"}
+
+2026-06-01T22:31:22.368593 | [*] Appended submitted alphas to historical_scheduled_alphas.json and recorded timestamp.
+2026-06-01T22:38:17.222182 | ======================================================================
+2026-06-01T22:38:17.222182 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 20)
+2026-06-01T22:38:17.227809 | ======================================================================
+2026-06-01T22:38:17.230322 | [*] Loading alphas from file: alphas_portfolio_20.json
+2026-06-01T22:38:17.235100 | [*] Total unique accepted alphas identified: 20
+2026-06-01T22:38:17.235100 | [*] Alphas selected for submission: 20
+2026-06-01T22:38:17.238667 | [*] Verification details:
+2026-06-01T22:38:17.238667 |     - Generated Alphas Count: 20
+2026-06-01T22:38:17.241179 |     - Accepted Alphas Count:  20
+2026-06-01T22:38:17.241179 |     - Selected Alphas Count:  20
+2026-06-01T22:38:17.246328 | [SUCCESS] Submission Verification PASS: Exactly 20 unique accepted alphas match the target count.
+2026-06-01T22:38:17.246328 | [*] Connecting to https://world-quant.onrender.com/api/queue-alpha ...
+2026-06-01T22:38:19.336248 | [SUCCESS] All 20 accepted alphas successfully pushed to Review API.
+2026-06-01T22:38:19.336248 | Server Response Body: {"added":20,"added_formulas":["group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(anl4_afv4_eps_mean, 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_av_diff(anl4_afv4_eps_mean, 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(anl4_afv4_eps_high / anl4_afv4_eps_low, 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, rank(ts_delta(anl4_ebitda_mean, 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_av_diff(anl4_ebitda_mean, 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.78, -rank(ts_delta(anl4_ebitda_high / anl4_ebitda_low, 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.67, rank(ts_delta(ts_backfill(anl14_actvalue_eps_fp0, 252), 22)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_av_diff(ts_backfill(anl14_actvalue_eps_fp0, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.69, rank(ts_delta(ts_backfill(anl14_high_eps_fp1, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.73, -rank(ts_av_diff(ts_backfill(anl14_high_eps_fp1, 252), 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.76, rank(ts_delta(ts_backfill(anl14_high_ebitda_fp1, 252), 30)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_av_diff(ts_backfill(anl14_high_ebitda_fp1, 252), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_delta(vec_avg(anl45_jensensalpha), 25)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.77, -rank(ts_av_diff(vec_avg(anl45_jensensalpha), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, rank(ts_delta(average_daily_relative_return_percent, 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_av_diff(average_daily_relative_return_percent, 20)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.79, rank(ts_delta(vec_avg(relative_return_percent_today), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(anl4_afv4_eps_mean, 15) * average_daily_relative_return_percent), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, rank(ts_delta(ts_backfill(anl14_high_eps_fp1, 252), 20) * vec_avg(anl45_jensensalpha)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.66, rank(ts_delta(anl4_ebitda_mean, 10) * vec_avg(relative_return_percent_today)), 0), subindustry)"],"skipped":0,"skipped_details":[],"status":"ok"}
+
+2026-06-01T22:38:19.345580 | [*] Appended submitted alphas to historical_scheduled_alphas.json and recorded timestamp.
+2026-06-02T21:36:47.314148 | ======================================================================
+2026-06-02T21:36:47.316907 | 🚀 MANDATORY REVIEW BOX SUBMISSION INITIALIZED (Target Count: 20)
+2026-06-02T21:36:47.317907 | ======================================================================
+2026-06-02T21:36:47.317907 | [*] Loading alphas from file: alphas_portfolio_20.json
+2026-06-02T21:36:47.318911 | [*] Total unique accepted alphas identified: 20
+2026-06-02T21:36:47.318911 | [*] Alphas selected for submission: 20
+2026-06-02T21:36:47.318911 | [*] Verification details:
+2026-06-02T21:36:47.318911 |     - Generated Alphas Count: 20
+2026-06-02T21:36:47.319910 |     - Accepted Alphas Count:  20
+2026-06-02T21:36:47.319910 |     - Selected Alphas Count:  20
+2026-06-02T21:36:47.319910 | [SUCCESS] Submission Verification PASS: Exactly 20 unique accepted alphas match the target count.
+2026-06-02T21:36:47.319910 | [*] Connecting to https://world-quant.onrender.com/api/queue-alpha ...
+2026-06-02T21:36:48.411458 | [SUCCESS] All 20 accepted alphas successfully pushed to Review API.
+2026-06-02T21:36:48.412441 | Server Response Body: {"added":20,"added_formulas":["group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_afv4_eps_mean), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl4_afv4_eps_mean), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_afv4_eps_high), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl4_afv4_eps_high), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_afv4_eps_low), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl4_afv4_eps_low), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_ebitda_mean), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl4_ebitda_mean), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_ebitda_high), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl4_ebitda_high), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_ebitda_low), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl4_ebitda_low), 12)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(ts_backfill(anl14_actvalue_eps_fp0, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_av_diff(ts_backfill(anl14_actvalue_eps_fp0, 252), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(ts_backfill(anl14_high_eps_fp1, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_av_diff(ts_backfill(anl14_high_eps_fp1, 252), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(ts_backfill(anl14_mean_eps_fp1, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_av_diff(ts_backfill(anl14_mean_eps_fp1, 252), 10)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(ts_backfill(anl14_high_ebitda_fp1, 252), 15)), 0), subindustry)","group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_av_diff(ts_backfill(anl14_high_ebitda_fp1, 252), 10)), 0), subindustry)"],"skipped":0,"skipped_details":[],"status":"ok"}
+
+2026-06-02T21:36:48.415552 | [*] Appended submitted alphas to historical_scheduled_alphas.json and recorded timestamp.

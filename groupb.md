@@ -11,6 +11,7 @@ This document defines the configuration, specifications, and state machine proce
 
 ## ⚙️ Target Parameters
 * **Target Slots:** Slots 5, 6, 7, and 8 (Never impact Slots 1–4).
+* **Target Generation:** Read dynamically from [generation_state.json](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/generation_state.json) (`current_generation`).
 * **Python Interpreter Path:** `C:\Users\Admin\AppData\Local\Programs\Python\Python312\python.exe`
 * **Server Target (Status):** `https://world-quant.onrender.com/api/status`
 * **Server Target (Submission):** `https://world-quant.onrender.com/api/overwrite-queue`
@@ -55,6 +56,17 @@ The execution state is managed in [pipeline_state.json](file:///c:/Users/Admin/D
 | **8** | [execute_step_8.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_8.py) | **Validation**: Run the 12-point checklist. |
 | **9** | [execute_step_9.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_9.py) | **Submission**: Submit/overwrite payload to the `overwrite-queue` endpoint. |
 | **10**| [execute_step_10.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_10.py) | **Memory Update**: Append formulas and metrics to `session_memory.json`. |
+
+---
+
+## 🧬 Generation Tracking & Feedback Loop
+To ensure Group B continuously improves and learns from past simulation results:
+1. **State Tracking**: The generation number and execution history are persisted in [generation_state.json](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/generation_state.json).
+2. **Analysis of Last Generation**: At Step 5 (**Formula Generation**), the system queries the quantitative simulation run database `db/alpha_vault.db` to pull the status, Sharpe ratio, fitness, turnover, and compiler error messages of the last 40 simulated alphas.
+3. **Evolutionary Mutation Rules**:
+   - **On compilation ERROR / HARD_REJECT (zero Sharpe)**: Automatically repairs syntax glitches (e.g. invalid arithmetic on event fields) or shifts lookbacks to try a fresh parameter subspace.
+   - **On SOFT_FAIL (high Sharpe but low Fitness due to high turnover)**: Increases volume gate limits and decays to reduce trading frequency and smooth the signals.
+   - **On SUCCESS (SUBMITTED)**: Generates close siblings by tweaking lookback configurations to harvest adjacent alpha spaces.
 
 ---
 

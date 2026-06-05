@@ -1,0 +1,182 @@
+[
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Analyst EPS consensus revisions spreading short-term consensus EPS relative to matrix backfilled EPS.",
+    "formula": "group_neutralize(rank(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate)) - rank(anl14_mean_eps_fp1), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Consensus EPS estimate revision growth momentum over a medium-term linear decay window.",
+    "formula": "group_neutralize(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 10), 10), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Consensus EPS estimate divergence measuring current expectations relative to a 20-day trend.",
+    "formula": "group_neutralize(rank(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate)) - rank(ts_mean(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 20)), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Temporal correlation between consensus EPS revisions and short-term equity price returns.",
+    "formula": "group_neutralize(ts_corr(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), returns, 10), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Volume-gated short-term consensus EPS estimate revision momentum wrapper.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 5), 8), 0.0), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Backfilled matrix EPS estimation revision growth over a medium-term lookback window.",
+    "formula": "group_neutralize(ts_decay_linear(ts_delta(anl14_mean_eps_fp1, 12), 10), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Consensus Sales estimate revision growth momentum using a linear decay smoothing filter.",
+    "formula": "group_neutralize(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate), 15), 10), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Consensus Sales estimate deviations spreading current sales relative to backfilled matrix revenue.",
+    "formula": "group_neutralize(rank(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate)) - rank(anl14_mean_revenue_fp1), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Volume-gated backfilled revenue consensus revision momentum wrapper.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, ts_decay_linear(ts_delta(anl14_mean_revenue_fp1, 10), 10), 0.0), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Divergence of consensus Sales estimates relative to their 15-day rolling average.",
+    "formula": "group_neutralize(rank(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate)) - rank(ts_mean(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate), 15)), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Rank correlation between backfilled matrix revenue consensus and equity return factors.",
+    "formula": "group_neutralize(ts_corr(anl14_mean_revenue_fp1, returns, 15), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Consensus EBITDA margin proxy subtracting Sales rank from EBITDA Mean rank.",
+    "formula": "group_neutralize(rank(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean)) - rank(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate)), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Consensus EBITDA revision momentum tracking long-term trend shifts.",
+    "formula": "group_neutralize(ts_decay_linear(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean), 20), 8), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Consensus EBITDA spread measuring consensus uncertainty (High rank minus Low rank).",
+    "formula": "group_neutralize(rank(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_high)) - rank(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_low)), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Volume-gated consensus EBITDA mean relative value compared to consensus Low estimates.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, rank(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean)) - rank(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_low)), 0.0), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Consensus Pre-tax Profit (PTP) mean revision momentum over a medium lookback window.",
+    "formula": "group_neutralize(ts_decay_linear(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ptp_mean), 10), 10), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Consensus Pre-tax Profit (PTP) spread representing analyst revision divergence.",
+    "formula": "group_neutralize(rank(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ptp_high)) - rank(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ptp_low)), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "EBITDA-to-PTP Consensus revision spread to identify quality earnings differences.",
+    "formula": "group_neutralize(rank(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean)) - rank(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ptp_mean)), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Consensus Free Cash Flow (FCF) High estimate revision momentum wrapper.",
+    "formula": "group_neutralize(ts_decay_linear(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_fcf_high), 12), 10), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Consensus Free Cash Flow spread representing FCF expectation uncertainty.",
+    "formula": "group_neutralize(rank(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_fcf_high)) - rank(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_fcf_low)), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Free Cash Flow high consensus rank relative to EBITDA mean consensus rank.",
+    "formula": "group_neutralize(rank(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_fcf_high)) - rank(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean)), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Volume-gated consensus Free Cash Flow High revision momentum wrapper.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, ts_decay_linear(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_fcf_high), 8), 10), 0.0), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Consensus Free Cash Flow High correlation with stock volume changes.",
+    "formula": "group_neutralize(ts_corr(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_fcf_high), volume, 12), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Jensen's Alpha short-term momentum to capture risk-adjusted consensus trade convictions.",
+    "formula": "group_neutralize(ts_decay_linear(ts_delta(anl45_jensensalpha, 6), 8), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Risk-adjusted performance score subtracting equity return systematic risk from ideas returns.",
+    "formula": "group_neutralize(zscore(anl45_ad_ret_per - anl45_beta * returns), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Cross-sectional spread comparing trade conviction (Jensen's Alpha) relative to baseline EPS rank.",
+    "formula": "group_neutralize(rank(anl45_jensensalpha) - rank(anl14_mean_eps_fp1), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Volume-gated consensus Jensen's Alpha conviction indicator wrapper.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, ts_decay_linear(anl45_jensensalpha, 10), 0.0), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Consensus relative return performance momentum over a medium lookback window.",
+    "formula": "group_neutralize(ts_decay_linear(ts_delta(anl45_ad_rel_ret_per, 8), 10), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Consensus systematic risk (Beta) factor momentum tracking volatility trend shifts.",
+    "formula": "group_neutralize(ts_decay_linear(ts_delta(anl45_beta, 10), 10), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  },
+  {
+    "family": "Gen_1_Evolved",
+    "hypothesis": "Risk-adjusted absolute return performance score smoothed using a linear decay filter.",
+    "formula": "group_neutralize(ts_decay_linear(anl45_ad_ret_per - (anl45_beta * returns), 10), subindustry)",
+    "settings": {"region": "USA", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "universe": "TOP3000", "truncation": 0.08}
+  }
+]

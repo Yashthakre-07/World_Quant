@@ -1,0 +1,33 @@
+[
+  {
+    "id": "mcr10_value",
+    "description": "Data value",
+    "dataset": {
+      "id": "macro10",
+      "name": "Macroeconomic Research data"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 1.0,
+    "userCount": 294,
+    "alphaCount": 1241,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  }
+]

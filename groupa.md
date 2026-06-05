@@ -27,14 +27,16 @@ This document outlines the exact state-machine architecture, credentials, target
 
 ## ⚙️ 2. STATE-MACHINE SYSTEM ARCHITECTURE
 - **State File**: [scratch/pipeline_state.json](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/pipeline_state.json) tracks `"current_step"`.
-- **Scheduled Trigger**: Run every 5 minutes using the scheduler tool:
-  - `CronExpression`: `*/5 * * * *`
+- **Generation File**: [scratch/generation_state.json](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/generation_state.json) tracks the active `"current_generation"` and stores performance history.
+- **Scheduled Trigger**: Run every 15 minutes using the scheduler tool:
+  - `CronExpression`: `*/15 * * * *`
   - `Prompt`: `"Start the pipeline execution cycle: read master prompt files step 0 to 10 and process them for slots 1-4."`
 - **Step Transitions**: After executing the Python command for the current step, the system:
   1. Increments `"current_step"` in `scratch/pipeline_state.json`.
   2. Schedules a **one-shot 5-second timer** using the `schedule` tool to wake itself up for the next step.
   3. Pauses until the timer fires to guarantee zero-hallucination execution.
   4. Resets `"current_step"` to `0` after Step 10 completes.
+- **Closed-Loop Mutator**: Step 5 dynamically loads the generation state file, queries the backtest results database (`db/alpha_vault.db`) for the last generation, mutates formulas based on performance feedback, and advances to the next targeted generation.
 
 ---
 
@@ -48,7 +50,7 @@ For each state, run the corresponding Python script using `C:\Users\Admin\AppDat
 | **Step 2** | [scratch/execute_step_2.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_2.py) | Discover whitelisted fields on analyst4, analyst14, analyst45 |
 | **Step 3** | [scratch/execute_step_3.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_3.py) | Map fields to academic anomalies |
 | **Step 4** | [scratch/execute_step_4.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_4.py) | Create 40-alpha diversity matrix |
-| **Step 5** | [scratch/execute_step_5.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_5.py) | Generate 40 unique and compiler-compliant alphas using lookback offsets |
+| **Step 5** | [scratch/execute_step_5.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_5.py) | Load the targeted generation, read previous backtest results from database, and generate 40 mutated, compiler-compliant descendant alphas |
 | **Step 6** | [scratch/execute_step_6.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_6.py) | Check uniqueness against historical databases |
 | **Step 7** | [scratch/execute_step_7.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_7.py) | Estimate pairwise correlations (target < 0.70) |
 | **Step 8** | [scratch/execute_step_8.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_8.py) | Run settings check and 12-point final validation checklist |
@@ -61,7 +63,7 @@ For each state, run the corresponding Python script using `C:\Users\Admin\AppDat
 To start the pipeline, trigger the recurring cron job via:
 ```powershell
 # In scheduler tool:
-CronExpression = "*/5 * * * *"
+CronExpression = "*/15 * * * *"
 Prompt = "Start the pipeline execution cycle: read master prompt files step 0 to 10 and process them for slots 1-4."
 ```
 Verify `scratch/pipeline_state.json` is set to `"current_step": 0` before initiating.

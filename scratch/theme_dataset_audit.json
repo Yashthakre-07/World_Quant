@@ -1,0 +1,422 @@
+[
+  {
+    "id": "analyst14",
+    "name": "Estimations of Key Fundamentals",
+    "category": "Analyst",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 868,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "analyst16",
+    "name": "Real Time Estimates",
+    "category": "Analyst",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "analyst4",
+    "name": "Analyst Estimate Data for Equity",
+    "category": "Analyst",
+    "in_catalog": true,
+    "catalog_fields_count": 1324,
+    "downloaded_count": 1324,
+    "has_description": true,
+    "has_usage": true
+  },
+  {
+    "id": "analyst44",
+    "name": "Integrated Broker Estimates",
+    "category": "Analyst",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "analyst45",
+    "name": "Analyst Trade Ideas",
+    "category": "Analyst",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 181,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "analyst69",
+    "name": "Fundamental Analyst Estimates",
+    "category": "Analyst",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 646,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "analyst7",
+    "name": "Broker Estimates",
+    "category": "Analyst",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 1317,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "earnings7",
+    "name": "Horizon Earnings and Calendar North America",
+    "category": "Analyst",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "fundamental6",
+    "name": "Company Fundamental Data for Equity",
+    "category": "Fundamental",
+    "in_catalog": true,
+    "catalog_fields_count": 886,
+    "downloaded_count": 0,
+    "has_description": true,
+    "has_usage": true
+  },
+  {
+    "id": "insiders1",
+    "name": "Global Insider Trading Data",
+    "category": "Fundamental",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "macro10",
+    "name": "Macroeconomic Research data",
+    "category": "Macro",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "macro27",
+    "name": "Job records from job posting",
+    "category": "Macro",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "macro38",
+    "name": "Technical Ratings Model",
+    "category": "Macro",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "model109",
+    "name": "Fundamentals and Technical Indicators Model",
+    "category": "Model",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "model135",
+    "name": "Alternative technical factor models",
+    "category": "Model",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "shortinterest7",
+    "name": "Short Selling Model",
+    "category": "Model",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "model26",
+    "name": "Analyst Revisions",
+    "category": "Model",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "news12",
+    "name": "US News Data",
+    "category": "News",
+    "in_catalog": true,
+    "catalog_fields_count": 875,
+    "downloaded_count": 0,
+    "has_description": true,
+    "has_usage": true
+  },
+  {
+    "id": "news17",
+    "name": "PR Edition Data",
+    "category": "News",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "news18",
+    "name": "Ravenpack News Data",
+    "category": "News",
+    "in_catalog": true,
+    "catalog_fields_count": 121,
+    "downloaded_count": 0,
+    "has_description": true,
+    "has_usage": true
+  },
+  {
+    "id": "news21",
+    "name": "Macro Economic Event Data",
+    "category": "News",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "news3",
+    "name": "Dow Jones News Analytics Data",
+    "category": "News",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "news31",
+    "name": "News Analytics on Equities",
+    "category": "News",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "news36",
+    "name": "News Analytics Data",
+    "category": "News",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "news38",
+    "name": "News Analytic Model Data",
+    "category": "News",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "news46",
+    "name": "Relevant News Analytics Data",
+    "category": "News",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "news48",
+    "name": "Global Media News Data",
+    "category": "News",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "news5",
+    "name": "News Feed Analytics Data",
+    "category": "News",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "news50",
+    "name": "Web News Analytics Data",
+    "category": "News",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "news59",
+    "name": "Corporate Events Data",
+    "category": "News",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "news7",
+    "name": "Real Time News Feed Data",
+    "category": "News",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "news76",
+    "name": "Textual News Feed Data",
+    "category": "News",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "news94",
+    "name": "Intraday Post News Price Volume",
+    "category": "News",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "option8",
+    "name": "Volatility Data",
+    "category": "Options",
+    "in_catalog": true,
+    "catalog_fields_count": 64,
+    "downloaded_count": 0,
+    "has_description": true,
+    "has_usage": true
+  },
+  {
+    "id": "pv103",
+    "name": "Interval and MOO & MOC statistics",
+    "category": "Price-Volume",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "pv104",
+    "name": "Market Microstructure Data",
+    "category": "Price-Volume",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "pv13",
+    "name": "Relationship Data for Equity",
+    "category": "Price-Volume",
+    "in_catalog": true,
+    "catalog_fields_count": 165,
+    "downloaded_count": 0,
+    "has_description": true,
+    "has_usage": true
+  },
+  {
+    "id": "pv141",
+    "name": "VWAP Tick Data",
+    "category": "Price-Volume",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "pv53",
+    "name": "Index Market Data",
+    "category": "Price-Volume",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "pv63",
+    "name": "Order Book Dataset",
+    "category": "Price-Volume",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "pv98",
+    "name": "Intraday Tick Data and Statistics",
+    "category": "Price-Volume",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  },
+  {
+    "id": "risk60",
+    "name": "Securities Lending Insight Data",
+    "category": "Price-Volume",
+    "in_catalog": false,
+    "catalog_fields_count": 0,
+    "downloaded_count": 0,
+    "has_description": false,
+    "has_usage": false
+  }
+]

@@ -1,0 +1,1730 @@
+[
+  {
+    "id": "nws94_pr_v2_comp_dollarvolume10mins",
+    "description": "Average dollar volume after the event (10 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_dollarvolume30mins",
+    "description": "Average dollar volume after the event (30 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_dollarvolume5mins",
+    "description": "Average dollar volume after the event (5 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_dollarvolume60mins",
+    "description": "Average dollar volume after the event (60 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_dollarvolumeafterevent",
+    "description": "Average dollar volume after the event (until the close of the trading day)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_dollarvolumebeforeevent",
+    "description": "Average dollar volume before the event (from the open of the trading day)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_flag_intraday",
+    "description": "Flag to show if the news item arrived overnight (0) or intraday (1)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 7,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_postevhightoev",
+    "description": "Return from the price before the event to the low price after the event.",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_postevlowtoev",
+    "description": "Return from the price before the event to the high price after the event.",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_preevhightoclose",
+    "description": "Return from the previous close to the intraday low price (before the event)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 3,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_preevlowtoclose",
+    "description": "Return from the previous close to the intraday high price (before the event)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_return10mins",
+    "description": "Average return after the event (10 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_return30mins",
+    "description": "Average return after the event (30 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_return5mins",
+    "description": "Average return after the event (5 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_return60mins",
+    "description": "Average return after the event (60 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_returnafterevent",
+    "description": "Average return after the event (until the close of the trading day)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_returnbeforeevent",
+    "description": "Average return before the event (from the open of the trading day)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_pr_v2_comp_utc_time",
+    "description": "Time of the news item (HHmmss)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_dollarvolume10mins",
+    "description": "Average dollar volume after the event (10 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_dollarvolume30mins",
+    "description": "Average dollar volume after the event (30 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_dollarvolume5mins",
+    "description": "Average dollar volume after the event (5 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_dollarvolume60mins",
+    "description": "Average dollar volume after the event (60 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_dollarvolumeafterevent",
+    "description": "Average dollar volume after the event (until the close of the trading day)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_dollarvolumebeforeevent",
+    "description": "Average dollar volume before the event (from the open of the trading day)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 6,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_flag_intraday",
+    "description": "Flag to show if the news item arrived overnight (0) or intraday (1)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_postevhightoev",
+    "description": "Return from the price before the event to the low price after the event.",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_postevlowtoev",
+    "description": "Return from the price before the event to the high price after the event.",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_preevhightoclose",
+    "description": "Return from the previous close to the intraday low price (before the event)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_preevlowtoclose",
+    "description": "Return from the previous close to the intraday high price (before the event)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_return10mins",
+    "description": "Average return after the event (10 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_return30mins",
+    "description": "Average return after the event (30 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_return5mins",
+    "description": "Average return after the event (5 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_return60mins",
+    "description": "Average return after the event (60 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_returnafterevent",
+    "description": "Average return after the event (until the close of the trading day)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_returnbeforeevent",
+    "description": "Average return before the event (from the open of the trading day)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 14,
+    "alphaCount": 15,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_v2_comp_utc_time",
+    "description": "Time of the news item (HHmmss)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_dollarvolume10mins",
+    "description": "Average dollar volume after the event (10 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_dollarvolume30mins",
+    "description": "Average dollar volume after the event (30 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_dollarvolume5mins",
+    "description": "Average dollar volume after the event (5 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_dollarvolume60mins",
+    "description": "Average dollar volume after the event (60 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_dollarvolumeafterevent",
+    "description": "Average dollar volume after the event (until the close of the trading day)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_dollarvolumebeforeevent",
+    "description": "Average dollar volume before the event (from the open of the trading day)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_flag_intraday",
+    "description": "Flag to show if the news item arrived overnight (0) or intraday (1)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_postevhightoev",
+    "description": "Return from the price before the event to the low price after the event.",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_postevlowtoev",
+    "description": "Return from the price before the event to the high price after the event.",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_preevhightoclose",
+    "description": "Return from the previous close to the intraday low price (before the event)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_preevlowtoclose",
+    "description": "Return from the previous close to the intraday high price (before the event)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_return10mins",
+    "description": "Average return after the event (10 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_return30mins",
+    "description": "Average return after the event (30 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_return5mins",
+    "description": "Average return after the event (5 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_return60mins",
+    "description": "Average return after the event (60 mins)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_returnafterevent",
+    "description": "Average return after the event (until the close of the trading day)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_returnbeforeevent",
+    "description": "Average return before the event (from the open of the trading day)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws94_web_v2_comp_utc_time",
+    "description": "Time of the news item (HHmmss)",
+    "dataset": {
+      "id": "news94",
+      "name": "Intraday Post News Price Volume"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  }
+]

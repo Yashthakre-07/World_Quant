@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1,
+    "family": "GEN_3_EVOLVED_0",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.9, -rank(ts_decay_linear(close - vwap, 7)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 2,
+    "family": "GEN_3_EVOLVED_1",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(broad_market_factor_exposure_3))) / (authorized_stock_repurchase_amount + 0.00121), 7)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 3,
+    "family": "GEN_3_EVOLVED_2",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (acquisition_identifiable_assets_recognized + 0.00131), 10)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 4,
+    "family": "GEN_3_EVOLVED_3",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.00141)) / (acquired_finite_intangible_assets_total + 0.00141), 5)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 5,
+    "family": "GEN_3_EVOLVED_4",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.00141)) / (accumulated_depreciation_depletion_amortization_ppne + 0.00141), 5)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 6,
+    "family": "GEN_3_EVOLVED_5",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((ts_sum(returns, 3)) * (1.001 - abs(returns))) / (acquisition_identifiable_assets_recognized + 0.00141), 12)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 7,
+    "family": "GEN_3_EVOLVED_6",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - open) * (1.001 - abs(apparel_industry_exposure_score))) / (acquired_finite_intangible_assets_total + 0.00101), 7)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 8,
+    "family": "GEN_3_EVOLVED_7",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 3)) * (1.001 - abs(returns))) / (accrued_liabilities_total + 0.00131), 10)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 9,
+    "family": "GEN_3_EVOLVED_8",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (accumulated_depreciation_depletion_amortization_ppne + 0.00131), 10)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 10,
+    "family": "GEN_3_EVOLVED_9",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(ts_delta(vwap, 12) / (ts_mean(vwap, 20) + 0.001), 12)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 11,
+    "family": "GEN_3_EVOLVED_10",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(airlines_exposure_score))) / (accumulated_amortization_customer_intangibles + 0.00121), 7)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 12,
+    "family": "GEN_3_EVOLVED_11",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - open) * (1.001 - abs(broad_market_factor_score))) / (actual_return_on_pension_plan_assets + 0.00101), 7)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 13,
+    "family": "GEN_3_EVOLVED_12",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.60, -rank(ts_decay_linear(((ts_sum(returns, 5) / (ts_std_dev(returns, 10) + 0.000101)) * (1.001 - abs(automobiles_exposure_score))) / (acquisition_Identifiable_assets_recognized + 0.00141), 5)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 14,
+    "family": "GEN_3_EVOLVED_13",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (acquired_finite_intangible_assets_total + 0.00131), 10)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 15,
+    "family": "GEN_3_EVOLVED_14",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(returns))) / (allocated_sbp_expense_total + 0.00121), 11)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 16,
+    "family": "GEN_3_EVOLVED_15",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((open - ts_delay(close, 3)) * (1.001 - abs(aluminum_steel_exposure_score))) / (accumulated_depreciation_depletion_amortization_ppne + 0.00131), 6)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 17,
+    "family": "GEN_3_EVOLVED_16",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.90, -rank(ts_decay_linear((close - ts_mean(vwap, 7)) / (ts_std_dev(close, 12) + 0.001), 6)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 18,
+    "family": "GEN_3_EVOLVED_17",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 1)) * (1.001 - abs(returns))) / (authorized_stock_repurchase_amount + 0.00131), 10)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 19,
+    "family": "GEN_3_EVOLVED_18",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - vwap) / (high - low + 0.00101)) / (authorized_stock_repurchase_amount + 0.00131), 6)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 20,
+    "family": "GEN_3_EVOLVED_19",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - open) * (1.001 - abs(returns))) / (allocated_sbp_expense_total + 0.00101), 10)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=SOFT_FAIL."
+  },
+  {
+    "id": 21,
+    "family": "GEN_3_EVOLVED_20",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((open - ts_delay(close, 3)) * (1.001 - abs(banking_sector_exposure_score_2))) / (allocated_sbp_expense_total + 0.00131), 6)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 22,
+    "family": "GEN_3_EVOLVED_21",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - open) * (1.001 - abs(airlines_exposure_score))) / (accumulated_amortization_customer_intangibles + 0.00101), 7)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 23,
+    "family": "GEN_3_EVOLVED_22",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((ts_sum(returns, 3)) * (1.001 - abs(returns))) / (accrued_liabilities_total + 0.00141), 12)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 24,
+    "family": "GEN_3_EVOLVED_23",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((ts_sum(returns, 3)) / (ts_std_dev(returns, 10) + 0.00151)) / (authorized_stock_repurchase_amount + 0.00151), 6)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 25,
+    "family": "GEN_3_EVOLVED_24",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(returns))) / (acquired_finite_intangible_assets_total + 0.00121), 11)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 26,
+    "family": "GEN_3_EVOLVED_25",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - vwap) / (high - low + 0.00101)) / (acquisition_identifiable_assets_recognized + 0.00131), 6)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 27,
+    "family": "GEN_3_EVOLVED_26",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - vwap) / (high - low + 0.00101)) / (available_for_sale_securities_value + 0.00131), 6)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 28,
+    "family": "GEN_3_EVOLVED_27",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear((open - ts_delay(close, 1)) / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 29,
+    "family": "GEN_3_EVOLVED_28",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((ts_sum(returns, 3)) / (ts_std_dev(returns, 10) + 0.00151)) / (allocated_sbp_expense_total + 0.00151), 6)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 30,
+    "family": "GEN_3_EVOLVED_29",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.60, -rank(ts_decay_linear(((ts_sum(returns, 5) / (ts_std_dev(returns, 10) + 0.000101)) * (1.001 - abs(apparel_industry_exposure_score))) / (acquired_finite_intangible_assets_total + 0.00141), 5)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 31,
+    "family": "GEN_3_EVOLVED_30",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((((close - open) / (high - low + 0.00101)) * (1.001 - abs(aerospace_defense_exposure_score))) / (accrued_liabilities_total + 0.00111), 6)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 32,
+    "family": "GEN_3_EVOLVED_31",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(((open - ts_delay(close, 3)) / (ts_std_dev(returns, 10) + 0.00141)) / (available_for_sale_securities_amortized_cost + 0.00141), 5)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 33,
+    "family": "GEN_3_EVOLVED_32",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(broad_market_factor_score))) / (actual_return_on_pension_plan_assets + 0.00121), 7)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 34,
+    "family": "GEN_3_EVOLVED_33",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((((close - open) / (high - low + 0.00101)) * (1.001 - abs(beverages_tobacco_exposure_score))) / (available_for_sale_securities_value + 0.00111), 6)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 35,
+    "family": "GEN_3_EVOLVED_34",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - vwap) * (1.001 - abs(returns))) / (available_for_sale_securities_value + 0.00121), 11)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 36,
+    "family": "GEN_3_EVOLVED_35",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(((close - open) * (1.001 - abs(returns))) / (accumulated_amortization_customer_intangibles + 0.00101), 10)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 37,
+    "family": "GEN_3_EVOLVED_36",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - open) * (1.001 - abs(automobiles_exposure_score))) / (acquisition_Identifiable_assets_recognized + 0.00101), 7)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 38,
+    "family": "GEN_3_EVOLVED_37",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(ts_std_dev(returns, 20), 6)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=HARD_REJECT."
+  },
+  {
+    "id": 39,
+    "family": "GEN_3_EVOLVED_38",
+    "dataset": "analyst4",
+    "formula": "group_zscore(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear((close - ts_mean(close, 12)) / (ts_std_dev(close, 12) + 0.001), 8)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  },
+  {
+    "id": 40,
+    "family": "GEN_3_EVOLVED_39",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(ts_covariance(close, volume, 22), 10)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 3 evolved descendant of formula with status=ERROR."
+  }
+]

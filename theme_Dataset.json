@@ -1,0 +1,296 @@
+[
+  {
+    "id": "analyst14",
+    "name": "Estimations of Key Fundamentals",
+    "fields": 868,
+    "multiplier": 1.2,
+    "category": "Analyst"
+  },
+  {
+    "id": "analyst16",
+    "name": "Real Time Estimates",
+    "fields": 162,
+    "multiplier": 1.2,
+    "category": "Analyst"
+  },
+  {
+    "id": "analyst4",
+    "name": "Analyst Estimate Data for Equity",
+    "fields": 1324,
+    "multiplier": 1.2,
+    "category": "Analyst"
+  },
+  {
+    "id": "analyst44",
+    "name": "Integrated Broker Estimates",
+    "fields": 797,
+    "multiplier": 1.2,
+    "category": "Analyst"
+  },
+  {
+    "id": "analyst45",
+    "name": "Analyst Trade Ideas",
+    "fields": 181,
+    "multiplier": 1.2,
+    "category": "Analyst"
+  },
+  {
+    "id": "analyst69",
+    "name": "Fundamental Analyst Estimates",
+    "fields": 646,
+    "multiplier": 1.2,
+    "category": "Analyst"
+  },
+  {
+    "id": "analyst7",
+    "name": "Broker Estimates",
+    "fields": 1317,
+    "multiplier": 1.2,
+    "category": "Analyst"
+  },
+  {
+    "id": "earnings7",
+    "name": "Horizon Earnings and Calendar North America",
+    "fields": 40,
+    "multiplier": 1.3,
+    "category": "Analyst"
+  },
+  {
+    "id": "fundamental6",
+    "name": "Company Fundamental Data for Equity",
+    "fields": 886,
+    "multiplier": 1.1,
+    "category": "Fundamental"
+  },
+  {
+    "id": "insiders1",
+    "name": "Global Insider Trading Data",
+    "fields": 45,
+    "multiplier": 1.2,
+    "category": "Fundamental"
+  },
+  {
+    "id": "macro10",
+    "name": "Macroeconomic Research data",
+    "fields": 1,
+    "multiplier": 1.1,
+    "category": "Macro"
+  },
+  {
+    "id": "macro27",
+    "name": "Job records from job posting",
+    "fields": 48,
+    "multiplier": 1.1,
+    "category": "Macro"
+  },
+  {
+    "id": "macro38",
+    "name": "Technical Ratings Model",
+    "fields": 56,
+    "multiplier": 1.1,
+    "category": "Macro"
+  },
+  {
+    "id": "model109",
+    "name": "Fundamentals and Technical Indicators Model",
+    "fields": 544,
+    "multiplier": 1.4,
+    "category": "Model"
+  },
+  {
+    "id": "model135",
+    "name": "Alternative technical factor models",
+    "fields": 273,
+    "multiplier": 1.4,
+    "category": "Model"
+  },
+  {
+    "id": "shortinterest7",
+    "name": "Short Selling Model",
+    "fields": 30,
+    "multiplier": 1.4,
+    "category": "Model"
+  },
+  {
+    "id": "model26",
+    "name": "Analyst Revisions",
+    "fields": 839,
+    "multiplier": 1.4,
+    "category": "Model"
+  },
+  {
+    "id": "news12",
+    "name": "US News Data",
+    "fields": 875,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news17",
+    "name": "PR Edition Data",
+    "fields": 45,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news18",
+    "name": "Ravenpack News Data",
+    "fields": 121,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news21",
+    "name": "Macro Economic Event Data",
+    "fields": 260,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news3",
+    "name": "Dow Jones News Analytics Data",
+    "fields": 19,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news31",
+    "name": "News Analytics on Equities",
+    "fields": 60,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news36",
+    "name": "News Analytics Data",
+    "fields": 29,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news38",
+    "name": "News Analytic Model Data",
+    "fields": 63,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news46",
+    "name": "Relevant News Analytics Data",
+    "fields": 91,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news48",
+    "name": "Global Media News Data",
+    "fields": 22,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news5",
+    "name": "News Feed Analytics Data",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news50",
+    "name": "Web News Analytics Data",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news59",
+    "name": "Corporate Events Data",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news7",
+    "name": "Real Time News Feed Data",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news76",
+    "name": "Textual News Feed Data",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "news94",
+    "name": "Intraday Post News Price Volume",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "News"
+  },
+  {
+    "id": "option8",
+    "name": "Volatility Data",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "Options"
+  },
+  {
+    "id": "pv103",
+    "name": "Interval and MOO & MOC statistics",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "Price-Volume"
+  },
+  {
+    "id": "pv104",
+    "name": "Market Microstructure Data",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "Price-Volume"
+  },
+  {
+    "id": "pv13",
+    "name": "Relationship Data for Equity",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "Price-Volume"
+  },
+  {
+    "id": "pv141",
+    "name": "VWAP Tick Data",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "Price-Volume"
+  },
+  {
+    "id": "pv53",
+    "name": "Index Market Data",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "Price-Volume"
+  },
+  {
+    "id": "pv63",
+    "name": "Order Book Dataset",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "Price-Volume"
+  },
+  {
+    "id": "pv98",
+    "name": "Intraday Tick Data and Statistics",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "Price-Volume"
+  },
+  {
+    "id": "risk60",
+    "name": "Securities Lending Insight Data",
+    "fields": null,
+    "multiplier": 1.2,
+    "category": "Price-Volume"
+  }
+]

@@ -1,0 +1,18 @@
+2026-06-03T10:43:48.168205 | [GroupA] Executor thread started (Slots 1-4)
+2026-06-03T10:43:48.168205 | [GroupB] Executor thread started (Slots 5-8)
+2026-06-03T10:43:48.170201 | [GroupA] Next expected file: groupa_generation_1_alphas.json
+2026-06-03T10:43:48.172200 | [GroupB] Next expected file: groupb_generation_1_alphas.json
+2026-06-03T10:43:48.767057 | [GroupA] Queue status: Disk=30 | In-Mem=87 | State=RUNNING
+2026-06-03T10:44:18.881653 | [GroupB] Exception in loop: HTTPSConnectionPool(host='world-quant-1.onrender.com', port=443): Read timed out. (read timeout=30)
+2026-06-03T10:45:59.450010 | [GroupA] Executor thread started (Slots 1-4)
+2026-06-03T10:45:59.451014 | [GroupB] Executor thread started (Slots 5-8)
+2026-06-03T10:45:59.453032 | [GroupA] Next expected file: groupa_generation_1_alphas.json
+2026-06-03T10:45:59.453032 | [GroupB] Next expected file: groupb_generation_1_alphas.json
+2026-06-03T10:46:00.024909 | [GroupB] Queue status: Disk=30 | In-Mem=87 | State=RUNNING
+2026-06-03T10:46:00.072684 | [GroupA] Queue status: Disk=30 | In-Mem=87 | State=RUNNING
+2026-06-03T10:48:02.292802 | [GroupA] Executor thread started (Slots 1-4)
+2026-06-03T10:48:02.292802 | [GroupB] Executor thread started (Slots 5-8)
+2026-06-03T10:48:02.294802 | [GroupA] Next expected file: groupa_generation_1_alphas.json
+2026-06-03T10:48:02.294802 | [GroupB] Next expected file: groupb_generation_1_alphas.json
+2026-06-03T10:48:02.865394 | [GroupB] Queue status: Disk=30 | In-Mem=87 | State=RUNNING
+2026-06-03T10:48:02.870447 | [GroupA] Queue status: Disk=30 | In-Mem=87 | State=RUNNING

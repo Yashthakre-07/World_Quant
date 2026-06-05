@@ -1,0 +1,262 @@
+[
+  {
+    "family": "Seed_Anl4_Mom_anl4_afv4_eps_mean",
+    "dataset": "analyst4",
+    "hypothesis": "Consensus vector mean revisions momentum indicates financial expansion trajectory.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_afv4_eps_mean), 10)), 0), subindustry)",
+    "settings": {
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl4_Rev_anl4_afv4_eps_mean",
+    "dataset": "analyst4",
+    "hypothesis": "Consensus vector mean revisions reversion fades extreme analyst sentiment overbought points.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl4_afv4_eps_mean), 12)), 0), subindustry)",
+    "settings": {
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl4_Mom_anl4_afv4_eps_high",
+    "dataset": "analyst4",
+    "hypothesis": "Consensus vector mean revisions momentum indicates financial expansion trajectory.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_afv4_eps_high), 10)), 0), subindustry)",
+    "settings": {
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl4_Rev_anl4_afv4_eps_high",
+    "dataset": "analyst4",
+    "hypothesis": "Consensus vector mean revisions reversion fades extreme analyst sentiment overbought points.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl4_afv4_eps_high), 12)), 0), subindustry)",
+    "settings": {
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl4_Mom_anl4_afv4_eps_low",
+    "dataset": "analyst4",
+    "hypothesis": "Consensus vector mean revisions momentum indicates financial expansion trajectory.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_afv4_eps_low), 10)), 0), subindustry)",
+    "settings": {
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl4_Rev_anl4_afv4_eps_low",
+    "dataset": "analyst4",
+    "hypothesis": "Consensus vector mean revisions reversion fades extreme analyst sentiment overbought points.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl4_afv4_eps_low), 12)), 0), subindustry)",
+    "settings": {
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl4_Mom_anl4_ebitda_mean",
+    "dataset": "analyst4",
+    "hypothesis": "Consensus vector mean revisions momentum indicates financial expansion trajectory.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_ebitda_mean), 10)), 0), subindustry)",
+    "settings": {
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl4_Rev_anl4_ebitda_mean",
+    "dataset": "analyst4",
+    "hypothesis": "Consensus vector mean revisions reversion fades extreme analyst sentiment overbought points.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl4_ebitda_mean), 12)), 0), subindustry)",
+    "settings": {
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl4_Mom_anl4_ebitda_high",
+    "dataset": "analyst4",
+    "hypothesis": "Consensus vector mean revisions momentum indicates financial expansion trajectory.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_ebitda_high), 10)), 0), subindustry)",
+    "settings": {
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl4_Rev_anl4_ebitda_high",
+    "dataset": "analyst4",
+    "hypothesis": "Consensus vector mean revisions reversion fades extreme analyst sentiment overbought points.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl4_ebitda_high), 12)), 0), subindustry)",
+    "settings": {
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl4_Mom_anl4_ebitda_low",
+    "dataset": "analyst4",
+    "hypothesis": "Consensus vector mean revisions momentum indicates financial expansion trajectory.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_ebitda_low), 10)), 0), subindustry)",
+    "settings": {
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl4_Rev_anl4_ebitda_low",
+    "dataset": "analyst4",
+    "hypothesis": "Consensus vector mean revisions reversion fades extreme analyst sentiment overbought points.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl4_ebitda_low), 12)), 0), subindustry)",
+    "settings": {
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl14_Mom_anl14_actvalue_eps_fp0",
+    "dataset": "analyst14",
+    "hypothesis": "Backfilled estimates timeline momentum captures medium-term growth herding trends.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(ts_backfill(anl14_actvalue_eps_fp0, 252), 15)), 0), subindustry)",
+    "settings": {
+      "decay": 10,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl14_Rev_anl14_actvalue_eps_fp0",
+    "dataset": "analyst14",
+    "hypothesis": "Backfilled estimates timeline mean-deviation reversion captures short-term sentiment overshoots.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_av_diff(ts_backfill(anl14_actvalue_eps_fp0, 252), 10)), 0), subindustry)",
+    "settings": {
+      "decay": 10,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl14_Mom_anl14_high_eps_fp1",
+    "dataset": "analyst14",
+    "hypothesis": "Backfilled estimates timeline momentum captures medium-term growth herding trends.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(ts_backfill(anl14_high_eps_fp1, 252), 15)), 0), subindustry)",
+    "settings": {
+      "decay": 10,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl14_Rev_anl14_high_eps_fp1",
+    "dataset": "analyst14",
+    "hypothesis": "Backfilled estimates timeline mean-deviation reversion captures short-term sentiment overshoots.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_av_diff(ts_backfill(anl14_high_eps_fp1, 252), 10)), 0), subindustry)",
+    "settings": {
+      "decay": 10,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl14_Mom_anl14_mean_eps_fp1",
+    "dataset": "analyst14",
+    "hypothesis": "Backfilled estimates timeline momentum captures medium-term growth herding trends.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(ts_backfill(anl14_mean_eps_fp1, 252), 15)), 0), subindustry)",
+    "settings": {
+      "decay": 10,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl14_Rev_anl14_mean_eps_fp1",
+    "dataset": "analyst14",
+    "hypothesis": "Backfilled estimates timeline mean-deviation reversion captures short-term sentiment overshoots.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_av_diff(ts_backfill(anl14_mean_eps_fp1, 252), 10)), 0), subindustry)",
+    "settings": {
+      "decay": 10,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl14_Mom_anl14_high_ebitda_fp1",
+    "dataset": "analyst14",
+    "hypothesis": "Backfilled estimates timeline momentum captures medium-term growth herding trends.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(ts_backfill(anl14_high_ebitda_fp1, 252), 15)), 0), subindustry)",
+    "settings": {
+      "decay": 10,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Seed_Anl14_Rev_anl14_high_ebitda_fp1",
+    "dataset": "analyst14",
+    "hypothesis": "Backfilled estimates timeline mean-deviation reversion captures short-term sentiment overshoots.",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_av_diff(ts_backfill(anl14_high_ebitda_fp1, 252), 10)), 0), subindustry)",
+    "settings": {
+      "decay": 10,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "delay": 1,
+      "truncation": 0.08
+    }
+  }
+]

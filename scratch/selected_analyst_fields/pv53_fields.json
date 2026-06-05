@@ -1,0 +1,162 @@
+[
+  {
+    "id": "pv53_beta_vix_normalized",
+    "description": "Beta VIX normalized",
+    "dataset": {
+      "id": "pv53",
+      "name": "Index Market Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 103,
+    "alphaCount": 666,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv53_logreturns5_normalized",
+    "description": "Normalized log returns for 5 days",
+    "dataset": {
+      "id": "pv53",
+      "name": "Index Market Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 72,
+    "alphaCount": 583,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv53_usa_uber_beta_ung_125_normalized",
+    "description": "Beta information",
+    "dataset": {
+      "id": "pv53",
+      "name": "Index Market Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 43,
+    "alphaCount": 394,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv53_usa_uber_beta_uso_125_normalized",
+    "description": "Beta information",
+    "dataset": {
+      "id": "pv53",
+      "name": "Index Market Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 53,
+    "alphaCount": 405,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv53_weights",
+    "description": "Weight information",
+    "dataset": {
+      "id": "pv53",
+      "name": "Index Market Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.5,
+    "userCount": 58,
+    "alphaCount": 444,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  }
+]
