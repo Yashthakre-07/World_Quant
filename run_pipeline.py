@@ -1278,7 +1278,7 @@ def get_session():
         if not current_email:
             # If not set in environment (running locally), load from appropriate env file
             token = os.getenv("API_SECRET_TOKEN", "")
-            env_path = Path("yash.env") if "op1" in token or "yash" in token.lower() else Path("sai.env")
+            env_path = Path("yash.env") if "pro" in token.lower() or "op1" in token else Path("sai.env")
             if env_path.exists():
                 sai_config = {}
                 try:
@@ -1344,29 +1344,23 @@ def reauthenticate():
     reauth_state["url"] = ""
     reauth_state["error"] = ""
     
+    auth_header = request.headers.get("Authorization", "")
+    req_token = auth_header.replace("Bearer ", "").strip()
+    is_group_b = "pro" in req_token.lower()
+
     try:
         from src.auth import WQSession, PersonaRequiredException
         import src.auth
         import src.config
         
-        # Load environment variables (default behavior)
-        if os.getenv("RENDER") != "true":
-            auth_header = request.headers.get("Authorization", "")
-            req_token = auth_header.replace("Bearer ", "").strip()
-            env_path = Path("yash.env") if "op" in req_token or "yash" in req_token.lower() else Path("sai.env")
-            if env_path.exists():
-                try:
-                    from dotenv import load_dotenv
-                    load_dotenv(env_path, override=True)
-                except ImportError:
-                    with open(env_path, "r") as f:
-                        for line in f:
-                            if "=" in line and not line.strip().startswith("#"):
-                                k, v = line.split("=", 1)
-                                os.environ[k.strip()] = v.strip().strip("'").strip('"')
+        # Set credentials dynamically based on bearer token group
+        if is_group_b:
+            src.config.WQ_EMAIL = os.environ.get("OPI_PRO_EMAIL", "beyondsynapse@gmail.com")
+            src.config.WQ_PASSWORD = os.environ.get("OPI_PRO_PASSWORD", "Web3@ytop")
+        else:
+            src.config.WQ_EMAIL = os.environ.get("OPI_EMAIL", "saineela731@gmail.com")
+            src.config.WQ_PASSWORD = os.environ.get("OPI_PASSWORD", "iitg@123")
             
-        src.config.WQ_EMAIL = os.getenv("WQ_EMAIL", "")
-        src.config.WQ_PASSWORD = os.getenv("WQ_PASSWORD", "")
         src.auth.WQ_EMAIL = src.config.WQ_EMAIL
         src.auth.WQ_PASSWORD = src.config.WQ_PASSWORD
         
@@ -1379,10 +1373,12 @@ def reauthenticate():
         
         # If it returns without exception, login was succeeded instantly via saved cookies/credentials
         active_session = sess
-        session_a = sess
-        session_b = sess
+        if is_group_b:
+            session_b = sess
+        else:
+            session_a = sess
         reauth_state["status"] = "SUCCESS"
-        return jsonify({"status": "SUCCESS", "message": "Authenticated instantly using persisted cookies!"})
+        return jsonify({"status": "SUCCESS", "message": f"Authenticated Group {'B' if is_group_b else 'A'} instantly using persisted cookies!"})
         
     except PersonaRequiredException as e:
         reauth_state["status"] = "POLLING"
@@ -1419,8 +1415,10 @@ def reauthenticate():
                         sess.login_expired = False
                         sess.save_persisted_cookies()
                         active_session = sess
-                        session_a = sess
-                        session_b = sess
+                        if is_group_b:
+                            session_b = sess
+                        else:
+                            session_a = sess
                         reauth_state["status"] = "SUCCESS"
                         log_message("INFO", "Interactive re-authentication completed successfully!")
                         # Send restoration alert to phone
@@ -4214,7 +4212,7 @@ def main():
                                             simulate_batch(b_indices, b_tasks, b_states, session, slot_id=slot_id)
                                         return batch_runner
                                     
-                                    futures.append(executor.submit(make_batch_runner(batch_indices, batch_tasks, batch_states, active_session, slot_idx)))
+                                    futures.append(executor.submit(make_batch_runner(batch_indices, batch_tasks, batch_states, session_a, slot_idx)))
 
                         # --- PROCESS GROUP B (Slots 5-8) ---
                         new_tasks_b = [t for t in tasks_b if t["formula"] not in scheduled_formulas]
@@ -4298,7 +4296,7 @@ def main():
                                             simulate_batch(b_indices, b_tasks, b_states, session, slot_id=slot_id)
                                         return batch_runner
                                     
-                                    futures.append(executor.submit(make_batch_runner(batch_indices, batch_tasks, batch_states, active_session, slot_idx)))
+                                    futures.append(executor.submit(make_batch_runner(batch_indices, batch_tasks, batch_states, session_b, slot_idx)))
                   
                     # Check for any completed alphas to log summaries
                     for idx, alpha in enumerate(pipeline_state["alphas"]):
