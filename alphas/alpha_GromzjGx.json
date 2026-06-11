@@ -1,0 +1,25 @@
+{
+  "alpha_id": "GromzjGx",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(accumulated_amortization_customer_intangibles_2) + 0.001), 3)), 0), subindustry)",
+  "family": "GROUPB_GEN_11_EVOLVED_3",
+  "hypothesis": "Dynamic alpha leveraging theme field accumulated_amortization_customer_intangibles_2 gated at 0.70 volume gate with safety divisor offset.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.22,
+  "fitness": 0.54,
+  "turnover": 33.900000000000006,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 8,
+    "neutralization": "INDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-11 14:22:32"
+}

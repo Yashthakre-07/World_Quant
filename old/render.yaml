@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: worldquant-pipeline
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python run_pipeline.py
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: RENDER
+        value: "true"
+      - key: API_SECRET_TOKEN
+        sync: false
+    disk:
+      name: pipeline-data
+      mountPath: /data
+      sizeGB: 1

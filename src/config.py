@@ -27,8 +27,8 @@ OPI_API_TOKEN = os.getenv("OPI_API_TOKEN", "yashthakreop")
 GROUPA_API_TOKEN = OPI_API_TOKEN
 
 # Yash Thakre OPI Pro (Slots 5-8)
-OPI_PRO_EMAIL = os.getenv("OPI_PRO_EMAIL", "beyondsynapse@gmail.com")
-OPI_PRO_PASSWORD = os.getenv("OPI_PRO_PASSWORD", "Web3@ytop")
+OPI_PRO_EMAIL = os.getenv("OPI_PRO_EMAIL", "saineela731@gmail.com")
+OPI_PRO_PASSWORD = os.getenv("OPI_PRO_PASSWORD", "iitg@123")
 OPI_PRO_API_TOKEN = os.getenv("OPI_PRO_API_TOKEN", "yashthakrepro")
 GROUPB_API_TOKEN = OPI_PRO_API_TOKEN
 
@@ -85,5 +85,6 @@ SERVER_HOST = "127.0.0.1"
 SERVER_PORT = 8000
 
 # Concurrency settings
-# Set to 3 to align with standard WQ account cap of 3 slots (3 batches of 10 = 30 concurrent alphas)
-MAX_CONCURRENT_SIMS = int(os.getenv("MAX_CONCURRENT_SIMS", "3"))
+# Set to 8 to support simulating 8 slots simultaneously (all slots 1-8 at once)
+MAX_CONCURRENT_SIMS = int(os.getenv("MAX_CONCURRENT_SIMS", "8"))
+

@@ -1,0 +1,25 @@
+{
+  "alpha_id": "RRrezv5n",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(acquired_cash_equivalents_business_combination) + 0.001), 3)), 0), subindustry)",
+  "family": "GROUPB_GEN_11_EVOLVED_7",
+  "hypothesis": "Dynamic alpha leveraging theme field acquired_cash_equivalents_business_combination gated at 0.75 volume gate with safety divisor offset.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.26,
+  "fitness": 0.54,
+  "turnover": 32.85,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 8,
+    "neutralization": "INDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-11 14:21:58"
+}

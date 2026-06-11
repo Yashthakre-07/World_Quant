@@ -1,0 +1,4566 @@
+[
+  {
+    "id": "after_hours_vwap",
+    "description": "Volume-weighted average price calculated over the post-session period",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9626,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "aggregate_session_vwap",
+    "description": "Volume-weighted average price of all sessions combined",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "average_true_range_14_periods",
+    "description": "Fourteen day average true range, a measure of volatility based on high-low-close data over the past 14 trading days",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.997,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "average_true_range_ratio",
+    "description": "The ratio of today's price range to the 20-day average true range (ATR20)",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9931,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "closing_session_final_price",
+    "description": "Close price of the session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "closing_session_high_price",
+    "description": "The highest price reached by the security between the news release time and the end of the trading session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9994,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "closing_session_low_price",
+    "description": "The lowest price reached between the time of the news and the end of the trading session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9994,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "closing_trading_volume",
+    "description": "The trading volume at the close of the main session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9928,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "current_trading_volume",
+    "description": "Current session's total trading volume",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "dividend_yield_percentage",
+    "description": "Annual dividend yield percentage for the security",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4333,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "end_of_day_vwap",
+    "description": "Volume weighted average price from the time of news until end of session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9982,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "event_result_value",
+    "description": "Percent change from the price at the time of the news event to the price at the close of the session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "fifth_label_value",
+    "description": "Minutes elapsed before price increased by 5% after the news",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4623,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "fifth_percentile_value",
+    "description": "The minimum time (in minutes) until either a +5% or -5% price move occurs from the news time, i.e., minimum of L5 or S5",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6293,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "fifth_segment_value",
+    "description": "Number of minutes that elapsed before the price dropped by 5% after the news",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4467,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "first_label_value",
+    "description": "Minutes elapsed before price increased by 1% after the news",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9186,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "first_percentile_value",
+    "description": "The number of minutes after the news event until the price moves up or down by 1% (whichever happens first)",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9726,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "first_segment_value",
+    "description": "Number of minutes that elapsed before the price fell by 1 percent after the news",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9094,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "five_minute_interval_value",
+    "description": "Percent change in stock price during the first 5 minutes following the news release",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9532,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "fourth_label_value",
+    "description": "Number of minutes that elapsed before price went up 4 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5671,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "fourth_percentile_value",
+    "description": "The minimum time (in minutes) until the stock price moves up 4% or down 4% from the news time",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7316,
+    "userCount": 1,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "fourth_segment_value",
+    "description": "Number of minutes that elapsed before the stock price fell by 4 percentage points from the time of the news event",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5502,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "high_excess_volatility",
+    "description": "Standardized excess price movement: (EODHigh - TONLast) divided by 30-day close price standard deviation",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9934,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "hundred_twenty_minute_interval_value",
+    "description": "Percentage change in the security's price during the first 120 minutes after the news release",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9897,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "label_status_indicator",
+    "description": "Indicator for whether a long, short, or neutral position would have been more advantageous post-news, calculated by comparing maximum up and down moves from news time",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9994,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "low_excess_volatility",
+    "description": "Standardized measure of downside price movement, calculated as (TONLast - EODLow) divided by the standard deviation of 30 calendar days' closing prices",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9934,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "main_session_vwap",
+    "description": "Volume-weighted average price during the main trading session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9928,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "market_open_price_gap",
+    "description": "The difference between DayOpen and previous close, divided by previous close; (DayOpen \u2013 PrevClose) / PrevClose",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "maximum_downward_amount",
+    "description": "The numerical difference between the price at the time of news and the lowest price reached after the news within the same session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9994,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "maximum_downward_movement",
+    "description": "Percent change from the price at the time of the news to the lowest price reached after the news",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9994,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "maximum_upward_amount",
+    "description": "The numerical difference between the highest price reached after the news and the price at the time of the news",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9994,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "maximum_upward_movement",
+    "description": "Percent change from the price at the time of the news to the after the news high",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9994,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "moving_average_volume",
+    "description": "30-day moving average of session trading volume",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.997,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "ninety_minute_interval_value",
+    "description": "Percentage change in the security's price during the first 90 minutes after the news release",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9882,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_01l",
+    "description": "Number of minutes that elapsed before price went up 10 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9338,
+    "userCount": 15,
+    "alphaCount": 32,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_01p",
+    "description": "The minimum of L10 or S10",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9337,
+    "userCount": 25,
+    "alphaCount": 33,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_01s",
+    "description": "Number of minutes that elapsed before price went down 10 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9337,
+    "userCount": 65,
+    "alphaCount": 92,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_02l",
+    "description": "Number of minutes that elapsed before price went up 20 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9338,
+    "userCount": 6,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_02p",
+    "description": "The minimum of L20 or S20",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9338,
+    "userCount": 14,
+    "alphaCount": 24,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_02s",
+    "description": "Number of minutes that elapsed before price went down 20 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9338,
+    "userCount": 21,
+    "alphaCount": 23,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_10_minutes",
+    "description": "The percent change in price in the first 10 minutes following the news release",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.8838,
+    "userCount": 22,
+    "alphaCount": 36,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_120_minutes",
+    "description": "The percent change in price in the first 120 minutes following the news release",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9058,
+    "userCount": 46,
+    "alphaCount": 82,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_1l",
+    "description": "Number of minutes that elapsed before price went up 1 percentage point",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9313,
+    "userCount": 11,
+    "alphaCount": 15,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_1p",
+    "description": "The minimum of L1 or S1",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9287,
+    "userCount": 9,
+    "alphaCount": 32,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_1s",
+    "description": "Number of minutes that elapsed before price went down 1 percentage point",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9315,
+    "userCount": 19,
+    "alphaCount": 57,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_2l",
+    "description": "Number of minutes that elapsed before price went up 2 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9327,
+    "userCount": 16,
+    "alphaCount": 27,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_2p",
+    "description": "The minimum of L2 or S2",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9314,
+    "userCount": 26,
+    "alphaCount": 34,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_2s",
+    "description": "Number of minutes that elapsed before price went down 2 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9326,
+    "userCount": 20,
+    "alphaCount": 29,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_30_minutes",
+    "description": "The percent change in price in the first 30 minutes following the news release",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.8978,
+    "userCount": 37,
+    "alphaCount": 63,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_30_seconds",
+    "description": "The percent change in price in the 30 seconds following the news release",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.7984,
+    "userCount": 20,
+    "alphaCount": 32,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_3l",
+    "description": "Number of minutes that elapsed before price went up 3 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9331,
+    "userCount": 12,
+    "alphaCount": 24,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_3p",
+    "description": "The minimum of L3 or S3",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9324,
+    "userCount": 16,
+    "alphaCount": 30,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_3s",
+    "description": "Number of minutes that elapsed before price went down 3 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9331,
+    "userCount": 20,
+    "alphaCount": 41,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_41rta",
+    "description": "Fourteen-day Average True Range",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9285,
+    "userCount": 21,
+    "alphaCount": 40,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_4l",
+    "description": "Number of minutes that elapsed before price went up 4 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9334,
+    "userCount": 16,
+    "alphaCount": 32,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_4p",
+    "description": "The minimum of L4 or S4",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9329,
+    "userCount": 21,
+    "alphaCount": 32,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_4s",
+    "description": "Number of minutes that elapsed before price went down 4 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9333,
+    "userCount": 31,
+    "alphaCount": 53,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_57l",
+    "description": "Number of minutes that elapsed before price went up 7.5 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9337,
+    "userCount": 11,
+    "alphaCount": 54,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_57p",
+    "description": "The minimum of L75 or S75",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9335,
+    "userCount": 26,
+    "alphaCount": 46,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_57s",
+    "description": "Number of minutes that elapsed before price went down 7.5 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9337,
+    "userCount": 46,
+    "alphaCount": 73,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_5_minutes",
+    "description": "The percent change in price in the first 5 minutes following the news release",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.8731,
+    "userCount": 11,
+    "alphaCount": 17,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_5l",
+    "description": "Number of minutes that elapsed before price went up 5 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9335,
+    "userCount": 16,
+    "alphaCount": 20,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_5p",
+    "description": "The minimum of L5 or S5",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9333,
+    "userCount": 40,
+    "alphaCount": 51,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_5s",
+    "description": "Number of minutes that elapsed before price went down 5 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9336,
+    "userCount": 47,
+    "alphaCount": 96,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_60_minutes",
+    "description": "The percent change in price in the first 60 minutes following the news release",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.8993,
+    "userCount": 19,
+    "alphaCount": 32,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_90_minutes",
+    "description": "The percent change in price in the first 90 minutes following the news release",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9035,
+    "userCount": 25,
+    "alphaCount": 66,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_active",
+    "description": "Kept for compatibility only",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9338,
+    "userCount": 7,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_allticks",
+    "description": "Total number of ticks for the trading day",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9261,
+    "userCount": 74,
+    "alphaCount": 269,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_allvwap",
+    "description": "Volume-weighted average price of all sessions",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9245,
+    "userCount": 14,
+    "alphaCount": 19,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_atr_ratio",
+    "description": "Today's Range/ATR20",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.8968,
+    "userCount": 22,
+    "alphaCount": 43,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_close_vol",
+    "description": "Main close volume",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9045,
+    "userCount": 15,
+    "alphaCount": 43,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_curr_vol",
+    "description": "Current day's session volume",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.93,
+    "userCount": 22,
+    "alphaCount": 67,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_dayopen",
+    "description": "Price at the session open",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9245,
+    "userCount": 10,
+    "alphaCount": 17,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_dividendyield",
+    "description": "Annual yield",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.4595,
+    "userCount": 5,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_eodclose",
+    "description": "Close price of the session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9245,
+    "userCount": 8,
+    "alphaCount": 14,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_eodhigh",
+    "description": "Highest price reached between the time of news and the end of the session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9078,
+    "userCount": 11,
+    "alphaCount": 24,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_eodlow",
+    "description": "Lowest price reached between the time of news and the end of the session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9078,
+    "userCount": 7,
+    "alphaCount": 15,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_eodvwap",
+    "description": "Volume-weighted average price of the session from the time of news until the end of the session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9022,
+    "userCount": 15,
+    "alphaCount": 37,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_highexcstddev",
+    "description": "(EODHigh - TONLast)/StdDev, where StdDev is one standard deviation for the close price for 30 calendar days",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.8986,
+    "userCount": 19,
+    "alphaCount": 32,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_lowexcstddev",
+    "description": "(TONLast - EODLow)/StdDev, where StdDev is one standard deviation for the close price for 30 calendar days",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.8827,
+    "userCount": 76,
+    "alphaCount": 207,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_mainvwap",
+    "description": "Main session volume weighted average price",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9045,
+    "userCount": 10,
+    "alphaCount": 18,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_maxdnamt",
+    "description": "The price at the time of the news minus the after-the-news low",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.8875,
+    "userCount": 17,
+    "alphaCount": 32,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_maxdown",
+    "description": "Percent change from the price at the time of the news to the after-the-news low",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.8875,
+    "userCount": 27,
+    "alphaCount": 47,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_maxup",
+    "description": "Percent change from the price at the time of the news to the after-the-news high",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9036,
+    "userCount": 19,
+    "alphaCount": 45,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_maxupamt",
+    "description": "The after-the-news high minus the price at the time of the news",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9036,
+    "userCount": 9,
+    "alphaCount": 25,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_minute",
+    "description": "The percent change in price in the first minute following the news release",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.8376,
+    "userCount": 17,
+    "alphaCount": 51,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_mktcap_1000",
+    "description": "Reported market capitalization for the calendar day of the session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9338,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_mov_vol",
+    "description": "30-day moving average session volume",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9285,
+    "userCount": 29,
+    "alphaCount": 72,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_open_vol",
+    "description": "Main open volume",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9045,
+    "userCount": 26,
+    "alphaCount": 66,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_opengap",
+    "description": "(DayOpen - PrevClose) / PrevClose",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.883,
+    "userCount": 15,
+    "alphaCount": 35,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_peratio",
+    "description": "Reported price-to-earnings ratio for the calendar day of the session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.7229,
+    "userCount": 15,
+    "alphaCount": 30,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_postvwap",
+    "description": "Post-session volume weighted average price",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.863,
+    "userCount": 10,
+    "alphaCount": 22,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_prev_vol",
+    "description": "Previous day's session volume",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9315,
+    "userCount": 20,
+    "alphaCount": 43,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_prevclose",
+    "description": "Previous trading day's close price",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9331,
+    "userCount": 18,
+    "alphaCount": 58,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_prevday",
+    "description": "Percent change between the previous day's open and close",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9306,
+    "userCount": 19,
+    "alphaCount": 45,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_prevwap",
+    "description": "Pre-session volume weighted average price",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.7371,
+    "userCount": 10,
+    "alphaCount": 19,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_range",
+    "description": "(Session High Price - Session Low Price) / Session Low Price",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9019,
+    "userCount": 10,
+    "alphaCount": 19,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_rangeamt",
+    "description": "Session High Price - Session Low Price",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9019,
+    "userCount": 19,
+    "alphaCount": 31,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_rangestddev",
+    "description": "(RangeAmt-AvgRange)/RangeStdDev, where AvgRange is the average of the daily range, and RangeStdDev is one standard deviation for the daily range, both for 30 calendar days",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9022,
+    "userCount": 24,
+    "alphaCount": 59,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_result",
+    "description": "Percent change between the price at the time of the news release to the price at the close of the session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.899,
+    "userCount": 43,
+    "alphaCount": 176,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_result_vs_index",
+    "description": "((EODClose - TONLast) / TONLast) - ((SPYClose - SPYLast) / SPYLast)",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9139,
+    "userCount": 37,
+    "alphaCount": 80,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_shortinterest",
+    "description": "Total number of shares sold short divided by total number of shares outstanding",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.7922,
+    "userCount": 5,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_sl",
+    "description": "Whether a long or short position would have been more advantageous: If (EODHigh - Last) > (Last - EODLow) Then LS = 1; If (EODHigh - Last) = (Last - EODLow) Then LS= 0; If (EODHigh - Last) < (Last - EODLow) Then LS = -1.",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9326,
+    "userCount": 29,
+    "alphaCount": 44,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_spyclose",
+    "description": "Price of SPY at close of session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9313,
+    "userCount": 18,
+    "alphaCount": 38,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_spylast",
+    "description": "Last Price of the SPY at the time of the news",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9313,
+    "userCount": 23,
+    "alphaCount": 74,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_tonhigh",
+    "description": "Highest price reached during the session before the time of news",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9245,
+    "userCount": 17,
+    "alphaCount": 23,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_tonlast",
+    "description": "Price at the time of news",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9318,
+    "userCount": 14,
+    "alphaCount": 36,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_tonlow",
+    "description": "Lowest price reached during the session before the time of the news",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.9245,
+    "userCount": 11,
+    "alphaCount": 21,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_vol_ratio",
+    "description": "Curr_Vol / Mov_Vol",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.927,
+    "userCount": 35,
+    "alphaCount": 64,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "nws5_volumestddev",
+    "description": "(CurrentVolume - AvgVol) / VolStDev, where AvgVol is the average of the daily volume, and VolStDev is one standard deviation for the daily volume, both for 30 calendar days",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.925,
+    "userCount": 29,
+    "alphaCount": 81,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "one_minute_interval_value",
+    "description": "Percentage change in the security's price in the first minute after the news release",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9119,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "opening_price_of_day",
+    "description": "Price at the session open",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "opening_trading_volume",
+    "description": "Main session's opening trading volume",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9928,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "outstanding_short_position",
+    "description": "Total number of shares sold short divided by total shares outstanding, representing short interest ratio",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4366,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "performance_relative_to_index",
+    "description": "Difference between the security's return from news time to close and the S&P 500's return over the same interval",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pre_market_vwap",
+    "description": "Volume-weighted average price during the pre-market session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8789,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "previous_day_value",
+    "description": "Percent change between the previous day's open and close",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "previous_trading_volume",
+    "description": "Volume traded in the previous day's session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "price_range_standard_deviation",
+    "description": "Standardized range deviation calculated as (RangeAmt-AvgRange)/RangeStdDev over past 30 days",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.993,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "price_to_earnings_ratio",
+    "description": "Price-to-earnings ratio reported for the calendar day of the session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7347,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "prior_closing_price",
+    "description": "The previous trading day\u2019s closing price for the instrument",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "second_label_value",
+    "description": "Number of minutes elapsed before the price increased by 2% from the news event price",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8079,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "second_percentile_value",
+    "description": "Minimum of L2 or S2; the earliest time in minutes to either a +2% or -2% move post-news",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9158,
+    "userCount": 1,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "second_segment_value",
+    "description": "Number of minutes that elapsed before price went down 2 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7928,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "session_high_price",
+    "description": "Highest price reached during the session before the time of news",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "session_last_price",
+    "description": "Price level at the precise time the news was received",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "session_low_price",
+    "description": "Lowest price reached during the session before the news event",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "session_price_range",
+    "description": "Session high price minus session low price, then divided by session low price, representing intraday price range",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9993,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "session_price_range_amount",
+    "description": "Difference between session high price and session low price",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9993,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "seventy_fifth_label_value",
+    "description": "Number of minutes that elapsed before price went up 7.5 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2812,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "seventy_fifth_percentile_value",
+    "description": "The minimum time (in minutes) until either a +75% or -75% price move occurs from the news time, i.e., minimum of L75 or S75",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "seventy_fifth_segment_value",
+    "description": "Number of minutes that elapsed before price went down 7.5 percentage points",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2684,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "sixty_minute_interval_value",
+    "description": "Percent change in price in the first 60 minutes following the news release",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9852,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "sp500_etf_closing_price",
+    "description": "Closing price of the SPY ETF for the session",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "sp500_etf_last_price",
+    "description": "Last traded price of the SPY ETF at the time of the news event",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "ten_minute_interval_value",
+    "description": "The percent change in price in the first 10 minutes following the news release",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9656,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "tenth_percentile_value",
+    "description": "The number of minutes after the news event until the price moves up or down by 10% (whichever happens first)",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2762,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "third_label_value",
+    "description": "Number of minutes that elapsed before the stock price rose by 3 percentage points from the time of the news event",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6815,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "third_percentile_value",
+    "description": "The minimum of L3 (minutes to +3% move) or S3 (minutes to -3% move); earliest time to reach either a 3% up or down price move after the news event",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.829,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "third_segment_value",
+    "description": "Number of minutes that elapsed before the price fell by 3 percent after the news",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.666,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "thirty_minute_interval_value",
+    "description": "Percent change in price in the first 30 minutes after the news event",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9796,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "thirty_second_interval_value",
+    "description": "Percent change in price in the 30 seconds following the news event",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.861,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "total_trade_ticks",
+    "description": "Total number of trades/ticks for the trading day",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "trading_volume_standard_deviation",
+    "description": "Standardized deviation of current volume from its 30-day average, divided by standard deviation",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9952,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "volume_ratio_metric",
+    "description": "Ratio of current session volume to 30-day moving average volume",
+    "dataset": {
+      "id": "news5",
+      "name": "News Feed Analytics Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news-sentiment",
+      "name": "News Sentiment"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9993,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  }
+]

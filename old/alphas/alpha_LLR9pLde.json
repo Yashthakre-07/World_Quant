@@ -1,0 +1,25 @@
+{
+  "alpha_id": "LLR9pLde",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - low) / (high - low + 0.001), 5)), 0), subindustry)",
+  "family": "TOP_PERF_ALPHA_16",
+  "hypothesis": "High Performance Synced Alpha",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.07,
+  "fitness": 0.51,
+  "turnover": 24.9,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-09 19:25:57"
+}

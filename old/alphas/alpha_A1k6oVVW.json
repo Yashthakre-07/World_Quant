@@ -1,0 +1,25 @@
+{
+  "alpha_id": "A1k6oVVW",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)",
+  "family": "HIGH_SHARPE_FITNESS_0",
+  "hypothesis": "High performance extracted alpha",
+  "status": "SUBMITTED",
+  "sharpe": 1.89,
+  "fitness": 1.04,
+  "turnover": 30.43,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-09 19:16:42"
+}

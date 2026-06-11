@@ -50,7 +50,7 @@ For each state, run the corresponding Python script using `C:\Users\Admin\AppDat
 | **Step 2** | [scratch/execute_step_2.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_2.py) | Discover whitelisted fields on analyst4, analyst14, analyst45 |
 | **Step 3** | [scratch/execute_step_3.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_3.py) | Map fields to academic anomalies |
 | **Step 4** | [scratch/execute_step_4.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_4.py) | Create 40-alpha diversity matrix |
-| **Step 5** | [scratch/execute_step_5.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_5.py) | Load the targeted generation, read previous backtest results from database, and generate 40 mutated, compiler-compliant descendant alphas |
+| **Step 5** | [scratch/execute_step_5.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_5.py) | **AI Generation**: Spawn `wq_generatorllm` to design candidate formulas and `wq_validatorllm` to validate, scale, and fix compliance before archiving. |
 | **Step 6** | [scratch/execute_step_6.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_6.py) | Check uniqueness against historical databases |
 | **Step 7** | [scratch/execute_step_7.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_7.py) | Estimate pairwise correlations (target < 0.70) |
 | **Step 8** | [scratch/execute_step_8.py](file:///c:/Users/Admin/Documents/VIBE_YT/wq/scratch/execute_step_8.py) | Run settings check and 12-point final validation checklist |
@@ -67,3 +67,11 @@ CronExpression = "*/15 * * * *"
 Prompt = "Start the pipeline execution cycle: read master prompt files step 0 to 10 and process them for slots 1-4."
 ```
 Verify `scratch/pipeline_state.json` is set to `"current_step": 0` before initiating.
+
+---
+
+## 🛡️ 5. WQ CLUSTER COMPLIANCE RULES TO PREVENT CHILD SIMULATION FAILURES
+* **Vector Field Wrapping**: All analyst consensus/actual event fields (e.g. `anl4`, `anl14`, `anl15`, `anl45`) are event-driven vector fields on WQ and **must** be wrapped in `vec_avg(field)` before applying mathematical operations (add, subtract, divide, ts_std_dev).
+  - *Example*: Use `ts_std_dev(vec_avg(anl14_actvalue_capex_fy0), 20)` instead of `ts_std_dev(anl14_actvalue_capex_fy0, 20)`.
+* **Divisor Stability**: Standard deviation divisors (`ts_std_dev(field, N)`) can evaluate to `0` or `NaN` on sparse data, causing child simulations to fail. Always add a non-zero offset: `(ts_std_dev(vec_avg(field), N) + 0.001)`.
+

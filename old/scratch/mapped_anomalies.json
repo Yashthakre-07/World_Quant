@@ -1,0 +1,460 @@
+{
+  "Analyst Revision Momentum": {
+    "direction": "momentum",
+    "formula_hint": "rank(ts_delta(vec_avg(field), lookback))",
+    "vector_fields": [
+      "anl44_2_eps_coveredby",
+      "anl44_2_eps_lastactccy",
+      "anl44_2_eps_lastactvalue",
+      "anl44_2_eps_prevalue",
+      "anl44_2_eps_value",
+      "anl44_2_epsr_coveredby"
+    ],
+    "matrix_fields": [
+      "anl14_actvalue_eps_fp0",
+      "anl14_actvalue_eps_fy0",
+      "anl14_actvalue_epsrep_fp0",
+      "anl14_actvalue_epsrep_fy0",
+      "anl14_high_eps_fp1",
+      "anl14_high_eps_fp2"
+    ],
+    "datasets": [
+      "analyst69",
+      "analyst7",
+      "analyst4",
+      "news12",
+      "fundamental6",
+      "analyst44",
+      "model26",
+      "analyst14",
+      "news7",
+      "news21",
+      "analyst16",
+      "earnings7",
+      "model109"
+    ]
+  },
+  "Earnings Surprise Persistence (PEAD)": {
+    "direction": "momentum",
+    "formula_hint": "rank(ts_decay_linear(vec_avg(field), lookback))",
+    "vector_fields": [
+      "anl16_actsurprise",
+      "anl16_presurprise",
+      "anl16_presurprise_normal",
+      "anl16_presurprisepct",
+      "product_actual_surprise_fiscal_end_month",
+      "product_actual_surprise_percentage_value"
+    ],
+    "matrix_fields": [
+      "act_q_afo_surprisenum",
+      "act_q_bps_surprisemean",
+      "act_q_bps_surprisenum",
+      "act_q_bps_surprisestd",
+      "act_q_cps_surprisemean",
+      "act_q_cps_surprisenum"
+    ],
+    "datasets": [
+      "analyst7",
+      "analyst4",
+      "model26",
+      "news12",
+      "analyst44",
+      "analyst16",
+      "model109",
+      "analyst45"
+    ]
+  },
+  "Fundamental Accrual Reversion": {
+    "direction": "reversion",
+    "formula_hint": "-rank(ts_decay_linear(field, lookback))",
+    "vector_fields": [
+      "mdl109_accruals",
+      "anl44_2_capex_coveredby",
+      "anl44_2_capex_lastactccy",
+      "anl44_2_capex_lastactvalue",
+      "anl44_2_capex_prevalue",
+      "anl44_2_capex_value"
+    ],
+    "matrix_fields": [
+      "accruals_percentage_earnings",
+      "mdl109_matrix_accruals",
+      "current_liabilities_growth_per_share",
+      "current_liabilities_growth_rate",
+      "total_liabilities_growth_per_share",
+      "total_liabilities_growth_rate"
+    ],
+    "datasets": [
+      "analyst69",
+      "analyst4",
+      "fundamental6",
+      "analyst44",
+      "analyst14",
+      "model109"
+    ]
+  },
+  "Book Value Reassessment Drift": {
+    "direction": "momentum",
+    "formula_hint": "rank(ts_delta(vec_avg(field), lookback))",
+    "vector_fields": [
+      "anl44_2_tbvps_coveredby",
+      "anl44_2_tbvps_lastactccy",
+      "anl44_2_tbvps_lastactvalue",
+      "anl44_2_tbvps_prevalue",
+      "anl44_2_tbvps_value",
+      "anl44_orig_en_tbvps_coveredby"
+    ],
+    "matrix_fields": [
+      "anl14_actvalue_bvps_fp0",
+      "anl14_actvalue_bvps_fy0",
+      "anl14_high_bvps_fp1",
+      "anl14_high_bvps_fp2",
+      "anl14_high_bvps_fp3",
+      "anl14_high_bvps_fp4"
+    ],
+    "datasets": [
+      "analyst69",
+      "news12",
+      "analyst4",
+      "news18",
+      "analyst44",
+      "fundamental6",
+      "analyst14",
+      "news50",
+      "model109"
+    ]
+  },
+  "Capex Investment Overreaction": {
+    "direction": "reversion",
+    "formula_hint": "-rank(ts_delta(vec_avg(field), lookback))",
+    "vector_fields": [
+      "anl44_2_capex_coveredby",
+      "anl44_2_capex_lastactccy",
+      "anl44_2_capex_lastactvalue",
+      "anl44_2_capex_prevalue",
+      "anl44_2_capex_value",
+      "anl44_capex_coveredby"
+    ],
+    "matrix_fields": [
+      "anl14_actvalue_capex_fp0",
+      "anl14_actvalue_capex_fy0",
+      "anl14_high_capex_fp1",
+      "anl14_high_capex_fp2",
+      "anl14_high_capex_fp3",
+      "anl14_high_capex_fp4"
+    ],
+    "datasets": [
+      "analyst69",
+      "fundamental6",
+      "analyst4",
+      "analyst44",
+      "analyst14",
+      "model109",
+      "analyst45"
+    ]
+  },
+  "Sell-Side Consensus Convergence": {
+    "direction": "momentum",
+    "formula_hint": "rank(ts_decay_linear((vec_avg(field) - ts_mean(vec_avg(field), lb)) / (ts_std_dev(vec_avg(field), lb) + 0.001), decay))",
+    "vector_fields": [
+      "anl16_aftercons_median",
+      "anl16_aftercons_median_fast_d1",
+      "anl16_beforecons_median",
+      "anl16_beforecons_median_fast_d1",
+      "anl16_medianest",
+      "anl16_medianest_normal"
+    ],
+    "matrix_fields": [
+      "consensus_5y_eps_growth",
+      "ebit_surprise_actual_vs_consensus",
+      "ebitda_surprise_actual_vs_consensus",
+      "anl14_ltg_median",
+      "anl14_median_bvps_fp1",
+      "anl14_median_bvps_fp2"
+    ],
+    "datasets": [
+      "analyst69",
+      "analyst7",
+      "analyst4",
+      "model26",
+      "news18",
+      "analyst44",
+      "analyst14",
+      "macro27",
+      "pv98",
+      "pv104",
+      "news46",
+      "option8",
+      "pv103",
+      "analyst16",
+      "insiders1",
+      "model109",
+      "analyst45"
+    ]
+  },
+  "Post-Earnings Announcement Drift": {
+    "direction": "momentum",
+    "formula_hint": "rank(ts_decay_linear(vec_avg(field), lookback))",
+    "vector_fields": [
+      "earnings_announcement_time_of_day",
+      "earnings_announcement_time_of_day_fast_d1",
+      "earnings_date_fiscal_quarter",
+      "earnings_date_fiscal_quarter_fast_d1",
+      "earnings_date_fiscal_year",
+      "earnings_date_fiscal_year_fast_d1"
+    ],
+    "matrix_fields": [
+      "expected_earnings_report_date",
+      "expected_earnings_report_time",
+      "earnings_per_share_average",
+      "earnings_per_share_estimate_count",
+      "earnings_per_share_guidance_value",
+      "earnings_per_share_max_guidance"
+    ],
+    "datasets": [
+      "analyst69",
+      "analyst7",
+      "news12",
+      "news18",
+      "analyst4",
+      "analyst44",
+      "model26",
+      "news59",
+      "news7",
+      "news50",
+      "news5",
+      "news21",
+      "earnings7",
+      "model109"
+    ]
+  },
+  "Institutional News Drift": {
+    "direction": "momentum",
+    "formula_hint": "rank(ts_delta(vec_avg(field), lookback) / (ts_std_dev(vec_avg(field), lb) + 0.001))",
+    "vector_fields": [
+      "nws17_d1_event_sentiment_score",
+      "nws17_event_sentiment_score",
+      "composite_sentiment_score_2",
+      "corporate_action_sentiment",
+      "earnings_evaluation_sentiment",
+      "editorial_commentary_sentiment_2"
+    ],
+    "matrix_fields": [
+      "abnormal_news_sentiment_1d",
+      "news_sentiment_average_1m",
+      "news_sentiment_average_3m",
+      "news_sentiment_volume_1d",
+      "news_sentiment_volume_91d",
+      "mean_composite_sentiment_score"
+    ],
+    "datasets": [
+      "news18",
+      "model26",
+      "news7",
+      "model135",
+      "news12",
+      "news31",
+      "news50",
+      "news17",
+      "news38",
+      "news21",
+      "news46",
+      "news48",
+      "model109",
+      "news76",
+      "news36"
+    ]
+  },
+  "Short Interest Mean Reversion": {
+    "direction": "reversion",
+    "formula_hint": "-rank(ts_decay_linear(vec_avg(field), lookback))",
+    "vector_fields": [
+      "txn_return_short_checkpoint",
+      "txn_sharpe_short_checkpoint",
+      "long_short_advantage_flag",
+      "long_short_advantage_flag_2",
+      "long_short_advantage_flag_2_1555",
+      "long_short_advantage_flag_filter"
+    ],
+    "matrix_fields": [
+      "mean_return_short",
+      "mean_sharpe_short",
+      "weighted_return_short",
+      "weighted_sharpe_short",
+      "mcr38_shorttermpercent",
+      "mcr38_shorttermsignal"
+    ],
+    "datasets": [
+      "macro38",
+      "news12",
+      "shortinterest7",
+      "news5",
+      "risk60",
+      "insiders1"
+    ]
+  },
+  "Insider Buying Signal": {
+    "direction": "momentum",
+    "formula_hint": "rank(ts_decay_linear(vec_avg(field), lookback))",
+    "vector_fields": [
+      "anl45_transaction_charge",
+      "trade_transaction_fee",
+      "transaction_currency_code"
+    ],
+    "matrix_fields": [
+      "rp_css_insider",
+      "rp_ess_insider",
+      "rp_nip_insider",
+      "insider_news_item_count",
+      "insider_news_mention_count",
+      "insider_news_mention_count_fast_d1"
+    ],
+    "datasets": [
+      "analyst45",
+      "news18",
+      "news7",
+      "insiders1"
+    ]
+  },
+  "Broker Count Momentum": {
+    "direction": "momentum",
+    "formula_hint": "rank(ts_delta(vec_avg(field), lookback) / (ts_std_dev(vec_avg(field), lb) + 0.001))",
+    "vector_fields": [
+      "anl14_estq_broker",
+      "anl14_ptg_broker",
+      "anl14_rec_broker",
+      "anl44_2_netprofit_broker",
+      "anl44_second_en_netprofit_broker",
+      "anl44_second_en_sales_broker"
+    ],
+    "matrix_fields": [
+      "interest_coverage_ratio_4",
+      "eps_analyst_count_fy1"
+    ],
+    "datasets": [
+      "model109",
+      "analyst14",
+      "news21",
+      "analyst44"
+    ]
+  },
+  "Mean Reversion (Price/Volatility)": {
+    "direction": "reversion",
+    "formula_hint": "-rank(vec_avg(field) - ts_mean(vec_avg(field), lookback))",
+    "vector_fields": [
+      "after_hours_vwap_2",
+      "after_hours_vwap_value",
+      "after_session_vwap",
+      "aggregate_session_vwap_2",
+      "aggregate_sessions_vwap",
+      "all_sessions_vwap"
+    ],
+    "matrix_fields": [
+      "news_all_vwap",
+      "news_eod_vwap",
+      "news_main_vwap",
+      "news_post_vwap",
+      "news_pre_vwap",
+      "interval_vwap_trade_price_wave1000"
+    ],
+    "datasets": [
+      "macro38",
+      "analyst7",
+      "news12",
+      "news3",
+      "model135",
+      "pv141",
+      "model26",
+      "news31",
+      "macro27",
+      "news50",
+      "news5",
+      "pv103",
+      "option8",
+      "news94",
+      "pv98",
+      "news48",
+      "model109",
+      "analyst45"
+    ]
+  },
+  "Technical Ratings Drift": {
+    "direction": "momentum",
+    "formula_hint": "rank(ts_delta(field, lookback) / (ts_std_dev(field, lb) + 0.001))",
+    "vector_fields": [
+      "anl44_2_operatingprofit_coveredby",
+      "anl44_2_operatingprofit_lastactccy",
+      "anl44_2_operatingprofit_lastactvalue",
+      "anl44_2_operatingprofit_prevalue",
+      "anl44_2_operatingprofit_value",
+      "anl44_operatingprofit_best_fiscal_period_dt"
+    ],
+    "matrix_fields": [
+      "anl14_meanrating",
+      "anl16_overallratinganaest",
+      "anl16_overallratinganaest1through5",
+      "anl16_overallratinganarec1through5t12",
+      "anl16_overallratinganarec1through5t24",
+      "anl16_overallratinganarect12"
+    ],
+    "datasets": [
+      "macro38",
+      "model135",
+      "news38",
+      "analyst4",
+      "pv13",
+      "news3",
+      "model109",
+      "news5",
+      "analyst45",
+      "analyst69",
+      "news18",
+      "model26",
+      "news7",
+      "analyst44",
+      "news17",
+      "news21",
+      "news76",
+      "analyst14",
+      "news31",
+      "analyst16",
+      "news50"
+    ]
+  },
+  "Liquidity-Conditioned Factor Momentum": {
+    "direction": "momentum",
+    "formula_hint": "rank(ts_delta(vec_avg(field), lookback)) * rank(volume / adv20)",
+    "vector_fields": [
+      "volume_weighted_entry_price",
+      "five_day_volume_price_trend",
+      "negative_volume_index_20d",
+      "negative_volume_index_3d",
+      "negative_volume_index_40d",
+      "negative_volume_index_5d"
+    ],
+    "matrix_fields": [
+      "volume_10wks",
+      "mcr38_volume",
+      "abnormal_news_volume_1d",
+      "negative_volume_index_indicator",
+      "news_sentiment_volume_1d",
+      "news_sentiment_volume_91d"
+    ],
+    "datasets": [
+      "macro38",
+      "analyst7",
+      "news12",
+      "model26",
+      "model135",
+      "pv141",
+      "analyst4",
+      "news31",
+      "news5",
+      "pv104",
+      "pv103",
+      "news94",
+      "pv98",
+      "model109",
+      "analyst45"
+    ]
+  }
+}

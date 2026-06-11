@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "family": "GRP_A_GEN10_MUTATION_0",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 12) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 22) + 0.00101), 10)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "EPS consensus revision momentum smoothed by a 10-day linear decay and normalized by its 22-day rolling volatility, scaled during institutional volume surges.",
+    "anomaly_basis": "Analyst Revision Momentum",
+    "decay": 10
+  },
+  {
+    "id": 2,
+    "family": "GRP_A_GEN10_MUTATION_1",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate), 15) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate), 26) + 0.00101), 8)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Sales revision momentum normalized by 26-day rolling volatility and smoothed with an 8-day decay, interacted with trading volume to target high-conviction analyst adjustments.",
+    "anomaly_basis": "Revenue Growth Revision Slope",
+    "decay": 10
+  },
+  {
+    "id": 3,
+    "family": "GRP_A_GEN10_MUTATION_2",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear((vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate) - ts_mean(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 20)) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 22) + 0.00101), 10)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "EPS revision deviation from its 20-day mean, normalized by 22-day volatility, smoothed via a 10-day decay to capture long-term post-earnings consensus drifts.",
+    "anomaly_basis": "Post-Earnings Announcement Drift (PEAD)",
+    "decay": 10
+  },
+  {
+    "id": 4,
+    "family": "GRP_A_GEN10_MUTATION_3",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(anl14_actvalue_bvps_fp0, 17) / (ts_std_dev(anl14_actvalue_bvps_fp0, 26) + 0.00101), 8)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "17-day delta in actual BVPS consensus, normalized by 26-day rolling volatility and smoothed by an 8-day decay, targeting long-term asset assessments.",
+    "anomaly_basis": "Book Value Reassessment Drift",
+    "decay": 10
+  },
+  {
+    "id": 5,
+    "family": "GRP_A_GEN10_MUTATION_4",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(ts_delta(anl14_actvalue_capex_fy0 / (abs(anl14_actvalue_revenue_fp0) + 0.00101), 15) / (ts_std_dev(anl14_actvalue_capex_fy0 / (abs(anl14_actvalue_revenue_fp0) + 0.00101), 26) + 0.00101), 8)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Fading company over-investment by ranking capex-to-revenue ratio revisions normalized by their 26-day rolling volatility and smoothed with 8-day decay.",
+    "anomaly_basis": "Capex Investment Overreaction",
+    "decay": 10
+  },
+  {
+    "id": 6,
+    "family": "GRP_A_GEN10_MUTATION_5",
+    "dataset": "analyst16",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear((vec_avg(anl16_aftercons_difference) - ts_mean(vec_avg(anl16_aftercons_difference), 20)) / (ts_std_dev(vec_avg(anl16_aftercons_difference), 22) + 0.00101), 10)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Consensus difference z-score computed over 20-day average and 22-day volatility, smoothed with a 10-day decay to filter analyst revisions noise.",
+    "anomaly_basis": "Sell-Side Consensus Convergence",
+    "decay": 10
+  },
+  {
+    "id": 7,
+    "family": "GRP_A_GEN10_MUTATION_6",
+    "dataset": "analyst16",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(anl16_aftercons_percentage), 12) / (ts_std_dev(vec_avg(anl16_aftercons_percentage), 26) + 0.00101), 8)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "12-day delta in consensus percentage revisions normalized by 26-day rolling volatility and smoothed by an 8-day decay, gated by trading volume.",
+    "anomaly_basis": "Post-Earnings Announcement Drift (PEAD)",
+    "decay": 10
+  },
+  {
+    "id": 8,
+    "family": "GRP_A_GEN10_MUTATION_7",
+    "dataset": "analyst7",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear((act_q_eps_surprisestd - ts_mean(act_q_eps_surprisestd, 20)) / (ts_std_dev(act_q_eps_surprisestd, 22) + 0.00101), 10)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Quarterly EPS surprise deviation z-score smoothed with a 10-day linear decay to capture post-earnings shock trends and filter noise.",
+    "anomaly_basis": "Earnings Surprise Persistence",
+    "decay": 10
+  },
+  {
+    "id": 9,
+    "family": "GRP_A_GEN10_MUTATION_8",
+    "dataset": "model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(global_percentile_rank_float, 15) / (ts_std_dev(global_percentile_rank_float, 26) + 0.00101), 8)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "15-day delta in global analyst rank percentile, normalized by its 26-day rolling standard deviation and smoothed with an 8-day decay, interacted with trading volume.",
+    "anomaly_basis": "Broker Count Momentum (Attention-Driven Premium)",
+    "decay": 10
+  },
+  {
+    "id": 10,
+    "family": "GRP_A_GEN10_MUTATION_9",
+    "dataset": "model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear((global_percentile_rank_float - ts_mean(global_percentile_rank_float, 22)) / (ts_std_dev(global_percentile_rank_float, 26) + 0.00101), 10)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Z-score of global analyst rank percentile over a 22-day baseline, volatility-normalized and smoothed with a 10-day linear decay to reduce transaction turnover.",
+    "anomaly_basis": "Analyst Revision Momentum",
+    "decay": 10
+  },
+  {
+    "id": 11,
+    "family": "GRP_A_GEN10_MUTATION_10",
+    "dataset": "model135",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(accumulation_distribution_line_10d), 12) / (ts_std_dev(vec_avg(accumulation_distribution_line_10d), 22) + 0.00101), 10)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Momentum of the 10-day accumulation-distribution line normalized by its rolling 22-day standard deviation, decayed over 10 days to capture liquidity accumulation.",
+    "anomaly_basis": "Liquidity-Conditioned Factor Momentum",
+    "decay": 10
+  },
+  {
+    "id": 12,
+    "family": "GRP_A_GEN10_MUTATION_11",
+    "dataset": "model135",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear((vec_avg(aroon_oscillator_20d) - ts_mean(vec_avg(aroon_oscillator_20d), 20)) / (ts_std_dev(vec_avg(aroon_oscillator_20d), 22) + 0.00101), 8)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Z-score of the 20-day Aroon Oscillator normalized by 22-day standard deviation and smoothed by an 8-day decay to capture trend-following strength with low turnover.",
+    "anomaly_basis": "Technical Ratings Drift",
+    "decay": 10
+  },
+  {
+    "id": 13,
+    "family": "GRP_A_GEN10_MUTATION_12",
+    "dataset": "news12",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vec_avg(all_sessions_vwap) - ts_mean(vec_avg(all_sessions_vwap), 20)) / (ts_std_dev(vec_avg(all_sessions_vwap), 26) + 0.00101), 10)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Mean-reverting deviation of session-vwap from its 20-day mean, normalized by 26-day volatility and smoothed with a 10-day decay to reduce turnover.",
+    "anomaly_basis": "Mean Reversion",
+    "decay": 10
+  },
+  {
+    "id": 14,
+    "family": "GRP_A_GEN10_MUTATION_13",
+    "dataset": "news12",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(advantageous_position_flag), 12) / (ts_std_dev(vec_avg(advantageous_position_flag), 22) + 0.00101), 10)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "12-day delta in the advantageous position sentiment indicator normalized by 22-day volatility and smoothed via a 10-day linear decay.",
+    "anomaly_basis": "Institutional News Drift",
+    "decay": 10
+  },
+  {
+    "id": 15,
+    "family": "GRP_A_GEN10_MUTATION_14",
+    "dataset": "news5",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(event_result_value), 15) / (ts_std_dev(vec_avg(event_result_value), 26) + 0.00101), 8)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "15-day delta of post-news close price return, normalized by 26-day standard deviation and smoothed with an 8-day decay to capture persistence in news reaction.",
+    "anomaly_basis": "News Sentiment Drift",
+    "decay": 10
+  },
+  {
+    "id": 16,
+    "family": "GRP_A_GEN10_MUTATION_15",
+    "dataset": "news21",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(earning_broker_count_fast_d1), 12) / (ts_std_dev(vec_avg(earning_broker_count_fast_d1), 22) + 0.00101), 10)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "12-day momentum of coverage broker count revisions normalized by its 22-day rolling volatility and smoothed with a 10-day decay to isolate institutional analyst attention shifts.",
+    "anomaly_basis": "Broker Count Momentum (Attention-Driven Premium)",
+    "decay": 10
+  }
+]

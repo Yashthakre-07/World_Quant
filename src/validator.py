@@ -40,6 +40,19 @@ def load_custom_fields():
         except Exception:
             pass
             
+    # 3. Load from scratch/discovered_whitelists.json
+    discovered_path = base_dir / "scratch" / "discovered_whitelists.json"
+    if discovered_path.exists():
+        try:
+            with open(discovered_path, "r", encoding="utf-8") as f:
+                discovered_data = json.load(f)
+                for ds_id, v in discovered_data.items():
+                    if isinstance(v, dict):
+                        custom.update(v.get("vectors", []))
+                        custom.update(v.get("matrices", []))
+        except Exception:
+            pass
+            
     return custom
 
 ALLOWED_FIELDS.update(load_custom_fields())
@@ -111,9 +124,10 @@ def validate_fastexpr(formula: str) -> tuple[bool, str]:
         if word in ALLOWED_FIELDS or word in ALLOWED_OPS:
             continue
         # Allow Analyst 10, 14, 15, 16, 44, 45, and 4 fields dynamically, and active relative return matrix fields
-        if (word.startswith("anl10_") or word.startswith("anl14_") or word.startswith("anl15_") or 
-            word.startswith("anl16_") or word.startswith("anl44_") or word.startswith("anl45_") or 
-            word.startswith("anl4_") or word in {"average_daily_relative_return_percent", "relative_return_percent_today"}):
+        if (word.startswith("anl") or word.startswith("mdl") or word.startswith("model") or
+            word.startswith("news") or word.startswith("act_") or word.startswith("stddev_") or
+            word.startswith("high_") or word.startswith("positive_") or word.startswith("earning_") or
+            word in {"average_daily_relative_return_percent", "relative_return_percent_today"}):
             continue
         # Some words could be noise or Python leaks
         return False, f"Illegal token found: '{word}'. Not in allowed data fields or operator list."

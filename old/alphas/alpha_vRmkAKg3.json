@@ -1,0 +1,25 @@
+{
+  "alpha_id": "vRmkAKg3",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(anl14_curperiodtype) + 0.001), 5)), 0), industry)",
+  "family": "THEME_HYBRID_3",
+  "hypothesis": "Reversion of price spread normalized by thematic field anl14_curperiodtype over rolling 5 days.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.63,
+  "fitness": 0.84,
+  "turnover": 30.44,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 8,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-09 21:07:26"
+}

@@ -1,0 +1,35 @@
+{
+  "categories": 7,
+  "total_datasets": 150,
+  "total_fields": 51720,
+  "by_category": {
+    "Analyst": {
+      "datasets": 12,
+      "fields": 15888
+    },
+    "Fundamental": {
+      "datasets": 24,
+      "fields": 19824
+    },
+    "Model": {
+      "datasets": 12,
+      "fields": 240
+    },
+    "News": {
+      "datasets": 24,
+      "fields": 11952
+    },
+    "Option": {
+      "datasets": 18,
+      "fields": 1212
+    },
+    "Price Volume": {
+      "datasets": 36,
+      "fields": 2340
+    },
+    "Social Media": {
+      "datasets": 24,
+      "fields": 264
+    }
+  }
+}

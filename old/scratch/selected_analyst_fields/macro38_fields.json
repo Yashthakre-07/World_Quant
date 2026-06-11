@@ -1,0 +1,1777 @@
+[
+  {
+    "id": "mcr38_adx_direction",
+    "description": "Indicates if the ADX signal is strengthening (5), weakening (1), or for Hold signals, whether trending bullish (5) or bearish (1)",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 246,
+    "alphaCount": 790,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_adx_signal",
+    "description": "S(sell)/B(buy)/H(hold) for average directional index (ADX) indicator",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 291,
+    "alphaCount": 969,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_adx_strength",
+    "description": "Strength rating (1-5) of the Average Directional Index (ADX) signal compared to historical performance",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 214,
+    "alphaCount": 843,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_bb_direction",
+    "description": "Indicates if the Bollinger Band signal is strengthening (5), weakening (1), or for Hold signals, whether trending bullish (5) or bearish (1)",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 391,
+    "alphaCount": 1467,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_bb_signal",
+    "description": "S(sell)/B(buy)/H(hold) for bollinger band (BB) indicator",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 223,
+    "alphaCount": 784,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_bb_strength",
+    "description": "Signal strength, from 1 to 5, for the Bollinger Band indicator compared to historical performance",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 109,
+    "alphaCount": 316,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_cci_40_direction",
+    "description": "Direction and strength of the 40-period Commodity Channel Index (CCI) signal: for Buy/Sell, indicates strengthening (5) or weakening (1); for Hold, indicates if heading toward bullish (5) or bearish (1) signal",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 162,
+    "alphaCount": 629,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_cci_40_signal",
+    "description": "S(sell)/B(buy)/H(hold) for commodity channel index (cci) 40 days indicator",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 115,
+    "alphaCount": 259,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_cci_40_strength",
+    "description": "Signal strength, from 1 to 5, for the Commodity Channel Index (CCI) 40 days indicator compared to historical performance",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 110,
+    "alphaCount": 372,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_cci_60_direction",
+    "description": "Direction and strength of the 60-period Commodity Channel Index (CCI) signal: for Buy/Sell, indicates strengthening (5) or weakening (1); for Hold, indicates if heading toward bullish (5) or bearish (1) signal",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 125,
+    "alphaCount": 465,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_cci_60_signal",
+    "description": "S(sell)/B(buy)/H(hold) for commodity channel index (cci) 60 days indicator",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 103,
+    "alphaCount": 440,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_cci_60_strength",
+    "description": "Signal strength, from 1 to 5, for the Commodity Channel Index (CCI) 60 days indicator compared to historical performance",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 184,
+    "alphaCount": 922,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_change",
+    "description": "Difference between the current price and yesterday's settlement",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 377,
+    "alphaCount": 1409,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_direction_rating",
+    "description": "Average of all individual direction ratings across indicators",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 142,
+    "alphaCount": 529,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_high",
+    "description": "The highest price traded during the session",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 112,
+    "alphaCount": 309,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_last",
+    "description": "Last traded price of the instrument",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 259,
+    "alphaCount": 2004,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_longterm_percent",
+    "description": "The percentage / weight of the average signal.",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 150,
+    "alphaCount": 428,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_longterm_signal",
+    "description": "Buy(B)/Sell(S)/Hold(H) average across all long-term indicators",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 89,
+    "alphaCount": 339,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_low",
+    "description": "Lowest traded price for the session",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 92,
+    "alphaCount": 211,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_ma_100_direction",
+    "description": "Direction/strength for MA 100: for Buy/Sell, shows if the signal is strengthening (5) or weakening (1); for Hold, indicates movement toward bullish (5) or bearish (1)",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 106,
+    "alphaCount": 397,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_ma_100_signal",
+    "description": "S(sell)/B(buy)/H(hold) for moving average (ma) 100 days indicator",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 113,
+    "alphaCount": 446,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_ma_100_strength",
+    "description": "Strength rating (1-5) for the 100-day Moving Average indicator signal compared to historical performance",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 148,
+    "alphaCount": 508,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_ma_20_direction",
+    "description": "Indicates if the 20-day Moving Average signal is strengthening (5), weakening (1), or for Hold signals, if heading towards bullish (5) or bearish (1)",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 67,
+    "alphaCount": 172,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_ma_20_signal",
+    "description": "S(sell)/B(buy)/H(hold) for moving average (ma) 20 days indicator",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 85,
+    "alphaCount": 255,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_ma_20_strength",
+    "description": "Signal strength, from 1 to 5, for the 20-day Moving Average indicator compared to historical performance",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 68,
+    "alphaCount": 204,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_ma_50_direction",
+    "description": "Direction/strength for MA 50: for Buy/Sell, shows if the signal is strengthening (5) or weakening (1); for Hold, indicates movement toward bullish (5) or bearish (1)",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 70,
+    "alphaCount": 294,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_ma_50_signal",
+    "description": "S(sell)/B(buy)/H(hold) for moving average (ma) 50 days indicator",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 85,
+    "alphaCount": 355,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_ma_50_strength",
+    "description": "Signal strength, from 1 to 5, for the 50-day Moving Average indicator compared to historical performance",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 68,
+    "alphaCount": 225,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_macd_20_100_direction",
+    "description": "Indicates if the MACD 20/100 signal is strengthening (5), weakening (1), or for Hold signals, whether trending bullish (5) or bearish (1)",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 65,
+    "alphaCount": 365,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_macd_20_100_signal",
+    "description": "S(sell)/B(buy)/H(hold) for moving average convergence divergence (macd) 20/100 days indicator",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 69,
+    "alphaCount": 209,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_macd_20_100_strength",
+    "description": "Strength rating (1-5) of the MACD 20/100 signal compared to its historical performance",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 80,
+    "alphaCount": 197,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_macd_20_50_direction",
+    "description": "Signal direction for MACD 20/50: for Buy/Sell, shows if the signal is strengthening (5) or weakening (1); for Hold, indicates movement toward bullish (5) or bearish (1)",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 88,
+    "alphaCount": 250,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_macd_20_50_signal",
+    "description": "S(sell)/B(buy)/H(hold) for moving average convergence divergence (macd) 20/50 days indicator",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 76,
+    "alphaCount": 209,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_macd_20_50_strength",
+    "description": "Signal strength, from 1 (weakest) to 5 (strongest), for the MACD 20/50 day indicator compared to historical performance",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 60,
+    "alphaCount": 132,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_macd_50_100_direction",
+    "description": "Indicates if the MACD 50/100 signal is strengthening (5), weakening (1), or for Hold signals, whether trending bullish (5) or bearish (1)",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 65,
+    "alphaCount": 137,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_macd_50_100_signal",
+    "description": "S(sell)/B(buy)/H(hold) for moving average convergence divergence (macd) 50/100 days indicator",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 73,
+    "alphaCount": 202,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_macd_50_100_strength",
+    "description": "Signal strength, from 1 (weakest) to 5 (strongest), for the MACD 50/100 day indicator compared to historical performance",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 93,
+    "alphaCount": 375,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_mahilo_direction",
+    "description": "Indicates if the MAHILO signal is strengthening (5), weakening (1), or for Hold signals, whether trending bullish (5) or bearish (1)",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 78,
+    "alphaCount": 272,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_mahilo_signal",
+    "description": "S(sell)/B(buy)/H(hold) for moving average using high and low prices (mahilo) indicator",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 182,
+    "alphaCount": 684,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_mahilo_strength",
+    "description": "Signal strength, from 1 to 5, for the MAHILO indicator compared to historical performance",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 77,
+    "alphaCount": 303,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_mediumterm_percent",
+    "description": "The percentage / weight of the average signal.",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 73,
+    "alphaCount": 232,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_mediumterm_signal",
+    "description": "Buy(B)/Sell(S)/Hold(H) average across all medium-term indicators",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 72,
+    "alphaCount": 199,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_open",
+    "description": "The opening (first) price for the trading session",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 87,
+    "alphaCount": 343,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_overall_percent",
+    "description": "Overall percentile or rank/weight of the composite average signal, showing its position among the universe",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 91,
+    "alphaCount": 325,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_overall_signal",
+    "description": "Buy(B)/Sell(S)/Hold(H) average across all indicators",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 59,
+    "alphaCount": 227,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_para_50_direction",
+    "description": "Indicates if the PARA_50 indicator's signal is strengthening (5), weakening (1), or for Hold signals, whether trending bullish (5) or bearish (1)",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 81,
+    "alphaCount": 333,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_para_50_signal",
+    "description": "S(sell)/B(buy)/H(hold) for 50 days PARA indicator",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 97,
+    "alphaCount": 357,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_para_50_strength",
+    "description": "Strength rating (1-5) for the 50-day Parabolic indicator signal compared to its historical performance",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 94,
+    "alphaCount": 463,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_percent_change",
+    "description": "Percent change between previous close and last price",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 157,
+    "alphaCount": 732,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_shorttermpercent",
+    "description": "Average percentile rank of all short-term indicator signals for the instrument",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 85,
+    "alphaCount": 250,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_shorttermsignal",
+    "description": "Buy(B)/Sell(S)/Hold(H) average across all short-term indicators",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 87,
+    "alphaCount": 227,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_strength_rating",
+    "description": "Average of all individual strength ratings across indicators",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 112,
+    "alphaCount": 391,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_trendspotter_direction",
+    "description": "Direction indicating whether the Trendspotter Buy or Sell signal is strengthening or weakening",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 61,
+    "alphaCount": 327,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_trendspotter_signal",
+    "description": "S(sell)/B(buy)/H(hold) for proprietary composite indicator",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "coverage": 0.9796,
+    "userCount": 87,
+    "alphaCount": 294,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_trendspotter_strength",
+    "description": "Signal strength of the Trendspotter indicator compared to historical performance, rated from Minimum (1) to Maximum (5)",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 75,
+    "alphaCount": 283,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr38_volume",
+    "description": "The trading volume for the period/session for the instrument",
+    "dataset": {
+      "id": "macro38",
+      "name": "Technical Ratings Model"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 238,
+    "alphaCount": 1261,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  }
+]

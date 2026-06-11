@@ -1,0 +1,322 @@
+[
+  {
+    "family": "Consensus_EPS_Revision_Momentum",
+    "dataset": "analyst4",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "EPS consensus estimate revision momentum indicates earnings trajectory.",
+    "anomaly_basis": "Post-Earnings Announcement Drift (PEAD)",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 10)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Consensus_Sales_Revision_Momentum",
+    "dataset": "analyst4",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "Sales consensus estimate revision momentum measures top-line expansion.",
+    "anomaly_basis": "Top-line revision momentum anomaly",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate), 20)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Consensus_EBITDA_Dispersion_Momentum",
+    "dataset": "analyst4",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "EBITDA high/low forecast dispersion momentum indicates growth uncertainty.",
+    "anomaly_basis": "Analyst forecast disagreement anomaly",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.68, rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_high) / vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_low), 15)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Consensus_EBITDA_Mean_Reversion",
+    "dataset": "analyst4",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "EBITDA consensus mean deviation reversion captures short term surprise overreactions.",
+    "anomaly_basis": "EBITDA consensus mean reversion anomaly",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean), 12)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Consensus_PretaxProfit_Mean_Momentum",
+    "dataset": "analyst4",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "Pretax profit consensus mean estimate revision momentum captures core margin drift.",
+    "anomaly_basis": "Consensus profit margin revisions drift",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.74, rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ptp_mean), 22)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Consensus_PretaxProfit_Spread_Reversion",
+    "dataset": "analyst4",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "Pretax profit consensus high/low revision spread reversion captures mean reverting analyst consensus disagreements.",
+    "anomaly_basis": "Forecast spread mean reversion",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.78, -rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ptp_high) / vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ptp_low), 10)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Consensus_FCF_High_Momentum",
+    "dataset": "analyst4",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "FCF consensus high estimate revision momentum indicates corporate liquidity strength.",
+    "anomaly_basis": "Cash flow revision momentum anomaly",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.67, rank(ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_fcf_high), 30)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Consensus_FCF_Low_Reversion",
+    "dataset": "analyst4",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "FCF consensus low estimate mean-deviation reversion fades extreme analyst pessimism.",
+    "anomaly_basis": "Extreme pessimism mean reversion",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_av_diff(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_fcf_low), 20)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Backfilled_EPS_Consensus_Momentum",
+    "dataset": "analyst14",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "Backfilled matrix consensus EPS momentum represents robust quarterly revision trends.",
+    "anomaly_basis": "Fundamental backfilled revision anomaly",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.69, rank(ts_delta(ts_backfill(anl14_mean_eps_fp1, 252), 22)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 10,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Backfilled_Sales_Consensus_Reversion",
+    "dataset": "analyst14",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "Backfilled matrix consensus Sales mean-deviation reversion captures short term sales price overreactions.",
+    "anomaly_basis": "Sales mean reversion anomaly",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.73, -rank(ts_av_diff(ts_backfill(anl14_mean_sales_fp1, 252), 15)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 10,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Broker_Recommendation_Score_Momentum",
+    "dataset": "analyst44",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "Consensus broker recommendation momentum captures institutional analyst upgrades herding.",
+    "anomaly_basis": "Recommendation herding anomaly",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.76, rank(ts_delta(vec_avg(anl44_analyst), 15)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Broker_Recommendation_Score_Reversion",
+    "dataset": "analyst44",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "Consensus broker recommendation mean-deviation reversion fades extreme analyst sentiment overshoots.",
+    "anomaly_basis": "Sentiment extreme reversion anomaly",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_av_diff(vec_avg(anl44_analyst), 20)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Analyst_Relative_Return_Momentum",
+    "dataset": "analyst45",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "Analyst relative return performance momentum indicates active persistent research alpha.",
+    "anomaly_basis": "Persistent analyst research performance anomaly",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, rank(ts_delta(vec_avg(anl45_ad_rel_ret_per), 12)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Analyst_Jensens_Alpha_Momentum",
+    "dataset": "analyst45",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "Analyst consensus Jensen's alpha momentum measures risk-adjusted outperformance conviction drift.",
+    "anomaly_basis": "Risk-adjusted conviction drift anomaly",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.77, rank(ts_delta(vec_avg(anl45_jensensalpha), 25)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Analyst_Beta_Factor_Reversion",
+    "dataset": "analyst45",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "Analyst consensus beta factor reversion targets high-beta systematic factor overshoots.",
+    "anomaly_basis": "Beta anomaly mean reversion",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_av_diff(vec_avg(anl45_beta), 10)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Analyst_Absolute_Return_Momentum",
+    "dataset": "analyst45",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "Analyst consensus absolute return performance momentum signals core momentum persistency.",
+    "anomaly_basis": "Absolute research return drift",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.71, rank(ts_delta(vec_avg(anl45_ad_ret_per), 30)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Hybrid_EPS_Recommendation_Momentum",
+    "dataset": "analyst4_x_analyst44",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "EPS Consensus momentum scaled by broker recommendation conviction identifies high probability upgrades.",
+    "anomaly_basis": "Consensus \u00d7 Recommendation intersection anomaly",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.79, rank(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 15) * vec_avg(anl44_analyst)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Hybrid_Jensen_EBITDA_Revision",
+    "dataset": "analyst45_x_analyst4",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "Analyst Jensen's Alpha momentum combined with EBITDA revision momentum represents high conviction operating margin updates.",
+    "anomaly_basis": "Operating margin \u00d7 risk-adjusted performance composite",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl45_jensensalpha), 20) + ts_delta(vec_avg(anl4_fs_detail_estimates_advanced_af_nd_ebitda_mean), 20)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Hybrid_Backfill_Relative_Momentum",
+    "dataset": "analyst14_x_analyst45",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "Backfilled EPS consensus momentum multiplied by analyst relative return performance filters high skill earnings revisions.",
+    "anomaly_basis": "Backfilled EPS \u00d7 analyst research performance composite",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.74, rank(ts_delta(ts_backfill(anl14_mean_eps_fp1, 252), 10) * vec_avg(anl45_ad_rel_ret_per)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 10,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  },
+  {
+    "family": "Hybrid_Recommendation_Beta_Interaction",
+    "dataset": "analyst44_x_analyst45",
+    "competition": "USA_D1_FastDatasets_PowerPool_June2026",
+    "hypothesis": "Broker recommendation momentum multiplied by analyst beta factor represents risk-adjusted sentiment conviction dynamics.",
+    "anomaly_basis": "Broker Recommendation \u00d7 beta interaction",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.66, rank(ts_delta(vec_avg(anl44_analyst), 15) * vec_avg(anl45_beta)), 0), subindustry)",
+    "settings": {
+      "region": "USA",
+      "delay": 1,
+      "decay": 8,
+      "neutralization": "SUBINDUSTRY",
+      "universe": "TOP3000",
+      "truncation": 0.08
+    }
+  }
+]

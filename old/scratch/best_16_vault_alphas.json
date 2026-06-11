@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "family": "THEME_VECTOR_MOMENTUM_0",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl14_estimatetype), 27)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Thematic Revision Momentum",
+    "hypothesis": "Revision momentum in anl14_estimatetype over rolling 27 days."
+  },
+  {
+    "id": 2,
+    "family": "THEME_VECTOR_MOMENTUM_1",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl14_estq_broker), 30)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Thematic Revision Momentum",
+    "hypothesis": "Revision momentum in anl14_estq_broker over rolling 30 days."
+  },
+  {
+    "id": 3,
+    "family": "THEME_VECTOR_MOMENTUM_2",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl14_estvalue), 33)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Thematic Revision Momentum",
+    "hypothesis": "Revision momentum in anl14_estvalue over rolling 33 days."
+  },
+  {
+    "id": 4,
+    "family": "THEME_VECTOR_MOMENTUM_3",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(vec_avg(anl14_estvalue_fp1), 36)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Thematic Revision Momentum",
+    "hypothesis": "Revision momentum in anl14_estvalue_fp1 over rolling 36 days."
+  },
+  {
+    "id": 5,
+    "family": "THEME_MATRIX_SPREAD_0",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(anl14_actvalue_bvps_fp0, 24)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Thematic Matrix Spread Trend",
+    "hypothesis": "Trend momentum of continuous thematic field anl14_actvalue_bvps_fp0."
+  },
+  {
+    "id": 6,
+    "family": "THEME_MATRIX_SPREAD_1",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(anl14_actvalue_bvps_fy0, 28)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Thematic Matrix Spread Trend",
+    "hypothesis": "Trend momentum of continuous thematic field anl14_actvalue_bvps_fy0."
+  },
+  {
+    "id": 7,
+    "family": "THEME_MATRIX_SPREAD_2",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(anl14_actvalue_capex_fp0, 32)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Thematic Matrix Spread Trend",
+    "hypothesis": "Trend momentum of continuous thematic field anl14_actvalue_capex_fp0."
+  },
+  {
+    "id": 8,
+    "family": "THEME_MATRIX_SPREAD_3",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(anl14_actvalue_capex_fy0, 36)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Thematic Matrix Spread Trend",
+    "hypothesis": "Trend momentum of continuous thematic field anl14_actvalue_capex_fy0."
+  },
+  {
+    "id": 9,
+    "family": "THEME_FUND_MOMENTUM_0",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(anl14_actvalue_epsrep_fy0, 29)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Thematic Fundamental Shift",
+    "hypothesis": "Consensus revision momentum in thematic field anl14_actvalue_epsrep_fy0."
+  },
+  {
+    "id": 10,
+    "family": "THEME_FUND_MOMENTUM_1",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(anl14_actvalue_nav_fy0, 34)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Thematic Fundamental Shift",
+    "hypothesis": "Consensus revision momentum in thematic field anl14_actvalue_nav_fy0."
+  },
+  {
+    "id": 11,
+    "family": "THEME_FUND_MOMENTUM_2",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(anl14_actvalue_ndebt_fp0, 39)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Thematic Fundamental Shift",
+    "hypothesis": "Consensus revision momentum in thematic field anl14_actvalue_ndebt_fp0."
+  },
+  {
+    "id": 12,
+    "family": "THEME_FUND_MOMENTUM_3",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, rank(ts_delta(anl14_actvalue_ndebt_fy0, 44)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Thematic Fundamental Shift",
+    "hypothesis": "Consensus revision momentum in thematic field anl14_actvalue_ndebt_fy0."
+  },
+  {
+    "id": 13,
+    "family": "THEME_HYBRID_0",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(anl14_actvalue_roe_fp0) + 0.001), 5)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Fundamental-Weighted Price Reversion",
+    "hypothesis": "Reversion of price spread normalized by thematic field anl14_actvalue_roe_fp0 over rolling 5 days."
+  },
+  {
+    "id": 14,
+    "family": "THEME_HYBRID_1",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(anl14_actvalue_roe_fy0) + 0.001), 6)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Fundamental-Weighted Price Reversion",
+    "hypothesis": "Reversion of price spread normalized by thematic field anl14_actvalue_roe_fy0 over rolling 6 days."
+  },
+  {
+    "id": 15,
+    "family": "THEME_HYBRID_2",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(anl14_buy) + 0.001), 7)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Fundamental-Weighted Price Reversion",
+    "hypothesis": "Reversion of price spread normalized by thematic field anl14_buy over rolling 7 days."
+  },
+  {
+    "id": 16,
+    "family": "THEME_HYBRID_3",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(anl14_curperiodtype) + 0.001), 5)), 0), subindustry)",
+    "decay": 8,
+    "anomaly_basis": "Fundamental-Weighted Price Reversion",
+    "hypothesis": "Reversion of price spread normalized by thematic field anl14_curperiodtype over rolling 5 days."
+  }
+]

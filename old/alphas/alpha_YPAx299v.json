@@ -1,0 +1,25 @@
+{
+  "alpha_id": "YPAx299v",
+  "formula": "(group_neutralize(trade_when(volume > adv20 * 1.15, -rank(ts_decay_linear((close - open) / (high - low + 0.001), 5)), 0), industry)) * rank(volume / adv20)",
+  "family": "Price_Volatility_Alpha_16",
+  "hypothesis": "Liquidity shock mean reversion triggered by massive volume surge with 1.15 volume gate.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.57,
+  "fitness": 0.9,
+  "turnover": 23.169999999999998,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-10 18:28:26"
+}

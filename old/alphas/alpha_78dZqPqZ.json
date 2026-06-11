@@ -1,0 +1,25 @@
+{
+  "alpha_id": "78dZqPqZ",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vec_avg(all_sessions_vwap) - ts_mean(vec_avg(all_sessions_vwap), 20)) / (ts_std_dev(vec_avg(all_sessions_vwap), 26) + 0.00101), 10)) * rank(volume / adv20), 0), subindustry)",
+  "family": "GRP_A_GEN10_MUTATION_12",
+  "hypothesis": "Mean-reverting deviation of session-vwap from its 20-day mean, normalized by 26-day volatility and smoothed with a 10-day decay to reduce turnover.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.02,
+  "fitness": 0.32,
+  "turnover": 63.49,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-09 18:14:58"
+}

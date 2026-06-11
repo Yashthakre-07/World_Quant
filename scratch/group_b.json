@@ -1,0 +1,130 @@
+[
+  {
+    "family": "GRP_B_ANALYST4_SALES_MOMENTUM",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate), 12) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate), 22) + 0.00101), 6)), 0.0), subindustry)",
+    "hypothesis": "Sales estimate revisions normalized by historical volatility capture high-conviction institutional sentiment drift.",
+    "anomaly_basis": "Analyst Revision Momentum",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_ANL14_EBITDA_MOMENTUM",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(anl14_actvalue_ebitda_fy0, 12) / (ts_std_dev(anl14_actvalue_ebitda_fy0, 22) + 0.00101), 6)), 0.0), subindustry)",
+    "hypothesis": "Fundamental matrix EBITDA revisions scaled by volatility yield persistent momentum returns.",
+    "anomaly_basis": "Fundamental Matrix Momentum",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_NEWS5_EVENT_DRIFT",
+    "dataset": "news5",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(vec_avg(event_result_value), 10) / (ts_std_dev(vec_avg(event_result_value), 20) + 0.00101), 5)) * rank(volume / adv20), 0.0), subindustry)",
+    "hypothesis": "News event drift interacted with institutional trading volume uncovers hidden momentum anomalies.",
+    "anomaly_basis": "News Event Interactive Drift",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_ANL14_CAPEX_OVERREACTION",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(ts_delta(anl14_actvalue_capex_fy0 / (abs(anl14_actvalue_revenue_fp0) + 0.00101), 12), 6)), 0.0), subindustry)",
+    "hypothesis": "Fading excessive capex to sales ratios leverages mean-reverting overreaction within corporate fundamentals.",
+    "anomaly_basis": "Fundamental Mean Reversion",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_MDL26_SURPRISE_REV",
+    "dataset": "model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((mdl26_60dy_srprs_lst_q_rnngs - ts_mean(mdl26_60dy_srprs_lst_q_rnngs, 20)) / (ts_std_dev(mdl26_60dy_srprs_lst_q_rnngs, 20) + 0.00101), 5)), 0.0), subindustry)",
+    "hypothesis": "Fading extreme model estimates from historical mean identifies over-optimistic or pessimistic projections.",
+    "anomaly_basis": "Estimate Deviation Mean Reversion",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_ANL16_CONS_DIFF",
+    "dataset": "analyst16",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(anl16_aftercons_difference), 12) / (ts_std_dev(vec_avg(anl16_aftercons_difference), 22) + 0.00101), 6)), 0.0), subindustry)",
+    "hypothesis": "Consensus difference real-time vectors provide robust trend continuation when volatility scaled.",
+    "anomaly_basis": "Consensus Revision Drift",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_ANL7_SURPRISE_STD_MOM",
+    "dataset": "analyst7",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(act_q_eps_surprisestd, 15) / (ts_std_dev(act_q_eps_surprisestd, 22) + 0.00101), 6)), 0.0), subindustry)",
+    "hypothesis": "Matrix-based EPS surprise standardized factors exhibit predictable momentum over a 15-day window.",
+    "anomaly_basis": "Historical EPS Surprise Momentum",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_MDL135_IVN_VOL",
+    "dataset": "model135",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(vec_avg(mdl135_d5_ivn), 10) / (ts_std_dev(vec_avg(mdl135_d5_ivn), 20) + 0.00101), 5)) * rank(volume / adv20), 0.0), subindustry)",
+    "hypothesis": "Technical indicator model shifts paired with institutional relative volume highlight high-alpha flow changes.",
+    "anomaly_basis": "Technical Volume Interaction",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_NEWS21_POS_WORDS",
+    "dataset": "news21",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(positive_word_count_new_fast_d1), 12) / (ts_std_dev(vec_avg(positive_word_count_new_fast_d1), 22) + 0.00101), 6)), 0.0), subindustry)",
+    "hypothesis": "Positive word count event data vectors drive structural shifts in short-term sentiment momentum.",
+    "anomaly_basis": "Sentiment Word Count Drift",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_NEWS12_POS_DEV",
+    "dataset": "news12",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vec_avg(advantageous_position_flag) - ts_mean(vec_avg(advantageous_position_flag), 20)) / (ts_std_dev(vec_avg(advantageous_position_flag), 20) + 0.00101), 5)), 0.0), subindustry)",
+    "hypothesis": "Fading extreme peaks in US news advantageous sentiment identifies overbought sentiment bubbles.",
+    "anomaly_basis": "News Sentiment Mean Reversion",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_MDL26_SMART_EST",
+    "dataset": "model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(mdl26_v14_smartestimate_fy2_revenue, 12) / (ts_std_dev(mdl26_v14_smartestimate_fy2_revenue, 22) + 0.00101), 6)), 0.0), subindustry)",
+    "hypothesis": "Smart estimate matrix models for FY2 revenue present actionable forward-looking momentum characteristics.",
+    "anomaly_basis": "Smart Estimate Momentum",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_ANL16_SURPRISE",
+    "dataset": "analyst16",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(anl16_actsurprise), 12) / (ts_std_dev(vec_avg(anl16_actsurprise), 22) + 0.00101), 6)), 0.0), subindustry)",
+    "hypothesis": "Volatility-scaled actual surprises in analyst consensus vectors capture persistent post-earnings drift.",
+    "anomaly_basis": "Post-Earnings Drift",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_NEWS21_BROKER_VOL",
+    "dataset": "news21",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(vec_avg(earning_broker_count_fast_d1), 10) / (ts_std_dev(vec_avg(earning_broker_count_fast_d1), 20) + 0.00101), 5)) * rank(volume / adv20), 0.0), subindustry)",
+    "hypothesis": "Changes in broker earning estimates scaled by volume interactions capture heightened institutional attention.",
+    "anomaly_basis": "Broker Attention Drift",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_ANL14_BVPS_MOM",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(anl14_actvalue_bvps_fp0, 12) / (ts_std_dev(anl14_actvalue_bvps_fp0, 22) + 0.00101), 6)), 0.0), subindustry)",
+    "hypothesis": "Book value per share actual value matrices generate quality and value momentum alpha over medium horizons.",
+    "anomaly_basis": "Fundamental Value Momentum",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_ANL7_12M_EPS_FADE",
+    "dataset": "analyst7",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((act_12m_eps_value - ts_mean(act_12m_eps_value, 20)) / (ts_std_dev(act_12m_eps_value, 20) + 0.00101), 5)), 0.0), subindustry)",
+    "hypothesis": "Reversion of trailing 12-month EPS values normalizes cyclical overestimations inside top 3000 universes.",
+    "anomaly_basis": "EPS Mean Reversion",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_ANL16_SUESCORE_MOM",
+    "dataset": "analyst16",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(anl16_actsuescore), 12) / (ts_std_dev(vec_avg(anl16_actsuescore), 22) + 0.00101), 6)), 0.0), subindustry)",
+    "hypothesis": "Standardized unexpected earnings score momentum accurately prices in new growth phases when linearly decayed.",
+    "anomaly_basis": "Standardized Earnings Momentum",
+    "decay": 10
+  }
+]

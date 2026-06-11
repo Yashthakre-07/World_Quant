@@ -1,0 +1,514 @@
+[
+  {
+    "id": "pv63_d1_bain",
+    "description": "Number of aggressive buy trades during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 7,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_iaba",
+    "description": "Dollar amount (USD) of aggressive buy trades during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 9,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_iasa",
+    "description": "Dollar amount (USD) of aggressive sell trades during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_nias",
+    "description": "Number of aggressive sell trades during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 10,
+    "alphaCount": 11,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_nibp",
+    "description": "Number of bid-put (order additions at the best bid) events during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 8,
+    "alphaCount": 17,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_nibw",
+    "description": "Number of bid-withdraw (order removals at the best bid) events during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_pain",
+    "description": "Number of ask-put (order additions at the best ask) events during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 7,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_ptsl",
+    "description": "Last traded price for the day (last 1-minute price), in USD",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9825,
+    "userCount": 7,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_vbai",
+    "description": "Total shares executed by aggressive buyers (lifting the ask) during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 6,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_vpai",
+    "description": "Total shares added to the best ask during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_vpbi",
+    "description": "Total shares added to the best bid during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_vsai",
+    "description": "Total shares executed by aggressive sellers (hitting the bid) during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 10,
+    "alphaCount": 11,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_vtni",
+    "description": "Total shares traded during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 7,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_vwai",
+    "description": "Total shares withdrawn from the best ask during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_vwbi",
+    "description": "Total shares withdrawn from the best bid during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "pv63_d1_wain",
+    "description": "Number of ask-withdraw (order removals at the best ask) events during the day",
+    "dataset": {
+      "id": "pv63",
+      "name": "Order Book Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9853,
+    "userCount": 4,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  }
+]

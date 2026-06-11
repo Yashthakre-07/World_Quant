@@ -1,0 +1,162 @@
+[
+  {
+    "family": "GRP_B_GEN11_MUTATION_0",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_ebitda_estimate), 12) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_ebitda_estimate), 22) + 0.00101), 6)), 0), subindustry)",
+    "hypothesis": "Upward revisions in broker EBITDA estimates, volatility-normalized and decay-smoothed, signal improving earnings quality and attract institutional buying within subindustry peer groups.",
+    "anomaly_basis": "Analyst Revision Momentum - EBITDA Estimate Drift",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_1",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_bvps_estimate), 12) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_bvps_estimate), 22) + 0.00101), 6)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Book value per share estimate revisions normalized by volatility and interacted with institutional volume rank capture conviction-weighted sentiment drift.",
+    "anomaly_basis": "Analyst Revision Momentum - BVPS Estimate with Volume Interaction",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_2",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_roe_estimate), 10) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_roe_estimate), 20) + 0.00101), 5)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "ROE estimate revisions, scaled by historical volatility and amplified during high-volume institutional sessions, capture profitability quality momentum.",
+    "anomaly_basis": "Analyst Revision Momentum - ROE Estimate Institutional Volume Gate",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_3",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(anl14_actvalue_capex_fp0, 15) / (ts_std_dev(anl14_actvalue_capex_fp0, 22) + 0.00101), 8)), 0), subindustry)",
+    "hypothesis": "Forward-period capex revisions normalized by rolling volatility identify capital allocation pivots; rising capex in near-term forecasts signals strategic investment accelerations priced in with delay.",
+    "anomaly_basis": "Fundamental Momentum - Capex Forward Period Revision",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_4",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(anl14_actvalue_netinc_fp0, 15) / (ts_std_dev(anl14_actvalue_netinc_fp0, 22) + 0.00101), 8)), 0), subindustry)",
+    "hypothesis": "Net income forward-period actual value revisions capture bottom-line earnings quality improvements that flow through subindustry pricing with measurable momentum.",
+    "anomaly_basis": "Fundamental Momentum - Net Income Forward Revision",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_5",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((anl14_actvalue_ebitda_fp0 - ts_mean(anl14_actvalue_ebitda_fp0, 20)) / (ts_std_dev(anl14_actvalue_ebitda_fp0, 22) + 0.00101), 6)), 0), subindustry)",
+    "hypothesis": "EBITDA forward-period values that deviate significantly above their rolling mean tend to mean-revert as analyst optimism moderates.",
+    "anomaly_basis": "Fundamental Mean Reversion - EBITDA Forward Overextension Fade",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_6",
+    "dataset": "analyst16",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(anl16_beforecons_median), 12) / (ts_std_dev(vec_avg(anl16_beforecons_median), 22) + 0.00101), 6)), 0), subindustry)",
+    "hypothesis": "Pre-announcement consensus median revisions reveal directional shifts in analyst conviction before public updates, generating predictable post-revision drift.",
+    "anomaly_basis": "Real-Time Consensus Revision Momentum - Before Consensus Median",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_7",
+    "dataset": "analyst16",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(anl16_aftercons_high), 12) / (ts_std_dev(vec_avg(anl16_aftercons_high), 22) + 0.00101), 6)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Post-announcement high consensus revisions interacted with institutional volume rank capture the upper-bound optimism shifts that institutional traders act upon.",
+    "anomaly_basis": "Real-Time Consensus Revision - After Consensus High with Volume Interaction",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_8",
+    "dataset": "analyst16",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(ts_delta(vec_avg(anl16_aftercons_low), 10) / (ts_std_dev(vec_avg(anl16_aftercons_low), 20) + 0.00101), 5)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Sharp drops in the after-consensus low estimate amplified by volume surges signal capitulation in analyst pessimism; fading captures mean-reversion alpha.",
+    "anomaly_basis": "Real-Time Consensus Mean Reversion - After Consensus Low Overshoot Fade",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_9",
+    "dataset": "analyst44",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(anl44_2_revenue_lastactvalue), 12) / (ts_std_dev(vec_avg(anl44_2_revenue_lastactvalue), 22) + 0.00101), 6)), 0), subindustry)",
+    "hypothesis": "Revisions in the last actual revenue values capture real-time sales trajectory changes that lead subindustry price adjustments by one to two weeks.",
+    "anomaly_basis": "Analyst Revision Momentum - Revenue Last Actual Value Drift",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_10",
+    "dataset": "analyst44",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(anl44_2_ebitda_lastactvalue), 12) / (ts_std_dev(vec_avg(anl44_2_ebitda_lastactvalue), 22) + 0.00101), 6)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "EBITDA last actual value revisions scaled by volatility and weighted by volume rank capture institutional reaction to realized earnings quality improvements.",
+    "anomaly_basis": "Analyst Revision Momentum - EBITDA Last Actual Value with Volume Gate",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_11",
+    "dataset": "model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(mdl26_v14_smartestimate_fy2_ebitda, 15) / (ts_std_dev(mdl26_v14_smartestimate_fy2_ebitda, 22) + 0.00101), 8)), 0), subindustry)",
+    "hypothesis": "Smart estimate revisions for two-year forward EBITDA incorporate machine-learning-weighted analyst inputs that lead market consensus and generate persistent momentum signals.",
+    "anomaly_basis": "Smart Estimate Momentum - FY2 EBITDA Smart Estimate Revision",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_12",
+    "dataset": "model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((mdl26_5yr_hstrcl_grwth_rt - ts_mean(mdl26_5yr_hstrcl_grwth_rt, 20)) / (ts_std_dev(mdl26_5yr_hstrcl_grwth_rt, 22) + 0.00101), 6)), 0), subindustry)",
+    "hypothesis": "Stocks with five-year historical growth rates that spike above their rolling mean attract crowded positioning; fading captures mean-reversion as growth premium normalizes.",
+    "anomaly_basis": "Growth Rate Mean Reversion - 5-Year Historical Growth Overextension Fade",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_13",
+    "dataset": "news21",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(positive_word_count_new_fast_d1), 10) / (ts_std_dev(vec_avg(positive_word_count_new_fast_d1), 20) + 0.00101), 5)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Surges in positive linguistic signals in fast news feeds interacted with institutional volume rank identify news-driven sentiment momentum before full price discovery.",
+    "anomaly_basis": "News Sentiment Momentum - Positive Word Count with Volume Interaction",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_14",
+    "dataset": "news21",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(ts_delta(vec_avg(negative_word_count_1_fast_d1), 10) / (ts_std_dev(vec_avg(negative_word_count_1_fast_d1), 20) + 0.00101), 5)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Spikes in negative news word counts trigger institutional selling; fading the negative sentiment surge captures the asymmetric overreaction that mean-reverts over one to two weeks.",
+    "anomaly_basis": "News Sentiment Contrarian - Negative Word Count Overshoot Fade",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_15",
+    "dataset": "shortinterest7",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(shrt7_combo_crossdeltaactivity), 12) / (ts_std_dev(vec_avg(shrt7_combo_crossdeltaactivity), 22) + 0.00101), 6)), 0), subindustry)",
+    "hypothesis": "Changes in combined cross-asset short interest delta activity signal directional shifts in sophisticated short seller conviction that lead price movements within subindustry peer groups.",
+    "anomaly_basis": "Short Interest Momentum - Cross-Delta Activity Revision",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_16",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((historical_volatility_10 - ts_mean(historical_volatility_10, 20)) / (ts_std_dev(historical_volatility_10, 22) + 0.00101), 6)), 0), subindustry)",
+    "hypothesis": "Stocks with 10-day realized volatility above their rolling mean experience vol mean reversion; fading the vol spike captures subsequent price stabilization.",
+    "anomaly_basis": "Volatility Mean Reversion - Short-Term Realized Vol Spike Fade",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_17",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(historical_volatility_120, 15) / (ts_std_dev(historical_volatility_120, 22) + 0.00101), 8)), 0), subindustry)",
+    "hypothesis": "Rising long-term realized volatility signals regime shifts in underlying business risk; upward revisions in 120-day historical volatility attract risk-premium seeking capital.",
+    "anomaly_basis": "Long-Term Volatility Momentum - 120-Day Realized Vol Drift",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_18",
+    "dataset": "insiders1",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, rank(ts_decay_linear(ts_delta(vec_avg(txn_return_long_checkpoint), 12) / (ts_std_dev(vec_avg(txn_return_long_checkpoint), 22) + 0.00101), 6)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Insider long checkpoint transaction returns normalized by volatility and amplified during high-volume sessions reflect information asymmetry advantages that lead broader market pricing.",
+    "anomaly_basis": "Insider Signal Momentum - Long Checkpoint Return with Volume Gate",
+    "decay": 10
+  },
+  {
+    "family": "GRP_B_GEN11_MUTATION_19",
+    "dataset": "pv98",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(avg_bid_orders_count_fullbook - avg_ask_orders_count_fullbook, 15) / (ts_std_dev(avg_bid_orders_count_fullbook - avg_ask_orders_count_fullbook, 22) + 0.00101), 8)), 0), subindustry)",
+    "hypothesis": "Momentum of order book imbalance between bid and ask order counts captures directional microstructure pressure; rising bid dominance signals pending upward price discovery.",
+    "anomaly_basis": "Microstructure Order Book Imbalance Momentum",
+    "decay": 10
+  }
+]

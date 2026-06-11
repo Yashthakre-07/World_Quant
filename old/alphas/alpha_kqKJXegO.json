@@ -1,0 +1,25 @@
+{
+  "alpha_id": "kqKJXegO",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(((close - low) - (open - low)) / (high - low + 0.001), 5)), 0), industry)",
+  "family": "Intraday_Range_Alpha_6",
+  "hypothesis": "Range location divergence mean reversion smoothed over 5 days.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.45,
+  "fitness": 0.81,
+  "turnover": 26.56,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-10 17:49:05"
+}

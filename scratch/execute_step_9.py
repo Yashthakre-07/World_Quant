@@ -6,18 +6,29 @@ import os
 
 # Setup root path to import config dynamically
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from src.config import GROUPA_API_TOKEN
+from src.config import GROUPA_API_TOKEN, GROUPB_API_TOKEN
 
 def run_step_9():
     sys.stdout.reconfigure(encoding='utf-8')
+    
+    # Read group from pipeline state
+    group = "groupa"
+    try:
+        with open("scratch/pipeline_state.json", "r", encoding="utf-8") as f:
+            p_state = json.load(f)
+            group = p_state.get("group", "groupa").lower()
+    except Exception:
+        pass
+
+    token = GROUPB_API_TOKEN if group == "groupb" else GROUPA_API_TOKEN
     
     # Load current batch (40 alphas)
     with open("scratch/generated_alphas.json", "r", encoding="utf-8") as f:
         alphas = json.load(f)
         
-    url = "https://world-quant.onrender.com/api/overwrite-queue"
+    url = "http://127.0.0.1:8000/api/overwrite-queue"
     headers = {
-        "Authorization": f"Bearer {GROUPA_API_TOKEN}",
+        "Authorization": f"Bearer {token}",
         "Content-Type": "application/json"
     }
     
@@ -67,7 +78,7 @@ def run_step_9():
                 print("  Result: BATCH OVERWRITE SUCCESS ✅")
                 
                 # Trigger start-pipeline to ensure the simulator thread is active
-                start_url = "https://world-quant.onrender.com/api/start-pipeline"
+                start_url = "http://127.0.0.1:8000/api/start-pipeline"
                 start_req = urllib.request.Request(start_url, data=b"", headers=headers)
                 try:
                     with urllib.request.urlopen(start_req, timeout=15) as start_res:

@@ -1,0 +1,25 @@
+{
+  "alpha_id": "xAn1PvRW",
+  "formula": "(group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(anl14_numofests_epsrep_fp5) + 0.001), 3)), 0), industry)) * rank(volume / adv20)",
+  "family": "Price_Analyst_Ratio_Alpha_5",
+  "hypothesis": "Intraday reversion scaled inversely by analyst estimate coverage density.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.85,
+  "fitness": 0.97,
+  "turnover": 35.72,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-10 18:26:44"
+}

@@ -88,50 +88,30 @@ submission_lock = threading.Lock()
 reauth_lock = threading.Lock()
 
 # Adaptive Rate Limiter Coordinator
+# Static Rate Limiter to match the old working behavior
 class AdaptiveRateLimiter:
     def __init__(self):
-        self.spacing = 1.0  # start with 1.0 second dynamic delay spacing
-        self.decay_factor = 2.0  # double the spacing on HTTP 429
-        self.recovery_factor = 0.9  # slowly speed up (reduce spacing by 10% on success)
-        self.min_spacing = 0.5  # absolute fastest speed
-        self.max_spacing = 30.0  # absolute slowest speed
+        self.spacing = 5.0
         self.lock = threading.Lock()
         
     def wait_spacing(self):
         with self.lock:
             current_delay = self.spacing
-        log_message("INFO", f"[RATE] Enforcing adaptive rate-limit spacing of {current_delay:.2f}s...")
+        log_message("INFO", f"[RATE] Enforcing static rate-limit spacing of {current_delay:.2f}s...")
         time.sleep(current_delay)
         
     def report_success(self, response_headers):
-        with self.lock:
-            remaining = None
-            for key, val in response_headers.items():
-                if "ratelimit-remaining" in key.lower():
-                    try:
-                        remaining = int(val)
-                    except ValueError:
-                        pass
-            
-            if remaining is not None:
-                if remaining > 15:
-                    self.spacing = max(self.min_spacing, self.spacing * 0.8)
-                else:
-                    self.spacing = min(self.max_spacing, self.spacing * 1.05)
-            else:
-                self.spacing = max(self.min_spacing, self.spacing * self.recovery_factor)
-            self.spacing = max(self.min_spacing, min(self.max_spacing, self.spacing))
+        pass
             
     def report_429(self, retry_after=None):
-        with self.lock:
-            if retry_after:
-                try:
-                    self.spacing = max(self.spacing, float(retry_after))
-                except ValueError:
-                    self.spacing = min(self.max_spacing, self.spacing * self.decay_factor)
-            else:
-                self.spacing = min(self.max_spacing, self.spacing * self.decay_factor)
-            log_message("WARNING", f"[RATE] HTTP 429 detected! Backing off spacing to {self.spacing:.2f}s.")
+        if retry_after:
+            try:
+                delay = float(retry_after)
+                time.sleep(delay)
+            except ValueError:
+                time.sleep(10)
+        else:
+            time.sleep(10)
 
 rate_limiter = AdaptiveRateLimiter()
 
@@ -328,15 +308,6 @@ reauth_state = {
 reauth_thread = None
 
 def get_group_session(req=None):
-    if req is None:
-        try:
-            req = request
-        except RuntimeError:
-            return session_a
-    auth_header = req.headers.get("Authorization", "") if req else ""
-    token = auth_header.replace("Bearer ", "").strip()
-    if token == "yashthakrepro":
-        return session_b
     return session_a
 
 import threading
@@ -1292,9 +1263,7 @@ def get_session():
                                 sai_config[k.strip()] = v.strip().strip("'").strip('"')
                 current_email = sai_config.get("WQ_EMAIL", "")
             
-        email_to_check = current_email if current_email else WQ_EMAIL
-        safe_email = email_to_check.replace("@", "_").replace(".", "_") if email_to_check else "default"
-        active_cookie_file = DB_DIR / f"session_cookies_{safe_email}.json"
+        active_cookie_file = DB_DIR / "session_cookies_saineela731_gmail_com.json"
         
         if active_cookie_file.exists():
             target_cookie_file = active_cookie_file
@@ -1353,13 +1322,9 @@ def reauthenticate():
         import src.auth
         import src.config
         
-        # Set credentials dynamically based on bearer token group
-        if is_group_b:
-            src.config.WQ_EMAIL = os.environ.get("OPI_PRO_EMAIL", "beyondsynapse@gmail.com")
-            src.config.WQ_PASSWORD = os.environ.get("OPI_PRO_PASSWORD", "Web3@ytop")
-        else:
-            src.config.WQ_EMAIL = os.environ.get("OPI_EMAIL", "saineela731@gmail.com")
-            src.config.WQ_PASSWORD = os.environ.get("OPI_PASSWORD", "iitg@123")
+        # Always use the primary account credentials
+        src.config.WQ_EMAIL = os.environ.get("OPI_EMAIL", "saineela731@gmail.com")
+        src.config.WQ_PASSWORD = os.environ.get("OPI_PASSWORD", "iitg@123")
             
         src.auth.WQ_EMAIL = src.config.WQ_EMAIL
         src.auth.WQ_PASSWORD = src.config.WQ_PASSWORD
@@ -1371,21 +1336,14 @@ def reauthenticate():
         # Instantiate in interactive mode using config credentials
         sess = WQSession(email=src.config.WQ_EMAIL, password=src.config.WQ_PASSWORD, interactive=True, allow_biometrics=True)
         
-        # If it returns without exception, login was succeeded instantly via saved cookies/credentials
-        # CRITICAL: Reset login_expired on old session objects so slot worker threads unblock immediately
+        # If it returns without exception, login succeeded instantly via saved cookies/credentials
         sess.login_expired = False
-        if is_group_b:
-            if session_b is not None:
-                session_b.login_expired = False
-            session_b = sess
-        else:
-            if session_a is not None:
-                session_a.login_expired = False
-            session_a = sess
         active_session = sess
+        session_a = sess
+        session_b = sess
         reauth_state["status"] = "SUCCESS"
-        log_message("INFO", f"[AUTH] Session unblocked for Group {'B' if is_group_b else 'A'} — slot workers will resume.")
-        return jsonify({"status": "SUCCESS", "message": f"Authenticated Group {'B' if is_group_b else 'A'} instantly using persisted cookies!"})
+        log_message("INFO", "[AUTH] Unified WorldQuant Session established successfully! All slot workers unblocked.")
+        return jsonify({"status": "SUCCESS", "message": "Unified session authenticated instantly using persisted cookies!"})
         
     except PersonaRequiredException as e:
         reauth_state["status"] = "POLLING"
@@ -1422,10 +1380,8 @@ def reauthenticate():
                         sess.login_expired = False
                         sess.save_persisted_cookies()
                         active_session = sess
-                        if is_group_b:
-                            session_b = sess
-                        else:
-                            session_a = sess
+                        session_a = sess
+                        session_b = sess
                         reauth_state["status"] = "SUCCESS"
                         log_message("INFO", "Interactive re-authentication completed successfully!")
                         # Send restoration alert to phone
@@ -1520,8 +1476,10 @@ def queue_alpha():
             skipped.append({"reason": "Already queued or in inbox", "formula": formula})
             continue
 
-        # Local syntax pre-validation
-        is_valid, err_msg = validate_fastexpr(formula)
+        # Local syntax pre-validation (BYPASSED as requested)
+        # is_valid, err_msg = validate_fastexpr(formula)
+        is_valid = True
+        err_msg = ""
         if not is_valid:
             skipped.append({"reason": f"Syntax failed: {err_msg}", "formula": formula})
             continue
@@ -2723,7 +2681,7 @@ def get_api_stats():
         "best_fitness": best_fitness,
         "families": families,
         "submitted_list": submitted_list,
-        "vault_alphas": vault_alphas
+        "vault_alphas": []
     })
 
 # Shared state for automation platform
@@ -3118,12 +3076,17 @@ def run_flask():
 def robust_request(session, method, url, index=None, **kwargs):
     """Sends an API request, automatically retries on network drop, and self-heals by logging back in on HTTP 401."""
     import requests
+    global active_session
     auth_retries = 0
     rate_limit_retries = 0
     while True:
         # Wait if session is None or login expired, rate-limiting the logs to avoid spamming
         last_log_time = 0
         while session is None or getattr(session, "login_expired", False):
+            if active_session is not None and not getattr(active_session, "login_expired", False):
+                session = active_session
+                break
+                
             now = time.time()
             if now - last_log_time > 60:
                 lbl = f"Alpha #{index+1}: " if index is not None else ""
@@ -3179,17 +3142,14 @@ def robust_request(session, method, url, index=None, **kwargs):
             if r.status_code == 429:
                 rate_limit_retries += 1
                 lbl = f"Alpha #{index+1}: " if index is not None else ""
-                if rate_limit_retries > 5:
-                    log_message("ERROR", f"{lbl}Rate limit exceeded repeatedly (5 times). Aborting request.")
+                if rate_limit_retries > 15:
+                    log_message("ERROR", f"{lbl}Rate limit exceeded repeatedly. Aborting request.")
                     return r
                 
                 retry_after = r.headers.get("Retry-After")
                 rate_limiter.report_429(retry_after)
                 
-                with rate_limiter.lock:
-                    current_spacing = rate_limiter.spacing
-                log_message("WARNING", f"{lbl}Rate limit exceeded (HTTP 429). Adaptive delay backed off to {current_spacing:.1f}s (Attempt {rate_limit_retries}/5)...")
-                time.sleep(current_spacing)
+                log_message("INFO", f"{lbl}Rate limit paused (HTTP 429). Retrying... (Attempt {rate_limit_retries}/15)")
                 continue
             
             rate_limiter.report_success(r.headers)
@@ -3523,9 +3483,11 @@ def simulate_task(index, task, task_state, session, slot_id=1):
 
     log_message("INFO", f"Alpha #{index+1}: Initiating simulation for {formula}")
 
-    # Local Syntax and Operator validation
+    # Local Syntax and Operator validation (BYPASSED as requested)
     from src.validator import validate_fastexpr
-    is_valid, err = validate_fastexpr(formula)
+    # is_valid, err = validate_fastexpr(formula)
+    is_valid = True
+    err = ""
     if not is_valid:
         err_msg = f"Local Validation Failed: {err}"
         log_message("ERROR", f"Alpha #{index+1}: {err_msg}")
@@ -3732,7 +3694,10 @@ def simulate_batch(batch_indices, batch_tasks, batch_states, session, slot_id=1)
             st["formula"] = mutated_formula
             formula = mutated_formula
             
-        is_valid, err = validate_fastexpr(formula)
+        # Local validation (BYPASSED as requested)
+        # is_valid, err = validate_fastexpr(formula)
+        is_valid = True
+        err = ""
         if not is_valid:
             err_msg = f"Local Validation Failed: {err}"
             log_message("ERROR", f"Alpha #{idx+1}: {err_msg}")
@@ -4139,16 +4104,7 @@ def main():
                         
                         # --- PROCESS GROUP A (Slots 1-4) ---
                         new_tasks_a = [t for t in tasks_a if t["formula"] not in scheduled_formulas]
-                        if new_tasks_a and (len(new_tasks_a) % 10 != 0):
-                            log_message("INFO", f"Group A Dynamic Queue: Detected {len(new_tasks_a)} new alphas (not a multiple of 10). Waiting 5s to accumulate...")
-                            time.sleep(5)
-                            try:
-                                with open(queue_file, "r") as f:
-                                    tasks = json.load(f)
-                            except Exception:
-                                tasks = []
-                            tasks_a = [t for t in tasks if t.get("group") == "A"]
-                            new_tasks_a = [t for t in tasks_a if t["formula"] not in scheduled_formulas]
+
                             
                         if new_tasks_a:
                             if active_session is None or getattr(active_session, "login_expired", False):
@@ -4223,16 +4179,7 @@ def main():
 
                         # --- PROCESS GROUP B (Slots 5-8) ---
                         new_tasks_b = [t for t in tasks_b if t["formula"] not in scheduled_formulas]
-                        if new_tasks_b and (len(new_tasks_b) % 10 != 0):
-                            log_message("INFO", f"Group B Dynamic Queue: Detected {len(new_tasks_b)} new alphas (not a multiple of 10). Waiting 5s to accumulate...")
-                            time.sleep(5)
-                            try:
-                                with open(queue_file, "r") as f:
-                                    tasks = json.load(f)
-                            except Exception:
-                                tasks = []
-                            tasks_b = [t for t in tasks if t.get("group") == "B"]
-                            new_tasks_b = [t for t in tasks_b if t["formula"] not in scheduled_formulas]
+
                             
                         if new_tasks_b:
                             if active_session is None or getattr(active_session, "login_expired", False):

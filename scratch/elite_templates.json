@@ -1,0 +1,90 @@
+[
+  {
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)",
+    "sharpe": 1.89,
+    "fitness": 1.04,
+    "turnover": 30.43,
+    "family": "Standard Intraday Spread Reversion (Gate 0.75, Decay 3)",
+    "timestamp": "2026-06-08T15:00:02.867079"
+  },
+  {
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)",
+    "sharpe": 1.86,
+    "fitness": 1.02,
+    "turnover": 31.89,
+    "family": "Price Reversion",
+    "timestamp": "2026-06-08T15:00:02.867079"
+  },
+  {
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)",
+    "sharpe": 1.86,
+    "fitness": 1.02,
+    "turnover": 33.21,
+    "family": "Standard Intraday Spread Reversion (Gate 0.65, Decay 3)",
+    "timestamp": "2026-06-08T15:00:02.867079"
+  },
+  {
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)",
+    "sharpe": 1.86,
+    "fitness": 1.02,
+    "turnover": 31.89,
+    "family": "Standard Intraday Spread Reversion (Gate 0.70, Decay 3)",
+    "timestamp": "2026-06-08T15:00:02.867079"
+  },
+  {
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)",
+    "sharpe": 1.84,
+    "fitness": 1.01,
+    "turnover": 34.32,
+    "family": "Price Reversion",
+    "timestamp": "2026-06-08T15:00:02.867079"
+  },
+  {
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.60, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)",
+    "sharpe": 1.84,
+    "fitness": 1.01,
+    "turnover": 34.32,
+    "family": "Standard Intraday Spread Reversion (Gate 0.60, Decay 3)",
+    "timestamp": "2026-06-08T15:00:02.867079"
+  },
+  {
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)",
+    "sharpe": 1.84,
+    "fitness": 1.0,
+    "turnover": 28.860000000000003,
+    "family": "Standard Intraday Spread Reversion (Gate 0.80, Decay 3)",
+    "timestamp": "2026-06-08T15:00:02.867079"
+  },
+  {
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(close - open, 3)), 0), subindustry)",
+    "sharpe": 1.83,
+    "fitness": 1.0,
+    "turnover": 27.24,
+    "family": "Standard Intraday Spread Reversion (Gate 0.85, Decay 3)",
+    "timestamp": "2026-06-08T15:00:02.867079"
+  },
+  {
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear(((close - low) - (open - low)) / (high - low + 0.001), 5)), 0), subindustry)",
+    "sharpe": 1.75,
+    "fitness": 1.04,
+    "turnover": 36.53,
+    "family": "Intraday Range Location Divergence",
+    "timestamp": "2026-06-08T15:00:02.867079"
+  },
+  {
+    "formula": "group_neutralize(trade_when(volume > adv20 * 1.2, -rank(ts_decay_linear((close - open) / (high - low + 0.001), 5)), 0), subindustry)",
+    "sharpe": 1.63,
+    "fitness": 1.01,
+    "turnover": 21.09,
+    "family": "Liquidity-Shock Mean Reversion",
+    "timestamp": "2026-06-08T15:00:02.867079"
+  },
+  {
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(anl14_numofests_epsrep_fp5) + 0.00101), 3)), 0), subindustry)",
+    "sharpe": 1.92,
+    "fitness": 1.03,
+    "turnover": 31.240000000000002,
+    "family": "GRP_A_ELITE_THEME_MUTATION_2",
+    "timestamp": "2026-06-09T11:23:28.557331"
+  }
+]

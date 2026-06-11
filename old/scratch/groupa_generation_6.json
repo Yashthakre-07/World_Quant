@@ -1,0 +1,130 @@
+[
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_0",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, rank(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 10) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 20) + 0.001), 5)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Volatility-normalized EPS revision momentum, smoothed over 5 days, captures persistent analyst upgrade cycles within the same subindustry. Interacting this with volume trend filters for institutional-backed revision cycles.",
+    "anomaly_basis": "Consensus EPS Revision Drift",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_1",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear((ts_delta(anl14_actvalue_capex_fy0, 5) / (abs(anl14_actvalue_bvps_fp0) + 0.001)) / (ts_std_dev(anl14_actvalue_capex_fy0 / (abs(anl14_actvalue_bvps_fp0) + 0.001), 10) + 0.001), 5)), 0), subindustry)",
+    "hypothesis": "Fade short-term spikes in forecasted capital expenditure relative to book value to capture capital overinvestment overreactions, scaled by rolling volatility to stabilize risk-adjusted returns.",
+    "anomaly_basis": "Capex Overinvestment Rejection",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_2",
+    "dataset": "analyst16",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, rank(ts_decay_linear(vec_avg(anl16_aftercons_difference) / (ts_std_dev(vec_avg(anl16_aftercons_difference), 10) + 0.001), 10)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Post-consensus revision dispersion drift indicates agreement direction, which is normalized by revision volatility and confirmed by trading volume surges to capture institutional trend agreement.",
+    "anomaly_basis": "Post-Consensus Revision Dispersion Drift",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_3",
+    "dataset": "analyst7",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, rank(ts_decay_linear(ts_mean(vec_avg(act_q_eps_surprisestd), 10) / (ts_std_dev(vec_avg(act_q_eps_surprisestd), 10) + 0.001), 5)), 0), subindustry)",
+    "hypothesis": "Earnings surprise persistence captures the post-earnings announcement drift where stocks with high past standardized surprises normalized by historical dispersion exhibit persistent post-event outperformance.",
+    "anomaly_basis": "Earnings Surprise Persistence",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_4",
+    "dataset": "model135",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(ts_delta(mdl135_d5_ivn, 5) / (ts_std_dev(mdl135_d5_ivn, 10) + 0.001), 5)), 0), subindustry)",
+    "hypothesis": "Mean reversion on technical model indicator changes, scaled by rolling volatility and smoothed using a decay filter to minimize noise and control transaction costs.",
+    "anomaly_basis": "Technical Mean Reversion",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_5",
+    "dataset": "model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, rank(ts_decay_linear(ts_delta(mdl26_v14_smartestimate_fy2_revenue, 10) / (ts_std_dev(mdl26_v14_smartestimate_fy2_revenue, 15) + 0.001), 5)), 0), subindustry)",
+    "hypothesis": "Momentum in 2-year forward smart revenue estimates, normalized by trailing revenue revision volatility, captures long-term structural business growth overlooked by the broader market.",
+    "anomaly_basis": "Smart Revenue Revision Momentum",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_6",
+    "dataset": "news12",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, rank(ts_decay_linear(vec_avg(stddev_of_trading_volume) / (ts_std_dev(vec_avg(stddev_of_trading_volume), 10) + 0.001), 5)) * rank(ts_decay_linear(vec_avg(advantageous_position_flag), 5)), 0), subindustry)",
+    "hypothesis": "News coverage indicating advantageous position combined with volatility-scaled abnormal trading volume captures post-news momentum during periods of high news credibility.",
+    "anomaly_basis": "News Sentiment and Volume Interaction",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_7",
+    "dataset": "news5",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, rank(ts_decay_linear(ts_mean(vec_avg(event_result_value), 10) / (ts_std_dev(vec_avg(high_excess_volatility), 10) + 0.001), 5)), 0), subindustry)",
+    "hypothesis": "Volatility-scaled news event results smoothed over 5 days capture persistent sentiment drift while dampening transient post-event price noise.",
+    "anomaly_basis": "Sentiment Shock Volatility Scaling",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_8",
+    "dataset": "news21",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, rank(ts_decay_linear(ts_delta(vec_avg(earning_broker_count_fast_d1), 5) / (ts_std_dev(vec_avg(earning_broker_count_fast_d1), 10) + 0.001), 5)), 0), subindustry)",
+    "hypothesis": "Volatility-scaled growth in analyst attention (earnings broker coverage) captures structural institutional interest shocks while suppressing coverage changes in highly volatile tickers.",
+    "anomaly_basis": "Analyst Coverage Attention Shock",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_9",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, rank(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate), 10) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate), 20) + 0.001), 5)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Sales estimate revision momentum normalized by volatility and smoothed using a linear decay filters out noisy revisions, while volume trend interaction ensures alignment with institutional flows.",
+    "anomaly_basis": "Sales Estimate Momentum",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_10",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, rank(ts_decay_linear(ts_delta(anl14_actvalue_bvps_fp0, 10) / (ts_std_dev(anl14_actvalue_bvps_fp0, 20) + 0.001), 10)), 0), subindustry)",
+    "hypothesis": "Volatility-normalized positive drift in forward actual book value per share highlights robust, long-term valuation reassessments rather than noise-driven re-ratings.",
+    "anomaly_basis": "Forward Book Value Re-rating",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_11",
+    "dataset": "analyst16",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear((vec_avg(anl16_aftercons_difference) - ts_mean(vec_avg(anl16_aftercons_difference), 20)) / (ts_std_dev(vec_avg(anl16_aftercons_difference), 20) + 0.001), 5)), 0), subindustry)",
+    "hypothesis": "Reversion of extreme short-term deviations in consensus difference estimates captures market overreaction to broker revisions, stabilized via rolling volatility division and decay smoothing.",
+    "anomaly_basis": "Consensus Difference Mean Reversion",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_12",
+    "dataset": "news21",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, rank(ts_decay_linear(vec_avg(positive_word_count_new_fast_d1) / (ts_std_dev(vec_avg(positive_word_count_new_fast_d1), 20) + 0.001), 10)), 0), subindustry)",
+    "hypothesis": "Volatility-scaled textual tone in macro-economic news updates related to a stock captures robust and persistent post-news sentiment drift.",
+    "anomaly_basis": "Macro-Economic News Tone Persistence",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_13",
+    "dataset": "model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, rank(ts_decay_linear(ts_mean(mdl26_60dy_srprs_lst_q_rnngs, 10) / (ts_std_dev(mdl26_60dy_srprs_lst_q_rnngs, 15) + 0.001), 5)), 0), subindustry)",
+    "hypothesis": "Volatility-scaled post-earnings surprise drift captured via a decay-stacked rolling mean of model26 earnings surprise metrics to identify persistent upward revision trends.",
+    "anomaly_basis": "Earnings Surprise Trend Persistence",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_14",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, rank(ts_decay_linear(vec_avg(anl14_high_ntp_fy4) / (ts_std_dev(vec_avg(anl14_high_ntp_fy4), 10) + 0.001), 5)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Liquidity-confirmed momentum in volatility-normalized high target price estimates captures high-conviction institutional interest with lower portfolio turnover.",
+    "anomaly_basis": "Institutional High Target Price Interest",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_15",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, rank(ts_decay_linear((ts_delta(anl14_actvalue_revenue_fp0, 5) / (abs(anl14_actvalue_revenue_fp0) + 0.001)) / (ts_std_dev(anl14_actvalue_revenue_fp0 / (abs(anl14_actvalue_revenue_fp0) + 0.001), 10) + 0.001), 5)), 0), subindustry)",
+    "hypothesis": "Volatility-normalized forward revenue actual revision growth rate captures high-quality, persistent stages of expansion while suppressing low-conviction signals.",
+    "anomaly_basis": "Forward Revenue Expansion Drift",
+    "decay": 10
+  }
+]

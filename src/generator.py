@@ -82,6 +82,9 @@ RULES:
 2. Test: "{family_data['hypothesis']}"
 3. Avoid fails:
 {fail_str}
+4. WQ COMPLIANCE:
+   - Wrap all analyst consensus/actual fields (starting with 'anl') in vec_avg(field) before mathematical, absolute, or time-series operators (e.g., ts_std_dev(vec_avg(field), N)).
+   - Any standard deviation divisor MUST have a small non-zero offset added: (ts_std_dev(vec_avg(field), N) + 0.001) to prevent NaN/zero crashes.
 
 Winners:
 {success_str}

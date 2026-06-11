@@ -1,0 +1,25 @@
+{
+  "alpha_id": "qMXWAMNK",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.7, -rank(ts_decay_linear((close - vwap) / (high - low + 0.001), 5)), 0), subindustry)",
+  "family": "TOP_PERF_ALPHA_19",
+  "hypothesis": "High Performance Synced Alpha",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.24,
+  "fitness": 0.54,
+  "turnover": 25.61,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-09 19:25:59"
+}

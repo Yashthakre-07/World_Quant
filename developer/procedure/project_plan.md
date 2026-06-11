@@ -490,7 +490,7 @@ jinja2>=3.1.0             # HTML templating (optional)
 | **P2** | `auth.py`, `client.py` | WQ Brain session, simulate, poll, submit | P1 |
 | **P3** | `database.py` | SQLite schema init, CRUD, learning queries | P1 |
 | **P4** | `families.py`, `validator.py` | 6 families with seeds, local syntax check | P1 |
-| **P5** | `generator.py` | LLM prompt builder, call Gemini, parse response | P3, P4 |
+| **P5** | `generator.py` | AI Generation: Spawn `wq_generatorllm` for candidate formulas and `wq_validatorllm` for validation and compliance | P3, P4 |
 | **P6** | `evaluator.py` | Score tiers, decision logic | P3 |
 | **P7** | `logger.py`, `server.py`, `static/*` | Real-time log dashboard | P1 |
 | **P8** | `orchestrator.py`, `run_agent.py` | Main loop stitching everything together | ALL |
@@ -525,3 +525,18 @@ jinja2>=3.1.0             # HTML templating (optional)
 | Multi-config testing per formula | Same expression can fail at one neutralization and pass at another |
 | Parent-child linking in DB | Tracks which alphas are variations of which, enabling the learning loop |
 | 20% exploration rate | Prevents the agent from getting stuck in one family forever |
+
+---
+
+## 14. LOCALHOST PIPELINE SUBMISSION LOG (June 10, 2026)
+
+### A. Execution Overview
+We executed the pipeline sequence (Steps 0–10) completely on the local environment targeting the local Flask server at `http://127.0.0.1:8000`.
+
+### B. Group Alphas Submitted
+*   **Group A (Slots 1–4)**: 8 mutated consensus/reversion alphas generated via the step-by-step AI sequence. They were written to `scratch/generated_alphas.json` and pushed directly to the localhost active queue using the Bearer token `yashthakreop` via the `/api/overwrite-queue` endpoint.
+*   **Group B (Slots 5–8)**: 20 analyst/earnings consensus alphas were pushed via `scratch/submit_groupb_local.py` to the localhost Review Inbox (`/api/queue-alpha`) using Bearer token `yashthakrepro`.
+
+### C. Review Box Injection Execution
+To successfully load the Group B alphas onto the dashboard, we invoked the `/api/inject-inbox` POST route with `{"all": true}` on the local Flask server. This migrated all 20 Group B alphas from the Review Inbox (`inbox_queue.json`) into the active simulation queue (`simulation_queue.json`), making them fully visible on the localhost dashboard interface.
+

@@ -1,0 +1,1262 @@
+[
+  {
+    "query": "aerospace",
+    "id": "aerospace_defense_score",
+    "description": "Score indicating exposure to aerospace and defense sector.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "aerospace",
+    "id": "aerospace_defense_exposure_score",
+    "description": "Exposure or sensitivity to the aerospace and defense sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "aerospace",
+    "id": "industry_aerospace_defense_flag",
+    "description": "Indicator for companies classified in the aerospace and defense industry.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "aerospace",
+    "id": "pv20_a2_ardr_furniture_machinery_equip",
+    "description": "ARD Ref Furniture/Machinery/Equipment",
+    "dataset": "pv20",
+    "category": "Price Volume"
+  },
+  {
+    "query": "aerospace",
+    "id": "pv20_q_2_ardr_furniture_machinery_equip",
+    "description": "ARD Ref Furniture/Machinery/Equipment",
+    "dataset": "pv20",
+    "category": "Price Volume"
+  },
+  {
+    "query": "aerospace",
+    "id": "mdl307_sector",
+    "description": "Sector",
+    "dataset": "model307",
+    "category": "Model"
+  },
+  {
+    "query": "aerospace",
+    "id": "mdl313_sector",
+    "description": "Sector",
+    "dataset": "model313",
+    "category": "Model"
+  },
+  {
+    "query": "aerospace",
+    "id": "mdl313_sub_industry",
+    "description": "Sub Industry",
+    "dataset": "model313",
+    "category": "Model"
+  },
+  {
+    "query": "aerospace",
+    "id": "industry_airlines_flag",
+    "description": "Indicator for companies classified in the airline and air transport industry.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "aerospace",
+    "id": "industry_sector_classification_17",
+    "description": "The industry sector to which the company belongs.",
+    "dataset": "pv20",
+    "category": "Price Volume"
+  },
+  {
+    "query": "aerospace",
+    "id": "fnd6_newqeventv110_rdipq",
+    "description": "In Process R&D",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "aerospace",
+    "id": "fnd6_newqv1300_rdipq",
+    "description": "In Process R&D",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "aerospace",
+    "id": "pv64_dif_stal_industry_sector_num",
+    "description": "Industry sector number",
+    "dataset": "pv64",
+    "category": "Price Volume"
+  },
+  {
+    "query": "aerospace",
+    "id": "pv64_out_stal_industry_sector_num",
+    "description": "Industry sector number",
+    "dataset": "pv64",
+    "category": "Price Volume"
+  },
+  {
+    "query": "aerospace",
+    "id": "industry",
+    "description": "Industry grouping",
+    "dataset": "pv1",
+    "category": "Price Volume"
+  },
+  {
+    "query": "aerospace",
+    "id": "pv20_sector",
+    "description": "Sector Name",
+    "dataset": "pv20",
+    "category": "Price Volume"
+  },
+  {
+    "query": "aerospace",
+    "id": "anl44_analyst",
+    "description": "analyst",
+    "dataset": "analyst44",
+    "category": "Analyst"
+  },
+  {
+    "query": "aerospace",
+    "id": "industry_metal_fabrication_flag",
+    "description": "Indicator for companies classified in the metal fabrication industry.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "aerospace",
+    "id": "oth567_deltascore_innovation_technology_414",
+    "description": "score_innovation_technology",
+    "dataset": "other567",
+    "category": "Other"
+  },
+  {
+    "query": "aerospace",
+    "id": "oth567score_innovation_technology_328",
+    "description": "score_innovation_technology",
+    "dataset": "other567",
+    "category": "Other"
+  },
+  {
+    "query": "airlines",
+    "id": "airlines_exposure_score",
+    "description": "Exposure or sensitivity to the airlines industry factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "airlines",
+    "id": "airline_industry_score",
+    "description": "Daily exposure of each stock to the Airlines industry factor in the MFMCR universal risk model",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "airlines",
+    "id": "industry_airlines_flag",
+    "description": "Indicator for companies classified in the airline and air transport industry.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "airlines",
+    "id": "capacity_utilization_ratio",
+    "description": "Airline load factor: percentage of seat capacity sold/used",
+    "dataset": "analyst49",
+    "category": "Analyst"
+  },
+  {
+    "query": "airlines",
+    "id": "snt26_topranking_10",
+    "description": "The top ranking",
+    "dataset": "sentiment26",
+    "category": "Sentiment"
+  },
+  {
+    "query": "airlines",
+    "id": "fnd3_a_revenue",
+    "description": "Annual Revenue",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "airlines",
+    "id": "fnd3_a_revenue_fast_d1",
+    "description": "Annual Revenue",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "airlines",
+    "id": "annual_net_income_total",
+    "description": "Net income for the year.",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "airlines",
+    "id": "annual_net_income_total_fast_d1",
+    "description": "Net income for the year.",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "airlines",
+    "id": "sg_and_a_expense_avg",
+    "description": "Average selling, general, and administrative expenses.",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "airlines",
+    "id": "anl4_bac1actualqfv110_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "airlines",
+    "id": "anl4_bac1conafv110_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "airlines",
+    "id": "anl4_bac1conltv110_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "airlines",
+    "id": "anl4_bac1conqfv110_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "airlines",
+    "id": "anl4_bac1conrecv110_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "airlines",
+    "id": "anl4_bac1detailafv110_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "airlines",
+    "id": "anl4_bac1detaillt_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "airlines",
+    "id": "anl4_bac1detailqfv110_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "airlines",
+    "id": "anl4_bac1detailrec_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "airlines",
+    "id": "anl4_cuo1actualqfv110_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "steel",
+    "id": "aluminum_steel_producers_score",
+    "description": "Score indicating exposure to aluminum and steel production sector.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "steel",
+    "id": "aluminum_steel_exposure_score",
+    "description": "Exposure or sensitivity to the aluminum and steel industry factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "steel",
+    "id": "industry_iron_steel_flag",
+    "description": "Indicator for companies classified in the iron and steel industry.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "steel",
+    "id": "cash",
+    "description": "Cash",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "steel",
+    "id": "fnd6_ch",
+    "description": "Cash",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "steel",
+    "id": "fnd6_newqeventv110_chq",
+    "description": "Cash",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "steel",
+    "id": "fnd6_newqv1300_chq",
+    "description": "Cash",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "steel",
+    "id": "industry_metal_fabrication_flag",
+    "description": "Indicator for companies classified in the metal fabrication industry.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "steel",
+    "id": "fnd6_newqeventv110_invrmq",
+    "description": "Inventory - Raw Materials",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "steel",
+    "id": "fnd6_newqv1300_invrmq",
+    "description": "Inventory - Raw Materials",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "steel",
+    "id": "rsk62_factor_1_100_val40",
+    "description": "Val40",
+    "dataset": "risk62",
+    "category": "Risk"
+  },
+  {
+    "query": "steel",
+    "id": "fnd72_s_pit_or_bs_q_invtry_raw_materials",
+    "description": "Inventory of raw materials",
+    "dataset": "fundamental72",
+    "category": "Fundamental"
+  },
+  {
+    "query": "steel",
+    "id": "pv20_a2_ardr_raw_material",
+    "description": "ARD Ref Raw Materials",
+    "dataset": "pv20",
+    "category": "Price Volume"
+  },
+  {
+    "query": "steel",
+    "id": "pv20_q_2_ardr_raw_material",
+    "description": "ARD Ref Raw Materials",
+    "dataset": "pv20",
+    "category": "Price Volume"
+  },
+  {
+    "query": "steel",
+    "id": "fnd23_annfv1a_mria",
+    "description": "annual inventories - raw material.",
+    "dataset": "fundamental23",
+    "category": "Fundamental"
+  },
+  {
+    "query": "steel",
+    "id": "fnd23_blsmvb_mria",
+    "description": "annual inventories - raw material.",
+    "dataset": "fundamental23",
+    "category": "Fundamental"
+  },
+  {
+    "query": "steel",
+    "id": "fnd23_intfvm_mria",
+    "description": "annual inventories - raw material.",
+    "dataset": "fundamental23",
+    "category": "Fundamental"
+  },
+  {
+    "query": "steel",
+    "id": "fnd6_invrm",
+    "description": "Inventories - Raw Materials",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "steel",
+    "id": "rsk62_factor_1_100_val44",
+    "description": "Val44",
+    "dataset": "risk62",
+    "category": "Risk"
+  },
+  {
+    "query": "steel",
+    "id": "pv87_materialssourcing_momentum_mean",
+    "description": "Trailing 12m score of Materials Sourcing topic",
+    "dataset": "pv87",
+    "category": "Price Volume"
+  },
+  {
+    "query": "apparel",
+    "id": "apparel_accessories_score",
+    "description": "Score reflecting exposure to apparel and accessories sector.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "apparel",
+    "id": "apparel_industry_exposure_score",
+    "description": "Exposure or sensitivity to the apparel and clothing sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "apparel",
+    "id": "industry_factor_consumer_durables",
+    "description": "Exposure to the consumer durables and apparel industry factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "apparel",
+    "id": "industry_apparel_flag",
+    "description": "Indicator for companies classified in the apparel and clothing industry.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "apparel",
+    "id": "fnd3_a_inventory",
+    "description": "Inventory balance",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "fnd3_a_inventory_fast_d1",
+    "description": "Inventory balance",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "annual_inventory_change_amount",
+    "description": "Change in inventory during the year.",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "annual_inventory_change_amount_fast_d1",
+    "description": "Change in inventory during the year.",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "fnd3_a_epp",
+    "description": "Annual Property, Plant & Equipment",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "fnd3_a_epp_fast_d1",
+    "description": "Annual Property, Plant & Equipment",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "fnd3_a_opeexpenseexitems",
+    "description": "Annual Operating Expense Extraordinary Items",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "fnd3_a_opeexpenseexitems_fast_d1",
+    "description": "Annual Operating Expense Extraordinary Items",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "fnd3_q_epp",
+    "description": "Quarterly Property, Plant & Equipment",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "fnd3_q_epp_fast_d1",
+    "description": "Quarterly Property, Plant & Equipment",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "fnd3_aacctadj_capex",
+    "description": "Capital expenditures (cash outflows for property, plant and equipment and related assets)",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "fnd3_aacctadj_capex_fast_d1",
+    "description": "Capital expenditures (cash outflows for property, plant and equipment and related assets)",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "annual_net_income_total",
+    "description": "Net income for the year.",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "annual_net_income_total_fast_d1",
+    "description": "Net income for the year.",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "fnd3_a_capex",
+    "description": "Capital expenditures (cash outflows for property, plant and equipment)",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "apparel",
+    "id": "fnd3_a_capex_fast_d1",
+    "description": "Capital expenditures (cash outflows for property, plant and equipment)",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "automobiles",
+    "id": "automobiles_exposure_score",
+    "description": "Exposure or sensitivity to the automobiles and auto parts sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "automobiles",
+    "id": "industry_factor_automobiles_components",
+    "description": "Exposure to the automobiles and components industry factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "automobiles",
+    "id": "automobile_manufacturing_score",
+    "description": "Score reflecting exposure to automobile manufacturing sector.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "automobiles",
+    "id": "industry_auto_manufacturing_flag",
+    "description": "Indicator for companies classified in the automobile manufacturing industry.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "automobiles",
+    "id": "industry_factor_components",
+    "description": "Exposure to the auto components industry factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "automobiles",
+    "id": "anl69_best_sales",
+    "description": "Sales",
+    "dataset": "analyst69",
+    "category": "Analyst"
+  },
+  {
+    "query": "automobiles",
+    "id": "anl69_cest_sales",
+    "description": "Sales",
+    "dataset": "analyst69",
+    "category": "Analyst"
+  },
+  {
+    "query": "automobiles",
+    "id": "fnd72_pit_or_bs_a_bs_inventories",
+    "description": "Inventories",
+    "dataset": "fundamental72",
+    "category": "Fundamental"
+  },
+  {
+    "query": "automobiles",
+    "id": "fnd72_pit_or_bs_q_bs_inventories",
+    "description": "Inventories",
+    "dataset": "fundamental72",
+    "category": "Fundamental"
+  },
+  {
+    "query": "automobiles",
+    "id": "fnd72_s_pit_or_bs_q_1_bs_inventories",
+    "description": "Inventories",
+    "dataset": "fundamental72",
+    "category": "Fundamental"
+  },
+  {
+    "query": "automobiles",
+    "id": "industry_factor_consumer_durables_alt",
+    "description": "Exposure to the consumer durables industry factor (alternate classification).",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "automobiles",
+    "id": "fnd6_fate",
+    "description": "Plant, Property and Equipment at Cost - Machinery & Equipment",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "automobiles",
+    "id": "fnd6_ppents",
+    "description": "Property, Plant & Equipment",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "automobiles",
+    "id": "anl4_bac1actualqfv110_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "automobiles",
+    "id": "anl4_bac1conafv110_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "automobiles",
+    "id": "anl4_bac1conltv110_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "automobiles",
+    "id": "anl4_bac1conqfv110_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "automobiles",
+    "id": "anl4_bac1conrecv110_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "automobiles",
+    "id": "anl4_bac1detailafv110_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "automobiles",
+    "id": "anl4_bac1detaillt_item",
+    "description": "Financial item",
+    "dataset": "analyst4",
+    "category": "Analyst"
+  },
+  {
+    "query": "Banks",
+    "id": "bank_deposits_assets",
+    "description": "Assets held as deposits in banks.",
+    "dataset": "fundamental23",
+    "category": "Fundamental"
+  },
+  {
+    "query": "Banks",
+    "id": "short_term_bank_borrowings",
+    "description": "Short-term borrowings from banks outstanding.",
+    "dataset": "fundamental23",
+    "category": "Fundamental"
+  },
+  {
+    "query": "Banks",
+    "id": "short_term_bank_borrowings_2",
+    "description": "Amount of short-term borrowings from banks.",
+    "dataset": "fundamental23",
+    "category": "Fundamental"
+  },
+  {
+    "query": "Banks",
+    "id": "fnd23_blsmvb_bpal",
+    "description": "Accrued interest expenses, interest payable in commercial banks.",
+    "dataset": "fundamental23",
+    "category": "Fundamental"
+  },
+  {
+    "query": "Banks",
+    "id": "loans_advances_to_public_banks",
+    "description": "Loans and advances made to public sector banks.",
+    "dataset": "fundamental23",
+    "category": "Fundamental"
+  },
+  {
+    "query": "Banks",
+    "id": "banking_services_score",
+    "description": "Daily stock exposures to the Banks industry factor",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "Banks",
+    "id": "fnd23_annfv1a_bpal",
+    "description": "Accrued interest expenses, interest payable in commercial banks.",
+    "dataset": "fundamental23",
+    "category": "Fundamental"
+  },
+  {
+    "query": "Banks",
+    "id": "fnd23_intfvm_bpal",
+    "description": "Accrued interest expenses, interest payable in commercial banks.",
+    "dataset": "fundamental23",
+    "category": "Fundamental"
+  },
+  {
+    "query": "Banks",
+    "id": "bank_deposits_assets_2",
+    "description": "Total value of deposits held as assets in banks.",
+    "dataset": "fundamental23",
+    "category": "Fundamental"
+  },
+  {
+    "query": "Banks",
+    "id": "industry_factor_banks",
+    "description": "Exposure to the banks industry factor within the risk model.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "Banks",
+    "id": "banking_sector_exposure_score_2",
+    "description": "USCR industry factor for Banks in the MFM2 US model",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "Banks",
+    "id": "fnd72_s_pit_or_cr_q_diluted_ev",
+    "description": "Diluted enterprise value based on diluted market cap (not available for banks)",
+    "dataset": "fundamental72",
+    "category": "Fundamental"
+  },
+  {
+    "query": "Banks",
+    "id": "rsk62_beta_1_100_banks",
+    "description": "Industry beta (exposure) for the Banks industry factor in the USA risk model (1-day horizon, 100-day trailing window)",
+    "dataset": "risk62",
+    "category": "Risk"
+  },
+  {
+    "query": "Banks",
+    "id": "fnd72_s_pit_or_cr_q_ev_to_t12m_cash_flow",
+    "description": "Enterprise Value divided by trailing 12-month cash flow (periodic measure); not available for banks and N.A. if EV is negative",
+    "dataset": "fundamental72",
+    "category": "Fundamental"
+  },
+  {
+    "query": "Banks",
+    "id": "rsk62_beta_5_100_banks",
+    "description": "Per-stock beta coefficient for the Banks industry factor in the USA risk model (5-day horizon, 100-day window), capturing exposure to that industry",
+    "dataset": "risk62",
+    "category": "Risk"
+  },
+  {
+    "query": "Banks",
+    "id": "rsk62_beta_industry_constr_1_100_banks",
+    "description": "Constrained second-stage industry beta (exposure) for the Banks industry in the USA risk model using a 1-day horizon and 100-day rolling window",
+    "dataset": "risk62",
+    "category": "Risk"
+  },
+  {
+    "query": "Banks",
+    "id": "rsk62_beta_industry_constr_5_100_banks",
+    "description": "Constrained industry beta (second-stage regression coefficient) for the Banks industry factor in the USA risk model, estimated over a 100-day window at a 5-day return horizon",
+    "dataset": "risk62",
+    "category": "Risk"
+  },
+  {
+    "query": "Banks",
+    "id": "fnd35_snlbranchkeymap",
+    "description": "Branch Key",
+    "dataset": "fundamental35",
+    "category": "Fundamental"
+  },
+  {
+    "query": "Banks",
+    "id": "bank_borrowings_total",
+    "description": "Total bank borrowings outstanding.",
+    "dataset": "fundamental23",
+    "category": "Fundamental"
+  },
+  {
+    "query": "Banks",
+    "id": "short_term_bank_advances_investments",
+    "description": "Short-term bank advances and investments.",
+    "dataset": "fundamental23",
+    "category": "Fundamental"
+  },
+  {
+    "query": "beverages",
+    "id": "beverages_tobacco_exposure_score",
+    "description": "Exposure or sensitivity to the beverages and tobacco industry factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "beverages",
+    "id": "industry_beverages_flag",
+    "description": "Indicator for companies classified in the beverages industry.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "beverages",
+    "id": "beverage_tobacco_score",
+    "description": "Score indicating exposure to beverage and tobacco sector.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "beverages",
+    "id": "industry_factor_beverage",
+    "description": "Exposure to the beverage industry factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "beverages",
+    "id": "oth685_leveragemkt",
+    "description": "Market Leverage.",
+    "dataset": "other685",
+    "category": "Other"
+  },
+  {
+    "query": "beverages",
+    "id": "industry_factor_food_beverage_tobacco",
+    "description": "Exposure to the food, beverage, and tobacco industry factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "beverages",
+    "id": "food_retail_score",
+    "description": "Daily stock exposures to the Food Retail industry factor",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "beverages",
+    "id": "personal_products_score",
+    "description": "Score indicating exposure to personal products sector.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "beverages",
+    "id": "leisure_products_score",
+    "description": "Daily stock exposures to the Leisure Products industry factor",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "beverages",
+    "id": "industry_retail_flag",
+    "description": "Indicator for companies classified in the retail and consumer goods industry.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "beverages",
+    "id": "fnd3_aacctadj_revenue_fast_d1",
+    "description": "Total revenue or sales for the period",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "beverages",
+    "id": "fnd3_aacctadj_revenue",
+    "description": "Total revenue or sales for the period",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "beverages",
+    "id": "fnd3_a_revenue",
+    "description": "Annual Revenue",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "beverages",
+    "id": "fnd3_a_revenue_fast_d1",
+    "description": "Annual Revenue",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "beverages",
+    "id": "mdl138_pdi3_cash",
+    "description": "Deviation in the firm's total cash holdings, measured at an absolute level over 3 trailing quarters and scaled by firm size to identify abnormal cash accumulation or depletion",
+    "dataset": "model138",
+    "category": "Model"
+  },
+  {
+    "query": "beverages",
+    "id": "fnd3_aacctadj_costofrevenue_fast_d1",
+    "description": "Cost of revenue (cost of goods sold and related costs)",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "beverages",
+    "id": "fnd3_aacctadj_costofrevenue",
+    "description": "Cost of revenue (cost of goods sold and related costs)",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "beverages",
+    "id": "annual_inventory_change_amount",
+    "description": "Change in inventory during the year.",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "beverages",
+    "id": "annual_inventory_change_amount_fast_d1",
+    "description": "Change in inventory during the year.",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "beverages",
+    "id": "annual_cost_of_sales_total",
+    "description": "Total cost incurred to generate revenue for the year.",
+    "dataset": "fundamental3",
+    "category": "Fundamental"
+  },
+  {
+    "query": "biotechnology",
+    "id": "biotechnology_life_sciences_score",
+    "description": "Score reflecting exposure to biotechnology and life sciences sector.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "biotechnology",
+    "id": "biotechnology_life_sciences_exposure_score",
+    "description": "Exposure or sensitivity to the biotechnology and life sciences sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "biotechnology",
+    "id": "industry_biotechnology_flag",
+    "description": "Indicator for companies classified in the biotechnology and life sciences industry.",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "biotechnology",
+    "id": "mdl127_relevance_hist_3_recent_1",
+    "description": "Similarity between the recent 1 year of patent output and the technological footprint established over the preceding 3 years",
+    "dataset": "model127",
+    "category": "Model"
+  },
+  {
+    "query": "biotechnology",
+    "id": "mdl127_relevance_hist_1_recent_1",
+    "description": "Innovation relevance comparing the most recent 1 year of patenting with the company\u2019s 1-year historical patent technology footprint",
+    "dataset": "model127",
+    "category": "Model"
+  },
+  {
+    "query": "biotechnology",
+    "id": "mdl127_relevance_hist_5_recent_5_neut",
+    "description": "Neutralized innovation relevance comparing recent 5-year output to a 5-year historical base; cross-sectional z-score neutralized for sector, market cap, volatility, and momentum",
+    "dataset": "model127",
+    "category": "Model"
+  },
+  {
+    "query": "biotechnology",
+    "id": "fnd6_rds",
+    "description": "Research and Development",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "biotechnology",
+    "id": "rd_expense",
+    "description": "Research And Development (Quarterly)",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "biotechnology",
+    "id": "fnd13_erad",
+    "description": "Research & Development",
+    "dataset": "fundamental13",
+    "category": "Fundamental"
+  },
+  {
+    "query": "biotechnology",
+    "id": "oth567_deltascore_innovation_technology_414",
+    "description": "score_innovation_technology",
+    "dataset": "other567",
+    "category": "Other"
+  },
+  {
+    "query": "biotechnology",
+    "id": "oth567score_innovation_technology_328",
+    "description": "score_innovation_technology",
+    "dataset": "other567",
+    "category": "Other"
+  },
+  {
+    "query": "biotechnology",
+    "id": "rsk62_risk_growth",
+    "description": "growth",
+    "dataset": "risk62",
+    "category": "Risk"
+  },
+  {
+    "query": "biotechnology",
+    "id": "fnd6_newqeventv110_rdipq",
+    "description": "In Process R&D",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "biotechnology",
+    "id": "fnd6_newqv1300_rdipq",
+    "description": "In Process R&D",
+    "dataset": "fundamental6",
+    "category": "Fundamental"
+  },
+  {
+    "query": "biotechnology",
+    "id": "investment_stage_primary",
+    "description": "Primary stage of the investment (e.g., seed, growth).",
+    "dataset": "news23",
+    "category": "News"
+  },
+  {
+    "query": "biotechnology",
+    "id": "earnings_from_associates",
+    "description": "[Quarterly] Research & Development",
+    "dataset": "fundamental23",
+    "category": "Fundamental"
+  },
+  {
+    "query": "biotechnology",
+    "id": "industry_sector_classification_17",
+    "description": "The industry sector to which the company belongs.",
+    "dataset": "pv20",
+    "category": "Price Volume"
+  },
+  {
+    "query": "biotechnology",
+    "id": "fnd21_allcategories_insight_biodiversityimpactsindustrypercentile_insight",
+    "description": "%ile within SICS industry for a company derived from insight scores calculated from news articles relevant to Biodiversity Impact of any company. This topic addresses impacts on ecosystems and biodiversity. This includes, but is not limited to, aspects of land use, ecosystem service benefits, biodiversity loss and habitat destruction, and deforestation. This topic relates to all stages of a company's interaction with ecosystems including planning, land acquisition, permitting, development, operations, and site remediation",
+    "dataset": "fundamental21",
+    "category": "Fundamental"
+  },
+  {
+    "query": "biotechnology",
+    "id": "fnd21_allcategories_insight_biodiversityimpacts_insight",
+    "description": "Insight score derived from news articles relevant to the Biodiversity Impact of any company. This topic addresses impacts on ecosystems and biodiversity. This includes, but is not limited to, aspects of land use, ecosystem service benefits, biodiversity loss and habitat destruction, and deforestation. This topic relates to all stages of a company's interaction with ecosystems including planning, land acquisition, permitting, development, operations, and site remediation.",
+    "dataset": "fundamental21",
+    "category": "Fundamental"
+  },
+  {
+    "query": "biotechnology",
+    "id": "fnd21_allcategories_momentum_biodiversityimpactsindustrypercentile_momentum",
+    "description": "%ile within SICS industry for a company derived from momentum scores calculated from news articles relevant to Biodiversity Impact of any company. This topic addresses impacts on ecosystems and biodiversity. This includes, but is not limited to, aspects of land use, ecosystem service benefits, biodiversity loss, habitat destruction, and deforestation. This topic relates to all stages of a company's interaction with ecosystems including planning, land acquisition, permitting, development, operations, and site remediation",
+    "dataset": "fundamental21",
+    "category": "Fundamental"
+  },
+  {
+    "query": "market factor",
+    "id": "rsk70_mfm2_usfast_market",
+    "description": "Market Market Factor Loading",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "broad_market_factor_score",
+    "description": "Exposure to the broad market factor, representing overall market movements.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "broad_market_factor_exposure_3",
+    "description": "Exposure to the overall market factor in the risk model.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "broad_market_factor_score_2",
+    "description": "Daily stock exposures to the broad Market factor",
+    "dataset": "mfm_model_output",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "capm_residual_volatility_2",
+    "description": "Idiosyncratic volatility measured as the standard deviation of CAPM model residuals over the last 252 trading days; represents risk not explained by the market factor",
+    "dataset": "forward_beta_risk",
+    "category": "Model"
+  },
+  {
+    "query": "market factor",
+    "id": "market",
+    "description": "Market grouping",
+    "dataset": "pv1",
+    "category": "Price Volume"
+  },
+  {
+    "query": "market factor",
+    "id": "sector",
+    "description": "Sector grouping",
+    "dataset": "pv1",
+    "category": "Price Volume"
+  },
+  {
+    "query": "market factor",
+    "id": "mid_capitalization_factor",
+    "description": "Factor representing exposure to mid-sized companies by market capitalization.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "market_capitalization_factor",
+    "description": "Factor representing the effect of company size, typically measured by market capitalization.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "homebuilding_exposure_score",
+    "description": "Exposure or sensitivity to the homebuilding sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "specialty_stores_exposure_score",
+    "description": "Exposure or sensitivity to the specialty stores sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "specialty_retail_exposure_score",
+    "description": "Exposure or sensitivity to the specialty retail sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "net_retail_exposure_score",
+    "description": "Exposure or sensitivity to the net retail sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "food_retail_exposure_score",
+    "description": "Exposure or sensitivity to the food retail sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "managed_healthcare_exposure_score",
+    "description": "Exposure or sensitivity to the managed healthcare sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "real_estate_exposure_score",
+    "description": "Exposure or sensitivity to the real estate sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "trading_companies_exposure_score",
+    "description": "Exposure or sensitivity to the trading companies and distributors sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "distribution_services_exposure_score",
+    "description": "Exposure or sensitivity to the distribution services sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "transportation_services_exposure_score",
+    "description": "Exposure or sensitivity to the transportation services sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  },
+  {
+    "query": "market factor",
+    "id": "construction_materials_exposure_score",
+    "description": "Exposure or sensitivity to the construction materials sector factor.",
+    "dataset": "risk70",
+    "category": "Risk"
+  }
+]

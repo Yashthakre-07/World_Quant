@@ -1,0 +1,25 @@
+{
+  "alpha_id": "vRmA608w",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actuals_reporting_currency)) + 0.001), 3)), 0), industry)",
+  "family": "GROUPB_GEN_11_EVOLVED_8",
+  "hypothesis": "Dynamic alpha leveraging theme field actuals_reporting_currency gated at 0.80 volume gate with safety divisor offset.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.6,
+  "fitness": 0.83,
+  "turnover": 31.53,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 8,
+    "neutralization": "INDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-11 15:26:40"
+}

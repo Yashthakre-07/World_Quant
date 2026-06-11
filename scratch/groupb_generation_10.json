@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "family": "GRP_B_REVERSION_EPS_01",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate)) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Short-term price reversion scaled by the absolute value of EPS consensus estimate.",
+    "decay": 3
+  },
+  {
+    "id": 2,
+    "family": "GRP_B_REVERSION_SALES_02",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.72, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate)) + 0.001), 5)), 0), industry)",
+    "hypothesis": "Medium-term price reversion scaled by the absolute value of sales consensus estimate.",
+    "decay": 5
+  },
+  {
+    "id": 3,
+    "family": "GRP_B_REVERSION_REC_03",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.68, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(anl4_fs_detail_rec_v4_nd_estimate)) + 0.001), 8)), 0), industry)",
+    "hypothesis": "Longer-term price reversion scaled by analyst recommendation score.",
+    "decay": 8
+  },
+  {
+    "id": 4,
+    "family": "GRP_B_REVERSION_DIV_04",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(anl4_fs_basic_splt_v4_nd_div_estimate)) + 0.001), 10)), 0), industry)",
+    "hypothesis": "Long-term price reversion scaled by estimated dividend yield basis.",
+    "decay": 10
+  },
+  {
+    "id": 5,
+    "family": "GRP_B_REVERSION_OIBDPS_05",
+    "dataset": "fundamental6",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.65, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(fnd6_oibdps)) + 0.001), 4)), 0), industry)",
+    "hypothesis": "Short-term price reversion scaled by operating income before depreciation per share vector.",
+    "decay": 4
+  },
+  {
+    "id": 6,
+    "family": "GRP_B_REVERSION_PTIS_06",
+    "dataset": "fundamental6",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.78, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(fnd6_ptis)) + 0.001), 6)), 0), industry)",
+    "hypothesis": "Medium-term price reversion scaled by pre-tax income per share vector.",
+    "decay": 6
+  },
+  {
+    "id": 7,
+    "family": "GRP_B_REVERSION_TXTS_07",
+    "dataset": "fundamental6",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(fnd6_txts)) + 0.001), 9)), 0), industry)",
+    "hypothesis": "Medium-long term price reversion scaled by total income taxes vector.",
+    "decay": 9
+  },
+  {
+    "id": 8,
+    "family": "GRP_B_REVERSION_NEWS_08",
+    "dataset": "news12",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(sixty_minute_price_change_pct_2)) + 0.001), 7)), 0), industry)",
+    "hypothesis": "Medium-term price reversion scaled by absolute 60-minute news price change sentiment.",
+    "decay": 7
+  },
+  {
+    "id": 9,
+    "family": "GRP_B_REVERSION_OPTDR_09",
+    "dataset": "fundamental6",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.71, -rank(ts_decay_linear((vwap - open) / (abs(fnd6_optdr) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Short-term price reversion scaled by options/operating debt ratio matrix.",
+    "decay": 3
+  },
+  {
+    "id": 10,
+    "family": "GRP_B_REVERSION_NIADJ_10",
+    "dataset": "fundamental6",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.74, -rank(ts_decay_linear((vwap - open) / (abs(fnd6_niadj) + 0.001), 5)), 0), industry)",
+    "hypothesis": "Medium-term price reversion scaled by adjusted net income matrix.",
+    "decay": 5
+  },
+  {
+    "id": 11,
+    "family": "GRP_B_REVERSION_DD5_11",
+    "dataset": "fundamental6",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.67, -rank(ts_decay_linear((vwap - open) / (abs(fnd6_dd5) + 0.001), 8)), 0), industry)",
+    "hypothesis": "Longer-term price reversion scaled by dd5 fundamental matrix.",
+    "decay": 8
+  },
+  {
+    "id": 12,
+    "family": "GRP_B_REVERSION_IVP180_12",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.73, -rank(ts_decay_linear((vwap - open) / (abs(implied_volatility_put_180) + 0.001), 10)), 0), industry)",
+    "hypothesis": "Long-term price reversion scaled by 180-day put option implied volatility.",
+    "decay": 10
+  },
+  {
+    "id": 13,
+    "family": "GRP_B_REVERSION_IVP120_13",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.69, -rank(ts_decay_linear((vwap - open) / (abs(implied_volatility_put_120) + 0.001), 6)), 0), industry)",
+    "hypothesis": "Medium-term price reversion scaled by 120-day put option implied volatility.",
+    "decay": 6
+  },
+  {
+    "id": 14,
+    "family": "GRP_B_REVERSION_IVC10_14",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.76, -rank(ts_decay_linear((vwap - open) / (abs(implied_volatility_call_10) + 0.001), 4)), 0), industry)",
+    "hypothesis": "Short-term price reversion scaled by short-term call option implied volatility.",
+    "decay": 4
+  },
+  {
+    "id": 15,
+    "family": "GRP_B_REVERSION_RELNUM_15",
+    "dataset": "pv13",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(rel_num_part) + 0.001), 12)), 0), industry)",
+    "hypothesis": "Long-term price reversion scaled by relative number of participants matrix.",
+    "decay": 12
+  },
+  {
+    "id": 16,
+    "family": "GRP_B_REVERSION_EPS_16",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate)) + 0.001), 15)), 0), industry)",
+    "hypothesis": "Very long-term price reversion scaled by absolute EPS consensus estimate.",
+    "decay": 15
+  }
+]

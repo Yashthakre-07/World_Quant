@@ -1,0 +1,25 @@
+{
+  "alpha_id": "e7raGWaz",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(accumulated_depreciation_depletion_amortization_ppne) + 0.001), 3)), 0), subindustry)",
+  "family": "GROUPB_GEN_11_EVOLVED_5",
+  "hypothesis": "Dynamic alpha leveraging theme field accumulated_depreciation_depletion_amortization_ppne gated at 0.80 volume gate with safety divisor offset.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.54,
+  "fitness": 0.8,
+  "turnover": 31.369999999999997,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 8,
+    "neutralization": "INDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-11 14:21:57"
+}

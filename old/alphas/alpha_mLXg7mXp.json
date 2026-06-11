@@ -1,0 +1,25 @@
+{
+  "alpha_id": "mLXg7mXp",
+  "formula": "(group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(close - open, 6)), 0), industry)) * rank(volume / adv20)",
+  "family": "BEST_PERF_ALPHA_0",
+  "hypothesis": "Top Performance Whitelisted Alpha",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.58,
+  "fitness": 0.9,
+  "turnover": 28.199999999999996,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-09 21:45:25"
+}

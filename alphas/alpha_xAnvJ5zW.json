@@ -1,0 +1,25 @@
+{
+  "alpha_id": "xAnvJ5zW",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(acquisition_assets_property_plant_equipment) + 0.001), 3)), 0), subindustry)",
+  "family": "GROUPB_GEN_14_EVOLVED_13",
+  "hypothesis": "Evolved descendant of GROUPB_GEN_12_EVOLVED_13 (status=UNKNOWN, Sharpe=None)",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.47,
+  "fitness": 0.65,
+  "turnover": 33.2,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 8,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-11 16:44:24"
+}

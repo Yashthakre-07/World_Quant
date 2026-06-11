@@ -1,0 +1,5186 @@
+[
+  {
+    "id": "anl16_1scermun",
+    "description": "the number of recommendations with a value of 1",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5695,
+    "userCount": 87,
+    "alphaCount": 154,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_2scermun",
+    "description": "the number of recommendations with a value of 2",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5856,
+    "userCount": 57,
+    "alphaCount": 130,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_3scermun",
+    "description": "the number of recommendations with a value of 3",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.626,
+    "userCount": 69,
+    "alphaCount": 103,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_actchgnorm_estcomsplitadj",
+    "description": "Split adjusted change of actual value in fiscal report.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7674,
+    "userCount": 60,
+    "alphaCount": 196,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_actchgnorm_estnormcuradj",
+    "description": "currency adjusted change of actual value in fiscal report",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7674,
+    "userCount": 29,
+    "alphaCount": 38,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_actgrowth",
+    "description": "The growth of actual value in the fiscal report during the past several years.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.6032,
+    "userCount": 14,
+    "alphaCount": 17,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_actnorm_estcomsplitadj",
+    "description": "split adjusted normalized actual value in fiscal report",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7848,
+    "userCount": 118,
+    "alphaCount": 269,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_actnorm_estnormcuradj",
+    "description": "Currency-adjusted normalized actual value in the fiscal report.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7848,
+    "userCount": 75,
+    "alphaCount": 111,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_actstability",
+    "description": "the stability of actual value in fiscal report",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.6033,
+    "userCount": 14,
+    "alphaCount": 22,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_actsuescore",
+    "description": "Sentiment score of actual value surprise",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.73,
+    "userCount": 50,
+    "alphaCount": 89,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_actsurprise",
+    "description": "actual value surprise in fiscal report",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7652,
+    "userCount": 54,
+    "alphaCount": 102,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_actunit_scale",
+    "description": "Unit scale.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7848,
+    "userCount": 56,
+    "alphaCount": 95,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_actunit_scale_ascontrib",
+    "description": "unit scale contributed by the broker",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7848,
+    "userCount": 65,
+    "alphaCount": 162,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_actunit_scale_normal",
+    "description": "normalized unit scale",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7848,
+    "userCount": 79,
+    "alphaCount": 154,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_actvalue",
+    "description": "actual value in fiscal report",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7846,
+    "userCount": 44,
+    "alphaCount": 81,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_actvalue_ascontrib",
+    "description": "Count of unique IDs of industry participants. Industry stands for an aggregate view of all  equity clearance activity for the date, symbol, and transaction type in question.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7846,
+    "userCount": 32,
+    "alphaCount": 69,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_actvalue_normal",
+    "description": "Normalized actual value in the fiscal report.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7846,
+    "userCount": 38,
+    "alphaCount": 85,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_difference",
+    "description": "Difference between consensus values after and before the event (after change value minus before change value)",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 27,
+    "alphaCount": 51,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_difference_fast_d1",
+    "description": "Difference between consensus values after and before the event (after change value minus before change value)",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_high",
+    "description": "Highest value in the consensus after the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 22,
+    "alphaCount": 29,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_high_fast_d1",
+    "description": "Highest value in the consensus after the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_low",
+    "description": "Lowest value in the consensus after the event",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 20,
+    "alphaCount": 31,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_low_fast_d1",
+    "description": "Lowest value in the consensus after the event",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_mean",
+    "description": "Mean value in the consensus after the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 17,
+    "alphaCount": 25,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_mean_fast_d1",
+    "description": "Mean value in the consensus after the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_median",
+    "description": "Median value in the consensus after the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 16,
+    "alphaCount": 31,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_median_fast_d1",
+    "description": "Median value in the consensus after the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_numitems",
+    "description": "Number of estimated values in the consensus after the event",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 22,
+    "alphaCount": 29,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_numitems_fast_d1",
+    "description": "Number of estimated values in the consensus after the event",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_percentage",
+    "description": "Relative change in consensus value: (after change value minus before change value) divided by before change value",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 29,
+    "alphaCount": 65,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_percentage_fast_d1",
+    "description": "Relative change in consensus value: (after change value minus before change value) divided by before change value",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_stddev",
+    "description": "Standard deviation of the estimated values in the consensus after the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 10,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_aftercons_stddev_fast_d1",
+    "description": "Standard deviation of the estimated values in the consensus after the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_afterest_difference",
+    "description": "Difference between estimate values after and before the event (after change value minus before change value)",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 24,
+    "alphaCount": 32,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_afterest_difference_fast_d1",
+    "description": "Difference between estimate values after and before the event (after change value minus before change value)",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_afterest_percentage",
+    "description": "Relative change in the earnings estimate: (after change value minus before change value) divided by before change value",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 18,
+    "alphaCount": 39,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_afterest_percentage_fast_d1",
+    "description": "Relative change in the earnings estimate: (after change value minus before change value) divided by before change value",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_afterest_stdvalue",
+    "description": "Standard deviation of the earning estimates\u2019 values after the event",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 6,
+    "alphaCount": 11,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_afterest_value",
+    "description": "Value of the earnings estimate after the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 8,
+    "alphaCount": 15,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_afterest_value_fast_d1",
+    "description": "Value of the earnings estimate after the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforecons_high",
+    "description": "Highest value in the consensus before the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 24,
+    "alphaCount": 39,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforecons_high_fast_d1",
+    "description": "Highest value in the consensus before the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforecons_low",
+    "description": "Lowest value in the consensus before the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 18,
+    "alphaCount": 47,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforecons_low_fast_d1",
+    "description": "Lowest value in the consensus before the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforecons_mean",
+    "description": "Mean value in the consensus before the event",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 12,
+    "alphaCount": 13,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforecons_mean_fast_d1",
+    "description": "Mean value in the consensus before the event",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforecons_median",
+    "description": "Median value in the consensus before the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 12,
+    "alphaCount": 18,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforecons_median_fast_d1",
+    "description": "Median value in the consensus before the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforecons_numitems",
+    "description": "number of values included in the consensus multiply multiplier",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 25,
+    "alphaCount": 35,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforecons_numitems_fast_d1",
+    "description": "number of values included in the consensus multiply multiplier",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforecons_numitems_orig",
+    "description": "number of individual estimates included in the consensus before the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 23,
+    "alphaCount": 43,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforecons_numitems_orig_fast_d1",
+    "description": "number of individual estimates included in the consensus before the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforecons_stddev",
+    "description": "Standard deviation of the estimated values in the consensus before the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 8,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforecons_stddev_fast_d1",
+    "description": "Standard deviation of the estimated values in the consensus before the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforeest_stdvalue",
+    "description": "Standard deviation of the value of the earnings estimate before the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 9,
+    "alphaCount": 11,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforeest_stdvalue_fast_d1",
+    "description": "Standard deviation of the value of the earnings estimate before the change",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforeest_value",
+    "description": "Value of the earnings estimate before the event",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 12,
+    "alphaCount": 16,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_beforeest_value_fast_d1",
+    "description": "Value of the earnings estimate before the event",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_clusterestsdown",
+    "description": "The number of analysts revising down during the initial detection window of the revision cluster",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8316,
+    "userCount": 436,
+    "alphaCount": 1368,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_clusterestsup",
+    "description": "The number of analysts revising up during the initial detection window of the revision cluster",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8245,
+    "userCount": 793,
+    "alphaCount": 3340,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estimate_d1_estnorm_estcomsplitadj",
+    "description": "split adjusted normalized estimate value",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8773,
+    "userCount": 89,
+    "alphaCount": 168,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estimate_d1_estnorm_estnormcuradj",
+    "description": "currency adjusted normalized estimate value",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8773,
+    "userCount": 69,
+    "alphaCount": 103,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estimate_d1_estunit_scale",
+    "description": "unit_scale",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8773,
+    "userCount": 37,
+    "alphaCount": 75,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estimate_d1_estunit_scale_ascontrib",
+    "description": "unit scale contributed by the broker",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8773,
+    "userCount": 49,
+    "alphaCount": 116,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estimate_d1_estunit_scale_normal",
+    "description": "normalized unit scale",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8773,
+    "userCount": 39,
+    "alphaCount": 79,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estimate_d1_estvalue",
+    "description": "estimate value",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8772,
+    "userCount": 39,
+    "alphaCount": 104,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estimate_d1_estvalue_ascontrib",
+    "description": "Count of unique IDs of industry participants. Industry stands for an aggregate view of all  equity clearance activity for the date, symbol, and transaction type in question.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8772,
+    "userCount": 36,
+    "alphaCount": 90,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estimate_d1_estvalue_normal",
+    "description": "the normalized estimate value",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8772,
+    "userCount": 39,
+    "alphaCount": 93,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estnotetext",
+    "description": "free text field explaining the footnote (for example, earnings before goodwill amortization).",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.703,
+    "userCount": 71,
+    "alphaCount": 112,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estorgnotenorm_estcomsplitadj",
+    "description": "split adjusted value of the footnote",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5754,
+    "userCount": 169,
+    "alphaCount": 339,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estorgnotenorm_estnormcuradj",
+    "description": "Currency-adjusted value of the footnote.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5754,
+    "userCount": 22,
+    "alphaCount": 34,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estorgnotetext",
+    "description": "Estimate orgnote text from company footnote.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5754,
+    "userCount": 35,
+    "alphaCount": 69,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estorgnoteunit_scale",
+    "description": "Unit scale.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5754,
+    "userCount": 15,
+    "alphaCount": 21,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estorgnoteunit_scale_ascontrib",
+    "description": "Unit scale contributed by the broker.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5754,
+    "userCount": 18,
+    "alphaCount": 50,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estorgnoteunit_scale_normal",
+    "description": "normalized unit scale",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.5754,
+    "userCount": 18,
+    "alphaCount": 38,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estorgnotevalue",
+    "description": "the value of the footnote",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.432,
+    "userCount": 10,
+    "alphaCount": 11,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estorgnotevalue_ascontrib",
+    "description": "the value of the footnote contributed by the broker",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.432,
+    "userCount": 8,
+    "alphaCount": 11,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estorgnotevalue_normal",
+    "description": "Normalized value of the footnote.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.432,
+    "userCount": 11,
+    "alphaCount": 12,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estsdown",
+    "description": "the number of brokers revising their estimates downward during the comparison window",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8407,
+    "userCount": 51,
+    "alphaCount": 125,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_eststddev",
+    "description": "the standard deviation of all estimates in the summary.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.827,
+    "userCount": 31,
+    "alphaCount": 64,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_eststddev_normal",
+    "description": "the normalized standard deviation of all estimates in the summary.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.827,
+    "userCount": 33,
+    "alphaCount": 75,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_estsup",
+    "description": "The number of brokers revising their estimates upward during the comparison window.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8441,
+    "userCount": 69,
+    "alphaCount": 169,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_highest",
+    "description": "the highest estimate in the summary",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8582,
+    "userCount": 30,
+    "alphaCount": 67,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_highest_normal",
+    "description": "the normalized highest estimate in the summary",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8582,
+    "userCount": 34,
+    "alphaCount": 97,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_highrec",
+    "description": "The highest recommendation in the summary.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.6775,
+    "userCount": 42,
+    "alphaCount": 94,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_interimperiodend",
+    "description": "The date when the interim fiscal period ends for the company",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 14,
+    "alphaCount": 19,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_interimperiodend_fast_d1",
+    "description": "The date when the interim fiscal period ends for the company",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_interimperiodnum",
+    "description": "Number assigned to an interim period (e.g., 1=Q1, 2=Q2, 3=Q3, 4=Q4)",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 21,
+    "alphaCount": 54,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_interimperiodnum_fast_d1",
+    "description": "Number assigned to an interim period (e.g., 1=Q1, 2=Q2, 3=Q3, 4=Q4)",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_lowest",
+    "description": "The lowest estimate value in the summary.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8582,
+    "userCount": 32,
+    "alphaCount": 76,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_lowest_normal",
+    "description": "the normalized lowest of estimate value in the summary",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8582,
+    "userCount": 23,
+    "alphaCount": 53,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_lowrec",
+    "description": "the lowest of rec value in the summary",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.6775,
+    "userCount": 19,
+    "alphaCount": 30,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_meanest",
+    "description": "the mean of estimate value in the summary",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8582,
+    "userCount": 41,
+    "alphaCount": 91,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_meanest_normal",
+    "description": "normalized mean of estimate value in the summary",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8582,
+    "userCount": 43,
+    "alphaCount": 107,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_meanestnorm_estcomsplitadj",
+    "description": "split adjusted mean of estimate value in the summary",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8583,
+    "userCount": 107,
+    "alphaCount": 177,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_meanestnorm_estnormcuradj",
+    "description": "Currency adjusted mean of estimate value in the summary",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8583,
+    "userCount": 36,
+    "alphaCount": 51,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_meanestunit_scale",
+    "description": "unit_scale",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8583,
+    "userCount": 46,
+    "alphaCount": 103,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_meanestunit_scale_normal",
+    "description": "normalized unit scale",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8583,
+    "userCount": 32,
+    "alphaCount": 65,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_meanrec",
+    "description": "the mean of rec value in the summary",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.6775,
+    "userCount": 33,
+    "alphaCount": 64,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_medianest",
+    "description": "The median estimate value in the summary.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8582,
+    "userCount": 25,
+    "alphaCount": 60,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_medianest_normal",
+    "description": "normalized median of estimate value in the summary",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8582,
+    "userCount": 35,
+    "alphaCount": 93,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_medianrec",
+    "description": "The median of REC value in the summary.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.6775,
+    "userCount": 20,
+    "alphaCount": 38,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_numests",
+    "description": "the total number of active estimates on the current security/period/measure",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8583,
+    "userCount": 43,
+    "alphaCount": 116,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_numincests",
+    "description": "the number of estimates used to generate the summary analytic values",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8583,
+    "userCount": 39,
+    "alphaCount": 75,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_overallratinganaest",
+    "description": "Overall rating based on estimates, scaled from 1 to 100",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9813,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_overallratinganaest1through5",
+    "description": "Overall rating on estimates using a scale of 1 to 5",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9813,
+    "userCount": 54,
+    "alphaCount": 630,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_overallratinganarec1through5t12",
+    "description": "Overall rating on recommendations (trailing 12 months) using a scale of 1 to 5",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9084,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_overallratinganarec1through5t24",
+    "description": "Overall rating on recommendations (trailing 24 months) using a scale of 1 to 5",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9407,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_overallratinganarect12",
+    "description": "Overall rating on recommendations (trailing 12 months), scaled 1 to 100",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9084,
+    "userCount": 58,
+    "alphaCount": 1208,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_overallratinganarect24",
+    "description": "Overall rating on recommendations (trailing 24 months), scaled 1 to 100",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9407,
+    "userCount": 50,
+    "alphaCount": 650,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_pctchangefrommean",
+    "description": "the percent change in the mean estimate",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8522,
+    "userCount": 242,
+    "alphaCount": 461,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_preliminaryestimate_d1_estvalue",
+    "description": "estimate value",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9826,
+    "userCount": 53,
+    "alphaCount": 137,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_preliminaryrecommendation_d1_reccode",
+    "description": "The recommendation code.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.6553,
+    "userCount": 35,
+    "alphaCount": 54,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_preliminaryrecommendation_d1_recvalue",
+    "description": "the recommendation value",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.6553,
+    "userCount": 32,
+    "alphaCount": 67,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_presurprise",
+    "description": "The predicted amount of surprises.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.934,
+    "userCount": 37,
+    "alphaCount": 99,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_presurprise_normal",
+    "description": "The normalized predicted surprises as a percentage of the mean estimate",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.934,
+    "userCount": 32,
+    "alphaCount": 56,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_presurprisepct",
+    "description": "The predicted surprises as a percentage of the mean estimate",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9338,
+    "userCount": 48,
+    "alphaCount": 114,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_recommendation_d1_reccode",
+    "description": "the recommendation code",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7543,
+    "userCount": 79,
+    "alphaCount": 252,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_recommendation_d1_recvalue",
+    "description": "The recommendation value.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7543,
+    "userCount": 68,
+    "alphaCount": 134,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_recsdown",
+    "description": "the number of brokers revising their ratings downward during the comparison window",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.333,
+    "userCount": 18,
+    "alphaCount": 26,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_recsup",
+    "description": "the number of brokers revising their ratings upward during the comparison window",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3056,
+    "userCount": 39,
+    "alphaCount": 65,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_scermun",
+    "description": "the number of recommendations in the mean.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.6775,
+    "userCount": 23,
+    "alphaCount": 39,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_senorm_estcomsplitadj",
+    "description": "split adjusted summary relative accuracy score",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9615,
+    "userCount": 111,
+    "alphaCount": 170,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_senorm_estnormcuradj",
+    "description": "currency adjusted summary relative accuracy score",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9615,
+    "userCount": 58,
+    "alphaCount": 73,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_senumincests",
+    "description": "Count of unique IDs of industry participants. Industry stands for an aggregate view of all  equity clearance activity for the date, symbol, and transaction type in question.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9615,
+    "userCount": 70,
+    "alphaCount": 161,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_seunit_scale",
+    "description": "unit scale",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9615,
+    "userCount": 37,
+    "alphaCount": 92,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_seunit_scale_normal",
+    "description": "normalized unit scale",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9615,
+    "userCount": 29,
+    "alphaCount": 47,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_smartest",
+    "description": "Estimate value based on the smart model.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9614,
+    "userCount": 33,
+    "alphaCount": 75,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_smartest_normal",
+    "description": "Normalized estimate value based on smart model.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9614,
+    "userCount": 39,
+    "alphaCount": 105,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_sranaeststock",
+    "description": "srana estimate",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9939,
+    "userCount": 65,
+    "alphaCount": 167,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_sranarecstock1through5t12",
+    "description": "SRANA recommendations that range from 1 to 5 (trailing 12 months)",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9939,
+    "userCount": 58,
+    "alphaCount": 95,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_sranarecstock1through5t24",
+    "description": "SRANA recommendations that range from 1 to 5 (trailing 24 months)",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9939,
+    "userCount": 70,
+    "alphaCount": 151,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_sranarecstockt12",
+    "description": "srana recommendations that range from 1 to 100 (trailing 12 months).",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9939,
+    "userCount": 64,
+    "alphaCount": 127,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_sranarecstockt24",
+    "description": "srana recommendations that range from 1 to 100 (trailing 24 months).",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9939,
+    "userCount": 64,
+    "alphaCount": 136,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "anl16_sranastockest1through5",
+    "description": "SRANA recommendations on a scale of 1 to 5.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9939,
+    "userCount": 70,
+    "alphaCount": 186,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "average_kpi_value",
+    "description": "The mean value of all key performance indicator estimates for a product and period.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "estimate_change_currency_code",
+    "description": "Currency code used for the estimate change.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9441,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "estimate_change_currency_code_fast_d1",
+    "description": "Currency code used for the estimate change.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8493,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "forecast_period_duration",
+    "description": "The length of the forecasted period, such as number of months or quarters.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "included_kpi_estimate_count",
+    "description": "The number of key performance indicator estimates included in the summary calculation.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "max_kpi_normalized",
+    "description": "The highest normalized key performance indicator estimate value for a product and period.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mean_kpi_currency_adjustment",
+    "description": "The adjustment factor applied to convert the mean KPI value to a default currency.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mean_kpi_normalized",
+    "description": "The mean key performance indicator value after normalization for currency or splits.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mean_kpi_scale_factor",
+    "description": "The scaling factor applied to the mean KPI value, such as thousands or millions.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mean_kpi_scale_normalized",
+    "description": "The scaling factor for the normalized mean KPI value.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "median_kpi_normalized",
+    "description": "The median key performance indicator value after normalization for currency or splits.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "median_kpi_value",
+    "description": "The median value among all key performance indicator estimates for a product and period.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "min_kpi_value",
+    "description": "The lowest key performance indicator estimate value for a product and period.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "normalized_product_estimate_lowest_value",
+    "description": "Lowest value among all product estimates after normalization.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "normalized_product_estimate_standard_deviation",
+    "description": "Standard deviation of product estimates after normalization adjustments.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "product_actual_surprise_fiscal_end_month",
+    "description": "Fiscal month when the reporting period for the product actual surprise window ends.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3566,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "product_actual_surprise_percentage_value",
+    "description": "Surprise percentage for the product actual compared to the estimate.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.2898,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "product_actual_surprise_period_length_value",
+    "description": "Length of the reporting period in the product actual surprise window.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3566,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "product_actual_surprise_window_length",
+    "description": "Length of the time window for the product actual surprise calculation.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3566,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "product_estimate_footnote_text",
+    "description": "Text explanation or comment for the product estimate footnote.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3057,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "product_estimate_highest_value",
+    "description": "Highest value among all product estimates in the summary.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "product_estimate_mean_split_adjustment",
+    "description": "Adjustment factor applied to the mean product estimate for stock splits.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "product_estimate_period_fiscal_end_month",
+    "description": "Fiscal month when the reporting period for the product estimate footnote ends.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3057,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "product_estimate_period_length_value",
+    "description": "Length of the reporting period for the product estimate footnote.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3057,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "product_estimate_standard_deviation",
+    "description": "Standard deviation of product estimates in the summary.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "product_estimate_summary_count",
+    "description": "Total number of product estimates included in the summary.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "product_estimate_summary_fiscal_end_month",
+    "description": "Fiscal month when the reporting period for the product estimate summary ends.",
+    "dataset": {
+      "id": "analyst16",
+      "name": "Real Time Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-crowdsourced-estimates",
+      "name": "Crowdsourced Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3929,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  }
+]

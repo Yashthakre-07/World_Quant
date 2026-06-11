@@ -1,0 +1,23 @@
+[
+  {
+    "idx": 1,
+    "formula": "rank(ts_delta(analyst10_eps_smart, 5))",
+    "alpha_id": null,
+    "status": "failed",
+    "settings": {
+      "instrumentType": "EQUITY",
+      "region": "USA",
+      "universe": "TOP3000",
+      "delay": 1,
+      "decay": 0,
+      "neutralization": "SUBINDUSTRY",
+      "truncation": 0.08,
+      "pasteurization": "ON",
+      "testPeriod": "P0Y0M0D",
+      "unitHandling": "VERIFY",
+      "nanHandling": "OFF",
+      "language": "FASTEXPR",
+      "visualization": false
+    }
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "alpha_id": "pw7vzMd3",
+  "formula": "(group_neutralize(trade_when(volume > adv20 * 0.88, -rank(ts_decay_linear(close - open, 6)), 0), industry)) * rank(volume / adv20)",
+  "family": "Price_Reversion_Alpha_15",
+  "hypothesis": "Intraday spread reversion with customized volume gate (0.88) and 3-day decay.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.56,
+  "fitness": 0.88,
+  "turnover": 26.76,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-10 18:28:25"
+}

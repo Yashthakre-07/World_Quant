@@ -1,0 +1,25 @@
+{
+  "alpha_id": "YPAaOXVv",
+  "formula": "(group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(close - open, 7)), 0), industry)) * rank(volume / adv20)",
+  "family": "DUMMY_SLOT_3",
+  "hypothesis": "Dummy Slot 3",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.5,
+  "fitness": 0.86,
+  "turnover": 27.11,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-11 14:57:59"
+}

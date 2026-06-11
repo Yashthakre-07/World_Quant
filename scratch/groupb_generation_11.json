@@ -1,0 +1,130 @@
+[
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_0",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actual_earnings_per_share_2)) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field actual_earnings_per_share_2 gated at 0.70 volume gate with safety divisor offset.",
+    "anomaly_basis": "Revision Momentum",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_1",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(accrued_liabilities_total_2) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field accrued_liabilities_total_2 gated at 0.75 volume gate with safety divisor offset.",
+    "anomaly_basis": "Fundamental Accrual",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_2",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actual_earnings_per_share_4)) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field actual_earnings_per_share_4 gated at 0.80 volume gate with safety divisor offset.",
+    "anomaly_basis": "Revision Momentum",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_3",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(accumulated_amortization_customer_intangibles_2) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field accumulated_amortization_customer_intangibles_2 gated at 0.70 volume gate with safety divisor offset.",
+    "anomaly_basis": "Fundamental Accrual",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_4",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actual_earnings_per_share_value_2_1555)) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field actual_earnings_per_share_value_2_1555 gated at 0.75 volume gate with safety divisor offset.",
+    "anomaly_basis": "Revision Momentum",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_5",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(accumulated_depreciation_depletion_amortization_ppne) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field accumulated_depreciation_depletion_amortization_ppne gated at 0.80 volume gate with safety divisor offset.",
+    "anomaly_basis": "Fundamental Accrual",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_6",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actual_eps_value)) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field actual_eps_value gated at 0.70 volume gate with safety divisor offset.",
+    "anomaly_basis": "Revision Momentum",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_7",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(acquired_cash_equivalents_business_combination) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field acquired_cash_equivalents_business_combination gated at 0.75 volume gate with safety divisor offset.",
+    "anomaly_basis": "Fundamental Accrual",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_8",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actuals_reporting_currency)) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field actuals_reporting_currency gated at 0.80 volume gate with safety divisor offset.",
+    "anomaly_basis": "Revision Momentum",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_9",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(acquired_finite_intangible_assets_total) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field acquired_finite_intangible_assets_total gated at 0.70 volume gate with safety divisor offset.",
+    "anomaly_basis": "Fundamental Accrual",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_10",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(advantageous_position_flag_pre_filter)) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field advantageous_position_flag_pre_filter gated at 0.75 volume gate with safety divisor offset.",
+    "anomaly_basis": "Revision Momentum",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_11",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(acquired_intangible_avg_useful_life) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field acquired_intangible_avg_useful_life gated at 0.80 volume gate with safety divisor offset.",
+    "anomaly_basis": "Fundamental Accrual",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_12",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(after_hours_vwap_value)) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field after_hours_vwap_value gated at 0.70 volume gate with safety divisor offset.",
+    "anomaly_basis": "Revision Momentum",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_13",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(acquisition_assets_property_plant_equipment) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field acquisition_assets_property_plant_equipment gated at 0.75 volume gate with safety divisor offset.",
+    "anomaly_basis": "Fundamental Accrual",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_14",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(afterhours_volume_weighted_avg_price)) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field afterhours_volume_weighted_avg_price gated at 0.80 volume gate with safety divisor offset.",
+    "anomaly_basis": "Revision Momentum",
+    "decay": 8
+  },
+  {
+    "family": "GROUPB_GEN_11_EVOLVED_15",
+    "dataset": "option8",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(acquisition_identifiable_assets_recognized) + 0.001), 3)), 0), industry)",
+    "hypothesis": "Dynamic alpha leveraging theme field acquisition_identifiable_assets_recognized gated at 0.70 volume gate with safety divisor offset.",
+    "anomaly_basis": "Fundamental Accrual",
+    "decay": 8
+  }
+]

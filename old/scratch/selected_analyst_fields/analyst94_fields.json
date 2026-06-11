@@ -1,0 +1,886 @@
+[
+  {
+    "id": "anl94_b_mtl_dlyspe",
+    "description": "Earnings yield",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.28,
+    "userCount": 6,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_cfrnoa",
+    "description": "Cash flow return/asset",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2764,
+    "userCount": 6,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_div_payout",
+    "description": "Dividend payout",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2799,
+    "userCount": 1,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_divyld",
+    "description": "Dividend yield",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2801,
+    "userCount": 11,
+    "alphaCount": 12,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_divyld_exp",
+    "description": "Expected dividend yield",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2801,
+    "userCount": 7,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_find",
+    "description": "Find score",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2801,
+    "userCount": 43,
+    "alphaCount": 62,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_gva_mmocer_se",
+    "description": "Sell side average recommendation for the stock",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2711,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_m1m21_ntr",
+    "description": "Momentum Neutralized",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2801,
+    "userCount": 4,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_m3r_mtn_spd_se",
+    "description": "DPS revision",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2646,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_m3r_mtn_spe_se",
+    "description": "EPS Revision",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.275,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_mktcap",
+    "description": "Market cap",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2801,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_news_sent_3m",
+    "description": "News sentiment change",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.267,
+    "userCount": 3,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_ntr_pt",
+    "description": "Target price return",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2733,
+    "userCount": 31,
+    "alphaCount": 41,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_roe",
+    "description": "Return on Equity",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2798,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_spd_rtni_rg",
+    "description": "Dividend growth",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2618,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_spe_rtni_rg",
+    "description": "Earnings Growth",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2794,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_b_mtl_dlyspe",
+    "description": "Earnings yield based on trailing twelve months earnings per share, usually calculated as EPS divided by share price, sourced from Bloomberg data",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.28,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_cfrnoa",
+    "description": "Cash flow return on net operating assets, a quality metric showing how efficiently a company generates cash flows from its operating assets; normalized within the region",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2801,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_div_payout",
+    "description": "Dividend payout ratio: proportion of earnings paid out as dividends (Dividends/Earnings). High values reflect greater payout; factor is constructed so lower values score higher",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.28,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_divyld",
+    "description": "Trailing (historical) dividend yield of the stock, expressed as a percentage",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2803,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_divyld_exp",
+    "description": "Expected forward dividend yield (projection of future annual dividends as a percent of current share price), typically derived from analyst or model forecasts rather than historical data",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2803,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_find",
+    "description": "Composite score from the FIND model, representing a multi-factor ranking based on income, dividends, quality, and related factors; regionally normalized",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2803,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_gva_mmocer_se",
+    "description": "Average sell-side analyst recommendation score, normalized within the region; lower values may indicate more favorable recommendations (e.g., strong buy), depending on scoring convention",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2763,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_m1m21_ntr",
+    "description": "Momentum signal calculated as 12-month trailing total return minus the 1-month return, thus neutralizing recent short-term reversals; normalized within the region",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2803,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_m3r_mtn_spd_se",
+    "description": "Revision momentum in analyst consensus forecasts for next twelve months dividend per share, measured as the 3-month change in analyst estimates",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2682,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_m3r_mtn_spe_se",
+    "description": "Revision momentum in analyst consensus forecasts for next twelve months earnings per share, calculated as the 3-month change in estimates",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2762,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_mktcap",
+    "description": "Market capitalization of the company, not normalized (total market value of outstanding shares)",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2803,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_news_sent_3m",
+    "description": "Change in news sentiment score over the past 3 months, measuring whether news coverage has become more positive or negative for the company; normalized within the region",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2706,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_ntr_pt",
+    "description": "Analyst target price return: the percentage upside/downside from current price to average analyst target price, normalized within the regional universe",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2756,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_roe",
+    "description": "Return on equity: net income divided by shareholder equity, normalized regionally",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2801,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_spd_rtni_rg",
+    "description": "Smoothed/interpolated annualized growth rate of dividends per share",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2705,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_spe_rtni_rg",
+    "description": "Interpolated (smoothed) annualized growth rate of earnings per share, using proprietary smoothing or interpolation methods to reduce volatility",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2797,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_us_ve_fcf",
+    "description": "Free cash flow divided by enterprise value, a valuation ratio assessing company value relative to cash generation ability",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2802,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl94_ve_fcf",
+    "description": "Free Cash Flow",
+    "dataset": {
+      "id": "analyst94",
+      "name": "Fundamental Income and Dividend Model"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.2772,
+    "userCount": 8,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  }
+]

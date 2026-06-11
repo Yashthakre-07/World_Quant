@@ -1,0 +1,25 @@
+{
+  "alpha_id": "akOawV62",
+  "formula": "(group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(acquisition_assets_property_plant_equipment) + 0.001), 3)), 0), industry)) * rank(volume / adv20)",
+  "family": "GROUPA_GEN_11_EVOLVED_13",
+  "hypothesis": "Dynamic alpha leveraging theme field acquisition_assets_property_plant_equipment gated at 0.75 volume gate with safety divisor offset.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.42,
+  "fitness": 0.63,
+  "turnover": 34.5,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-11 15:13:07"
+}

@@ -175,6 +175,10 @@ Return the blueprints in structured XML/JSON-like blocks. Focus on different qua
 4. Cross-Field composite
 5. Volume interactive (using standard fields like close, volume, returns, cap, adv20)
 
+CRITICAL WQ COMPLIANCE RULES TO INTEGRATE:
+- Any event-driven or Analyst consensus/actual fields (like anl4, anl14, anl15, anl45) MUST be wrapped in vec_avg(field) before applying arithmetic, absolute, or time-series operators: e.g., ts_std_dev(vec_avg(field), N).
+- Any ts_std_dev(field, N) divisor MUST have a small non-zero offset added to prevent division by zero or NaN (e.g., (ts_std_dev(vec_avg(field), N) + 0.001)).
+
 OUTPUT ONLY a JSON array of templates like this:
 [
   {{"theme": "Gated Reversion", "template": "group_neutralize(trade_when(volume > adv20 * 0.6, -rank(ts_decay_linear({{F}}, {{D}})), 0), {{G}})"}},

@@ -1,0 +1,130 @@
+[
+  {
+    "family": "GRP_A_GEN9_MUTATION_0",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 11) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 26) + 0.001), 7) * rank(volume / adv20)), 0), subindustry)",
+    "hypothesis": "EPS revision momentum normalized by 26-day rolling volatility, multiplied by volume/ADV rank for liquidity conditioning. Widening vol window to 26 days increases stability while volume interaction amplifies signals during institutional accumulation cycles.",
+    "anomaly_basis": "Analyst Revision Momentum",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_1",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate), 14) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate), 26) + 0.001), 7) * rank(volume / adv20)), 0), subindustry)",
+    "hypothesis": "Sales estimate revision momentum volatility-normalized over 26 days, multiplied by volume/ADV rank. Wider vol window reduces noise from sparse estimate events and volume gate selects liquid, institutionally active stocks.",
+    "anomaly_basis": "Revenue Growth Revision Slope",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_2",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear((vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate) - ts_mean(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 31)) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 31) + 0.001), 7) * rank(volume / adv20)), 0), subindustry)",
+    "hypothesis": "Mean-deviation EPS estimate z-score computed over a wider 31-day baseline to capture persistent upgrades beyond monthly seasonality, scaled by volume rank. Longer lookback reduces mean-reversion noise.",
+    "anomaly_basis": "Post-Earnings Announcement Drift (PEAD)",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_3",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 17) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 31) + 0.001), 5) * rank(volume / adv20)), 0), subindustry)",
+    "hypothesis": "17-day EPS revision delta normalized by 31-day volatility for maximum stability, with 5-day decay to capture short-horizon PEAD. Volume rank interaction conditions on high-conviction institutional trades.",
+    "anomaly_basis": "Analyst Revision Momentum",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_4",
+    "dataset": "analyst4+model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 11) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 26) + 0.001), 5) * rank(ts_decay_linear(mdl26_60dy_srprs_lst_q_rnngs / (ts_std_dev(mdl26_60dy_srprs_lst_q_rnngs, 10) + 0.001), 7))), 0), subindustry)",
+    "hypothesis": "EPS revision momentum cross-amplified by 60-day earnings surprise persistence. model26 component wrapped in decay to smooth surprise signal and reduce turnover. Combined rank product targets stocks with simultaneous analyst upgrades and post-earnings drift.",
+    "anomaly_basis": "Earnings Surprise Persistence",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_5",
+    "dataset": "analyst4+model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate), 14) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_sales_estimate), 26) + 0.001), 7) * rank((global_percentile_rank_float - ts_mean(global_percentile_rank_float, 26)) / (ts_std_dev(global_percentile_rank_float, 26) + 0.001))), 0), subindustry)",
+    "hypothesis": "Sales revision momentum cross-amplified by global analyst rank percentile deviation z-score (26-day baseline). Stocks simultaneously receiving sales upgrades and ranking highly vs global analyst consensus are targeted.",
+    "anomaly_basis": "Sell-Side Consensus Convergence",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_6",
+    "dataset": "analyst16",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear((vec_avg(anl16_aftercons_difference) - ts_mean(vec_avg(anl16_aftercons_difference), 31)) / (ts_std_dev(vec_avg(anl16_aftercons_difference), 31) + 0.001), 7) * rank(volume / adv20)), 0), subindustry)",
+    "hypothesis": "Consensus difference z-score extended to 31-day baseline for improved noise filtering, combined with volume/ADV rank to gate on active institutional periods. Captures divergence in post-consensus analyst disagreement while controlling turnover through decay.",
+    "anomaly_basis": "Sell-Side Consensus Convergence",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_7",
+    "dataset": "analyst16",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(vec_avg(anl16_aftercons_percentage), 11) / (ts_std_dev(vec_avg(anl16_aftercons_percentage), 26) + 0.001), 7) * rank(volume / adv20)), 0), subindustry)",
+    "hypothesis": "11-day delta in consensus percentage change, normalized over 26-day vol window, multiplied by volume rank. Volume interaction selects periods where consensus shifts align with elevated trading activity, boosting signal confidence.",
+    "anomaly_basis": "Post-Earnings Announcement Drift (PEAD)",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_8",
+    "dataset": "analyst16",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear((vec_avg(anl16_aftercons_median) - ts_mean(vec_avg(anl16_aftercons_median), 26)) / (ts_std_dev(vec_avg(anl16_aftercons_median), 26) + 0.001), 7) * rank(volume / adv20)), 0), subindustry)",
+    "hypothesis": "Consensus median deviation z-score over 26-day baseline, multiplied by volume rank for institutional conditioning. Z-score normalization improves cross-sectional comparability and lowers turnover vs raw delta.",
+    "anomaly_basis": "Sell-Side Consensus Convergence",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_9",
+    "dataset": "model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(global_percentile_rank_float, 14) / (ts_std_dev(global_percentile_rank_float, 26) + 0.001), 7) * rank(volume / adv20)), 0), subindustry)",
+    "hypothesis": "14-day delta in global analyst rank percentile, vol-normalized over 26-day window combined with volume/ADV rank. Wider vol window stabilizes signal across market regimes while volume conditioning targets institutional repositioning periods.",
+    "anomaly_basis": "Broker Count Momentum (Attention-Driven Premium)",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_10",
+    "dataset": "model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear((global_percentile_rank_float - ts_mean(global_percentile_rank_float, 31)) / (ts_std_dev(global_percentile_rank_float, 31) + 0.001), 7) * rank(volume / adv20)), 0), subindustry)",
+    "hypothesis": "31-day z-score of global analyst rank percentile multiplied by volume/ADV rank. 31-day baseline extends beyond monthly effects, reducing false positives from short-term seasonality.",
+    "anomaly_basis": "Analyst Revision Momentum",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_11",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(anl14_actvalue_bvps_fp0, 17) / (ts_std_dev(anl14_actvalue_bvps_fp0, 26) + 0.001), 7) * rank(volume / adv20)), 0), subindustry)",
+    "hypothesis": "17-day BVPS forward revision delta normalized by 26-day volatility, multiplied by volume/ADV rank. BVPS increases signal market repricing of intrinsic value; volume conditioning ensures we act only on moves with institutional conviction.",
+    "anomaly_basis": "Book Value Reassessment Drift",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_12",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(ts_delta(anl14_actvalue_capex_fy0, 21) / ((ts_std_dev(anl14_actvalue_capex_fy0, 26) + 0.001) * (abs(anl14_actvalue_revenue_fp0) + 0.001)), 7) * rank(volume / adv20)), 0), subindustry)",
+    "hypothesis": "Fade capex-increase stocks normalized jointly by capex volatility and revenue scale, with volume rank amplification. Revenue normalization prevents large-cap dominance; volume gate reduces adverse selection in illiquid names.",
+    "anomaly_basis": "Capex Investment Overreaction",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_13",
+    "dataset": "analyst7",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear((act_q_eps_surprisestd - ts_mean(act_q_eps_surprisestd, 26)) / (ts_std_dev(act_q_eps_surprisestd, 26) + 0.001), 7) * rank(volume / adv20)), 0), subindustry)",
+    "hypothesis": "EPS surprise z-score extended to 26-day baseline for stability, combined with volume/ADV rank. Longer baseline captures persistent surprise trends beyond a single earnings cycle while volume conditioning amplifies trades with institutional agreement.",
+    "anomaly_basis": "Earnings Surprise Persistence",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_14",
+    "dataset": "news21+model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(vec_avg(earning_broker_count_fast_d1), 11) / (ts_std_dev(vec_avg(earning_broker_count_fast_d1), 21) + 0.001), 5) * rank((global_percentile_rank_float - ts_mean(global_percentile_rank_float, 21)) / (ts_std_dev(global_percentile_rank_float, 21) + 0.001))) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Broker count momentum cross-amplified by global analyst rank percentile z-score, with outer volume/ADV rank layer. Three-way product targets stocks with rising broker coverage, strong global analyst standing, and elevated liquidity \u2014 high-conviction institutional accumulation signal.",
+    "anomaly_basis": "Broker Count Momentum (Attention-Driven Premium)",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_GEN9_MUTATION_15",
+    "dataset": "model135+analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear((vec_avg(mdl135_d5_ivn) - ts_mean(vec_avg(mdl135_d5_ivn), 21)) / (ts_std_dev(vec_avg(mdl135_d5_ivn), 21) + 0.001), 5) * rank(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 11) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 26) + 0.001))), 0), subindustry)",
+    "hypothesis": "IVN technical signal converted to 21-day z-score for cross-sectional comparability, cross-multiplied by EPS revision momentum normalized over 26-day vol. Z-score transformation prevents raw IVN level from dominating; combining with EPS revision rank targets stocks with both technical and fundamental momentum alignment.",
+    "anomaly_basis": "Liquidity-Conditioned Factor Momentum",
+    "decay": 10
+  }
+]

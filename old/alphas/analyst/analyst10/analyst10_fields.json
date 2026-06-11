@@ -1,0 +1,2602 @@
+[
+  {
+    "id": "anl10_ndtsmun_1qf_2795",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for date",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.917,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ndtsmun_1yf_2808",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for date",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.917,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ndtsmun_2yf_2783",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for date",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.917,
+    "userCount": 6,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_salsmun_2qf_1001",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for sales",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_salsmun_1qf_1008",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for sales",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 11,
+    "alphaCount": 12,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_salsmun_1yf_980",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for sales",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ndtsmun_2qf_2791",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for date",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.917,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_netsmun_2yf_1069",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for net income",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 6,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_salsmun_2yf_1002",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for sales",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 8,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_grmsmun_1qf_852",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for gross margin",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8797,
+    "userCount": 1,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_fcfsmun_2qf_1956",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for free cash flow",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.757,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_cpxsmun_2qf_2651",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for capital expenditures",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9547,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_fcfsmun_2yf_1969",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for free cash flow",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.757,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_cpxsmun_1qf_2691",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for capital expenditures",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9547,
+    "userCount": 7,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_roasmun_1qf_2273",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for return on assets",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9107,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_roasmun_2yf_2249",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for return on assets",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9107,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_grmsmun_1yf_858",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for gross margin",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8797,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ebssmun_1qf",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings before others",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6897,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_tbvsmun_2yf_1467",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for tangible book value",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6767,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_fcfsmun_1yf_1986",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for free cash flow",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.757,
+    "userCount": 3,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_roasmun_1yf_2284",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for return on assets",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9107,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ebssmun_1yf",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings before others",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6897,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_netsmun_1qf_1056",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for net income",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 6,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_netsmun_1yf_1051",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for net income",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_netsmun_2qf_1059",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for net income",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_roesmun_2yf_2290",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for return on equity",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ebismun_2qf_2231",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings before interest",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 6,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_cpssmun_1qf_2374",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for cash per share",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9133,
+    "userCount": 13,
+    "alphaCount": 15,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_cpssmun_1yf_2387",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for cash per share",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9133,
+    "userCount": 5,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_cpssmun_2yf_2373",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for cash per share",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9133,
+    "userCount": 7,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ebtsmun_2qf_955",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings before tax",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9997,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_grmsmun_2qf_875",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for gross margin",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8797,
+    "userCount": 4,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_grmsmun_2yf_848",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for gross margin",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8797,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_tbvsmun_2qf_1465",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for tangible book value",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6767,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ebismun_2yf_2238",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings before interest",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_presmun_1qf_1339",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for pre-tax or preliminary",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_presmun_1yf_1355",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for pre-tax or preliminary",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_roesmun_2qf_2305",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for return on equity",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_cpxsmun_1yf_2682",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for capital expenditures",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9547,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_cpxsmun_2yf_2669",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for capital expenditures",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9547,
+    "userCount": 3,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_nersmun_1yf_2417",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for net earnings rate",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_nersmun_2yf_2416",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for net earnings rate",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ebtsmun_1yf_937",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings before tax",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9997,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_entsmun_1yf_2439",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings net taxes",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8997,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_entsmun_2qf_2435",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings net taxes",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8997,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_prrsmun_1yf_2124",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for price return ratio",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ebismun_1qf_2214",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings before interest",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ebismun_1yf_2212",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings before interest",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 6,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_fcfsmun_1qf_1989",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for free cash flow",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.757,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_smartest_roa_fy1_nums",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for return on assets",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8228,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ebtsmun_2yf_961",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings before tax",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9997,
+    "userCount": 1,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ebssmun_2yf",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings before others",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6897,
+    "userCount": 3,
+    "alphaCount": 13,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_tbvsmun_1yf_1452",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for tangible book value",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6767,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_roesmun_1qf_2313",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for return on equity",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_roesmun_1yf_2330",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for return on equity",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_prrsmun_2yf_2114",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for price return ratio",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_presmun_2qf_1334",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for pre-tax or preliminary",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_nersmun_1qf_2405",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for net earnings rate",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 8,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_roasmun_2qf_2282",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for return on assets",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9107,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_entsmun_2yf_2436",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings net taxes",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8997,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ebssmun_2qf",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings before others",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6897,
+    "userCount": 3,
+    "alphaCount": 14,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_tbvsmun_1qf_1470",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for tangible book value",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.6767,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_cpssmun_2qf_2376",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for cash per share",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9133,
+    "userCount": 8,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ebtsmun_1qf_947",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings before tax",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9997,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_dpssmun_2qf_1809",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for dividends per share",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.985,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_sal_newpast_det_analyst",
+    "description": "Analyst ID for sales estimates",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_ndtpast_det_analyst_1683",
+    "description": "Analyst ID for date estimates",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7937,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_gpssmun_1qf_2624",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for gross profit per share",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_entsmun_1qf_2434",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for earnings net taxes",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8997,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_analyst_innovation_eps_innovation_score_fy1",
+    "description": "Analyst-level innovation score for FY1 EPS forecasts as of the D1 regime, reflecting how leading or original the analyst\u2019s estimate is",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9194,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_prrsmun_2qf_2086",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for price return ratio",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_presmun_2yf_1366",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for pre-tax or preliminary",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_nersmun_2qf_2397",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for net earnings rate",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_prrsmun_1qf_2109",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for price return ratio",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_salpast_det_analyst_1132",
+    "description": "Analyst ID for sales estimates",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_analyst_innovation_prr_innovation_score_fy1",
+    "description": "Analyst innovation score for fiscal year 1",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.8501,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_gpssmun_1yf_2638",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for gross profit per share",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_gpssmun_2qf_2650",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for gross profit per share",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 6,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_gpssmun_2yf_2618",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for gross profit per share",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_dpssmun_1qf_1820",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for dividends per share",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.985,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_dpssmun_1yf_1832",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for dividends per share",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.985,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_dpssmun_2yf_1815",
+    "description": "Sample/analyst number - indicating how many analysts contributed to that particular estimate or forecast for dividends per share",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.985,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_analyst_innovation_prr_innovation_score_fq2",
+    "description": "Analyst innovation score for fiscal quarter 2",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.7674,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_grmpast_det_analyst_895",
+    "description": "Analyst ID for gross margin estimates",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.773,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_analyst_innovation_ebs_innovation_score_fy1",
+    "description": "Analyst innovation score for fiscal year 1",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.405,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_det_full_pre_past_det_analyst",
+    "description": "Unique identifier for the analyst",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9418,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_tbvpast_det_analyst_906",
+    "description": "Analyst ID for tangible book value estimates",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.471,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_analyst_innovation_ebs_innovation_score_fy2",
+    "description": "Analyst innovation score for fiscal year 2",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.3895,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_cpxpast_det_analyst_2131",
+    "description": "Analyst ID for capital expenditures estimates",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8717,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_netpast_det_analyst_1163",
+    "description": "Analyst ID for net income estimates",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_roepast_det_analyst",
+    "description": "Analyst ID for return on equity estimates",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9183,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_prepast_det_analyst_1148",
+    "description": "Analyst ID for pre-tax or preliminary estimates",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_det_full_roe_past_det_analyst",
+    "description": "Unique identifier for the contributing analyst",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8309,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_det_full_ebs_past_det_estvalue",
+    "description": "The analyst\u2019s forecast value recorded at the event date",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.4813,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_fcfpast_det_analyst_1634",
+    "description": "Analyst ID for free cash flow estimates",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.545,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_smartest_prr_fq2_nums",
+    "description": "Number of analysts covering Fiscal Quarter 2",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9412,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_smartest_prr_fq1_nums",
+    "description": "Number of analysts covering Fiscal Quarter 1",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 0.9412,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_nerpast_det_analyst_915",
+    "description": "Analyst ID for net earnings rate estimates",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_det_full_gps_past_det_analyst",
+    "description": "Unique identifier for the analyst within this module",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9415,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl10_det_full_eps_past_det_analyst",
+    "description": "Unique identifier of the analyst within the module",
+    "dataset": {
+      "id": "analyst10",
+      "name": "Performance-Weighted Analyst Estimates"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9557,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  }
+]

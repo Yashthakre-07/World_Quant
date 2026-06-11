@@ -1,0 +1,101 @@
+[STARTING TRIGGER FLOW]
+[STEP 0 COMPLETED] - GROUPA: Learning from Gen 10 done. Status report written.
+[STEP 1 COMPLETED] - GROUPA: Blacklist successfully compiled.
+[STEP 2 COMPLETED] - GROUPA: Whitelist vector/matrix fields discovered.
+[STEP 3 COMPLETED] - GROUPA: Fields mapped to quantitative trading anomalies.
+[STEP 4 COMPLETED] - GROUPA: Portfolio diversity matrix configured.
+
+[STEP 5 COMPLETED] - Generation 13 for GROUPA generated and stored generation-wise.
+
+[GENERATED ALPHAS]
+- GROUPA_GEN_13_EVOLVED_0: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(vec_avg(actual_earnings_per_share_2)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_1: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(accrued_liabilities_total_2) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_2: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((close - open) / (abs(vec_avg(actual_earnings_per_share_4)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_3: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(accumulated_amortization_customer_intangibles_2) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_4: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(vec_avg(actual_earnings_per_share_value_2_1555)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_5: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((close - open) / (abs(accumulated_depreciation_depletion_amortization_ppne) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_6: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(vec_avg(actual_eps_value)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_7: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(acquired_cash_equivalents_business_combination) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_8: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((close - open) / (abs(vec_avg(actuals_reporting_currency)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_9: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(acquired_finite_intangible_assets_total) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_10: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(vec_avg(advantageous_position_flag_pre_filter)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_11: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((close - open) / (abs(acquired_intangible_avg_useful_life) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_12: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(vec_avg(after_hours_vwap_value)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_13: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(acquisition_assets_property_plant_equipment) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_14: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((close - open) / (abs(vec_avg(afterhours_volume_weighted_avg_price)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_15: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(acquisition_identifiable_assets_recognized) + 0.001), 3)), 0), subindustry)
+
+[VALIDATED/MUTATED ALPHAS]
+- GROUPA_GEN_13_EVOLVED_0: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(vec_avg(actual_earnings_per_share_2)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_1: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(accrued_liabilities_total_2) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_2: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((close - open) / (abs(vec_avg(actual_earnings_per_share_4)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_3: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(accumulated_amortization_customer_intangibles_2) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_4: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(vec_avg(actual_earnings_per_share_value_2_1555)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_5: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((close - open) / (abs(accumulated_depreciation_depletion_amortization_ppne) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_6: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(vec_avg(actual_eps_value)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_7: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(acquired_cash_equivalents_business_combination) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_8: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((close - open) / (abs(vec_avg(actuals_reporting_currency)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_9: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(acquired_finite_intangible_assets_total) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_10: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(vec_avg(advantageous_position_flag_pre_filter)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_11: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((close - open) / (abs(acquired_intangible_avg_useful_life) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_12: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(vec_avg(after_hours_vwap_value)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_13: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(acquisition_assets_property_plant_equipment) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_14: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((close - open) / (abs(vec_avg(afterhours_volume_weighted_avg_price)) + 0.001), 3)), 0), subindustry)
+- GROUPA_GEN_13_EVOLVED_15: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(acquisition_identifiable_assets_recognized) + 0.001), 3)), 0), subindustry)
+[STEP 5 COMPLETED] - GROUPA: AI Generation completed.
+[STEP 6 COMPLETED] - GROUPA: Uniqueness check completed.
+[STEP 7 COMPLETED] - GROUPA: Pairwise correlation checks completed.
+[STEP 8 COMPLETED] - GROUPA: Final validation checks completed.
+[STEP 9 COMPLETED] - GROUPA: Batch overwrite payload submitted and pipeline started.
+[STEP 10 COMPLETED] - GROUPA: Session memory updated.
+[STEP 0 COMPLETED] - GROUPB: Learning from Gen 10 done. Status report written.
+[STEP 1 COMPLETED] - GROUPB: Blacklist successfully compiled.
+[STEP 2 COMPLETED] - GROUPB: Whitelist vector/matrix fields discovered.
+[STEP 3 COMPLETED] - GROUPB: Fields mapped to quantitative trading anomalies.
+[STEP 4 COMPLETED] - GROUPB: Portfolio diversity matrix configured.
+
+[STEP 5 COMPLETED] - Generation 14 for GROUPB generated and stored generation-wise.
+
+[GENERATED ALPHAS]
+- GROUPB_GEN_14_EVOLVED_0: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actual_earnings_per_share_2)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_1: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(accrued_liabilities_total_2) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_2: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actual_earnings_per_share_4)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_3: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(accumulated_amortization_customer_intangibles_2) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_4: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actual_earnings_per_share_value_2_1555)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_5: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(accumulated_depreciation_depletion_amortization_ppne) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_6: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actual_eps_value)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_7: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(acquired_cash_equivalents_business_combination) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_8: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actuals_reporting_currency)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_9: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(acquired_finite_intangible_assets_total) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_10: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(advantageous_position_flag_pre_filter)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_11: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(acquired_intangible_avg_useful_life) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_12: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(after_hours_vwap_value)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_13: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(acquisition_assets_property_plant_equipment) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_14: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(afterhours_volume_weighted_avg_price)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_15: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(acquisition_identifiable_assets_recognized) + 0.001), 3)), 0), industry)
+
+[VALIDATED/MUTATED ALPHAS]
+- GROUPB_GEN_14_EVOLVED_0: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actual_earnings_per_share_2)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_1: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(accrued_liabilities_total_2) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_2: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actual_earnings_per_share_4)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_3: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(accumulated_amortization_customer_intangibles_2) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_4: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actual_earnings_per_share_value_2_1555)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_5: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(accumulated_depreciation_depletion_amortization_ppne) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_6: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actual_eps_value)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_7: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(acquired_cash_equivalents_business_combination) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_8: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(actuals_reporting_currency)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_9: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(acquired_finite_intangible_assets_total) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_10: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(advantageous_position_flag_pre_filter)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_11: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(acquired_intangible_avg_useful_life) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_12: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(after_hours_vwap_value)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_13: group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((vwap - open) / (abs(acquisition_assets_property_plant_equipment) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_14: group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((vwap - open) / (abs(vec_avg(afterhours_volume_weighted_avg_price)) + 0.001), 3)), 0), industry)
+- GROUPB_GEN_14_EVOLVED_15: group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((vwap - open) / (abs(acquisition_identifiable_assets_recognized) + 0.001), 3)), 0), industry)
+[STEP 5 COMPLETED] - GROUPB: AI Generation completed.
+[STEP 6 COMPLETED] - GROUPB: Uniqueness check completed.
+[STEP 7 COMPLETED] - GROUPB: Pairwise correlation checks completed.
+[STEP 8 COMPLETED] - GROUPB: Final validation checks completed.
+[STEP 9 COMPLETED] - GROUPB: Batch overwrite payload submitted and pipeline started.
+[STEP 10 COMPLETED] - GROUPB: Session memory updated.
+
+Haan, they are stimulating.

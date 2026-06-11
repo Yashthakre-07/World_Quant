@@ -1,0 +1,25 @@
+{
+  "alpha_id": "MPx0X936",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(anl14_numofests_epsrep_fp5) + 0.001), 3)), 0), industry)",
+  "family": "Price_Analyst_Ratio_Alpha_5",
+  "hypothesis": "Intraday reversion scaled inversely by analyst estimate coverage density.",
+  "status": "SUBMITTED",
+  "sharpe": 1.92,
+  "fitness": 1.02,
+  "turnover": 31.290000000000003,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-10 17:49:02"
+}

@@ -1,0 +1,1406 @@
+[
+  {
+    "id": "avg_first_biasfree_fundamental_estimate",
+    "description": "The average value of the first bias-free fundamental estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8401,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "avg_first_biasfree_price_target_estimate",
+    "description": "The average value of the first bias-free price target estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 29,
+    "alphaCount": 46,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "avg_first_biasfree_quarterly_fundamental",
+    "description": "The average value of the first bias-free quarterly fundamental estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8368,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "avg_second_biasfree_fundamental_estimate",
+    "description": "The average value of the second bias-free fundamental estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8401,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "avg_second_biasfree_price_target_estimate",
+    "description": "The average value of the second bias-free price target estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 10,
+    "alphaCount": 15,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "avg_second_biasfree_quarterly_fundamental",
+    "description": "The average value of the second bias-free quarterly fundamental estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8368,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "avg_third_biasfree_price_target_estimate",
+    "description": "The average value of the third bias-free price target estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 17,
+    "alphaCount": 19,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "biasfree_analyst_fundamental_estimate",
+    "description": "A single analyst's bias-adjusted fundamental estimate for a security.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8526,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "biasfree_analyst_price_target",
+    "description": "A single analyst's bias-adjusted price target estimate for a security.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8851,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "count_bias_adjusted_fundamental_estimates",
+    "description": "The number of available bias-adjusted fundamental estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8401,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "count_bias_adjusted_price_target_estimates",
+    "description": "The number of available bias-adjusted price target estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "count_biasfree_quarterly_fundamental_estimates",
+    "description": "The number of available bias-adjusted quarterly fundamental estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8368,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "estimate_currency_code_9",
+    "description": "The currency in which the current fundamental estimate is recorded.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8526,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "first_biasfree_fundamental_analogue",
+    "description": "The first bias-free analogue value for a fundamental forecast from an analyst.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8526,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "first_biasfree_price_target_analogue",
+    "description": "The first bias-free analogue value for a price target forecast from an analyst.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8851,
+    "userCount": 7,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "forecast_horizon_months",
+    "description": "The time horizon in months for which the price target estimate is made.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8851,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "max_bias_adjusted_fundamental_estimate",
+    "description": "The highest value among bias-adjusted fundamental estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8401,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "max_bias_adjusted_price_target",
+    "description": "The highest value among bias-adjusted price target estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "max_biasfree_quarterly_fundamental_estimate",
+    "description": "The highest value among bias-adjusted quarterly fundamental estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8368,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "mean_bias_adjusted_fundamental_estimate",
+    "description": "The mean of bias-adjusted fundamental estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8401,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "mean_bias_adjusted_price_target",
+    "description": "The mean of bias-adjusted price target estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "mean_biasfree_quarterly_fundamental_estimate",
+    "description": "The mean of bias-adjusted quarterly fundamental estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8368,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "median_bias_adjusted_fundamental_estimate",
+    "description": "The median of bias-adjusted fundamental estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8401,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "median_bias_adjusted_price_target",
+    "description": "The median of bias-adjusted price target estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "median_biasfree_quarterly_fundamental_estimate",
+    "description": "The median of bias-adjusted quarterly fundamental estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8368,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "median_first_biasfree_fundamental_estimate",
+    "description": "The median value of the first bias-free fundamental estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8401,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "median_first_biasfree_price_target_estimate",
+    "description": "The median value of the first bias-free price target estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 24,
+    "alphaCount": 29,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "median_first_biasfree_quarterly_fundamental",
+    "description": "The median value of the first bias-free quarterly fundamental estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8368,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "median_second_biasfree_fundamental_estimate",
+    "description": "The median value of the second bias-free fundamental estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8401,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "median_second_biasfree_price_target_estimate",
+    "description": "The median value of the second bias-free price target estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 6,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "median_second_biasfree_quarterly_fundamental",
+    "description": "The median value of the second bias-free quarterly fundamental estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8368,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "median_third_biasfree_price_target_estimate",
+    "description": "The median value of the third bias-free price target estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "min_bias_adjusted_fundamental_estimate",
+    "description": "The lowest value among bias-adjusted fundamental estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8401,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "min_bias_adjusted_price_target",
+    "description": "The lowest value among bias-adjusted price target estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "min_biasfree_quarterly_fundamental_estimate",
+    "description": "The lowest value among bias-adjusted quarterly fundamental estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8368,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "num_downward_biasfree_fundamental_revisions",
+    "description": "The number of times analysts have lowered their bias-adjusted fundamental estimates.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8401,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "num_downward_biasfree_price_target_revisions",
+    "description": "The number of times analysts have lowered their bias-adjusted price target estimates.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "num_downward_biasfree_quarterly_fundamental_revisions",
+    "description": "The number of times analysts have lowered their bias-adjusted quarterly fundamental estimates.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8368,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "num_upward_biasfree_fundamental_revisions",
+    "description": "The number of times analysts have raised their bias-adjusted fundamental estimates.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8401,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "num_upward_biasfree_price_target_revisions",
+    "description": "The number of times analysts have raised their bias-adjusted price target estimates.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 2,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "num_upward_biasfree_quarterly_fundamental_revisions",
+    "description": "The number of times analysts have raised their bias-adjusted quarterly fundamental estimates.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8368,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "second_biasfree_fundamental_analogue",
+    "description": "The second bias-free analogue value for a fundamental forecast from an analyst.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8526,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "second_biasfree_price_target_analogue",
+    "description": "The second bias-free analogue value for a price target forecast from an analyst.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8851,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "stddev_bias_adjusted_fundamental_estimate",
+    "description": "The standard deviation of bias-adjusted fundamental estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8401,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "stddev_bias_adjusted_price_target",
+    "description": "The standard deviation of bias-adjusted price target estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "stddev_biasfree_quarterly_fundamental_estimate",
+    "description": "The standard deviation of bias-adjusted quarterly fundamental estimates for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8368,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "stddev_first_biasfree_fundamental_estimate",
+    "description": "The standard deviation of the first bias-free fundamental estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8401,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "stddev_first_biasfree_price_target_estimate",
+    "description": "The standard deviation of the first bias-free price target estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "stddev_first_biasfree_quarterly_fundamental",
+    "description": "The standard deviation of the first bias-free quarterly fundamental estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8368,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "stddev_second_biasfree_fundamental_estimate",
+    "description": "The standard deviation of the second bias-free fundamental estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8401,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "stddev_second_biasfree_price_target_estimate",
+    "description": "The standard deviation of the second bias-free price target estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "stddev_second_biasfree_quarterly_fundamental",
+    "description": "The standard deviation of the second bias-free quarterly fundamental estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8368,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "stddev_third_biasfree_price_target_estimate",
+    "description": "The standard deviation of the third bias-free price target estimate for the period.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9411,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "third_biasfree_price_target_analogue",
+    "description": "The third bias-free analogue value for a price target forecast from an analyst.",
+    "dataset": {
+      "id": "biasfree_analyst",
+      "name": "Bias Adjusted Analyst Forecasts"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8851,
+    "userCount": 4,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  }
+]

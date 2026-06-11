@@ -43,11 +43,11 @@ def run_step_6():
     print("UNIQUENESS CHECK:")
     print("════════════════════════════════════════")
     passed_count = 0
-    for a in alphas:
+    for idx, a in enumerate(alphas):
         formula = a["formula"].strip()
         is_historical_dup = formula in historical_formulas
         # Self check: we check if there are other identical formulas in this batch (index-based)
-        is_batch_dup = any(other["formula"].strip() == formula and other["id"] != a["id"] for other in alphas)
+        is_batch_dup = any(other["formula"].strip() == formula and o_idx != idx for o_idx, other in enumerate(alphas))
         
         status = "PASS ✅"
         reason_hist = "PASS"
@@ -63,7 +63,7 @@ def run_step_6():
         if status.startswith("PASS"):
             passed_count += 1
             
-        print(f"ALPHA {a['id']} UNIQUENESS CHECK:")
+        print(f"ALPHA {idx + 1} UNIQUENESS CHECK:")
         print(f"  Vs historical: {reason_hist}")
         print(f"  Vs session batch: {reason_batch}")
         print(f"  Action: ACCEPTED")

@@ -1,0 +1,1531 @@
+[
+  {
+    "id": "active_job_postings_count",
+    "description": "Number of active job posts",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6322,
+    "userCount": 2,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "avg_days_job_active_company",
+    "description": "Average time job posts have been active (days)",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6061,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "avg_days_job_closed_company",
+    "description": "Average time deleted/closed jobs were posted (days)",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6061,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "avg_days_job_posting_active",
+    "description": "average length of time the job posts have been active",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7474,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "avg_days_job_posting_closed",
+    "description": "average length of time the deleted jobs were posted before removal",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7077,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "bucket_avg_days_job_active",
+    "description": "Average time the jobs have been active (days)",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.2588,
+    "coverage": 0.5485,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "bucket_avg_days_job_closed",
+    "description": "Average time the deleted/removed jobs were posted (days)",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.2588,
+    "coverage": 0.5304,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "company_jobs_created_count",
+    "description": "Number of job posts created during the period",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6069,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "company_jobs_removed_count",
+    "description": "Number of job posts removed/deleted during the period",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6061,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "continuous_value_break_flag",
+    "description": "cvbbrksflag",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4117,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "is_job_repost_flag",
+    "description": "Indicator if the job is a repost (1) or original (0)",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7132,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_bigdrpbrksflag",
+    "description": "Binary flag indicating a \u201cbig drop\u201d occurred since the previous scraping",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4117,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_bucket_daily_ajnet",
+    "description": "Net change in active job postings (e.g., jobs created minus jobs removed) in the macro bucket",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4286,
+    "userCount": 57,
+    "alphaCount": 111,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_bucket_daily_jobsactive",
+    "description": "Number of active job postings in this macro bucket on this date",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.626,
+    "userCount": 388,
+    "alphaCount": 1172,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_bucket_daily_jobsactive_n",
+    "description": "Number of active job postings after neutralization within the macro bucket",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4268,
+    "userCount": 74,
+    "alphaCount": 158,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_bucket_daily_jobscreated",
+    "description": "Number of job postings created in this macro bucket since the prior scrape",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6207,
+    "userCount": 108,
+    "alphaCount": 184,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_bucket_daily_jobsremoved",
+    "description": "Number of job postings removed/deleted in this macro bucket since the prior scrape",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6169,
+    "userCount": 33,
+    "alphaCount": 68,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_bucket_monthly_ajnet",
+    "description": "Net amount of active job postings added.",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.4674,
+    "userCount": 48,
+    "alphaCount": 80,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_bucket_monthly_jobsactive",
+    "description": "The number of active jobs postings by the company.",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.5117,
+    "userCount": 28,
+    "alphaCount": 51,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_bucket_monthly_jobsactive_n",
+    "description": "The number of active jobs postings by the company, after neutralization in the respective macro bucket.",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.4852,
+    "userCount": 18,
+    "alphaCount": 28,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_bucket_monthly_jobscreated",
+    "description": "The number of job postings created by the company.",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.4562,
+    "userCount": 22,
+    "alphaCount": 46,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_bucket_monthly_jobsremoved",
+    "description": "The number of job postings removed by the company.",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.4681,
+    "userCount": 19,
+    "alphaCount": 33,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_company_ajnet",
+    "description": "Net amount of active job postings added (net change in active jobs, e.g., created minus removed)",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4117,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_company_duration_active",
+    "description": "Count of unique IDs of industry participants. Industry stands for an aggregate view of all  equity clearance activity for the date, symbol, and transaction type in question.",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3838,
+    "userCount": 25,
+    "alphaCount": 45,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_company_duration_closed",
+    "description": "Count of unique IDs of industry participants. Industry stands for an aggregate view of all  equity clearance activity for the date, symbol, and transaction type in question.",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3881,
+    "userCount": 35,
+    "alphaCount": 44,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_company_jobsactive",
+    "description": "Number of currently active job postings for the company",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7278,
+    "userCount": 472,
+    "alphaCount": 1662,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_company_jobsactive_n",
+    "description": "Number of active job postings after neutralization within the respective macro bucket",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4117,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_company_jobscreated",
+    "description": "Number of job postings created for the company",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7224,
+    "userCount": 68,
+    "alphaCount": 143,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_company_jobsremoved",
+    "description": "Number of job postings removed/deleted for the company",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7222,
+    "userCount": 22,
+    "alphaCount": 37,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_companyidmap",
+    "description": "An integer mapped to the canonical company ID used in the dataset",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7084,
+    "userCount": 35,
+    "alphaCount": 42,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_daily_jc_sdioc",
+    "description": "Number of distinct company IDs in the same macro bucket that have created jobs since the last scraping",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4318,
+    "userCount": 11,
+    "alphaCount": 28,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_daily_jr_sdioc",
+    "description": "Number of distinct company IDs in the same macro bucket that have removed jobs since the last scraping",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4318,
+    "userCount": 13,
+    "alphaCount": 23,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_daily_postlength",
+    "description": "The length in days of the job posting.",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4317,
+    "userCount": 22,
+    "alphaCount": 42,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_daily_sdioc",
+    "description": "Count of distinct company IDs with active jobs in the same macro bucket on this date",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4318,
+    "userCount": 18,
+    "alphaCount": 26,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_monthly_postlength",
+    "description": "The length in days of the job posting.",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.5038,
+    "userCount": 43,
+    "alphaCount": 128,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_monthly_sdioc",
+    "description": "The number of company IDs with active jobs in the same macro bucket.",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "coverage": 0.5118,
+    "userCount": 26,
+    "alphaCount": 75,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_normalizedflag",
+    "description": "Binary flag indicating whether jobsactive was normalized within the respective macro bucket",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4117,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_postlength2",
+    "description": "postlength2",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4117,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_v2_company_duration_active",
+    "description": "The average length of time the company\u2019s job posts have been active, in days",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6055,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_v2_company_duration_closed",
+    "description": "The average time deleted/removed jobs had been posted, in days",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6055,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_v2_company_jobsactive",
+    "description": "Number of active job posts",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6322,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_v2_company_jobscreated",
+    "description": "Number of job posts created",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6063,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mcr27_v2_company_jobsremoved",
+    "description": "Number of job posts removed/deleted",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6055,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mean_days_job_active",
+    "description": "Average time job posts have been active, in days",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.2585,
+    "coverage": 0.8653,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "mean_days_job_closed",
+    "description": "Average number of days the company\u2019s removed jobs had been posted before deletion",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.2585,
+    "coverage": 0.8653,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "num_jobs_active",
+    "description": "Number of active job postings",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7474,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "num_jobs_created",
+    "description": "Number of job postings created",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "num_jobs_removed",
+    "description": "Number of job postings removed/deleted",
+    "dataset": {
+      "id": "macro27",
+      "name": "Job records from job posting"
+    },
+    "category": {
+      "id": "macro",
+      "name": "Macro"
+    },
+    "subcategory": {
+      "id": "macro-macroeconomic-activities",
+      "name": "Macroeconomic Activities"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7077,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.1,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  }
+]

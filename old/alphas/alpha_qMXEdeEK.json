@@ -1,0 +1,25 @@
+{
+  "alpha_id": "qMXEdeEK",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 1.20, -rank(ts_decay_linear((close - open) / (high - low + 0.001), 5)), 0), industry)",
+  "family": "Price_Volatility_Alpha_8",
+  "hypothesis": "Liquidity shock mean reversion triggered by massive volume surge.",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.4,
+  "fitness": 0.81,
+  "turnover": 16.72,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-10 17:49:07"
+}

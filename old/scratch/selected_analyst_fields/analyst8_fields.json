@@ -1,0 +1,210 @@
+[
+  {
+    "id": "anl8_analyst_code",
+    "description": "Unique identifier code for the analyst issuing the price target",
+    "dataset": {
+      "id": "analyst8",
+      "name": "Daily Split Data"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9105,
+    "userCount": 32,
+    "alphaCount": 57,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl8_analyst_maskcode",
+    "description": "Encoded identifier for the analyst who made the recommendation",
+    "dataset": {
+      "id": "analyst8",
+      "name": "Daily Split Data"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7049,
+    "userCount": 7,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl8_besactqtr_value",
+    "description": "Actual reported earnings per share (EPS) for the quarter",
+    "dataset": {
+      "id": "analyst8",
+      "name": "Daily Split Data"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8781,
+    "userCount": 64,
+    "alphaCount": 179,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl8_bessplitptg_d1_value",
+    "description": "Price target data.",
+    "dataset": {
+      "id": "analyst8",
+      "name": "Daily Split Data"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8452,
+    "userCount": 5,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl8_horizon",
+    "description": "Time horizon in days for which the price target is forecasted",
+    "dataset": {
+      "id": "analyst8",
+      "name": "Daily Split Data"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9105,
+    "userCount": 22,
+    "alphaCount": 44,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl8_ibes_reccode",
+    "description": "Numerical code representing the analyst's recommendation (e.g., Buy, Hold, Sell, etc.); see IBES recommendation code lookup table",
+    "dataset": {
+      "id": "analyst8",
+      "name": "Daily Split Data"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7049,
+    "userCount": 21,
+    "alphaCount": 38,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl8_ire_freq",
+    "description": "The frequency at which earnings per share (EPS) data is reported (e.g., quarterly, annual, etc.)",
+    "dataset": {
+      "id": "analyst8",
+      "name": "Daily Split Data"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 103,
+    "alphaCount": 276,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  },
+  {
+    "id": "anl8_value",
+    "description": "Analyst-reported price target for the security",
+    "dataset": {
+      "id": "analyst8",
+      "name": "Daily Split Data"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9105,
+    "userCount": 21,
+    "alphaCount": 82,
+    "pyramidMultiplier": 1.2,
+    "themes": []
+  }
+]

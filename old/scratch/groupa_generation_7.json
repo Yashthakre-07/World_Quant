@@ -1,0 +1,66 @@
+[
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_0",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(ts_delta(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 10) / (ts_std_dev(vec_avg(anl4_fs_basic_splt_v4_nd_eps_estimate), 20) + 0.001), 5)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Volatility-normalized EPS revision momentum, smoothed over 5 days, captures persistent analyst upgrade cycles within the same subindustry. Interacting with volume trend rank amplifies the signal on high-liquidity institutional participation days.",
+    "anomaly_basis": "Analyst Revision Momentum",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_1",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((ts_delta(anl14_actvalue_capex_fy0, 10) / (ts_std_dev(anl14_actvalue_capex_fy0, 20) + 0.001)) / (abs(anl14_actvalue_revenue_fy0) + 0.001), 5)), 0), subindustry)",
+    "hypothesis": "Fading abnormal capex increases normalized by actual revenue highlights long-term capital deployment efficiency reversion. Volatility scaling of the capex delta reduces noisy capital expenditure jumps.",
+    "anomaly_basis": "Capex Investment Overreaction",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_2",
+    "dataset": "analyst16",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear((vec_avg(anl16_aftercons_difference) - ts_mean(vec_avg(anl16_aftercons_difference), 20)) / (ts_std_dev(vec_avg(anl16_aftercons_difference), 20) + 0.001), 10)), 0), subindustry)",
+    "hypothesis": "Consensus difference drift following real-time revisions captures ongoing post-event informational adjustment. Transforming the level into a standardized deviation filter sharpens entry timing.",
+    "anomaly_basis": "Sell-Side Consensus Convergence",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_3",
+    "dataset": "analyst7",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(vec_avg(act_q_eps_surprisestd) / (ts_std_dev(vec_avg(act_q_eps_surprisestd), 10) + 0.001), 5)), 0), subindustry)",
+    "hypothesis": "Persistence of historical standardized EPS surprises projects future outperformance via earnings expectations gaps. Volatility scaling stabilizes the earnings surprise dispersion across different reporting cycles.",
+    "anomaly_basis": "Earnings Surprise Persistence",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_4",
+    "dataset": "model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(mdl26_60dy_srprs_lst_q_rnngs / (ts_std_dev(mdl26_60dy_srprs_lst_q_rnngs, 10) + 0.001), 10)), 0), subindustry)",
+    "hypothesis": "60-day surprise score on quarterly earnings signals continuing post-earnings price drift. Volatility scaling and decay stacking capture persistent post-earnings drift while suppressing short-term noise.",
+    "anomaly_basis": "Post-Earnings Announcement Drift (PEAD)",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_5",
+    "dataset": "model135",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, rank(ts_decay_linear(mdl135_d5_ivn / (ts_std_dev(mdl135_d5_ivn, 10) + 0.001), 5)), 0), subindustry)",
+    "hypothesis": "Technical indicator capturing negative volume index over 5 days highlights trend strength on low-volume days, stabilized by volatility scaling.",
+    "anomaly_basis": "Liquidity-Conditioned Factor Momentum",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_6",
+    "dataset": "news12",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(ts_delta(vec_avg(stddev_of_trading_volume), 10) / (ts_std_dev(vec_avg(stddev_of_trading_volume), 20) + 0.001), 5)) * rank(volume / adv20), 0), subindustry)",
+    "hypothesis": "Fading temporary spikes in news-related volume volatility signals reversal to the mean. Interacting with volume rank ensures mean reversion signals are traded when institutional trading volume is elevated.",
+    "anomaly_basis": "Excess Volatility Reversion",
+    "decay": 10
+  },
+  {
+    "family": "GRP_A_ELITE_THEME_MUTATION_7",
+    "dataset": "news5",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(vec_avg(high_excess_volatility) / (ts_std_dev(vec_avg(high_excess_volatility), 20) + 0.001), 10)), 0), subindustry)",
+    "hypothesis": "High excess volatility sentiment indicators exhibit short-term overreaction that reverts to the mean, smoothed and normalized by historic volatility.",
+    "anomaly_basis": "Media Attention Pricing Premium",
+    "decay": 10
+  }
+]

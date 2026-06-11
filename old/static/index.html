@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaForge Console — WQ Agent</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="glass-bg"></div>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="pulse-indicator" id="state-pulse"></span>
+                <h1>AlphaForge <span class="version">v1.0.0</span></h1>
+            </div>
+            <!-- Navigation Tab Switcher -->
+            <div class="header-center" style="display: flex; gap: 8px; background: rgba(0,0,0,0.3); padding: 4px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
+                <button id="tab-sim-btn" style="background: linear-gradient(135deg, rgba(6,182,212,0.2), rgba(59,130,246,0.2)); border: 1px solid rgba(6,182,212,0.4); color: white; font-size: 0.85rem; font-weight: 700; padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none; display: flex; align-items: center; gap: 6px;">🛠️ Orchestrator</button>
+                <button id="tab-submit-btn" style="background: none; border: 1px solid transparent; color: var(--text-muted, #94a3b8); font-size: 0.85rem; font-weight: 700; padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none; display: flex; align-items: center; gap: 6px;">🚀 Submission Platform</button>
+                <button id="tab-trigger-btn" style="background: none; border: 1px solid transparent; color: var(--text-muted, #94a3b8); font-size: 0.85rem; font-weight: 700; padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none; display: flex; align-items: center; gap: 6px;">⚡ Trigger Flow</button>
+            </div>
+
+            <div class="header-right" style="display: flex; align-items: center; gap: 12px;">
+                <button id="login-btn" class="chrome-btn" style="background: linear-gradient(135deg, var(--primary-color), var(--cyan-color)); color: white; border: none; border-radius: 8px; font-weight: 700; padding: 6px 14px; cursor: pointer; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 0 10px rgba(6, 182, 212, 0.25); display: flex; align-items: center; gap: 6px; outline: none;">
+                    <span id="login-btn-icon">🔑</span> <span id="login-btn-text">Login (Sai)</span>
+                </button>
+                <div class="status-badge" id="system-status">AGENT INACTIVE</div>
+            </div>
+        </header>
+
+        <div id="orchestrator-view">
+            <!-- Stats Grid -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Total Simulated</span>
+                        <span class="stat-value" id="stat-total-runs">0</span>
+                    </div>
+                </div>
+                <div class="stat-card highlight">
+                    <div class="stat-icon">🚀</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Alphas Submitted</span>
+                        <span class="stat-value" id="stat-submissions">0</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Best Sharpe Ratio</span>
+                        <span class="stat-value" id="stat-best-sharpe">0.00</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Best Fitness Score</span>
+                        <span class="stat-value" id="stat-best-fitness">0.00</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Body -->
+            <main class="main-content">
+                <!-- Left Side: Terminal and Control -->
+                <div class="panel-left" id="terminal-panel">
+                    <div class="panel-header">
+                        <div class="panel-title-area">
+                            <h2>Live Telemetry & Logs</h2>
+                            <p class="panel-subtitle">Real-time simulation feedback and quantitative agent telemetry</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Active Backtesting Queue Card -->
+                    <div class="table-card" style="margin-bottom: 20px;">
+                        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 2px solid rgba(255, 255, 255, 0.08); flex-wrap: wrap; gap: 10px;">
+                            <h3 style="margin: 0; font-size: 1rem; font-weight: 700; background: linear-gradient(90deg, #f57802, #f43f5e); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Active Backtesting Queue</h3>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <button class="chrome-btn" id="clean-queue-btn" title="Clean failed & errored queue tasks" style="padding: 4px 8px; font-size: 0.7rem; font-weight: 700; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; cursor: pointer;">🧹 Clean</button>
+                                <button class="chrome-btn" id="purge-queue-btn" title="Purge entire simulation queue" style="padding: 4px 8px; font-size: 0.7rem; font-weight: 700; color: #f87171; border-color: rgba(239, 68, 68, 0.3); background: rgba(239,68,68,0.05); border-radius: 6px; cursor: pointer;">🗑️ Purge All</button>
+                                <button class="chrome-btn" id="purge-top50-btn" title="Clear the top 50 alphas from queue" style="padding: 4px 8px; font-size: 0.7rem; font-weight: 700; color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); background: rgba(251,191,36,0.05); border-radius: 6px; cursor: pointer;">🧹 Clear Top 50</button>
+                                <span id="queue-progress-badge" class="badge badge-success" style="font-size: 0.75rem; padding: 3px 8px;">0 / 0 Completed</span>
+                            </div>
+                        </div>
+                        <div class="alpha-list" id="alpha-list" style="max-height: 500px; overflow-y: auto; padding: 15px; display: grid; gap: 12px;">
+                            <div class="empty-state">No alphas currently simulating in queue.</div>
+                        </div>
+                    </div>
+
+                    <!-- Premium High-Tech Terminal Window -->
+                    <div class="console-wrapper" id="terminal-wrapper">
+                        <!-- Terminal Window Top Chrome -->
+                        <div class="terminal-chrome">
+                            <div class="chrome-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="chrome-title">
+                                <span class="shell-prompt">guest@alphaforge</span>:<span class="shell-dir">~/telemetry</span>
+                            </div>
+                            <div class="chrome-actions">
+                                <button class="chrome-btn" id="copy-logs-btn" title="Copy Logs">
+                                    <span class="btn-icon">📋</span> Copy
+                                </button>
+                                <button class="chrome-btn" id="download-logs-btn" title="Download Logs">
+                                    <span class="btn-icon">📥</span> Download
+                                </button>
+                                <button class="chrome-btn" id="expand-console-btn" title="Toggle Fullscreen">
+                                    <span class="btn-icon" id="expand-icon">⛶</span> <span id="expand-text">Expand</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Terminal Controls & Filters Bar -->
+                        <div class="terminal-filter-bar">
+                            <div class="log-search-box">
+                                <span class="search-icon">🔍</span>
+                                <input type="text" id="log-search-input" placeholder="Search logs (regex supported, e.g. US\d{7})..." />
+                                <button id="search-clear-btn" style="display: none;">×</button>
+                            </div>
+                            
+                            <div class="log-filters">
+                                <button class="filter-pill active" data-filter="all">All</button>
+                                <button class="filter-pill" data-filter="system">System</button>
+                                <button class="filter-pill" data-filter="status">Status</button>
+                                <button class="filter-pill" data-filter="auth">Auth</button>
+                                <button class="filter-pill" data-filter="generator">Gen</button>
+                                <button class="filter-pill" data-filter="simulation">Sim</button>
+                                <button class="filter-pill" data-filter="evaluator">Eval</button>
+                                <button class="filter-pill" data-filter="submission">Submit</button>
+                                <button class="filter-pill" data-filter="error">Errors</button>
+                            </div>
+                        </div>
+
+                        <!-- The Console Logs -->
+                        <div class="console-log" id="log-console">
+                            <!-- We will inject logs dynamically with app.js -->
+                        </div>
+
+                        <!-- Terminal Footer Status Bar -->
+                        <div class="terminal-footer">
+                            <div class="footer-status">
+                                <span class="footer-status-dot active" id="stream-status-dot"></span>
+                                <span id="stream-status-text">STREAMING ACTIVE</span>
+                            </div>
+                            
+                            <div class="footer-stats">
+                                <span class="stat-indicator">Total: <strong id="log-count-total">0</strong></span>
+                                <span class="stat-divider">|</span>
+                                <span class="stat-indicator">Filtered: <strong id="log-count-filtered">0</strong></span>
+                                <span class="stat-divider">|</span>
+                                <span class="stat-indicator text-danger-red">Errors: <strong id="log-count-errors">0</strong></span>
+                            </div>
+                            
+                            <div class="footer-controls">
+                                <label class="toggle-container">
+                                    <input type="checkbox" id="autoscroll-chk" checked>
+                                    <span class="toggle-label">Auto-scroll</span>
+                                </label>
+                                <button class="footer-btn" id="clear-btn">Clear Console</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Control Panel -->
+                    <div class="control-panel">
+                        <button class="btn btn-primary" id="start-btn">Start Orchestration Run</button>
+                        <button class="btn btn-danger" id="stop-btn" disabled>Stop Agent</button>
+                    </div>
+                </div>
+
+                <!-- Right Side: Leaderboard & Performance breakdown -->
+                <div class="panel-right">
+
+                    <!-- Live Pipeline Execution Checklist -->
+                    <div class="table-card" id="pipeline-checklist-section" style="margin-bottom: 20px; flex-shrink: 0;">
+                        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.25rem; border-bottom: 2px solid rgba(255, 255, 255, 0.08); flex-wrap: wrap; gap: 10px;">
+                            <h3 style="margin: 0; font-size: 0.9rem; font-weight: 700; background: linear-gradient(90deg, #3b82f6, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; gap: 6px;">⚙️ Pipeline Execution Registry</h3>
+                        </div>
+                        
+                        <div style="padding: 10px 15px; display: flex; flex-direction: column; gap: 8px;">
+                            <!-- DB Init Step -->
+                            <div class="chk-step" id="pipe-step-db" style="display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: #10b981; font-weight: 600;">
+                                <span class="chk-icon" id="pipe-step-db-icon">✅</span>
+                                <span style="white-space: nowrap;">Database Init</span>
+                                <span style="font-size: 0.65rem; color: #94a3b8; font-weight: normal; margin-left: auto; text-align: right;">Verified & optimized</span>
+                            </div>
+                            
+                            <!-- Auth Step -->
+                            <div class="chk-step" id="pipe-step-auth" style="display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: #94a3b8; transition: color 0.3s ease; font-weight: 600;">
+                                <span class="chk-icon" id="pipe-step-auth-icon">⚪</span>
+                                <span style="white-space: nowrap; display: flex; align-items: center; gap: 6px;">
+                                    JWT Auth
+                                    <span id="session-countdown-badge" class="badge" style="font-size: 0.6rem; padding: 1px 4px; font-family: monospace; background: rgba(59,130,246,0.1); color: #3b82f6; border: 1px solid rgba(59,130,246,0.3); border-radius: 4px; display: none;">--:--</span>
+                                </span>
+                                <span style="font-size: 0.65rem; color: #94a3b8; font-weight: normal; margin-left: auto; text-align: right; max-width: 55%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" id="pipe-step-auth-desc">Authenticating...</span>
+                            </div>
+                            
+                            <!-- Batch Worker Step -->
+                            <div class="chk-step" id="pipe-step-sim" style="display: flex; flex-direction: column; gap: 4px; color: #94a3b8; transition: color 0.3s ease; font-weight: 600;">
+                                <div style="display: flex; align-items: center; gap: 8px; font-size: 0.75rem; width: 100%;">
+                                    <span class="chk-icon" id="pipe-step-sim-icon">⚪</span>
+                                    <span style="white-space: nowrap;">Batch Simulation</span>
+                                    <span style="font-size: 0.65rem; color: #94a3b8; font-weight: normal; margin-left: auto; text-align: right; max-width: 55%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" id="pipe-step-sim-desc">Waiting...</span>
+                                </div>
+                                <!-- Slots progress tracking -->
+                                <div id="slots-progress-container" style="display: none; flex-direction: column; gap: 4px; margin-top: 2px; background: rgba(0,0,0,0.2); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.04); font-weight: normal; width: 100%;">
+                                    <!-- Will inject slot progress elements dynamically -->
+                                </div>
+                            </div>
+                            
+                            <!-- Self-Correlation Step -->
+                            <div class="chk-step" id="pipe-step-corr" style="display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: #94a3b8; transition: color 0.3s ease; font-weight: 600;">
+                                <span class="chk-icon" id="pipe-step-corr-icon">⚪</span>
+                                <span style="white-space: nowrap;">Self-Correlation</span>
+                                <span style="font-size: 0.65rem; color: #94a3b8; font-weight: normal; margin-left: auto; text-align: right; max-width: 55%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" id="pipe-step-corr-desc">Pending</span>
+                            </div>
+                            
+                            <!-- Platform Submission Step -->
+                            <div class="chk-step" id="pipe-step-submit" style="display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: #94a3b8; transition: color 0.3s ease; font-weight: 600;">
+                                <span class="chk-icon" id="pipe-step-submit-icon">⚪</span>
+                                <span style="white-space: nowrap;">Platform Submit</span>
+                                <span style="font-size: 0.65rem; color: #94a3b8; font-weight: normal; margin-left: auto; text-align: right; max-width: 55%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" id="pipe-step-submit-desc">Pending</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modern Pushed Alphas Review Inbox -->
+                    <div class="table-card" id="inbox-section" style="margin-bottom: 20px; flex-shrink: 0;">
+                        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 2px solid rgba(255, 255, 255, 0.08); flex-wrap: wrap; gap: 10px;">
+                            <h3 style="margin: 0; font-size: 1rem; font-weight: 700; background: linear-gradient(90deg, #f43f5e, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; gap: 6px;">📥 API Review Inbox</h3>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <button id="inbox-push-all-btn" class="chrome-btn" style="padding: 4px 8px; font-size: 0.7rem; font-weight: 700; background: linear-gradient(135deg, #6366f1, #4f46e5); color: white; border: none; border-radius: 6px; cursor: pointer; outline: none; box-shadow: 0 2px 5px rgba(99,102,241,0.25);">🚀 Push All</button>
+                                <button id="inbox-clear-btn" class="chrome-btn" style="padding: 4px 8px; font-size: 0.7rem; font-weight: 700; color: #ef4444; border-color: rgba(239, 68, 68, 0.2); background: rgba(255, 255, 255, 0.05); border-radius: 6px; cursor: pointer; outline: none;">🧹 Clear</button>
+                                <span id="inbox-count" class="badge" style="font-size: 0.75rem; padding: 3px 8px; font-weight: 700; background: #ef4444; color: white; border-radius: 6px; display: none;">0 Pending</span>
+                            </div>
+                        </div>
+                        <div class="alpha-list" id="inbox-list" style="max-height: 250px; overflow-y: auto; padding: 15px; display: grid; gap: 8px;">
+                            <div style="text-align: center; color: var(--text-muted); font-size: 0.75rem; padding: 15px 0; font-style: italic;">No pending API formulas to review.</div>
+                        </div>
+                    </div>
+
+                    <!-- Alpha Vault & Performance Registry -->
+                    <div class="table-card" id="vault-section" style="display: flex; flex-direction: column; flex-grow: 1;">
+                        <div class="card-header" style="display: flex; flex-direction: column; gap: 0.75rem; padding: 1.25rem 1.5rem; border-bottom: 2px solid rgba(255, 255, 255, 0.08);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                                <h3 style="margin: 0; font-size: 1.05rem; font-weight: 700; background: linear-gradient(to right, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.3px;">Alpha Vault Registry</h3>
+                                <span id="vault-count-badge" class="badge badge-success" style="font-size: 0.725rem; padding: 3px 8px; font-weight: 700;">0 Alphas Total</span>
+                            </div>
+                            
+                            <!-- Search and Tabs Bar -->
+                            <div style="display: flex; gap: 0.75rem; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-top: 0.25rem; width: 100%;">
+                                <!-- Tab buttons -->
+                                <div class="vault-tabs" style="display: flex; gap: 0.25rem; background: rgba(0,0,0,0.3); padding: 4px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
+                                    <button class="vault-tab-btn active" data-tab="all" style="background: none; border: none; color: var(--text-muted); font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none;">All Vault</button>
+                                    <button class="vault-tab-btn" data-tab="SUBMITTED" style="background: none; border: none; color: var(--text-muted); font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none;">Submitted</button>
+                                    <button class="vault-tab-btn" data-tab="SOFT_FAIL" style="background: none; border: none; color: var(--text-muted); font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none;">Soft Fail</button>
+                                    <button class="vault-tab-btn" data-tab="HARD_REJECT" style="background: none; border: none; color: var(--text-muted); font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none;">Rejects</button>
+                                    <button class="vault-tab-btn" data-tab="ERROR" style="background: none; border: none; color: var(--text-muted); font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none;">Errors</button>
+                                </div>
+                                
+                                <!-- Search box -->
+                                <div style="position: relative; flex-grow: 1; min-width: 150px; max-width: 220px; display: flex; align-items: center;">
+                                    <input type="text" id="vault-search-input" placeholder="Filter vault formulas..." style="width: 100%; background: rgba(0, 0, 0, 0.4); border: 1px solid var(--border-color); border-radius: 6px; padding: 5px 8px 5px 26px; color: var(--text-primary); font-size: 0.75rem; transition: all 0.2s ease; outline: none;">
+                                    <span style="position: absolute; left: 8px; font-size: 0.725rem; color: var(--text-muted); pointer-events: none;">🔍</span>
+                                </div>
+                                
+                                <!-- Export Button -->
+                                <button class="chrome-btn" id="export-vault-btn" title="Export simulated alphas as CSV" style="padding: 6px 12px; font-size: 0.75rem; font-weight: 700; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+                                    📥 Export CSV
+                                </button>
+                                
+                                <!-- Purge Vault Button -->
+                                <button class="chrome-btn" id="purge-vault-btn" title="Completely purge simulated vault registry and database" style="padding: 6px 12px; font-size: 0.75rem; font-weight: 700; color: #f87171; border-color: rgba(239, 68, 68, 0.3); background: rgba(239,68,68,0.05); border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s ease;">
+                                    🧹 Purge Vault
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-wrapper" style="max-height: 580px; overflow-y: auto;">
+                            <table class="data-table" id="vault-table">
+                                <thead>
+                                    <tr>
+                                        <th>Alpha ID / Family</th>
+                                        <th>Status</th>
+                                        <th>Sharpe</th>
+                                        <th>Fitness</th>
+                                        <th>Turnover</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" class="empty-state">Loading Alpha Vault...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div id="submission-view" style="display: none;">
+            <!-- Stats Grid for Submission Platform -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📥</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Queue Count</span>
+                        <span class="stat-value" id="sub-queue-count">0</span>
+                    </div>
+                </div>
+                <div class="stat-card highlight" style="background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(16,185,129,0.2)); border-color: rgba(16,185,129,0.3);">
+                    <div class="stat-icon" style="color: #10b981;">🟢</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Submitted (Green)</span>
+                        <span class="stat-value" id="sub-green-count" style="color: #10b981;">0</span>
+                    </div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(245,158,11,0.2)); border-color: rgba(245,158,11,0.3);">
+                    <div class="stat-icon" style="color: #f59e0b;">🟡</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Rejected (Yellow)</span>
+                        <span class="stat-value" id="sub-yellow-count" style="color: #f59e0b;">0</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Total Scanned</span>
+                        <span class="stat-value" id="sub-total-count">0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Submission Main Body -->
+            <main class="main-content">
+                <!-- Left Side: Controls & Submittable Queue -->
+                <div class="panel-left">
+                    <!-- Search & Filter Controls -->
+                    <div class="table-card" style="margin-bottom: 20px; padding: 20px; background: rgba(18, 22, 33, 0.45);">
+                        <div style="display: flex; gap: 20px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                            <div style="flex-grow: 1;">
+                                <h3 style="margin: 0 0 5px 0; font-size: 1.1rem; font-weight: 700; color: white;">Search & Filter Controls</h3>
+                                <p style="font-size: 0.8rem; color: var(--text-muted, #94a3b8); margin-bottom: 15px;">Specify threshold conditions for automatic platform alpha scan</p>
+                                
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px;">
+                                    <div>
+                                        <label style="display: block; font-size: 0.75rem; color: var(--text-muted, #94a3b8); margin-bottom: 5px;">Min Sharpe Ratio</label>
+                                        <input type="number" id="filter-min-sharpe" value="1.5" step="0.1" style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 6px 10px; color: white; outline: none;">
+                                    </div>
+                                    <div>
+                                        <label style="display: block; font-size: 0.75rem; color: var(--text-muted, #94a3b8); margin-bottom: 5px;">Min Fitness Score</label>
+                                        <input type="number" id="filter-min-fitness" value="1.0" step="0.1" style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 6px 10px; color: white; outline: none;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 220px;">
+                                <button id="start-search-btn" class="chrome-btn" style="background: linear-gradient(135deg, #e0f2fe, #38bdf8); color: #0369a1; border: none; border-radius: 8px; font-weight: 800; padding: 14px 28px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3); font-size: 1.1rem; letter-spacing: 0.5px; width: 100%; outline: none;">
+                                    🔎 START SEARCH
+                                </button>
+                                <div id="search-progress-text" style="font-size: 0.8rem; color: #38bdf8; margin-top: 8px; font-style: italic; text-align: center; display: none;">
+                                    Scanning platform...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submittable Alphas Queue -->
+                    <div class="table-card" style="margin-bottom: 20px; display: flex; flex-direction: column;">
+                        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 2px solid rgba(255, 255, 255, 0.08); flex-wrap: wrap; gap: 10px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <h3 style="margin: 0; font-size: 1.05rem; font-weight: 700; background: linear-gradient(to right, #34d399, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.3px;">SUBMITTABLE ALPHAS</h3>
+                                <span id="queue-count-badge" class="badge" style="font-size: 0.725rem; padding: 3px 8px; font-weight: 700; background: rgba(52,211,153,0.1); color: #34d399; border: 1px solid rgba(52,211,153,0.3); border-radius: 6px;">0 Queued</span>
+                            </div>
+                            
+                            <div style="display: flex; gap: 0.75rem; align-items: center; justify-content: space-between; flex-wrap: wrap; flex-grow: 1; max-width: 400px;">
+                                <!-- Search bar -->
+                                <div style="position: relative; flex-grow: 1; display: flex; align-items: center;">
+                                    <input type="text" id="queue-search-input" placeholder="Sort / Search queue..." style="width: 100%; background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 5px 8px 5px 26px; color: var(--text-primary); font-size: 0.75rem; outline: none;">
+                                    <span style="position: absolute; left: 8px; font-size: 0.725rem; color: var(--text-muted); pointer-events: none;">🔍</span>
+                                </div>
+                                <button id="bulk-submit-btn" class="chrome-btn" style="background: linear-gradient(135deg, #34d399, #059669); color: white; border: none; border-radius: 6px; font-weight: 700; padding: 6px 12px; cursor: pointer; outline: none; display: flex; align-items: center; gap: 4px; box-shadow: 0 2px 5px rgba(5,150,105,0.3);">
+                                    🚀 SUBMIT SELECTED
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-wrapper" style="max-height: 500px; overflow-y: auto;">
+                            <table class="data-table" id="sub-queue-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 40px; text-align: center;"><input type="checkbox" id="queue-select-all" style="cursor: pointer;"></th>
+                                        <th>Alpha ID</th>
+                                        <th>Sharpe</th>
+                                        <th>Fitness</th>
+                                        <th>Turnover</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sub-queue-body">
+                                    <tr>
+                                        <td colspan="7" class="empty-state">Scan WQ platform or load database to populate submittable alphas.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Submission logs & Registry grids -->
+                <div class="panel-right">
+                    <!-- Submission Logs -->
+                    <div class="console-wrapper" style="margin-bottom: 20px; height: 230px; display: flex; flex-direction: column;">
+                        <div class="terminal-chrome">
+                            <div class="chrome-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="chrome-title">Submission Progress & Telemetry</div>
+                        </div>
+                        <div class="console-log" id="submission-log-console" style="flex-grow: 1; padding: 12px; font-family: 'Fira Code', monospace; font-size: 0.75rem; background: rgba(5,5,5,0.5); overflow-y: auto; color: #a5f3fc; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
+                            <div style="color: var(--text-muted, #94a3b8); font-style: italic;">Ready for actions. Press START SEARCH to scan, or select and submit queued alphas.</div>
+                        </div>
+                    </div>
+
+                    <!-- Tabs for Yellow & Green registries -->
+                    <div class="table-card" id="submission-registry-section" style="display: flex; flex-direction: column; flex-grow: 1;">
+                        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 2px solid rgba(255, 255, 255, 0.08); flex-wrap: wrap; gap: 10px;">
+                            <div class="vault-tabs" style="display: flex; gap: 0.25rem; background: rgba(0,0,0,0.3); padding: 4px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
+                                <button class="sub-tab-btn active" data-tab="green" style="background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(5,150,105,0.2)); border: 1px solid rgba(16,185,129,0.4); color: white; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none;">🟢 Green (Submitted)</button>
+                                <button class="sub-tab-btn" data-tab="yellow" style="background: none; border: 1px solid transparent; color: var(--text-muted, #94a3b8); font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; outline: none;">🟡 Yellow (Rejected)</button>
+                            </div>
+                            <span id="sub-registry-count" class="badge badge-success" style="font-size: 0.725rem; padding: 3px 8px; font-weight: 700;">0 Alphas</span>
+                        </div>
+                        
+                        <div class="table-wrapper" style="max-height: 400px; overflow-y: auto;">
+                            <!-- Green Alphas Table -->
+                            <table class="data-table" id="sub-green-table">
+                                <thead>
+                                    <tr>
+                                        <th>Alpha ID</th>
+                                        <th>Sharpe</th>
+                                        <th>Fitness</th>
+                                        <th>Turnover</th>
+                                        <th>Submitted At</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sub-green-body">
+                                    <tr>
+                                        <td colspan="5" class="empty-state">No submitted alphas registered.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <!-- Yellow Alphas Table -->
+                            <table class="data-table" id="sub-yellow-table" style="display: none;">
+                                <thead>
+                                    <tr>
+                                        <th>Alpha ID</th>
+                                        <th>Sharpe</th>
+                                        <th>Fitness</th>
+                                        <th>Rejection Reason</th>
+                                        <th>Rejected At</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sub-yellow-body">
+                                    <tr>
+                                        <td colspan="5" class="empty-state">No yellow-marked alphas.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div id="trigger-view" style="display: none;">
+            <!-- Trigger Flow Tab Content -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Active Trigger State</span>
+                        <span class="stat-value" id="trig-status-text" style="font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #ffffff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">IDLE</span>
+                    </div>
+                </div>
+                <div class="stat-card highlight" style="background: linear-gradient(135deg, rgba(6,182,212,0.1), rgba(59,130,246,0.1));">
+                    <div class="stat-icon">🎛️</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Dataset Selected</span>
+                        <span class="stat-value" id="trig-dataset-text" style="font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #06b6d4, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">None</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🧬</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Alphas Generated</span>
+                        <span class="stat-value" id="trig-count-text" style="font-weight: 700;">0 / 0</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Progress Percent</span>
+                        <span class="stat-value" id="trig-progress-text" style="font-weight: 700;">0%</span>
+                    </div>
+                </div>
+            </section>
+
+            <main class="main-content">
+                <!-- Left panel: Control Forms -->
+                <div class="panel-left" style="background: rgba(18, 22, 33, 0.45); border-radius: 12px; padding: 24px; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 20px;">
+                    <div>
+                        <h2 style="font-size: 1.3rem; font-weight: 700; color: white; margin-bottom: 6px;">Alpha Forge Trigger Control</h2>
+                        <p style="font-size: 0.825rem; color: var(--text-muted, #94a3b8);">Launch background quantitative synthesis for any WQ BRAIN dataset.</p>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div>
+                            <label style="display: block; font-size: 0.8rem; color: var(--text-muted, #94a3b8); margin-bottom: 6px; font-weight: 600;">Dataset Search Name</label>
+                            <input type="text" id="trig-dataset-input" value="analyst10" placeholder="e.g. analyst10, fundamental8, social_media1" style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 10px 14px; color: white; outline: none; font-family: monospace;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-size: 0.8rem; color: var(--text-muted, #94a3b8); margin-bottom: 6px; font-weight: 600;">Number of Alphas (Target)</label>
+                            <input type="number" id="trig-count-input" value="200" min="5" max="500" style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 10px 14px; color: white; outline: none;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-size: 0.8rem; color: var(--text-muted, #94a3b8); margin-bottom: 6px; font-weight: 600;">Optional Gemini API Key Override</label>
+                            <input type="password" id="trig-gemini-input" placeholder="Defaults to key set in environment files" style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 10px 14px; color: white; outline: none;">
+                        </div>
+
+                        <button id="trig-launch-btn" class="chrome-btn" style="background: linear-gradient(135deg, #06b6d4, #3b82f6); color: white; border: none; border-radius: 8px; font-weight: 800; padding: 16px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 0 15px rgba(6, 182, 212, 0.25); font-size: 1.05rem; letter-spacing: 0.5px; outline: none; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px;">
+                            🚀 LAUNCH ALPHA FORGE SEQUENCER
+                        </button>
+                    </div>
+
+                    <!-- Progress bar container -->
+                    <div id="trig-progress-bar-container" style="display: none; margin-top: 10px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 8px; color: #a5f3fc;">
+                            <span id="trig-current-step-label" style="font-weight: 600;">Step 1: Connecting...</span>
+                            <span id="trig-percent-label" style="font-family: monospace;">0%</span>
+                        </div>
+                        <div style="width: 100%; height: 12px; background: rgba(255, 255, 255, 0.03); border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+                            <div id="trig-progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #06b6d4, #3b82f6, #10b981); transition: width 0.4s ease;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right panel: Interactive progress Checklist & Live Mini Logs -->
+                <div class="panel-right" style="display: flex; flex-direction: column; gap: 20px;">
+                    <!-- Visual stepped Checklist card -->
+                    <div class="table-card" id="trigger-sequencer-section" style="padding: 20px; background: rgba(18, 22, 33, 0.45); border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+                        <h3 style="margin: 0 0 16px 0; font-size: 0.95rem; font-weight: 700; color: white; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; background: linear-gradient(90deg, #06b6d4, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Sequencer Step Registry</h3>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 14px;">
+                            <div class="chk-step" id="trig-step-1" style="display: flex; align-items: center; gap: 12px; color: var(--text-muted, #94a3b8); font-size: 0.85rem; transition: color 0.3s ease;">
+                                <span class="chk-icon" id="trig-step-1-icon" style="font-size: 1.1rem;">⚪</span>
+                                <span>Step 1: Authenticate & Verify WorldQuant Brain Session</span>
+                            </div>
+                            <div class="chk-step" id="trig-step-2" style="display: flex; align-items: center; gap: 12px; color: var(--text-muted, #94a3b8); font-size: 0.85rem; transition: color 0.3s ease;">
+                                <span class="chk-icon" id="trig-step-2-icon" style="font-size: 1.1rem;">⚪</span>
+                                <span>Step 2: Dynamic Fields & Operators Extraction (ace_lib)</span>
+                            </div>
+                            <div class="chk-step" id="trig-step-3" style="display: flex; align-items: center; gap: 12px; color: var(--text-muted, #94a3b8); font-size: 0.85rem; transition: color 0.3s ease;">
+                                <span class="chk-icon" id="trig-step-3-icon" style="font-size: 1.1rem;">⚪</span>
+                                <span>Step 3: Call Gemini AI Model Generator Suite</span>
+                            </div>
+                            <div class="chk-step" id="trig-step-4" style="display: flex; align-items: center; gap: 12px; color: var(--text-muted, #94a3b8); font-size: 0.85rem; transition: color 0.3s ease;">
+                                <span class="chk-icon" id="trig-step-4-icon" style="font-size: 1.1rem;">⚪</span>
+                                <span>Step 4: Save Structured Portfolio (alphas_dataset json)</span>
+                            </div>
+                            <div class="chk-step" id="trig-step-5" style="display: flex; align-items: center; gap: 12px; color: var(--text-muted, #94a3b8); font-size: 0.85rem; transition: color 0.3s ease;">
+                                <span class="chk-icon" id="trig-step-5-icon" style="font-size: 1.1rem;">⚪</span>
+                                <span>Step 5: Inject Alphas into Telemetry Review Inbox</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mini focused logs panel -->
+                    <div class="console-wrapper" style="flex-grow: 1; min-height: 250px; display: flex; flex-direction: column;">
+                        <div class="terminal-chrome">
+                            <div class="chrome-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="chrome-title">Trigger Flow Sequencer Telemetry</div>
+                        </div>
+                        <div class="console-log" id="trig-log-console" style="flex-grow: 1; padding: 12px; font-family: 'Fira Code', monospace; font-size: 0.75rem; background: rgba(5,5,5,0.5); overflow-y: auto; color: #a5f3fc; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; max-height: 300px;">
+                            <div style="color: var(--text-muted, #94a3b8); font-style: italic;">Enter parameters on the left and click Launch to start alpha quantitative synthesis.</div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- High-Tech Interactive Re-authentication Modal -->
+    <div id="reauth-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+            <button id="reauth-modal-close" class="modal-close-btn">&times;</button>
+            <div class="modal-body">
+                <div id="reauth-modal-icon" class="modal-icon">🔐</div>
+                <h3 id="reauth-modal-title">Biometric Verification Required</h3>
+                <p id="reauth-modal-text">
+                    WorldQuant requires Persona biometric verification to securely authenticate your session.<br>
+                    <strong class="highlight-text" style="color: #fca5a5; font-weight: 700;">Please complete verification in the new tab.</strong>
+                </p>
+                <div id="reauth-modal-loader" class="modal-loader">
+                    <span class="spinner"></span>
+                    <span>Waiting for browser verification...</span>
+                </div>
+                <a id="reauth-modal-link" class="modal-action-btn" href="#" target="_blank">🔗 Open Verification Link Again</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+    
+</body>
+</html>

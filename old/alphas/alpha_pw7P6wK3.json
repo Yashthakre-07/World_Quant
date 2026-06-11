@@ -1,0 +1,25 @@
+{
+  "alpha_id": "pw7P6wK3",
+  "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear(ts_delta(returns, 3) / (ts_std_dev(returns, 10) + 0.0001), 5)), 0), subindustry)",
+  "family": "TOP_PERF_ALPHA_18",
+  "hypothesis": "High Performance Synced Alpha",
+  "status": "SOFT_FAIL",
+  "sharpe": 1.35,
+  "fitness": 0.53,
+  "turnover": 39.85,
+  "settings": {
+    "nanHandling": "OFF",
+    "instrumentType": "EQUITY",
+    "delay": 1,
+    "universe": "TOP3000",
+    "truncation": 0.08,
+    "unitHandling": "VERIFY",
+    "pasteurization": "ON",
+    "region": "USA",
+    "language": "FASTEXPR",
+    "decay": 10,
+    "neutralization": "SUBINDUSTRY",
+    "visualization": false
+  },
+  "timestamp": "2026-06-09 19:25:59"
+}

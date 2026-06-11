@@ -1,0 +1,157 @@
+2026-06-02T21:36:52.782164 | [POLLER] [INFO] ======================================================================
+2026-06-02T21:36:52.782164 | [POLLER] [INFO] AQL TELEMETRY POLLER DAEMON INITIALIZED
+2026-06-02T21:36:52.782164 | [POLLER] [INFO] ======================================================================
+2026-06-02T21:36:53.212415 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:36:58.958452 | [ORCHESTRATOR] [INFO] ======================================================================
+2026-06-02T21:36:58.959454 | [ORCHESTRATOR] [INFO] AQL CENTRAL COORDINATOR DAEMON RUNNING
+2026-06-02T21:36:58.961455 | [ORCHESTRATOR] [INFO] ======================================================================
+2026-06-02T21:37:53.739397 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:38:54.273444 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:39:54.764699 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:40:55.219204 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:41:55.752436 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:42:56.225660 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:43:56.728274 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:44:57.365530 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:46:01.972181 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:47:06.945104 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:48:07.396477 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:49:07.912142 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:50:08.865388 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:51:09.419265 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:52:10.050556 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:53:10.557005 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:54:11.095449 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:55:11.607650 | [POLLER] [INFO] Queue Status: Disk=26 | In-Mem=26 | State=COMPLETED
+2026-06-02T21:56:12.147773 | [POLLER] [INFO] Queue Status: Disk=0 | In-Mem=0 | State=RUNNING
+2026-06-02T21:56:12.148361 | [POLLER] [INFO] Cloud queue is empty. Fetching completed simulation vault stats...
+2026-06-02T21:56:12.906382 | [POLLER] [INFO] Total simulated alphas in vault: 630
+2026-06-02T21:56:12.906382 | [POLLER] [INFO] Dumped 613 failed runs to C:\Users\Admin\Documents\VIBE_YT\wq\scratch\aql_feedback.json for mutation analysis.
+2026-06-02T21:56:28.985717 | [ORCHESTRATOR] [INFO] === AQL OPTIMIZATION CYCLE DETECTED (Gen 1) ===
+2026-06-02T21:56:28.988993 | [ORCHESTRATOR] [INFO] Loaded 30 alpha runs needing analysis.
+2026-06-02T21:56:28.996972 | [ORCHESTRATOR] [INFO] Evolved 30 syntactically compliant quantitative descendant alphas.
+2026-06-02T21:56:30.251489 | [ORCHESTRATOR] [INFO] [SUCCESS] Remote review queue updated successfully: added 30 alphas.
+2026-06-02T21:56:30.681541 | [ORCHESTRATOR] [INFO] Cleaned feedback file to prepare for next generation poll.
+2026-06-02T21:57:13.484954 | [POLLER] [INFO] Queue Status: Disk=0 | In-Mem=0 | State=RUNNING
+2026-06-02T21:57:13.485480 | [POLLER] [INFO] Cloud queue is empty. Fetching completed simulation vault stats...
+2026-06-02T21:57:14.206718 | [POLLER] [INFO] Total simulated alphas in vault: 630
+2026-06-02T21:58:14.755814 | [POLLER] [INFO] Queue Status: Disk=0 | In-Mem=0 | State=RUNNING
+2026-06-02T21:58:14.755814 | [POLLER] [INFO] Cloud queue is empty. Fetching completed simulation vault stats...
+2026-06-02T21:58:15.511515 | [POLLER] [INFO] Total simulated alphas in vault: 630
+2026-06-02T21:59:16.195800 | [POLLER] [INFO] Queue Status: Disk=0 | In-Mem=0 | State=RUNNING
+2026-06-02T21:59:16.195800 | [POLLER] [INFO] Cloud queue is empty. Fetching completed simulation vault stats...
+2026-06-02T21:59:17.475561 | [POLLER] [INFO] Total simulated alphas in vault: 630
+2026-06-02T22:00:18.233614 | [POLLER] [INFO] Queue Status: Disk=0 | In-Mem=0 | State=RUNNING
+2026-06-02T22:00:18.233614 | [POLLER] [INFO] Cloud queue is empty. Fetching completed simulation vault stats...
+2026-06-02T22:00:19.376462 | [POLLER] [INFO] Total simulated alphas in vault: 630
+2026-06-02T22:01:19.909409 | [POLLER] [INFO] Queue Status: Disk=0 | In-Mem=0 | State=RUNNING
+2026-06-02T22:01:19.909409 | [POLLER] [INFO] Cloud queue is empty. Fetching completed simulation vault stats...
+2026-06-02T22:01:20.570259 | [POLLER] [INFO] Total simulated alphas in vault: 630
+2026-06-02T22:02:21.195332 | [POLLER] [INFO] Queue Status: Disk=0 | In-Mem=0 | State=RUNNING
+2026-06-02T22:02:21.195842 | [POLLER] [INFO] Cloud queue is empty. Fetching completed simulation vault stats...
+2026-06-02T22:02:21.795275 | [POLLER] [INFO] Total simulated alphas in vault: 630
+2026-06-02T22:03:22.276583 | [POLLER] [INFO] Queue Status: Disk=0 | In-Mem=0 | State=RUNNING
+2026-06-02T22:03:22.276583 | [POLLER] [INFO] Cloud queue is empty. Fetching completed simulation vault stats...
+2026-06-02T22:03:23.055109 | [POLLER] [INFO] Total simulated alphas in vault: 630
+2026-06-02T22:03:50.892781 | [POLLER] [INFO] ======================================================================
+2026-06-02T22:03:50.892781 | [POLLER] [INFO] AQL TELEMETRY POLLER DAEMON INITIALIZED
+2026-06-02T22:03:50.894285 | [POLLER] [INFO] ======================================================================
+2026-06-02T22:03:52.368232 | [POLLER] [INFO] Queue Status: Disk=0 | In-Mem=0 | State=RUNNING
+2026-06-02T22:03:52.370307 | [POLLER] [INFO] Cloud queue is empty. Fetching completed simulation vault stats...
+2026-06-02T22:03:53.398561 | [POLLER] [INFO] Total simulated alphas in vault: 630
+2026-06-02T22:03:53.409166 | [POLLER] [INFO] Simulation results archived successfully to: alpha_maker/simulation_results_20260602_220353.json
+2026-06-02T22:03:53.411075 | [POLLER] [INFO] Dumped 613 failed runs to C:\Users\Admin\Documents\VIBE_YT\wq\scratch\aql_feedback.json for mutation analysis.
+2026-06-02T22:03:56.172269 | [ORCHESTRATOR] [INFO] ======================================================================
+2026-06-02T22:03:56.172796 | [ORCHESTRATOR] [INFO] AQL CENTRAL COORDINATOR DAEMON RUNNING
+2026-06-02T22:03:56.172796 | [ORCHESTRATOR] [INFO] ======================================================================
+2026-06-02T22:03:56.174386 | [ORCHESTRATOR] [INFO] === AQL OPTIMIZATION CYCLE DETECTED (Gen 1) ===
+2026-06-02T22:03:56.175392 | [ORCHESTRATOR] [INFO] Loaded 30 alpha runs needing analysis.
+2026-06-02T22:03:56.177651 | [ORCHESTRATOR] [INFO] Evolved 30 syntactically compliant quantitative descendant alphas.
+2026-06-02T22:03:56.190475 | [ORCHESTRATOR] [INFO] Evolved reports saved successfully to: alpha_maker/generation_1
+2026-06-02T22:03:56.895362 | [ORCHESTRATOR] [INFO] [SUCCESS] Remote simulation queue overwritten directly: added 30 active backtests.
+2026-06-02T22:03:57.770951 | [ORCHESTRATOR] [INFO] Cleaned feedback file to prepare for next generation poll.
+2026-06-02T22:04:54.071192 | [POLLER] [INFO] Queue Status: Disk=30 | In-Mem=30 | State=RUNNING
+2026-06-02T22:05:54.601624 | [POLLER] [INFO] Queue Status: Disk=30 | In-Mem=30 | State=RUNNING
+2026-06-02T22:06:55.242230 | [POLLER] [INFO] Queue Status: Disk=30 | In-Mem=30 | State=RUNNING
+2026-06-02T22:07:55.880168 | [POLLER] [INFO] Queue Status: Disk=30 | In-Mem=30 | State=RUNNING
+2026-06-02T22:08:23.960696 | [POLLER] [INFO] ======================================================================
+2026-06-02T22:08:23.962699 | [POLLER] [INFO] AQL TELEMETRY POLLER DAEMON INITIALIZED
+2026-06-02T22:08:23.962699 | [POLLER] [INFO] ======================================================================
+2026-06-02T22:08:24.588882 | [POLLER] [INFO] Queue Status: Disk=30 | In-Mem=30 | State=RUNNING
+2026-06-02T22:08:26.057453 | [ORCHESTRATOR] [INFO] ======================================================================
+2026-06-02T22:08:26.058450 | [ORCHESTRATOR] [INFO] AQL CENTRAL COORDINATOR DAEMON RUNNING
+2026-06-02T22:08:26.059454 | [ORCHESTRATOR] [INFO] ======================================================================
+2026-06-02T22:09:37.157349 | [UNIFIED] [INFO] ======================================================================
+2026-06-02T22:09:37.158329 | [UNIFIED] [INFO] AQL UNIFIED CLOSED-LOOP QUANT PIPELINE INITIALIZED
+2026-06-02T22:09:37.159998 | [UNIFIED] [INFO] ======================================================================
+2026-06-02T22:09:37.160884 | [UNIFIED] [INFO] Resuming autonomous loop from Evolved Generation 2
+2026-06-02T22:09:38.190248 | [UNIFIED] [INFO] Queue Status: Disk=30 | In-Mem=30 | State=RUNNING
+2026-06-02T22:14:39.410753 | [UNIFIED] [INFO] Queue Status: Disk=30 | In-Mem=30 | State=RUNNING
+2026-06-02T22:19:40.049513 | [UNIFIED] [INFO] Queue Status: Disk=30 | In-Mem=30 | State=COMPLETED
+2026-06-02T22:23:45.277374 | [UNIFIED] [INFO] ======================================================================
+2026-06-02T22:23:45.278993 | [UNIFIED] [INFO] AQL UNIFIED CLOSED-LOOP QUANT PIPELINE INITIALIZED
+2026-06-02T22:23:45.279478 | [UNIFIED] [INFO] ======================================================================
+2026-06-02T22:23:45.280608 | [UNIFIED] [INFO] Resuming autonomous loop from Evolved Generation 2
+2026-06-02T22:23:45.810805 | [UNIFIED] [INFO] Queue Status: Disk=30 | In-Mem=30 | State=COMPLETED
+2026-06-02T22:23:45.811804 | [UNIFIED] [INFO] Cloud backtest queue has finished simulation. Querying vault statistics...
+2026-06-02T22:23:46.623103 | [UNIFIED] [INFO] Total simulated alphas in vault: 690
+2026-06-02T22:23:46.633285 | [UNIFIED] [INFO] Simulation results archived to: alpha_maker/simulation_results_20260602_222346.json
+2026-06-02T22:23:46.633285 | [UNIFIED] [INFO] Evolving Generation 2: Processing 673 failed alphas...
+2026-06-02T22:23:46.637261 | [UNIFIED] [INFO] Evolved 30 syntactically compliant descendant alphas.
+2026-06-02T22:23:46.639973 | [UNIFIED] [INFO] Evolved reports saved to: alpha_maker/generation_2
+2026-06-02T22:23:47.029479 | [UNIFIED] [INFO] [SUCCESS] Remote simulation queue overwritten directly: added 30 active backtests.
+2026-06-02T22:28:48.087550 | [UNIFIED] [INFO] Queue Status: Disk=30 | In-Mem=36 | State=RUNNING
+2026-06-02T22:29:22.348084 | [PIPELINE] [INFO] ======================================================================
+2026-06-02T22:29:22.349802 | [PIPELINE] [INFO] AQL SYNCHRONOUS RUNNER PIPELINE INITIALIZED
+2026-06-02T22:29:22.349802 | [PIPELINE] [INFO] ======================================================================
+2026-06-02T22:29:22.351132 | [PIPELINE] [INFO] Active Generation State Tracker: Next expected is Generation 3
+2026-06-02T22:29:22.890625 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=36 | State=RUNNING
+2026-06-02T22:30:55.965042 | [PIPELINE] [INFO] ======================================================================
+2026-06-02T22:30:55.966052 | [PIPELINE] [INFO] AQL SYNCHRONOUS RUNNER PIPELINE INITIALIZED
+2026-06-02T22:30:55.967053 | [PIPELINE] [INFO] ======================================================================
+2026-06-02T22:30:55.967053 | [PIPELINE] [INFO] Active Generation State Tracker: Next expected is Generation 1
+2026-06-02T22:30:56.555049 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=36 | State=RUNNING
+2026-06-02T22:31:23.430253 | [PIPELINE] [INFO] ======================================================================
+2026-06-02T22:31:23.432297 | [PIPELINE] [INFO] AQL SYNCHRONOUS RUNNER PIPELINE INITIALIZED
+2026-06-02T22:31:23.433253 | [PIPELINE] [INFO] ======================================================================
+2026-06-02T22:31:23.434682 | [PIPELINE] [INFO] Active Generation State Tracker: Next expected is Generation 1
+2026-06-02T22:31:24.056650 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=36 | State=RUNNING
+2026-06-02T22:31:55.910400 | [PIPELINE] [INFO] ======================================================================
+2026-06-02T22:31:55.911695 | [PIPELINE] [INFO] AQL SYNCHRONOUS RUNNER PIPELINE INITIALIZED
+2026-06-02T22:31:55.912702 | [PIPELINE] [INFO] ======================================================================
+2026-06-02T22:31:55.913790 | [PIPELINE] [INFO] Active Generation State Tracker: Next expected is Generation 2
+2026-06-02T22:31:56.572713 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=36 | State=RUNNING
+2026-06-02T22:36:58.572881 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=66 | State=RUNNING
+2026-06-02T22:41:59.187098 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=66 | State=RUNNING
+2026-06-02T22:46:59.786802 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=66 | State=RUNNING
+2026-06-02T22:52:00.558966 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=66 | State=RUNNING
+2026-06-02T22:57:01.314608 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=66 | State=RUNNING
+2026-06-02T23:02:01.834387 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=0 | State=RUNNING
+2026-06-02T23:07:03.273070 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=0 | State=RUNNING
+2026-06-02T23:12:03.834180 | [PIPELINE] [INFO] Queue Status: Disk=20 | In-Mem=20 | State=RUNNING
+2026-06-02T23:17:04.612008 | [PIPELINE] [INFO] Queue Status: Disk=20 | In-Mem=20 | State=COMPLETED
+2026-06-02T23:17:04.613018 | [PIPELINE] [INFO] Cloud backtest queue has finished simulation. Querying vault statistics...
+2026-06-02T23:17:05.288982 | [PIPELINE] [INFO] [ARCHIVED] simulation_results_20260602_231705.json written successfully.
+2026-06-02T23:17:05.290715 | [PIPELINE] [INFO] [STANDBY] Vault results archived. Awaiting Antigravity (LLM) to write 'generation_2_alphas.json'...
+2026-06-02T23:22:05.293946 | [PIPELINE] [INFO] [DETECTED] New evolved file found: generation_2_alphas.json! Parsing payload...
+2026-06-02T23:22:05.297589 | [PIPELINE] [INFO] Loaded 20 formulas from LLM payload. Injecting directly into active simulation queue...
+2026-06-02T23:22:05.305538 | [PIPELINE] [WARNING] Failed to process LLM file: HTTPSConnectionPool(host='world-quant.onrender.com', port=443): Max retries exceeded with url: /api/overwrite-queue (Caused by NameResolutionError("HTTPSConnection(host='world-quant.onrender.com', port=443): Failed to resolve 'world-quant.onrender.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02T23:27:05.308648 | [PIPELINE] [INFO] [DETECTED] New evolved file found: generation_2_alphas.json! Parsing payload...
+2026-06-02T23:27:05.310314 | [PIPELINE] [INFO] Loaded 20 formulas from LLM payload. Injecting directly into active simulation queue...
+2026-06-02T23:27:06.243499 | [PIPELINE] [INFO] [SUCCESS] Remote simulation queue overwritten directly: added 20 active backtests.
+2026-06-02T23:32:23.300607 | [PIPELINE] [INFO] Queue Status: Disk=20 | In-Mem=40 | State=RUNNING
+2026-06-02T23:37:23.916564 | [PIPELINE] [INFO] Queue Status: Disk=20 | In-Mem=53 | State=RUNNING
+2026-06-02T23:42:24.647835 | [PIPELINE] [INFO] Queue Status: Disk=20 | In-Mem=53 | State=COMPLETED
+2026-06-02T23:42:24.653892 | [PIPELINE] [INFO] Cloud backtest queue has finished simulation. Querying vault statistics...
+2026-06-02T23:42:25.949973 | [PIPELINE] [INFO] [ARCHIVED] simulation_results_20260602_234225.json written successfully.
+2026-06-02T23:42:25.954072 | [PIPELINE] [INFO] [STANDBY] Vault results archived. Awaiting Antigravity (LLM) to write 'generation_3_alphas.json'...
+2026-06-03T10:17:23.530890 | [PIPELINE] [INFO] ======================================================================
+2026-06-03T10:17:23.569419 | [PIPELINE] [INFO] AQL SYNCHRONOUS RUNNER PIPELINE INITIALIZED
+2026-06-03T10:17:23.569419 | [PIPELINE] [INFO] ======================================================================
+2026-06-03T10:17:23.573458 | [PIPELINE] [INFO] Active Generation State Tracker: Next expected is Generation 5
+2026-06-03T10:17:24.099947 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=87 | State=RUNNING
+2026-06-03T10:22:24.649306 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=87 | State=RUNNING
+2026-06-03T10:27:25.707651 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=87 | State=RUNNING
+2026-06-03T10:32:26.775396 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=87 | State=RUNNING
+2026-06-03T10:37:28.052400 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=87 | State=RUNNING
+2026-06-03T10:42:28.601026 | [PIPELINE] [INFO] Queue Status: Disk=30 | In-Mem=87 | State=RUNNING

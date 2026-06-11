@@ -1,0 +1,1282 @@
+[
+  {
+    "id": "confcall_financial_year",
+    "description": "Fiscal year for which the conference call is relevant or reported",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8392,
+    "userCount": 12,
+    "alphaCount": 14,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "confcall_financial_year_fast_d1",
+    "description": "Fiscal year for which the conference call is relevant or reported",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8392,
+    "userCount": 11,
+    "alphaCount": 15,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "confcall_fiscal_quarter",
+    "description": "Fiscal quarter (1-4) for which the conference call pertains",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9078,
+    "userCount": 10,
+    "alphaCount": 17,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "confcall_fiscal_quarter_fast_d1",
+    "description": "Fiscal quarter (1-4) for which the conference call pertains",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9082,
+    "userCount": 27,
+    "alphaCount": 29,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "dividend_amount_original_currency",
+    "description": "The currency code (integer) representing the original currency in which the dividend amount is declared",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.833,
+    "coverage": 0.4987,
+    "userCount": 6,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "dividend_amount_original_currency_fast_d1",
+    "description": "The currency code (integer) representing the original currency in which the dividend amount is declared",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.833,
+    "coverage": 0.4987,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "dividend_payment_frequency_2",
+    "description": "How often the dividend is paid (e.g., annual, quarterly) as an integer frequency code",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5033,
+    "userCount": 3,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "dividend_payment_frequency_2_fast_d1",
+    "description": "How often the dividend is paid (e.g., annual, quarterly) as an integer frequency code",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5033,
+    "userCount": 4,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "earnings_announcement_time_of_day",
+    "description": "Numeric code indicating the expected time of day when the earnings announcement is scheduled (e.g., before market, after market, during market hours, or unspecified)",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 12,
+    "alphaCount": 12,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "earnings_announcement_time_of_day_fast_d1",
+    "description": "Numeric code indicating the expected time of day when the earnings announcement is scheduled (e.g., before market, after market, during market hours, or unspecified)",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4324,
+    "userCount": 15,
+    "alphaCount": 16,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "earnings_date_fiscal_quarter",
+    "description": "Numeric value (1-4) indicating which fiscal quarter the earnings date pertains to",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9472,
+    "coverage": 1.0,
+    "userCount": 16,
+    "alphaCount": 17,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "earnings_date_fiscal_quarter_fast_d1",
+    "description": "Numeric value (1-4) indicating which fiscal quarter the earnings date pertains to",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9472,
+    "coverage": 0.4304,
+    "userCount": 11,
+    "alphaCount": 11,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "earnings_date_fiscal_year",
+    "description": "Numeric value representing the fiscal year associated with the scheduled or reported earnings event",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 17,
+    "alphaCount": 18,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "earnings_date_fiscal_year_fast_d1",
+    "description": "Numeric value representing the fiscal year associated with the scheduled or reported earnings event",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4324,
+    "userCount": 11,
+    "alphaCount": 15,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "eps_fiscal_quarter",
+    "description": "Fiscal quarter to which the reported EPS relates (1-4)",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.953,
+    "userCount": 21,
+    "alphaCount": 26,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "eps_fiscal_quarter_fast_d1",
+    "description": "Fiscal quarter to which the reported EPS relates (1-4)",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9519,
+    "userCount": 30,
+    "alphaCount": 34,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "eps_fiscal_year",
+    "description": "Fiscal year to which the reported EPS relates",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.953,
+    "userCount": 10,
+    "alphaCount": 15,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "eps_fiscal_year_fast_d1",
+    "description": "Fiscal year to which the reported EPS relates",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9519,
+    "userCount": 7,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "eps_original_currency",
+    "description": "Currency code for the original currency in which EPS was reported",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.833,
+    "coverage": 0.9343,
+    "userCount": 6,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "eps_original_currency_fast_d1",
+    "description": "Currency code for the original currency in which EPS was reported",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.833,
+    "coverage": 0.933,
+    "userCount": 12,
+    "alphaCount": 12,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "ern7_co_spe",
+    "description": "Reported earnings per share in original currency",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.833,
+    "coverage": 0.9005,
+    "userCount": 37,
+    "alphaCount": 71,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "ern7_co_spe_fast_d1",
+    "description": "Reported earnings per share in original currency",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.833,
+    "coverage": 0.8993,
+    "userCount": 12,
+    "alphaCount": 15,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "ern7_div_amount",
+    "description": "Dividend amount paid per share in the issuer's local currency",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.504,
+    "userCount": 21,
+    "alphaCount": 27,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "ern7_div_amount_fast_d1",
+    "description": "Dividend amount paid per share in the issuer's local currency",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5041,
+    "userCount": 12,
+    "alphaCount": 12,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "ern7_div_amount_oc",
+    "description": "dividend amount",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.833,
+    "coverage": 0.4985,
+    "userCount": 25,
+    "alphaCount": 37,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "ern7_div_amount_oc_fast_d1",
+    "description": "dividend amount",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.833,
+    "coverage": 0.4986,
+    "userCount": 23,
+    "alphaCount": 27,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "ern7_div_amount_usd",
+    "description": "Dividend amount paid per share, converted into US dollars",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.504,
+    "userCount": 26,
+    "alphaCount": 44,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "ern7_div_amount_usd_fast_d1",
+    "description": "Dividend amount paid per share, converted into US dollars",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5041,
+    "userCount": 12,
+    "alphaCount": 12,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "ern7_dsu_spe",
+    "description": "Reported earnings per share in US Dollars",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9145,
+    "userCount": 64,
+    "alphaCount": 159,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "ern7_dsu_spe_fast_d1",
+    "description": "Reported earnings per share in US Dollars",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9135,
+    "userCount": 13,
+    "alphaCount": 18,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "ern7_spe",
+    "description": "Reported earnings per share amount in local currency",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2975,
+    "userCount": 20,
+    "alphaCount": 30,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "ern7_spe_fast_d1",
+    "description": "Reported earnings per share amount in local currency",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2976,
+    "userCount": 4,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "estimated_earnings_fiscal_year",
+    "description": "Estimated fiscal year for which the EPS is provided",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.5052,
+    "coverage": 0.8705,
+    "userCount": 42,
+    "alphaCount": 56,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "estimated_earnings_fiscal_year_fast_d1",
+    "description": "Estimated fiscal year for which the EPS is provided",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.5052,
+    "coverage": 0.8694,
+    "userCount": 72,
+    "alphaCount": 127,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "next_earnings_quarter",
+    "description": "Numeric value specifying the fiscal quarter (1-4) for which the next earnings date (next_ed) is scheduled",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 19,
+    "alphaCount": 27,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "next_earnings_quarter_fast_d1",
+    "description": "Numeric value specifying the fiscal quarter (1-4) for which the next earnings date (next_ed) is scheduled",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.4324,
+    "userCount": 18,
+    "alphaCount": 23,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "prelim_eps_lower_bound",
+    "description": "Lower bound of preliminary earnings per share (EPS) estimate range",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.5044,
+    "coverage": 0.0091,
+    "userCount": 13,
+    "alphaCount": 19,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "prelim_eps_lower_bound_fast_d1",
+    "description": "Lower bound of preliminary earnings per share (EPS) estimate range",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.5044,
+    "coverage": 0.0091,
+    "userCount": 20,
+    "alphaCount": 39,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "prelim_eps_upper_bound",
+    "description": "Upper bound of preliminary earnings per share (EPS) estimate range",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.5044,
+    "coverage": 0.0091,
+    "userCount": 23,
+    "alphaCount": 29,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  },
+  {
+    "id": "prelim_eps_upper_bound_fast_d1",
+    "description": "Upper bound of preliminary earnings per share (EPS) estimate range",
+    "dataset": {
+      "id": "earnings7",
+      "name": "Horizon Earnings and Calendar North America"
+    },
+    "category": {
+      "id": "earnings",
+      "name": "Earnings"
+    },
+    "subcategory": {
+      "id": "earnings-earnings-estimates",
+      "name": "Earnings Estimates"
+    },
+    "region": "USA",
+    "delay": 1,
+    "universe": "TOP3000",
+    "type": "VECTOR",
+    "dateCoverage": 0.5044,
+    "coverage": 0.0091,
+    "userCount": 33,
+    "alphaCount": 45,
+    "pyramidMultiplier": 1.3,
+    "themes": [
+      {
+        "id": "Jypw8X4",
+        "name": "USA/D1 Fast Datasets Power Pool June`26",
+        "multiplier": 1.0
+      }
+    ]
+  }
+]

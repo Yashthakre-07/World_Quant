@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "family": "GRP_A_ELITE_THEME_MUTATION_0",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(anl14_actvalue_div_fp0) + 0.00101), 3)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Elite Template Evolution",
+    "hypothesis": "Thematic hybrid descendant of Elite template (Sharpe: 1.89) scaling the signal."
+  },
+  {
+    "id": 2,
+    "family": "GRP_A_ELITE_THEME_MUTATION_1",
+    "dataset": "analyst45",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(close - open, 3)) * rank(ts_delta(vec_avg(grouped_idea_total), 5)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Elite Template Evolution",
+    "hypothesis": "Thematic hybrid descendant of Elite template (Sharpe: 1.86) scaling the signal."
+  },
+  {
+    "id": 3,
+    "family": "GRP_A_ELITE_THEME_MUTATION_2",
+    "dataset": "model26",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear((close - open) / (abs(mdl26_sm_smrtst_grwth_nxt_yrths_yr_rnngs) + 0.00101), 3)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Elite Template Evolution",
+    "hypothesis": "Thematic hybrid descendant of Elite template (Sharpe: 1.86) scaling the signal."
+  },
+  {
+    "id": 4,
+    "family": "GRP_A_ELITE_THEME_MUTATION_3",
+    "dataset": "analyst69",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(close - open, 3)) * rank(ts_delta(vec_avg(anl69_best_net_gaap_lo), 5)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Elite Template Evolution",
+    "hypothesis": "Thematic hybrid descendant of Elite template (Sharpe: 1.86) scaling the signal."
+  },
+  {
+    "id": 5,
+    "family": "GRP_A_ELITE_THEME_MUTATION_4",
+    "dataset": "analyst69",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((close - open) / (abs(anl69_best_eeps_nxt_yr) + 0.00101), 3)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Elite Template Evolution",
+    "hypothesis": "Thematic hybrid descendant of Elite template (Sharpe: 1.84) scaling the signal."
+  },
+  {
+    "id": 6,
+    "family": "GRP_A_ELITE_THEME_MUTATION_5",
+    "dataset": "analyst44",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(close - open, 3)) * rank(ts_delta(vec_avg(anl44_2_ebit_coveredby), 5)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Elite Template Evolution",
+    "hypothesis": "Thematic hybrid descendant of Elite template (Sharpe: 1.84) scaling the signal."
+  },
+  {
+    "id": 7,
+    "family": "GRP_A_ELITE_THEME_MUTATION_6",
+    "dataset": "analyst4",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear((close - open) / (abs(anl4_epsa_flag) + 0.00101), 3)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Elite Template Evolution",
+    "hypothesis": "Thematic hybrid descendant of Elite template (Sharpe: 1.84) scaling the signal."
+  },
+  {
+    "id": 8,
+    "family": "GRP_A_ELITE_THEME_MUTATION_7",
+    "dataset": "news46",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.80, -rank(ts_decay_linear(close - open, 3)) * rank(ts_delta(vec_avg(mws46_mcv_fast_d1), 5)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Elite Template Evolution",
+    "hypothesis": "Thematic hybrid descendant of Elite template (Sharpe: 1.83) scaling the signal."
+  },
+  {
+    "id": 9,
+    "family": "GRP_A_GEN_61_EVOLVED_0",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(anl14_high_bvps_fp3) + 0.00101), 3)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 61 evolved descendant of formula with status=UNKNOWN."
+  },
+  {
+    "id": 10,
+    "family": "GRP_A_GEN_61_EVOLVED_1",
+    "dataset": "analyst44",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(close - open, 3)) * rank(ts_delta(vec_avg(anl44_sales_most_recent_period_end_dt), 5)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 61 evolved descendant of formula with status=UNKNOWN."
+  },
+  {
+    "id": 11,
+    "family": "GRP_A_GEN_61_EVOLVED_2",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(anl14_numofests_bvps_fp1) + 0.00101), 3)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 61 evolved descendant of formula with status=UNKNOWN."
+  },
+  {
+    "id": 12,
+    "family": "GRP_A_GEN_61_EVOLVED_3",
+    "dataset": "analyst44",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.85, -rank(ts_decay_linear(close - open, 3)) * rank(ts_delta(vec_avg(anl44_2_capex_prevalue), 5)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 61 evolved descendant of formula with status=UNKNOWN."
+  },
+  {
+    "id": 13,
+    "family": "GRP_A_GEN_61_EVOLVED_4",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear((close - open) / (abs(anl14_median_ebitda_fy1) + 0.00101), 3)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 61 evolved descendant of formula with status=UNKNOWN."
+  },
+  {
+    "id": 14,
+    "family": "GRP_A_GEN_61_EVOLVED_5",
+    "dataset": "analyst69",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(close - open, 3)) * rank(ts_delta(vec_avg(anl69_best_roa_numest), 5)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 61 evolved descendant of formula with status=UNKNOWN."
+  },
+  {
+    "id": 15,
+    "family": "GRP_A_GEN_61_EVOLVED_6",
+    "dataset": "analyst14",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.70, -rank(ts_decay_linear((close - open) / (abs(anl14_mean_capex_fp5) + 0.00101), 3)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 61 evolved descendant of formula with status=UNKNOWN."
+  },
+  {
+    "id": 16,
+    "family": "GRP_A_GEN_61_EVOLVED_7",
+    "dataset": "analyst44",
+    "formula": "group_neutralize(trade_when(volume > adv20 * 0.75, -rank(ts_decay_linear(close - open, 3)) * rank(ts_delta(vec_avg(dps_expected_report_period_label), 5)), 0), subindustry)",
+    "decay": 10,
+    "anomaly_basis": "Evolved Consensus Signal",
+    "hypothesis": "Generation 61 evolved descendant of formula with status=UNKNOWN."
+  }
+]
